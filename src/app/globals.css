@@ -1,0 +1,378 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* =====================
+     KU Green Full Scale
+     ===================== */
+  --ku-green-900: #1a3a0a;
+  --ku-green-800: #1e4d0f;
+  --ku-green-700: #236b12;
+  --ku-green-600: #2d8a18;
+  --ku-green-500: #336600;   /* KU Primary */
+  --ku-green-400: #4a8c1c;
+  --ku-green-300: #6aab35;
+  --ku-green-200: #9fd46a;
+  --ku-green-100: #d4edba;
+  --ku-gold: #f5c518;
+  --ku-gold-dark: #d4a800;
+
+  /* =====================
+     LIGHT THEME (default)
+     ===================== */
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #336600;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #f5c518;
+  --accent-foreground: #111827;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #336600;
+  --chart-1: #336600;
+  --chart-2: #6aab35;
+  --chart-3: #f5c518;
+  --chart-4: #34d399;
+  --chart-5: #60a5fa;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #336600;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0fdf4;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #336600;
+
+  /* Legacy KU tokens */
+  --ku-green: #336600;
+  --ku-green-light: #4a8c1c;
+  --ku-lime: #6aab35;
+  --ku-dark: #111827;
+  --warning: #f5c518;
+  --warning-foreground: #111827;
+}
+
+.dark {
+  /* =====================
+     DARK THEME
+     ===================== */
+  --background: #0d1f06;
+  --foreground: #e8f5d8;
+  --card: #1a3a0a;
+  --card-foreground: #e8f5d8;
+  --popover: #1a3a0a;
+  --popover-foreground: #e8f5d8;
+  --primary: #336600;
+  --primary-foreground: #e8f5d8;
+  --secondary: #1e4d0f;
+  --secondary-foreground: #e8f5d8;
+  --muted: #1e4d0f;
+  --muted-foreground: #9fd46a;
+  --accent: #f5c518;
+  --accent-foreground: #1a3a0a;
+  --destructive: #ef4444;
+  --destructive-foreground: #fecaca;
+  --border: #2d5a14;
+  --input: #2d5a14;
+  --ring: #336600;
+  --chart-1: #4a8c1c;
+  --chart-2: #9fd46a;
+  --chart-3: #f5c518;
+  --chart-4: #34d399;
+  --chart-5: #60a5fa;
+  --sidebar: #0d1f06;
+  --sidebar-foreground: #e8f5d8;
+  --sidebar-primary: #336600;
+  --sidebar-primary-foreground: #e8f5d8;
+  --sidebar-accent: #1e4d0f;
+  --sidebar-accent-foreground: #e8f5d8;
+  --sidebar-border: #2d5a14;
+  --sidebar-ring: #336600;
+
+  --ku-green-100: #d4edba;
+  --ku-lime: #9fd46a;
+  --ku-dark: #0d1f06;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* KU Custom tokens */
+  --color-ku-green: var(--ku-green);
+  --color-ku-green-light: var(--ku-green-light);
+  --color-ku-gold: var(--ku-gold);
+  --color-ku-lime: var(--ku-lime);
+  --color-ku-dark: var(--ku-dark);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  /* KU Green Scale Tokens */
+  --color-ku-green-900: var(--ku-green-900);
+  --color-ku-green-800: var(--ku-green-800);
+  --color-ku-green-700: var(--ku-green-700);
+  --color-ku-green-600: var(--ku-green-600);
+  --color-ku-green-500: var(--ku-green-500);
+  --color-ku-green-400: var(--ku-green-400);
+  --color-ku-green-300: var(--ku-green-300);
+  --color-ku-green-200: var(--ku-green-200);
+  --color-ku-green-100: var(--ku-green-100);
+  --color-ku-gold-dark: var(--ku-gold-dark);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* ==============================
+   GLASS CARD — theme-aware
+   ============================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.glass-card:hover {
+  border-color: rgba(51, 102, 0, 0.25);
+}
+.dark .glass-card {
+  background: rgba(26, 58, 10, 0.80);
+  border-color: rgba(51, 102, 0, 0.30);
+}
+.dark .glass-card:hover {
+  border-color: rgba(106, 171, 53, 0.40);
+}
+
+/* ==============================
+   GLOW EFFECTS
+   ============================== */
+.glow-green {
+  box-shadow: 0 0 20px rgba(51, 102, 0, 0.25), 0 0 40px rgba(51, 102, 0, 0.10);
+}
+.dark .glow-green {
+  box-shadow: 0 0 20px rgba(74, 124, 47, 0.30), 0 0 40px rgba(74, 124, 47, 0.12);
+}
+.glow-gold {
+  box-shadow: 0 0 20px rgba(245, 197, 24, 0.25), 0 0 40px rgba(245, 197, 24, 0.10);
+}
+.glow-primary {
+  box-shadow: 0 0 0 3px rgba(51, 102, 0, 0.35);
+}
+
+/* ==============================
+   BUTTONS
+   ============================== */
+.btn-ku-green {
+  background: #336600;
+  color: #ffffff;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-ku-green:hover {
+  background: #1e4d0f;
+  box-shadow: 0 0 16px rgba(51, 102, 0, 0.35);
+}
+
+/* ==============================
+   XP BAR ANIMATION
+   ============================== */
+@keyframes xp-fill {
+  from { width: 0%; }
+  to { width: var(--xp-width); }
+}
+.xp-bar-fill {
+  animation: xp-fill 1s ease-out forwards;
+}
+
+/* ==============================
+   FLIP CARD (Flashcards)
+   ============================== */
+.flip-card {
+  perspective: 1000px;
+}
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ==============================
+   GAME CANVAS
+   ============================== */
+.game-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ==============================
+   PULSE ANIMATIONS
+   ============================== */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 197, 24, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(245, 197, 24, 0); }
+}
+.pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(51, 102, 0, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(51, 102, 0, 0); }
+}
+.pulse-green {
+  animation: pulse-green 1.8s ease-in-out infinite;
+}
+
+@keyframes glow-title {
+  0%, 100% { text-shadow: 0 0 20px rgba(51, 102, 0, 0.5), 0 0 40px rgba(51, 102, 0, 0.2); }
+  50% { text-shadow: 0 0 30px rgba(106, 171, 53, 0.8), 0 0 60px rgba(51, 102, 0, 0.4); }
+}
+.glow-title {
+  animation: glow-title 2.5s ease-in-out infinite;
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+.float-anim {
+  animation: float-up 3s ease-in-out infinite;
+}
+
+/* ==============================
+   SCROLLBAR
+   ============================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* ==============================
+   MOBILE BOTTOM NAV SAFE AREA
+   ============================== */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ==============================
+   GAME HUB HERO ANIMATION
+   ============================== */
+@keyframes arena-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(51, 102, 0, 0.4), 0 0 60px rgba(51, 102, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(106, 171, 53, 0.6), 0 0 100px rgba(51, 102, 0, 0.25);
+  }
+}
+.arena-glow-anim {
+  animation: arena-glow 3s ease-in-out infinite;
+}
+
+/* ==============================
+   EMPTY STATE
+   ============================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+/* ==============================
+   RESPONSIVE UTILITIES
+   ============================== */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.125rem; }
+  h3 { font-size: 1rem; }
+
+  /* Mobile: ensure tap targets >= 44px */
+  button, a[role="button"], .tap-target {
+    min-height: 44px;
+  }
+}
