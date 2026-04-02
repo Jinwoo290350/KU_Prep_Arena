@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react"
 import { useQuestions } from "@/lib/questions-context"
+import { useScores } from "@/lib/use-scores"
 import type { QuizQuestion } from "@/lib/mock-data"
 import { ArrowLeft, RotateCcw, Heart, Upload } from "lucide-react"
 import Link from "next/link"
@@ -16,10 +17,11 @@ const SHIP_H = 44
 const BULLET_W = 4
 const BULLET_H = 14
 const ASTEROID_R = 36
-const ASTEROID_SPEED_BASE = 1.2
+const ASTEROID_SPEED_BASE = 0.7
 const SHIP_SPEED = 5
 const BULLET_SPEED = 10
-const AUTO_FIRE_RATE = 22 // frames between auto-shots
+const AUTO_FIRE_RATE = 45 // frames between auto-shots (~0.75s at 60fps)
+const READ_FREEZE_FRAMES = 180 // ~3s freeze when new question appears (tester: need more reading time)
 const MAX_LIVES = 3
 
 const AST_COLS = ["#3b82f6", "#f97316", "#a855f7", "#ef4444"]
@@ -190,7 +192,8 @@ function PostGame({ score, total, onRestart }: { score: number; total: number; o
 }
 
 export function SpaceShooterGame() {
-  const { questions, hasQuestions } = useQuestions()
+  const { questions, hasQuestions, gameQuestions } = useQuestions()
+  const activeQuestions = gameQuestions["shooter"] ?? questions
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef(0)
   const [gameState, setGameState] = useState<State>("pregame")
@@ -212,20 +215,24 @@ export function SpaceShooterGame() {
   const keysRef = useRef({ left: false, right: false })
   const touchXRef = useRef<number | null>(null)
   const astSpeedRef = useRef(ASTEROID_SPEED_BASE)
+  const questionSpawnFrameRef = useRef(0)
 
   useEffect(() => { stateRef.current = gameState }, [gameState])
+  const { recordScore } = useScores()
+  useEffect(() => { if (gameState === "result") recordScore("shooter", score) }, [gameState, score, recordScore])
 
   const spawnAsteroids = useCallback((q: QuizQuestion) => {
     const spread = CW / 4
     asteroidsRef.current = [0, 1, 2, 3].map((i) => ({
       x: spread * i + spread / 2,
-      y: -ASTEROID_R - i * 60,
+      y: 140 + Math.random() * 40,   // spawn lower: tester feedback "เอาเป้ายิงลงมา"
       vy: astSpeedRef.current + Math.random() * 0.4,
       vx: (Math.random() - 0.5) * 0.6,
       choiceIdx: i,
       radius: ASTEROID_R,
       hit: false, explodeFrame: 0,
     }))
+    questionSpawnFrameRef.current = frameRef.current  // start freeze timer
     setCurrentQ(q)
   }, [])
 
@@ -241,7 +248,7 @@ export function SpaceShooterGame() {
   const startGame = useCallback(() => {
     shipXRef.current = CW / 2; bulletsRef.current = []; asteroidsRef.current = []
     scoreRef.current = 0; livesRef.current = MAX_LIVES; totalAnswRef.current = 0; astSpeedRef.current = ASTEROID_SPEED_BASE
-    questionsRef.current = shuffle([...questions]); qIdxRef.current = 0
+    questionsRef.current = shuffle([...activeQuestions]); qIdxRef.current = 0
     starsRef.current = Array.from({ length: 60 }, () => ({
       x: Math.random() * CW, y: Math.random() * CH,
       s: 0.5 + Math.random() * 2, speed: 0.3 + Math.random() * 0.7,
@@ -287,8 +294,11 @@ export function SpaceShooterGame() {
           if (keysRef.current.right) shipXRef.current = Math.min(CW - SHIP_W, shipXRef.current + SHIP_SPEED)
         }
 
-        // Auto fire
-        if (frameRef.current % AUTO_FIRE_RATE === 0) {
+        // Freeze period — let player read the question before asteroids move
+        const frozen = frameRef.current - questionSpawnFrameRef.current < READ_FREEZE_FRAMES
+
+        // Auto fire (not during freeze)
+        if (!frozen && frameRef.current % AUTO_FIRE_RATE === 0) {
           bulletsRef.current.push({ x: shipXRef.current, y: CH - 80 })
         }
 
@@ -297,11 +307,11 @@ export function SpaceShooterGame() {
           .map(b => ({ ...b, y: b.y - BULLET_SPEED }))
           .filter(b => b.y > -20)
 
-        // Move asteroids
+        // Move asteroids (not during freeze)
         const curQ = questionsRef.current[qIdxRef.current - 1]
         for (const a of asteroidsRef.current) {
           if (a.hit) { if (a.explodeFrame > 0) a.explodeFrame--; continue }
-          a.y += a.vy; a.x += a.vx
+          if (!frozen) { a.y += a.vy; a.x += a.vx }
           a.x = Math.max(a.radius, Math.min(CW - a.radius, a.x))
 
           // Bullet collision
@@ -385,15 +395,21 @@ export function SpaceShooterGame() {
     return () => { running = false }
   }, [gameState, nextQuestion])
 
+  const handleManualFire = useCallback(() => {
+    if (stateRef.current === "playing")
+      bulletsRef.current.push({ x: shipXRef.current, y: CH - 80 })
+  }, [])
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const d = e.type === "keydown"
       if (e.code === "ArrowLeft" || e.code === "KeyA") keysRef.current.left = d
       if (e.code === "ArrowRight" || e.code === "KeyD") keysRef.current.right = d
+      if (e.code === "Space" && d) { e.preventDefault(); handleManualFire() }
     }
     window.addEventListener("keydown", onKey); window.addEventListener("keyup", onKey)
     return () => { window.removeEventListener("keydown", onKey); window.removeEventListener("keyup", onKey) }
-  }, [])
+  }, [handleManualFire])
 
   const handleTouch = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -433,6 +449,12 @@ export function SpaceShooterGame() {
           <canvas ref={canvasRef} width={CW} height={CH} className="rounded-lg game-canvas block"
             onTouchMove={handleTouch} onTouchEnd={handleTouchEnd}
             style={{ maxWidth: "100%", height: "auto", touchAction: "none" }} />
+          <div className="flex justify-center mt-2 lg:hidden">
+            <Button onPointerDown={handleManualFire}
+              className="bg-ku-green-500 hover:bg-ku-green-600 text-white font-black text-lg px-10 py-3 rounded-xl">
+              FIRE
+            </Button>
+          </div>
         </div>
         <div className="flex flex-col gap-4 flex-1 min-w-0 w-full">
           <div className="glass-card rounded-xl p-4">
@@ -461,10 +483,14 @@ export function SpaceShooterGame() {
               </div>
             </div>
           )}
-          <div className="glass-card rounded-xl p-3">
+          <div className="glass-card rounded-xl p-3 space-y-1">
             <p className="text-xs text-muted-foreground">
-              <span className="font-semibold text-foreground">← → / A D</span> to move. Ship auto-fires bullets. Position under the correct asteroid!
+              <span className="font-semibold text-foreground">← → / A D</span> to move
             </p>
+            <p className="text-xs text-muted-foreground">
+              <span className="font-semibold text-foreground">Space</span> or <span className="font-semibold text-foreground">FIRE</span> button to shoot manually
+            </p>
+            <p className="text-xs text-muted-foreground">Ship auto-fires every ~0.75s — shoot the correct asteroid!</p>
           </div>
         </div>
       </div>

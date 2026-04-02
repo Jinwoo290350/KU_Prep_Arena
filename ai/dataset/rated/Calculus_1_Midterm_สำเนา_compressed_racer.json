@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "Find d/dx of x^5",
+    "choices": [
+      "A) 5x^4",
+      "B) 4x^5",
+      "C) x^4",
+      "D) 5x^5"
+    ],
+    "correct": 0,
+    "explanation": "Power Rule: d/dx[x^n] = n*x^(n-1). So d/dx[x^5] = 5x^4.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ใช้ Power Rule ตรงๆ ระดับ recall"
+  },
+  {
+    "id": 2,
+    "question": "Evaluate: lim x->0 of sin(x)/x",
+    "choices": [
+      "A) 0",
+      "B) inf",
+      "C) 1",
+      "D) pi"
+    ],
+    "correct": 2,
+    "explanation": "The standard limit lim x->0 sin(x)/x = 1. This is a fundamental result used frequently in calculus.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "standard limit ที่ต้องจำ ระดับ recall"
+  },
+  {
+    "id": 3,
+    "question": "Find: integral of e^x dx",
+    "choices": [
+      "A) e^x + C",
+      "B) x*e^x+C",
+      "C) e^(x+1)+C",
+      "D) 1/e^x+C"
+    ],
+    "correct": 0,
+    "explanation": "The integral of e^x is e^x + C. The exponential function e^x is its own antiderivative.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร antiderivative พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 4,
+    "question": "Find d/dx of ln(x)",
+    "choices": [
+      "A) 1/x",
+      "B) ln(x)/x",
+      "C) x*ln(x)",
+      "D) e^x"
+    ],
+    "correct": 0,
+    "explanation": "d/dx[ln(x)] = 1/x for x > 0. This is the standard logarithm derivative.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์ ln(x) ต้องจำให้ได้ [ปรับระดับ→1]"
+  },
+  {
+    "id": 5,
+    "question": "Find d/dx of cos(2x)",
+    "choices": [
+      "A) sin(2x)",
+      "B) 2sin(2x)",
+      "C) -sin(2x)",
+      "D) -2sin(2x)"
+    ],
+    "correct": 3,
+    "explanation": "Chain Rule: d/dx[cos(u)] = -sin(u)*du/dx. Here u = 2x, du/dx = 2, so d/dx[cos(2x)] = -2sin(2x).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องใช้ Chain Rule ร่วมกับสูตรอนุพันธ์ของ cos [ปรับระดับ→1]"
+  },
+  {
+    "id": 6,
+    "question": "Evaluate: lim x->2 of (x^2 - 4)/(x - 2)",
+    "choices": [
+      "A) 2",
+      "B) 0",
+      "C) 4",
+      "D) inf"
+    ],
+    "correct": 2,
+    "explanation": "แยกตัวประกอบ: (x^2-4)/(x-2) = (x+2)(x-2)/(x-2) = x+2. ดังนั้น lim x->2 = 2+2 = 4.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยกตัวประกอบได้ก่อนหาลิมิต [ปรับระดับ→1]"
+  },
+  {
+    "id": 7,
+    "question": "Find: integral of sin(x) dx",
+    "choices": [
+      "A) cos(x)+C",
+      "B) -cos(x)+C",
+      "C) sin(x)+C",
+      "D) -sin(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral sin(x) dx = -cos(x) + C. Verify by differentiating: d/dx[-cos(x)] = sin(x).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องจำสูตร integral ของ sin(x) ให้แม่น [ปรับระดับ→1]"
+  },
+  {
+    "id": 8,
+    "question": "Find d/dx of x^2 * ln(x)",
+    "choices": [
+      "A) 2x+1",
+      "B) 2x*ln(x)",
+      "C) x+2x*ln",
+      "D) x(1+2ln(x))"
+    ],
+    "correct": 3,
+    "explanation": "Product Rule: d/dx(uv) = u'v + uv'. u=x^2, v=ln(x): 2x*ln(x) + x^2*(1/x) = 2x*ln(x) + x = x(2ln(x)+1).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องใช้ Product Rule และ simplify ผลลัพธ์ [ปรับระดับ→1]"
+  },
+  {
+    "id": 9,
+    "question": "Evaluate: lim x->inf of (2x^2+1)/(x^2+3)",
+    "choices": [
+      "A) 0",
+      "B) 1/3",
+      "C) inf",
+      "D) 2"
+    ],
+    "correct": 3,
+    "explanation": "หารเศษและส่วนด้วย x^2: lim (2+1/x^2)/(1+3/x^2) = (2+0)/(1+0) = 2 เมื่อ x->inf.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้เทคนิคหารด้วย leading power และวิเคราะห์ limit ที่ infinity [ปรับระดับ→2]"
+  },
+  {
+    "id": 10,
+    "question": "Find d/dx of (x^2+1)^4",
+    "choices": [
+      "A) 4(x^2+1)^3",
+      "B) 8x(x^2+1)^3",
+      "C) 4x(x^2+1)^4",
+      "D) 8x(x^2+1)^4"
+    ],
+    "correct": 1,
+    "explanation": "Chain Rule: d/dx[(u)^4] = 4u^3 * du/dx. u = x^2+1, du/dx = 2x. Result: 4(x^2+1)^3 * 2x = 8x(x^2+1)^3.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ composite function ที่มี power สูง มักลืมคูณ inner derivative [ปรับระดับ→2]"
+  },
+  {
+    "id": 11,
+    "question": "Find d/dx of x^3",
+    "choices": [
+      "A) 3x^2",
+      "B) 2x^3",
+      "C) x^2",
+      "D) 3x^3"
+    ],
+    "correct": 0,
+    "explanation": "Power Rule: d/dx[x^3] = 3x^2.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ใช้ Power Rule ตรงๆ ระดับ recall"
+  },
+  {
+    "id": 12,
+    "question": "Find d/dx of 7",
+    "choices": [
+      "A) 7",
+      "B) 1",
+      "C) 0",
+      "D) 7x"
+    ],
+    "correct": 2,
+    "explanation": "The derivative of any constant is 0. d/dx[c] = 0.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "อนุพันธ์ของค่าคงที่เป็น 0 ระดับ recall"
+  },
+  {
+    "id": 13,
+    "question": "Find: integral of 1 dx",
+    "choices": [
+      "A) 0",
+      "B) x + C",
+      "C) 1/x+C",
+      "D) x^2+C"
+    ],
+    "correct": 1,
+    "explanation": "integral 1 dx = x + C. The antiderivative of 1 is simply x.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร antiderivative พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 14,
+    "question": "Find d/dx of sin(x)",
+    "choices": [
+      "A) -sin(x)",
+      "B) -cos(x)",
+      "C) sin(x)",
+      "D) cos(x)"
+    ],
+    "correct": 3,
+    "explanation": "d/dx[sin(x)] = cos(x). This is a standard trig derivative.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์ sin ระดับ recall"
+  },
+  {
+    "id": 15,
+    "question": "Evaluate: lim x->3 of x^2",
+    "choices": [
+      "A) 6",
+      "B) 9",
+      "C) 3",
+      "D) 27"
+    ],
+    "correct": 1,
+    "explanation": "Direct substitution: lim x->3 x^2 = 3^2 = 9.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "แทนค่าตรงๆ ระดับ recall"
+  },
+  {
+    "id": 16,
+    "question": "Find: integral of x dx",
+    "choices": [
+      "A) 1",
+      "B) x^2+C",
+      "C) x^2/2+C",
+      "D) 2x+C"
+    ],
+    "correct": 2,
+    "explanation": "Power Rule for integrals: integral x^n dx = x^(n+1)/(n+1)+C. integral x dx = x^2/2 + C.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule for integration ระดับ recall"
+  },
+  {
+    "id": 17,
+    "question": "Find d/dx of e^(3x)",
+    "choices": [
+      "A) e^(3x)",
+      "B) 3e^(3x)",
+      "C) e^(3x)/3",
+      "D) 3e^x"
+    ],
+    "correct": 1,
+    "explanation": "Chain Rule: d/dx[e^u] = e^u * du/dx. u=3x, du/dx=3. Result: 3e^(3x).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Chain Rule กับ e^(kx) ระดับ recall"
+  },
+  {
+    "id": 18,
+    "question": "Find d/dx of x^(1/2)",
+    "choices": [
+      "A) 2x^(3/2)",
+      "B) x^(3/2)",
+      "C) 1/(2x)",
+      "D) 1/(2x^(1/2))"
+    ],
+    "correct": 3,
+    "explanation": "Power Rule: d/dx[x^(1/2)] = (1/2)x^(-1/2) = 1/(2*sqrt(x)).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule กับ fractional exponent ระดับ recall"
+  },
+  {
+    "id": 19,
+    "question": "Evaluate: lim x->0 of (1-cos(x))/x",
+    "choices": [
+      "A) 1",
+      "B) 0",
+      "C) inf",
+      "D) 1/2"
+    ],
+    "correct": 1,
+    "explanation": "Standard limit: lim x->0 (1-cos(x))/x = 0. This follows from the squeeze theorem or L'Hopital.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "standard limit ที่ต้องจำ ระดับ recall"
+  },
+  {
+    "id": 20,
+    "question": "Find: integral of cos(x) dx",
+    "choices": [
+      "A) -cos(x)+C",
+      "B) sin(x)+C",
+      "C) -sin(x)+C",
+      "D) cos(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral cos(x) dx = sin(x) + C. Verify: d/dx[sin(x)] = cos(x).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร integral ของ cos ระดับ recall"
+  },
+  {
+    "id": 21,
+    "question": "Find d/dx of 5x^2",
+    "choices": [
+      "A) 5x^3",
+      "B) 10x^2",
+      "C) 10x",
+      "D) 5x"
+    ],
+    "correct": 2,
+    "explanation": "d/dx[5x^2] = 5 * 2x = 10x by the Power Rule and constant multiple rule.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule กับ constant multiple ระดับ recall"
+  },
+  {
+    "id": 22,
+    "question": "Evaluate: lim x->4 of sqrt(x)",
+    "choices": [
+      "A) 16",
+      "B) 4",
+      "C) 2",
+      "D) 8"
+    ],
+    "correct": 2,
+    "explanation": "Direct substitution: lim x->4 sqrt(x) = sqrt(4) = 2.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "แทนค่าตรงๆ ระดับ recall"
+  },
+  {
+    "id": 23,
+    "question": "Find: integral of 3x^2 dx",
+    "choices": [
+      "A) 6x+C",
+      "B) x^3+C",
+      "C) 3x^3+C",
+      "D) x^2+C"
+    ],
+    "correct": 1,
+    "explanation": "integral 3x^2 dx = 3 * x^3/3 + C = x^3 + C.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule for integration ระดับ recall"
+  },
+  {
+    "id": 24,
+    "question": "Find d/dx of cos(x)",
+    "choices": [
+      "A) cos(x)",
+      "B) -cos(x)",
+      "C) sin(x)",
+      "D) -sin(x)"
+    ],
+    "correct": 3,
+    "explanation": "d/dx[cos(x)] = -sin(x). Standard trig derivative.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์ cos ระดับ recall"
+  },
+  {
+    "id": 25,
+    "question": "Find: integral of 1/x dx",
+    "choices": [
+      "A) -1/x^2+C",
+      "B) x^(-2)+C",
+      "C) ln|x|+C",
+      "D) e^x+C"
+    ],
+    "correct": 2,
+    "explanation": "integral 1/x dx = ln|x| + C. This is a standard formula.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร integral 1/x ระดับ recall"
+  },
+  {
+    "id": 26,
+    "question": "Find d/dx of tan(x)",
+    "choices": [
+      "A) sin(x)",
+      "B) -csc^2(x)",
+      "C) cos(x)",
+      "D) sec^2(x)"
+    ],
+    "correct": 3,
+    "explanation": "d/dx[tan(x)] = sec^2(x). Derived from sin/cos quotient rule.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตรอนุพันธ์ tan ให้แม่น"
+  },
+  {
+    "id": 27,
+    "question": "Evaluate: lim x->0 of (e^x - 1)/x",
+    "choices": [
+      "A) 0",
+      "B) e",
+      "C) 1",
+      "D) inf"
+    ],
+    "correct": 2,
+    "explanation": "Standard limit: lim x->0 (e^x-1)/x = 1. This follows from the definition of the derivative of e^x at x=0.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ standard limit ของ exponential"
+  },
+  {
+    "id": 28,
+    "question": "Find d/dx of x*e^x",
+    "choices": [
+      "A) e^x",
+      "B) x*e^x",
+      "C) e^x(1+x)",
+      "D) e^x(x-1)"
+    ],
+    "correct": 2,
+    "explanation": "Product Rule: u=x, v=e^x. d/dx = 1*e^x + x*e^x = e^x(1+x).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product Rule กับ exponential"
+  },
+  {
+    "id": 29,
+    "question": "Find: integral of e^(2x) dx",
+    "choices": [
+      "A) 2e^(2x)+C",
+      "B) e^(2x)+C",
+      "C) e^(2x)/2+C",
+      "D) e^x/2+C"
+    ],
+    "correct": 2,
+    "explanation": "integral e^(ax) dx = e^(ax)/a + C. Here a=2, so answer = e^(2x)/2 + C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตร integral e^(ax) และหารด้วย a"
+  },
+  {
+    "id": 30,
+    "question": "Find d/dx of ln(3x)",
+    "choices": [
+      "A) 3/x",
+      "B) ln(3)/x",
+      "C) 1/(3x)",
+      "D) 1/x"
+    ],
+    "correct": 3,
+    "explanation": "Chain Rule: d/dx[ln(3x)] = 1/(3x) * 3 = 1/x. Or: ln(3x) = ln(3)+ln(x), so derivative = 1/x.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ ln ต้องระวังค่า constant"
+  },
+  {
+    "id": 31,
+    "question": "Evaluate: lim x->1 of (x^3-1)/(x-1)",
+    "choices": [
+      "A) 1",
+      "B) 2",
+      "C) 3",
+      "D) 0"
+    ],
+    "correct": 2,
+    "explanation": "Factor: x^3-1 = (x-1)(x^2+x+1). Cancel (x-1): lim = x^2+x+1 at x=1 = 1+1+1 = 3.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกตัวประกอบ sum of cubes"
+  },
+  {
+    "id": 32,
+    "question": "Find d/dx of sin^2(x)",
+    "choices": [
+      "A) 2sin(x)",
+      "B) -2sin(x)",
+      "C) sin(2x)",
+      "D) 2cos(x)"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx[sin^2(x)] = 2sin(x)*cos(x) = sin(2x) by double angle identity.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ trig พร้อม simplify ด้วย double angle"
+  },
+  {
+    "id": 33,
+    "question": "Find: integral of sec^2(x) dx",
+    "choices": [
+      "A) sec(x)+C",
+      "B) -cot(x)+C",
+      "C) tan(x)+C",
+      "D) 2sec(x)+C"
+    ],
+    "correct": 2,
+    "explanation": "integral sec^2(x) dx = tan(x) + C. This is the standard antiderivative.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตร integral sec^2 ซึ่งเป็น inverse ของ d/dx[tan]"
+  },
+  {
+    "id": 34,
+    "question": "Evaluate: lim x->0 of x/tan(x)",
+    "choices": [
+      "A) 0",
+      "B) pi",
+      "C) 1",
+      "D) inf"
+    ],
+    "correct": 2,
+    "explanation": "lim x->0 x/tan(x) = lim x->0 x*cos(x)/sin(x) = 1*1 = 1 using lim sin(x)/x=1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแปลง tan เป็น sin/cos แล้วใช้ standard limit"
+  },
+  {
+    "id": 35,
+    "question": "Find d/dx of x/(x+1)",
+    "choices": [
+      "A) 1/(x+1)^2",
+      "B) -1/(x+1)",
+      "C) 1/(x+1)",
+      "D) x/(x+1)^2"
+    ],
+    "correct": 0,
+    "explanation": "Quotient Rule: d/dx[u/v] = (u'v-uv')/v^2. u=x,v=x+1: (1*(x+1)-x*1)/(x+1)^2 = 1/(x+1)^2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Quotient Rule และ simplify"
+  },
+  {
+    "id": 36,
+    "question": "Find: integral of 2x dx from 0 to 3",
+    "choices": [
+      "A) 6",
+      "B) 3",
+      "C) 9",
+      "D) 18"
+    ],
+    "correct": 2,
+    "explanation": "integral(0 to 3) 2x dx = [x^2] from 0 to 3 = 9 - 0 = 9.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral ต้องแทนค่า limits"
+  },
+  {
+    "id": 37,
+    "question": "Find d/dx of e^(x^2)",
+    "choices": [
+      "A) e^(x^2)",
+      "B) 2x*e^x",
+      "C) x*e^(x^2)",
+      "D) 2x*e^(x^2)"
+    ],
+    "correct": 3,
+    "explanation": "Chain Rule: d/dx[e^u] = e^u * du/dx. u=x^2, du/dx=2x. Result: 2x*e^(x^2).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ composite exponential"
+  },
+  {
+    "id": 38,
+    "question": "Evaluate: lim x->inf of 1/x",
+    "choices": [
+      "A) 1",
+      "B) inf",
+      "C) 0",
+      "D) -1"
+    ],
+    "correct": 2,
+    "explanation": "As x->inf, 1/x approaches 0. The function decreases toward zero.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "limit พื้นฐานที่ infinity ระดับ recall"
+  },
+  {
+    "id": 39,
+    "question": "Find: integral of x^3 dx",
+    "choices": [
+      "A) 3x^2+C",
+      "B) x^4+C",
+      "C) x^4/4+C",
+      "D) x^3/3+C"
+    ],
+    "correct": 2,
+    "explanation": "Power Rule: integral x^n dx = x^(n+1)/(n+1)+C. integral x^3 dx = x^4/4 + C.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule for integration ระดับ recall"
+  },
+  {
+    "id": 40,
+    "question": "Find d/dx of sin(3x)",
+    "choices": [
+      "A) cos(3x)",
+      "B) 3cos(3x)",
+      "C) -3cos(3x)",
+      "D) -cos(3x)"
+    ],
+    "correct": 1,
+    "explanation": "Chain Rule: d/dx[sin(u)] = cos(u)*du/dx. u=3x, du/dx=3. Result: 3cos(3x).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ sin"
+  },
+  {
+    "id": 41,
+    "question": "Find: integral(0 to 1) of x^2 dx",
+    "choices": [
+      "A) 1/2",
+      "B) 1/4",
+      "C) 1",
+      "D) 1/3"
+    ],
+    "correct": 3,
+    "explanation": "integral(0 to 1) x^2 dx = [x^3/3] from 0 to 1 = 1/3 - 0 = 1/3.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral ต้องแทนค่า limits"
+  },
+  {
+    "id": 42,
+    "question": "Find d/dx of ln(x^2)",
+    "choices": [
+      "A) 2/x^2",
+      "B) 2x",
+      "C) 2/x",
+      "D) 1/x^2"
+    ],
+    "correct": 2,
+    "explanation": "ln(x^2) = 2ln(x). So d/dx = 2*(1/x) = 2/x. Or Chain Rule directly gives same result.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ log properties หรือ Chain Rule"
+  },
+  {
+    "id": 43,
+    "question": "Evaluate: lim x->0+ of ln(x)",
+    "choices": [
+      "A) 0",
+      "B) 1",
+      "C) -inf",
+      "D) inf"
+    ],
+    "correct": 2,
+    "explanation": "As x->0+ (from right), ln(x) -> -infinity. ln is undefined at 0 and goes to -inf.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้พฤติกรรมของ ln ใกล้ 0+"
+  },
+  {
+    "id": 44,
+    "question": "Find d/dx of x^2*sin(x)",
+    "choices": [
+      "A) 2x*cos(x)",
+      "B) x^2*cos(x)",
+      "C) 2x*sin(x)",
+      "D) 2x*sin+x^2*cos"
+    ],
+    "correct": 3,
+    "explanation": "Product Rule: d/dx[x^2*sin(x)] = 2x*sin(x) + x^2*cos(x).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product Rule กับ trig function"
+  },
+  {
+    "id": 45,
+    "question": "Find: integral of sin(2x) dx",
+    "choices": [
+      "A) cos(2x)+C",
+      "B) 2cos(2x)+C",
+      "C) -cos(2x)/2+C",
+      "D) -2cos(2x)+C"
+    ],
+    "correct": 2,
+    "explanation": "u-sub: u=2x, du=2dx. integral sin(u)*du/2 = -cos(u)/2+C = -cos(2x)/2+C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ u-substitution กับ trig"
+  },
+  {
+    "id": 46,
+    "question": "Find d/dx of (x+1)^3",
+    "choices": [
+      "A) (x+1)^2",
+      "B) (x+1)^3",
+      "C) 3(x+1)^3",
+      "D) 3(x+1)^2"
+    ],
+    "correct": 3,
+    "explanation": "Chain Rule: d/dx[(u)^3] = 3u^2*du/dx. u=x+1, du/dx=1. Result: 3(x+1)^2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ polynomial composite"
+  },
+  {
+    "id": 47,
+    "question": "Evaluate: lim x->inf of e^(-x)",
+    "choices": [
+      "A) inf",
+      "B) 1",
+      "C) 0",
+      "D) e"
+    ],
+    "correct": 2,
+    "explanation": "As x->inf, e^(-x) = 1/e^x -> 0. The negative exponential decays to zero.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "limit พื้นฐานของ exponential decay ระดับ recall"
+  },
+  {
+    "id": 48,
+    "question": "Find: integral(1 to e) of 1/x dx",
+    "choices": [
+      "A) e",
+      "B) 0",
+      "C) 1",
+      "D) ln(e)=1"
+    ],
+    "correct": 2,
+    "explanation": "integral(1 to e) 1/x dx = [ln|x|] from 1 to e = ln(e)-ln(1) = 1-0 = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral ของ 1/x ต้องรู้ว่า ln(1)=0, ln(e)=1"
+  },
+  {
+    "id": 49,
+    "question": "Find d/dx of e^x * sin(x)",
+    "choices": [
+      "A) e^x*cos(x)",
+      "B) e^x*sin(x)",
+      "C) e^x(sin+cos)",
+      "D) e^x(cos-sin)"
+    ],
+    "correct": 2,
+    "explanation": "Product Rule: d/dx[e^x*sin(x)] = e^x*sin(x) + e^x*cos(x) = e^x(sin(x)+cos(x)).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product Rule กับ e^x และ trig"
+  },
+  {
+    "id": 50,
+    "question": "Find: integral of x*e^x dx",
+    "choices": [
+      "A) e^x+C",
+      "B) xe^x-e^x+C",
+      "C) x^2*e^x+C",
+      "D) xe^x+e^x+C"
+    ],
+    "correct": 1,
+    "explanation": "Integration by parts: u=x, dv=e^x dx. uv-integral(v du) = xe^x - integral(e^x) = xe^x - e^x + C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ integration by parts ซึ่งเป็นเทคนิคขั้นสูง [ปรับระดับ→2]"
+  },
+  {
+    "id": 51,
+    "question": "Find d/dx of sqrt(x^2+1)",
+    "choices": [
+      "A) 1/sqrt(x^2+1)",
+      "B) x*sqrt(x^2+1)",
+      "C) x/sqrt(x^2+1)",
+      "D) 2x/sqrt(x^2+1)"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx[(x^2+1)^(1/2)] = (1/2)(x^2+1)^(-1/2)*2x = x/sqrt(x^2+1).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ sqrt composite ต้องระวัง fractional exponent [ปรับระดับ→2]"
+  },
+  {
+    "id": 52,
+    "question": "Evaluate: lim x->0 of x^2/sin(x)",
+    "choices": [
+      "A) 1",
+      "B) 0",
+      "C) inf",
+      "D) 2"
+    ],
+    "correct": 1,
+    "explanation": "lim x->0 x^2/sin(x) = lim x->0 x * (x/sin(x)) = 0 * 1 = 0.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจัดรูปแบบให้ใช้ standard limit ได้"
+  },
+  {
+    "id": 53,
+    "question": "Find: integral of x/(x^2+1) dx",
+    "choices": [
+      "A) ln(x^2+1)+C",
+      "B) arctan(x)+C",
+      "C) ln|x^2+1|/2+C",
+      "D) 1/(x^2+1)+C"
+    ],
+    "correct": 2,
+    "explanation": "u-sub: u=x^2+1, du=2x dx. integral = (1/2) integral du/u = (1/2)ln|u|+C = ln(x^2+1)/2+C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเห็น pattern u-sub และจัดรูปให้ถูก [ปรับระดับ→2]"
+  },
+  {
+    "id": 54,
+    "question": "Find d/dx of (sin(x))^3",
+    "choices": [
+      "A) 3sin^2(x)",
+      "B) cos^3(x)",
+      "C) 3sin^2*cos",
+      "D) 3cos^3(x)"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx[(sin(x))^3] = 3(sin(x))^2 * cos(x) = 3sin^2(x)*cos(x).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ trig function ที่ยกกำลัง"
+  },
+  {
+    "id": 55,
+    "question": "Evaluate: lim x->0 of (sin(3x))/(3x)",
+    "choices": [
+      "A) 3",
+      "B) 0",
+      "C) 1/3",
+      "D) 1"
+    ],
+    "correct": 3,
+    "explanation": "Using standard limit lim u->0 sin(u)/u = 1, let u=3x. As x->0, u->0, so lim = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จัก pattern ของ standard limit sin(u)/u"
+  },
+  {
+    "id": 56,
+    "question": "Find: integral of cos(3x) dx",
+    "choices": [
+      "A) -sin(3x)/3+C",
+      "B) 3sin(3x)+C",
+      "C) sin(3x)/3+C",
+      "D) sin(3x)+C"
+    ],
+    "correct": 2,
+    "explanation": "u-sub: u=3x, du=3dx. integral cos(u)*du/3 = sin(u)/3+C = sin(3x)/3+C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ u-sub กับ trig และหารด้วย coefficient"
+  },
+  {
+    "id": 57,
+    "question": "Find d/dx of x^4 - 3x^2 + 2",
+    "choices": [
+      "A) 4x^3-3x",
+      "B) 4x^4-6x",
+      "C) 4x^3-6x",
+      "D) x^3-6x"
+    ],
+    "correct": 2,
+    "explanation": "d/dx[x^4-3x^2+2] = 4x^3 - 6x + 0 = 4x^3 - 6x by power rule and linearity.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule กับ polynomial หลายพจน์ ระดับ recall"
+  },
+  {
+    "id": 58,
+    "question": "Evaluate: lim x->2 of (x^2-4)/(x^2-2x)",
+    "choices": [
+      "A) 0",
+      "B) 2",
+      "C) 1",
+      "D) 4"
+    ],
+    "correct": 1,
+    "explanation": "Factor: (x^2-4)/(x(x-2)) = (x+2)(x-2)/(x(x-2)) = (x+2)/x. At x=2: 4/2 = 2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกตัวประกอบทั้งเศษและส่วน"
+  },
+  {
+    "id": 59,
+    "question": "Find: integral(0 to pi) of sin(x) dx",
+    "choices": [
+      "A) 0",
+      "B) pi",
+      "C) 2",
+      "D) 1"
+    ],
+    "correct": 2,
+    "explanation": "integral sin(x) dx = -cos(x). Evaluate: [-cos(x)](0 to pi) = -cos(pi)-(-cos(0)) = 1+1 = 2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral กับ trig ต้องรู้ค่า cos(0) และ cos(pi)"
+  },
+  {
+    "id": 60,
+    "question": "Find d/dx of ln(sin(x))",
+    "choices": [
+      "A) 1/sin(x)",
+      "B) cos(x)",
+      "C) cot(x)",
+      "D) -cot(x)"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx[ln(u)] = 1/u * du/dx. u=sin(x), du/dx=cos(x). Result: cos(x)/sin(x) = cot(x).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule ซ้อน ln กับ sin ต้อง simplify เป็น cot [ปรับระดับ→2]"
+  },
+  {
+    "id": 61,
+    "question": "Find d/dx of sec(x)",
+    "choices": [
+      "A) -csc^2(x)",
+      "B) csc(x)",
+      "C) sec(x)*tan",
+      "D) tan^2(x)"
+    ],
+    "correct": 2,
+    "explanation": "d/dx[sec(x)] = sec(x)*tan(x). Derived from d/dx[1/cos(x)] using Quotient Rule.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตรอนุพันธ์ sec ซึ่งมักสับสน"
+  },
+  {
+    "id": 62,
+    "question": "Evaluate: lim x->inf of (x+1)/x",
+    "choices": [
+      "A) inf",
+      "B) 0",
+      "C) 2",
+      "D) 1"
+    ],
+    "correct": 3,
+    "explanation": "lim x->inf (x+1)/x = lim (1 + 1/x) = 1 + 0 = 1.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "limit ที่ infinity ระดับ recall"
+  },
+  {
+    "id": 63,
+    "question": "Find: integral of x^(-2) dx",
+    "choices": [
+      "A) -1/x+C",
+      "B) -x^(-3)+C",
+      "C) 1/x^2+C",
+      "D) ln|x|+C"
+    ],
+    "correct": 0,
+    "explanation": "Power Rule: integral x^(-2) dx = x^(-1)/(-1)+C = -1/x+C. (n=-2, n+1=-1)",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Power Rule กับ negative exponent ต้องระวังสัญลักษณ์"
+  },
+  {
+    "id": 64,
+    "question": "Find d/dx of x^2/(x+1)",
+    "choices": [
+      "A) 2x/(x+1)^2",
+      "B) (x^2+2x)/(x+1)^2",
+      "C) 2x-1/(x+1)",
+      "D) x(x+2)/(x+1)^2"
+    ],
+    "correct": 3,
+    "explanation": "Quotient Rule: (2x(x+1)-x^2)/(x+1)^2 = (2x^2+2x-x^2)/(x+1)^2 = (x^2+2x)/(x+1)^2 = x(x+2)/(x+1)^2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Quotient Rule และต้อง factor/simplify ผลลัพธ์ [ปรับระดับ→2]"
+  },
+  {
+    "id": 65,
+    "question": "Evaluate: lim x->0 of (e^(2x)-1)/x",
+    "choices": [
+      "A) 0",
+      "B) 1",
+      "C) e^2",
+      "D) 2"
+    ],
+    "correct": 3,
+    "explanation": "Using lim u->0 (e^u-1)/u = 1 with u=2x: lim = 2 * lim(e^(2x)-1)/(2x) = 2*1 = 2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจัดรูปให้อยู่ในรูป standard limit แล้วคูณ coefficient [ปรับระดับ→2]"
+  },
+  {
+    "id": 66,
+    "question": "Find: integral(0 to 2) of x^3 dx",
+    "choices": [
+      "A) 16",
+      "B) 8",
+      "C) 4",
+      "D) 2"
+    ],
+    "correct": 2,
+    "explanation": "integral x^3 dx = x^4/4. Evaluate(0 to 2): 2^4/4 - 0 = 16/4 = 4.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral ต้องคำนวณ x^4/4 ให้ถูก"
+  },
+  {
+    "id": 67,
+    "question": "Find d/dx of cos(x^2)",
+    "choices": [
+      "A) -sin(x^2)",
+      "B) 2x*sin(x^2)",
+      "C) -2x*sin(x^2)",
+      "D) 2cos(x^2)"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx[cos(u)] = -sin(u)*du/dx. u=x^2, du/dx=2x. Result: -2x*sin(x^2).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ cos(x^2) ต้องไม่ลืมสัญลักษณ์ลบ"
+  },
+  {
+    "id": 68,
+    "question": "Evaluate: lim x->1 of (x^2-1)/(x-1)",
+    "choices": [
+      "A) 1",
+      "B) 0",
+      "C) 2",
+      "D) inf"
+    ],
+    "correct": 2,
+    "explanation": "Factor: (x^2-1)/(x-1) = (x+1)(x-1)/(x-1) = x+1. At x=1: 1+1 = 2.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "แยกตัวประกอบง่าย difference of squares ระดับ recall"
+  },
+  {
+    "id": 69,
+    "question": "Find: integral of e^(-x) dx",
+    "choices": [
+      "A) e^(-x)+C",
+      "B) -e^(-x)+C",
+      "C) e^x+C",
+      "D) -e^x+C"
+    ],
+    "correct": 1,
+    "explanation": "integral e^(-x) dx. u-sub: u=-x, du=-dx. Result: -e^(-x)+C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องระวังสัญลักษณ์ลบเมื่อ integrate e^(-x)"
+  },
+  {
+    "id": 70,
+    "question": "Find d/dx of (2x-1)^5",
+    "choices": [
+      "A) 5(2x-1)^4",
+      "B) 10(2x-1)^5",
+      "C) 5(2x-1)^4*2x",
+      "D) 10(2x-1)^4"
+    ],
+    "correct": 3,
+    "explanation": "Chain Rule: d/dx[(2x-1)^5] = 5(2x-1)^4 * 2 = 10(2x-1)^4.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule ต้องคูณ inner derivative = 2"
+  },
+  {
+    "id": 71,
+    "question": "Evaluate: lim x->0 of sin(5x)/x",
+    "choices": [
+      "A) 1",
+      "B) 1/5",
+      "C) 5",
+      "D) 0"
+    ],
+    "correct": 2,
+    "explanation": "lim x->0 sin(5x)/x = 5 * lim sin(5x)/(5x) = 5*1 = 5 using the standard limit.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องปรับรูปแบบ standard limit โดยคูณ/หาร coefficient"
+  },
+  {
+    "id": 72,
+    "question": "Find: integral(0 to pi/2) of cos(x) dx",
+    "choices": [
+      "A) 0",
+      "B) pi/2",
+      "C) 2",
+      "D) 1"
+    ],
+    "correct": 3,
+    "explanation": "integral cos(x) dx = sin(x). Evaluate(0 to pi/2): sin(pi/2)-sin(0) = 1-0 = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral กับ trig ต้องรู้ค่า sin(pi/2)"
+  },
+  {
+    "id": 73,
+    "question": "Find d/dx of e^(sin(x))",
+    "choices": [
+      "A) e^(sin(x))",
+      "B) cos*e^sin(x)",
+      "C) sin(x)*e^x",
+      "D) e^x*cos(x)"
+    ],
+    "correct": 1,
+    "explanation": "Chain Rule: d/dx[e^u] = e^u * du/dx. u=sin(x), du/dx=cos(x). Result: cos(x)*e^(sin(x)).",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Chain Rule ซ้อนกัน e^(sin(x)) เป็น composite หลายชั้น"
+  },
+  {
+    "id": 74,
+    "question": "Evaluate: lim x->0 of (tan(x))/x",
+    "choices": [
+      "A) 0",
+      "B) 1",
+      "C) inf",
+      "D) pi"
+    ],
+    "correct": 1,
+    "explanation": "lim x->0 tan(x)/x = lim sin(x)/(x*cos(x)) = 1/1 * 1 = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแปลง tan เป็น sin/cos แล้วใช้ standard limit"
+  },
+  {
+    "id": 75,
+    "question": "Find: integral of 1/(x^2+1) dx",
+    "choices": [
+      "A) ln(x^2+1)+C",
+      "B) arctan(x)+C",
+      "C) 2x/(x^2+1)+C",
+      "D) -1/x+C"
+    ],
+    "correct": 1,
+    "explanation": "Standard integral: integral 1/(x^2+1) dx = arctan(x) + C.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำ standard integral ของ 1/(x^2+1) = arctan(x)"
+  },
+  {
+    "id": 76,
+    "question": "Find d/dx of x^3 * e^x",
+    "choices": [
+      "A) 3x^2*e^x",
+      "B) x^3*e^x",
+      "C) e^x(x^3+3x^2)",
+      "D) 3x^2+e^x"
+    ],
+    "correct": 2,
+    "explanation": "Product Rule: d/dx[x^3*e^x] = 3x^2*e^x + x^3*e^x = e^x(3x^2+x^3) = e^x*x^2(x+3).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product Rule กับ polynomial และ exponential"
+  },
+  {
+    "id": 77,
+    "question": "Evaluate: lim x->inf of x*e^(-x)",
+    "choices": [
+      "A) inf",
+      "B) 1",
+      "C) 0",
+      "D) e"
+    ],
+    "correct": 2,
+    "explanation": "This is 0*inf form. L'Hopital on x/e^x: lim 1/e^x = 0 as x->inf. Exponential beats polynomial.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ L'Hopital จัดการ 0*inf form"
+  },
+  {
+    "id": 78,
+    "question": "Find: integral of x*sqrt(x) dx",
+    "choices": [
+      "A) x^2*sqrt/2+C",
+      "B) 2x^(5/2)/5+C",
+      "C) x^(5/2)+C",
+      "D) 3x^(3/2)/2+C"
+    ],
+    "correct": 1,
+    "explanation": "x*sqrt(x) = x^(3/2). integral x^(3/2) dx = x^(5/2)/(5/2)+C = 2x^(5/2)/5+C.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแปลง x*sqrt(x) เป็น x^(3/2) แล้วใช้ Power Rule"
+  },
+  {
+    "id": 79,
+    "question": "Find d/dx of ln(x^2+x)",
+    "choices": [
+      "A) 1/(x^2+x)",
+      "B) (2x+1)/(x^2+x)",
+      "C) 2x/(x^2+x)",
+      "D) 1/x+1/x^2"
+    ],
+    "correct": 1,
+    "explanation": "Chain Rule: d/dx[ln(u)] = 1/u * du/dx. u=x^2+x, du/dx=2x+1. Result: (2x+1)/(x^2+x).",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Chain Rule กับ ln ของ polynomial ต้องหา derivative ของ inner function"
+  },
+  {
+    "id": 80,
+    "question": "Evaluate: lim x->0 of (1-cos(x))/x^2",
+    "choices": [
+      "A) 0",
+      "B) 1",
+      "C) 1/2",
+      "D) 2"
+    ],
+    "correct": 2,
+    "explanation": "Using L'Hopital (0/0): lim sin(x)/(2x) = (1/2)*lim sin(x)/x = (1/2)*1 = 1/2.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ L'Hopital Rule สองขั้นหรือรู้ standard limit"
+  },
+  {
+    "id": 81,
+    "question": "Find: integral of x^2*e^x dx (formula)",
+    "choices": [
+      "A) x^2*e^x+C",
+      "B) e^x(x^2-2x+2)+C",
+      "C) e^x(x^2+2x+2)+C",
+      "D) x^2*e^x/2+C"
+    ],
+    "correct": 1,
+    "explanation": "Repeated integration by parts: e^x(x^2-2x+2)+C. Verify by differentiating.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Integration by parts ซ้ำสองรอบ ต้องการทักษะขั้นสูง"
+  },
+  {
+    "id": 82,
+    "question": "Find d/dx of cot(x)",
+    "choices": [
+      "A) csc^2(x)",
+      "B) -sec^2(x)",
+      "C) -csc^2(x)",
+      "D) sec(x)tan(x)"
+    ],
+    "correct": 2,
+    "explanation": "d/dx[cot(x)] = -csc^2(x). Derived from d/dx[cos(x)/sin(x)] by Quotient Rule.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตรอนุพันธ์ cot ซึ่งมักสับสนกับ tan"
+  },
+  {
+    "id": 83,
+    "question": "Evaluate: lim x->0 of sin(x^2)/x^2",
+    "choices": [
+      "A) 0",
+      "B) 2",
+      "C) 1",
+      "D) inf"
+    ],
+    "correct": 2,
+    "explanation": "Let u=x^2. As x->0, u->0. lim u->0 sin(u)/u = 1. So lim = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง substitute u=x^2 เพื่อใช้ standard limit"
+  },
+  {
+    "id": 84,
+    "question": "Find: integral(0 to 1) of e^x dx",
+    "choices": [
+      "A) e-1",
+      "B) e+1",
+      "C) 1-e",
+      "D) e"
+    ],
+    "correct": 0,
+    "explanation": "integral(0 to 1) e^x dx = [e^x] from 0 to 1 = e^1 - e^0 = e - 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Definite integral ของ e^x ต้องรู้ว่า e^0 = 1"
+  },
+  {
+    "id": 85,
+    "question": "Find d/dx of x^2 + sin(x)",
+    "choices": [
+      "A) 2x-cos(x)",
+      "B) 2x+cos(x)",
+      "C) x+cos(x)",
+      "D) 2+cos(x)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[x^2+sin(x)] = 2x + cos(x) by linearity of differentiation.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ใช้ Power Rule และ trig derivative ระดับ recall"
+  },
+  {
+    "id": 86,
+    "question": "Evaluate: lim x->2 of (x^3-8)/(x-2)",
+    "choices": [
+      "A) 4",
+      "B) 8",
+      "C) 12",
+      "D) 6"
+    ],
+    "correct": 2,
+    "explanation": "x^3-8 = (x-2)(x^2+2x+4). Cancel: lim = x^2+2x+4 at x=2 = 4+4+4 = 12.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำ factoring ของ difference of cubes"
+  },
+  {
+    "id": 87,
+    "question": "Find: integral of 1/sqrt(x) dx",
+    "choices": [
+      "A) ln(sqrt(x))+C",
+      "B) sqrt(x)/2+C",
+      "C) 2*sqrt(x)+C",
+      "D) -2/sqrt(x)+C"
+    ],
+    "correct": 2,
+    "explanation": "1/sqrt(x) = x^(-1/2). integral = x^(1/2)/(1/2)+C = 2*sqrt(x)+C.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแปลง 1/sqrt(x) เป็น x^(-1/2) แล้วใช้ Power Rule"
+  },
+  {
+    "id": 88,
+    "question": "Find d/dx of (x^3 - x)/(x^2)",
+    "choices": [
+      "A) 1+1/x^2",
+      "B) 3x-1",
+      "C) 1-1/x^2",
+      "D) x-1/x"
+    ],
+    "correct": 0,
+    "explanation": "Simplify: (x^3-x)/x^2 = x - x^(-1). d/dx[x - x^(-1)] = 1 - (-1)x^(-2) = 1 + 1/x^2.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง simplify ก่อน differentiate และระวังสัญลักษณ์"
+  },
+  {
+    "id": 89,
+    "question": "Evaluate: lim x->inf of (3x+1)/(x-2)",
+    "choices": [
+      "A) 1",
+      "B) 0",
+      "C) 3",
+      "D) -1/2"
+    ],
+    "correct": 2,
+    "explanation": "Divide by x: lim (3+1/x)/(1-2/x) = (3+0)/(1-0) = 3.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "limit ที่ infinity หารด้วย leading term"
+  },
+  {
+    "id": 90,
+    "question": "Find: integral of cos^2(x) dx",
+    "choices": [
+      "A) sin^2(x)/2+C",
+      "B) x/2+sin(2x)/4+C",
+      "C) cos(2x)/2+C",
+      "D) sin(x)cos(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "Use identity: cos^2(x) = (1+cos(2x))/2. integral = x/2 + sin(2x)/4 + C.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ half-angle identity ก่อน integrate"
+  },
+  {
+    "id": 91,
+    "question": "Find d/dx of ln(cos(x))",
+    "choices": [
+      "A) -tan(x)",
+      "B) 1/cos(x)",
+      "C) -sin(x)",
+      "D) tan(x)"
+    ],
+    "correct": 0,
+    "explanation": "Chain Rule: d/dx[ln(cos(x))] = 1/cos(x) * (-sin(x)) = -sin(x)/cos(x) = -tan(x).",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Chain Rule กับ ln(cos(x)) ต้อง simplify เป็น -tan(x)"
+  },
+  {
+    "id": 92,
+    "question": "Find: integral of x/(1+x^2)^2 dx",
+    "choices": [
+      "A) ln(1+x^2)+C",
+      "B) arctan(x)+C",
+      "C) -1/(2(1+x^2))+C",
+      "D) x^2/(1+x^2)+C"
+    ],
+    "correct": 2,
+    "explanation": "u-sub: u=1+x^2, du=2x dx. integral = (1/2) integral u^(-2) du = (1/2)*(-1/u)+C = -1/(2(1+x^2))+C.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "u-sub กับ power ของ composite ต้องเห็น pattern"
+  },
+  {
+    "id": 93,
+    "question": "Evaluate: lim x->0+ of x*ln(x)",
+    "choices": [
+      "A) 1",
+      "B) -1",
+      "C) inf",
+      "D) 0"
+    ],
+    "correct": 3,
+    "explanation": "L'Hopital: rewrite as ln(x)/(1/x). Differentiate: (1/x)/(-1/x^2) = -x -> 0 as x->0+.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ L'Hopital กับ 0*(-inf) form"
+  },
+  {
+    "id": 94,
+    "question": "Find d/dx of (ln(x))^2",
+    "choices": [
+      "A) 2/x^2",
+      "B) 2ln(x)/x",
+      "C) ln(x)/x",
+      "D) 2/x"
+    ],
+    "correct": 1,
+    "explanation": "Chain Rule: d/dx[(ln(x))^2] = 2*ln(x) * (1/x) = 2ln(x)/x.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Chain Rule กับ (ln(x))^2 ต้องเห็น outer power และ inner ln"
+  },
+  {
+    "id": 95,
+    "question": "Find: integral(1 to 2) of ln(x) dx",
+    "choices": [
+      "A) ln(2)",
+      "B) 2ln(2)-1",
+      "C) 1",
+      "D) ln(2)-1"
+    ],
+    "correct": 1,
+    "explanation": "Integration by parts: u=ln(x), dv=dx. integral = [x*ln(x) - x](1 to 2) = (2ln2-2)-(0-1) = 2ln2-1.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ integration by parts กับ ln(x)"
+  },
+  {
+    "id": 96,
+    "question": "Find d/dx of arctan(x)",
+    "choices": [
+      "A) 1/(1+x^2)",
+      "B) -1/sqrt(1-x^2)",
+      "C) 1/sqrt(1-x^2)",
+      "D) -1/(1+x^2)"
+    ],
+    "correct": 0,
+    "explanation": "d/dx[arctan(x)] = 1/(1+x^2). This is a standard formula for inverse trig derivatives.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำสูตรอนุพันธ์ inverse trig"
+  },
+  {
+    "id": 97,
+    "question": "Evaluate: lim x->inf of (ln(x))/x",
+    "choices": [
+      "A) inf",
+      "B) 1",
+      "C) 0",
+      "D) e"
+    ],
+    "correct": 2,
+    "explanation": "L'Hopital (inf/inf): lim (1/x)/1 = lim 1/x = 0. Logarithm grows slower than linear.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ L'Hopital กับ inf/inf form"
+  },
+  {
+    "id": 98,
+    "question": "Find: integral of sin(x)*cos(x) dx",
+    "choices": [
+      "A) -cos^2(x)+C",
+      "B) cos^2(x)/2+C",
+      "C) sin^2(x)/2+C",
+      "D) -sin(2x)/4+C"
+    ],
+    "correct": 2,
+    "explanation": "u=sin(x), du=cos(x)dx. integral = u du = u^2/2+C = sin^2(x)/2+C.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเห็น u-sub u=sin(x) ให้ออก"
+  },
+  {
+    "id": 99,
+    "question": "Find d/dx of x^x (log diff)",
+    "choices": [
+      "A) x^(x-1)",
+      "B) x^x * ln(x)",
+      "C) x^x(1+ln(x))",
+      "D) x^x / x"
+    ],
+    "correct": 2,
+    "explanation": "Logarithmic diff: ln(y)=x*ln(x). Diff: y'/y = ln(x)+1. y' = y*(1+ln(x)) = x^x*(1+ln(x)).",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ logarithmic differentiation กับ variable exponent"
+  },
+  {
+    "id": 100,
+    "question": "Find: integral of (x^2 - 1)/x dx",
+    "choices": [
+      "A) x+ln|x|+C",
+      "B) x-ln|x|+C",
+      "C) x^2/2-ln|x|+C",
+      "D) x^2/2-x+C"
+    ],
+    "correct": 1,
+    "explanation": "(x^2-1)/x = x - 1/x. integral = x^2/2 - ln|x| + C.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง simplify rational function ก่อน integrate"
+  }
+]

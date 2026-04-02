@@ -1,74 +1,117 @@
 #!/bin/bash
 # ════════════════════════════════════════════════════════════════
-#  KU Prep Arena — vLLM SLURM job
+#  KU Prep Arena — vLLM: Typhoon2-8B Fine-tuned (Thai Quiz)
 #
-#  วิธีเริ่มใหม่หลัง Ctrl+C / job หมดเวลา:
-#    ssh aip04@br1.paas.ku.ac.th
-#    module load slurm
+#  Model  : ku_typhoon_v1_merged  (Typhoon2-8B + LoRA merged)
+#  GPU    : 3g.40gb MIG — ~16GB bfloat16, fits easily in 40GB
+#
+#  วิธีใช้:
 #    sbatch ~/ku_prep_arena/ai/scripts/slurm_vllm.sh
-#    squeue -u aip04                 ← ดู job ID และ node
-#    tail -f ~/ku_prep_arena/vllm-<JOB>.log  ← ดู log
+#    squeue -u aip04                        ← ดู node
+#    tail -f ~/ku_prep_arena/vllm-<JOB>.log
 #
-#  แล้วเปิด SSH tunnel บน local machine:
-#    ssh -N -L 8000:dgx-XX:8000 aip04@br1.paas.ku.ac.th
-#  (แทน dgx-XX ด้วย node ที่เห็นใน squeue)
+#  SSH tunnel บน local:
+#    ssh -N -L 8000:dgx-XX:8000 aip04@br2.paas.ku.ac.th
+#  .env.local:
+#    AI_BASE_URL=http://localhost:8000/v1
+#    AI_MODEL=ku_typhoon_v1_merged
 # ════════════════════════════════════════════════════════════════
 #SBATCH --partition gpuq
 #SBATCH --account=gm_aip04
-#SBATCH --gres=gpu:1g.10gb:1
-#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:3g.40gb:1
+#SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=8G
 #SBATCH --time=1-0:00:00
-#SBATCH --job-name=vllm-ku-prep
+#SBATCH --job-name=vllm-typhoon
 #SBATCH --output=/home/aip04/ku_prep_arena/vllm-%J.log
 
-# ─── Print SSH tunnel command ──────────────────────────────────────────────
 port=8000
 node=$(hostname -s)
 user=$(whoami)
-cluster="br1.paas.ku.ac.th"
+cluster="br2.paas.ku.ac.th"
 
 echo "============================================================"
-echo " KU Prep Arena — vLLM Server"
-echo "============================================================"
+echo " KU Prep Arena — vLLM Typhoon2 Thai Quiz Server"
 echo " Node: $node   Port: $port"
 echo ""
-echo " SSH TUNNEL (รันบน local machine):"
+echo " SSH TUNNEL:"
 echo " ssh -N -L ${port}:${node}:${port} ${user}@${cluster}"
-echo ""
-echo " แล้วเปิด web app ที่ .env.local:"
-echo " AI_BASE_URL=http://localhost:${port}/v1"
 echo "============================================================"
 
-# ─── Load modules ─────────────────────────────────────────────────────────
 module load anaconda3/24.1.2
 module load cuda/12.4
 
-# Try ku_prep conda env first; fall back to system Python (has vLLM in ~/.local)
 if conda activate ku_prep 2>/dev/null || source activate ku_prep 2>/dev/null; then
   echo "[INFO] Using ku_prep conda env"
-else
-  echo "[WARN] ku_prep env not found — using system Python"
 fi
 
-# Pin transformers to version compatible with vLLM 0.6.6
-# Needs >=4.45.0 (mllama module) but <4.46 (all_special_tokens_extended still present)
-python -c "import transformers; assert transformers.__version__ == '4.45.2'" 2>/dev/null \
-  || { echo "[FIX] Pinning transformers==4.45.2 ..."; pip install -q "transformers==4.45.2"; }
-
-# ─── Fix vLLM 0.15.1 MIG UUID bug ────────────────────────────────────────
-# SLURM sets CUDA_VISIBLE_DEVICES=MIG-<uuid> but vLLM tries int(uuid) → crash
-# SLURM cgroup already isolates the MIG slice, so "0" = allocated MIG device
 export CUDA_VISIBLE_DEVICES=0
 
+# ─── Install vLLM ≥0.8.0 ไปยัง /tmp (ไม่แตะ NFS conda env เลย) ──────────
+# conda env อยู่บน NFS → pip install ลง NFS ล้มเหลว OSError 5
+# แก้: install --target /tmp/vllm_pkg แล้ว prepend PYTHONPATH
+VLLM_PKG=/tmp/vllm_pkg
+export TMPDIR=/tmp   # pip temp extraction ไป local SSD ด้วย
+
+VLLM_OK=$(python -c "
+import sys
+sys.path.insert(0, '$VLLM_PKG')
+try:
+    import vllm
+    ok = tuple(int(x) for x in vllm.__version__.split('.')[:2]) >= (0,8)
+    print('ok' if ok else 'old')
+except ImportError:
+    print('missing')
+" 2>/dev/null)
+
+if [ "$VLLM_OK" = "ok" ]; then
+  echo "[INFO] vLLM ≥0.8.0 already in $VLLM_PKG"
+else
+  echo "[INFO] Installing vLLM ≥0.8.0 to $VLLM_PKG (local SSD)..."
+  mkdir -p "$VLLM_PKG"
+  pip install -q "vllm>=0.8.0" \
+      --target "$VLLM_PKG" \
+      --cache-dir /tmp/pip_cache \
+      --no-deps-check 2>/dev/null || \
+  pip install -q "vllm>=0.8.0" \
+      --target "$VLLM_PKG" \
+      --cache-dir /tmp/pip_cache
+fi
+
+export PYTHONPATH="$VLLM_PKG:$PYTHONPATH"
+python -c "import sys; sys.path.insert(0,'$VLLM_PKG'); import vllm; print('[OK] vLLM', vllm.__version__)"
+
+# ─── Set offline mode หลัง pip เสร็จ ─────────────────────────────────────
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+
+# ─── Find model: /tmp → join chunks → fallback error ─────────────────────
+TMP_MODEL="/tmp/ku_typhoon_v1_merged"
+SPLIT_DIR="$HOME/ku_prep_arena/ai/models/ku_typhoon_split"
+
+if [ -d "$TMP_MODEL" ] && [ -f "$TMP_MODEL/config.json" ]; then
+  echo "[INFO] Found merged model in /tmp — using directly"
+elif [ -d "$SPLIT_DIR" ] && ls "$SPLIT_DIR"/chunk_* &>/dev/null; then
+  echo "[INFO] Reassembling model from chunks (NFS → /tmp)..."
+  cat "$SPLIT_DIR"/chunk_* | tar -x -C /tmp
+  echo "[OK] Model ready: $(du -sh $TMP_MODEL | cut -f1)"
+else
+  echo "[ERROR] Model chunks not found at $SPLIT_DIR"
+  echo "        Run slurm_finetune.sh first, then save with:"
+  echo "        srun --jobid=<ID> bash -c 'mkdir -p ~/ku_prep_arena/ai/models/ku_typhoon_split && tar -C /tmp -c ku_typhoon_v1_merged | split -b 50m - ~/ku_prep_arena/ai/models/ku_typhoon_split/chunk_'"
+  exit 1
+fi
+
 # ─── Start vLLM ───────────────────────────────────────────────────────────
-# 10GB MIG: ใช้ Qwen2.5-7B AWQ (4-bit quantized, ~4GB VRAM)
+echo "[INFO] Starting vLLM server..."
 python -m vllm.entrypoints.openai.api_server \
-  --model Qwen/Qwen2.5-7B-Instruct-AWQ \
-  --quantization awq_marlin \
+  --model "$TMP_MODEL" \
   --port ${port} \
   --host 0.0.0.0 \
-  --max-model-len 4096 \
+  --max-model-len 8192 \
   --gpu-memory-utilization 0.85 \
-  --dtype auto \
-  --trust-remote-code
+  --dtype bfloat16 \
+  --trust-remote-code \
+  --served-model-name ku_typhoon_v1_merged \
+  --enable-prefix-caching \
+  --max-num-seqs 32

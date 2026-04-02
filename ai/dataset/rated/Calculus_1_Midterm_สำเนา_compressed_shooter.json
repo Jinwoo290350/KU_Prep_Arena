@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "Which rule differentiates f(g(x)) by multiplying f'(g(x)) * g'(x)?",
+    "choices": [
+      "A) Chain",
+      "B) Product",
+      "C) Power",
+      "D) Quot."
+    ],
+    "correct": 0,
+    "explanation": "The Chain Rule states d/dx[f(g(x))] = f'(g(x)) * g'(x). It applies when differentiating composite functions.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ระบุชื่อ rule จากนิยามตรงๆ ระดับความจำ [ปรับระดับ→2]"
+  },
+  {
+    "id": 2,
+    "question": "What is the name of the form 0/0 or inf/inf encountered when evaluating a limit?",
+    "choices": [
+      "A) Indet.",
+      "B) Divrg.",
+      "C) Asympt.",
+      "D) Undef."
+    ],
+    "correct": 0,
+    "explanation": "0/0 and inf/inf are called indeterminate forms. Direct substitution fails and further analysis such as L'Hopital's Rule is required.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "คำศัพท์พื้นฐานที่ต้องจำ ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 3,
+    "question": "Which rule states d/dx[e^x] = e^x?",
+    "choices": [
+      "A) ln rule",
+      "B) Exp",
+      "C) Power",
+      "D) Chain"
+    ],
+    "correct": 1,
+    "explanation": "The Exponential Rule states d/dx[e^x] = e^x. The derivative of e^x is itself, which is a unique property of the natural exponential function.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตรพื้นฐานที่ต้องจำ ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 4,
+    "question": "Which rule resolves indeterminate limits by differentiating numerator and denominator separately?",
+    "choices": [
+      "A) L'Hop.",
+      "B) Squeeze",
+      "C) MVT",
+      "D) FTC"
+    ],
+    "correct": 0,
+    "explanation": "L'Hopital's Rule: if lim f(x)/g(x) is 0/0 or inf/inf, then the limit equals lim f'(x)/g'(x), provided the latter limit exists.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเชื่อม concept indeterminate form กับ rule ที่ใช้แก้ไข"
+  },
+  {
+    "id": 5,
+    "question": "Which term describes d/dx[sin(x)] = ?",
+    "choices": [
+      "A) -sin(x)",
+      "B) -cos(x)",
+      "C) cos(x)",
+      "D) tan(x)"
+    ],
+    "correct": 2,
+    "explanation": "d/dx[sin(x)] = cos(x). This is a standard derivative formula. d/dx[cos(x)] = -sin(x).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตรอนุพันธ์ trig ต้องแยกให้ได้ว่า sin กับ cos ได้ผลต่างกัน"
+  },
+  {
+    "id": 6,
+    "question": "Which term names the point where f''(x) = 0 and concavity changes sign?",
+    "choices": [
+      "A) Infl.pt",
+      "B) Crit.pt",
+      "C) Max pt",
+      "D) Min pt"
+    ],
+    "correct": 0,
+    "explanation": "An inflection point is where the second derivative is zero AND concavity changes. A critical point only requires f'(x) = 0.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกความต่างระหว่าง inflection point กับ critical point"
+  },
+  {
+    "id": 7,
+    "question": "Which technique uses u = g(x) to simplify integral(f(g(x))*g'(x)) dx?",
+    "choices": [
+      "A) u-sub",
+      "B) Parts",
+      "C) Trig.",
+      "D) Partial"
+    ],
+    "correct": 0,
+    "explanation": "u-substitution (integration by substitution) sets u = g(x), du = g'(x)dx, transforming the integral to integral(f(u)) du.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำชื่อ technique และเชื่อมกับ pattern ของ integrand"
+  },
+  {
+    "id": 8,
+    "question": "Which theorem links differentiation and integration: d/dx integral(a to x) f(t) dt = f(x)?",
+    "choices": [
+      "A) MVT",
+      "B) IVT",
+      "C) FTC",
+      "D) Rolle's"
+    ],
+    "correct": 2,
+    "explanation": "The Fundamental Theorem of Calculus (FTC Part 1) states that if F(x) = integral(a to x) f(t) dt, then F'(x) = f(x).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำ formal statement และเชื่อมกับชื่อ theorem ที่ถูกต้อง"
+  },
+  {
+    "id": 9,
+    "question": "Which method differentiates y = f(x)^g(x) by taking ln of both sides first?",
+    "choices": [
+      "A) Impl.",
+      "B) Log dif",
+      "C) Param.",
+      "D) Explic."
+    ],
+    "correct": 1,
+    "explanation": "Logarithmic differentiation takes ln of both sides: ln(y) = g(x)*ln(f(x)), then differentiates implicitly. Used when the exponent itself is a variable.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "เทคนิคขั้นสูงที่ต้องรวม logarithm properties กับ implicit differentiation [ปรับระดับ→2]"
+  },
+  {
+    "id": 10,
+    "question": "Which concept describes the curve bending upward when f''(x) > 0?",
+    "choices": [
+      "A) Conc.dn",
+      "B) Conc.up",
+      "C) Convex",
+      "D) Infl.pt"
+    ],
+    "correct": 1,
+    "explanation": "Concave up means the function bends upward (like a cup) and occurs when f''(x) > 0. Concave down occurs when f''(x) < 0.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจความหมายของ second derivative และเชื่อมกับ concavity concept"
+  },
+  {
+    "id": 11,
+    "question": "Which rule differentiates a product u*v as u'v + uv'?",
+    "choices": [
+      "A) Chain",
+      "B) Power",
+      "C) Product",
+      "D) Quot."
+    ],
+    "correct": 2,
+    "explanation": "The Product Rule states d/dx[u*v] = u'v + uv'. Applied when two functions are multiplied.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ระบุชื่อ rule จากนิยาม ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 12,
+    "question": "What name is given to the rule d/dx[x^n] = n*x^(n-1)?",
+    "choices": [
+      "A) Chain",
+      "B) Power",
+      "C) Exp",
+      "D) Log"
+    ],
+    "correct": 1,
+    "explanation": "The Power Rule states d/dx[x^n] = n*x^(n-1). It is the most basic differentiation rule for polynomial terms.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ชื่อ rule พื้นฐานที่สุด ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 13,
+    "question": "Which rule differentiates u/v as (u'v - uv')/v^2?",
+    "choices": [
+      "A) Product",
+      "B) Chain",
+      "C) Power",
+      "D) Quot."
+    ],
+    "correct": 3,
+    "explanation": "The Quotient Rule states d/dx[u/v] = (u'v - uv')/v^2. Used when one function divides another.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ระบุชื่อ Quotient Rule จากนิยาม ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 14,
+    "question": "What is the name of lim x->a f(x) if it equals f(a)?",
+    "choices": [
+      "A) Cont.",
+      "B) Asympt.",
+      "C) Indet.",
+      "D) Divrg."
+    ],
+    "correct": 0,
+    "explanation": "A function is continuous at x=a if lim x->a f(x) = f(a). Continuity requires the limit to exist and equal the function value.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม continuity ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 15,
+    "question": "Which term describes lim x->0 sin(x)/x = 1?",
+    "choices": [
+      "A) Std.lim",
+      "B) L'Hop.",
+      "C) Squeeze",
+      "D) FTC"
+    ],
+    "correct": 0,
+    "explanation": "lim x->0 sin(x)/x = 1 is a standard limit (also called a special limit). It is proved using the Squeeze Theorem.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "จำประเภทของ limit นี้ ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 16,
+    "question": "What is the antiderivative of f(x) also called?",
+    "choices": [
+      "A) Deriv.",
+      "B) Integrl",
+      "C) Limit",
+      "D) Series"
+    ],
+    "correct": 1,
+    "explanation": "The antiderivative of f(x) is also called the integral (indefinite integral) of f(x). It reverses differentiation.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "คำศัพท์ antiderivative = integral ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 17,
+    "question": "Which name is given to a value x=c where f'(c) = 0 or f'(c) is undefined?",
+    "choices": [
+      "A) Infl.pt",
+      "B) Crit.pt",
+      "C) Zeros",
+      "D) Nodes"
+    ],
+    "correct": 1,
+    "explanation": "A critical point occurs where f'(c) = 0 or f'(c) is undefined. These are candidates for local maxima and minima.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม critical point ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 18,
+    "question": "Which term names the constant added to an indefinite integral?",
+    "choices": [
+      "A) Coeff.",
+      "B) Const.C",
+      "C) Zero",
+      "D) Bound."
+    ],
+    "correct": 1,
+    "explanation": "The constant of integration C is added to every indefinite integral because any constant has derivative zero.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "คำศัพท์พื้นฐาน constant of integration ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 19,
+    "question": "What is the name for the limit of f(x) as x approaches infinity?",
+    "choices": [
+      "A) Horiz.",
+      "B) Vert.",
+      "C) Oblq.",
+      "D) Pt.lim"
+    ],
+    "correct": 0,
+    "explanation": "A horizontal asymptote describes the behavior lim x->inf f(x) = L, where L is a finite constant.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "เชื่อม limit ที่ infinity กับ horizontal asymptote ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 20,
+    "question": "Which notation represents the definite integral from a to b?",
+    "choices": [
+      "A) d/dx",
+      "B) int(a,b)",
+      "C) sum(a,b)",
+      "D) lim(a,b)"
+    ],
+    "correct": 1,
+    "explanation": "int(a,b) represents the definite integral from a to b, which gives a numerical area value.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "notation พื้นฐาน ระดับ recall [ปรับระดับ→2]"
+  },
+  {
+    "id": 21,
+    "question": "Which rule differentiates y with respect to x when y is defined implicitly?",
+    "choices": [
+      "A) Log dif",
+      "B) Impl.",
+      "C) Param.",
+      "D) Chain"
+    ],
+    "correct": 1,
+    "explanation": "Implicit differentiation differentiates both sides of an implicit equation with respect to x, using Chain Rule on y terms.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก implicit differentiation ออกจาก explicit"
+  },
+  {
+    "id": 22,
+    "question": "What is the name of the theorem: f'(c) = (f(b)-f(a))/(b-a) for some c in (a,b)?",
+    "choices": [
+      "A) IVT",
+      "B) Rolle's",
+      "C) FTC",
+      "D) MVT"
+    ],
+    "correct": 3,
+    "explanation": "The Mean Value Theorem (MVT) guarantees that for a differentiable function, there exists c where f'(c) equals the average rate of change.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำ statement ของ MVT และแยกจาก IVT"
+  },
+  {
+    "id": 23,
+    "question": "Which trig identity is sin^2(x) + cos^2(x)?",
+    "choices": [
+      "A) 0",
+      "B) 2",
+      "C) 1",
+      "D) tan^2(x)"
+    ],
+    "correct": 2,
+    "explanation": "The Pythagorean identity states sin^2(x) + cos^2(x) = 1. This is fundamental in trig simplification.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Pythagorean identity พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 24,
+    "question": "Which term describes f''(x) < 0 (curve bends downward)?",
+    "choices": [
+      "A) Conc.up",
+      "B) Infl.pt",
+      "C) Convex",
+      "D) Conc.dn"
+    ],
+    "correct": 3,
+    "explanation": "Concave down means f''(x) < 0 and the curve bends downward (like an upside-down cup).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเชื่อม f''(x) < 0 กับ term concave down"
+  },
+  {
+    "id": 25,
+    "question": "What is the name for d/dx[ln(x)] = 1/x?",
+    "choices": [
+      "A) Exp",
+      "B) Power",
+      "C) Log",
+      "D) Chain"
+    ],
+    "correct": 2,
+    "explanation": "The Logarithm derivative rule states d/dx[ln(x)] = 1/x. It is a standard formula.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ระบุชื่อสูตร derivative ของ ln ระดับ recall"
+  },
+  {
+    "id": 26,
+    "question": "Which technique evaluates integral(u*dv) as uv - integral(v*du)?",
+    "choices": [
+      "A) u-sub",
+      "B) Parts",
+      "C) Trig.",
+      "D) Partial"
+    ],
+    "correct": 1,
+    "explanation": "Integration by Parts uses formula integral(u dv) = uv - integral(v du). It integrates products of functions.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำชื่อ Integration by Parts และสูตร"
+  },
+  {
+    "id": 27,
+    "question": "What name is given to the point where f'(x) changes from positive to negative (local max)?",
+    "choices": [
+      "A) Infl.pt",
+      "B) Saddle",
+      "C) Loc.max",
+      "D) Crit.pt"
+    ],
+    "correct": 2,
+    "explanation": "A local maximum occurs where f'(x) changes from + to -. The First Derivative Test identifies local extrema.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเชื่อม sign change ของ f' กับ local max"
+  },
+  {
+    "id": 28,
+    "question": "Which test uses f''(c) to classify a critical point as max or min?",
+    "choices": [
+      "A) 1st der.",
+      "B) 2nd der.",
+      "C) MVT",
+      "D) FTC"
+    ],
+    "correct": 1,
+    "explanation": "The Second Derivative Test: if f'(c)=0 and f''(c)<0 then local max; if f''(c)>0 then local min.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก 1st และ 2nd derivative test"
+  },
+  {
+    "id": 29,
+    "question": "Which term names the line y = L that f(x) approaches as x->inf?",
+    "choices": [
+      "A) Horiz.",
+      "B) Vert.",
+      "C) Tangent",
+      "D) Secant"
+    ],
+    "correct": 0,
+    "explanation": "A horizontal asymptote is a line y = L where lim x->±inf f(x) = L. The curve approaches but may never reach it.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ horizontal asymptote ระดับ recall"
+  },
+  {
+    "id": 30,
+    "question": "Which term names the line x = a where f(x) -> ±inf?",
+    "choices": [
+      "A) Horiz.",
+      "B) Oblq.",
+      "C) Tangent",
+      "D) Vert."
+    ],
+    "correct": 3,
+    "explanation": "A vertical asymptote at x=a occurs when lim x->a f(x) = ±infinity. Common with 1/x type functions.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ vertical asymptote ระดับ recall"
+  },
+  {
+    "id": 31,
+    "question": "What is the name for lim h->0 [f(x+h)-f(x)]/h?",
+    "choices": [
+      "A) Integrl",
+      "B) Deriv.",
+      "C) Limit",
+      "D) Series"
+    ],
+    "correct": 1,
+    "explanation": "The derivative f'(x) is defined as lim h->0 [f(x+h)-f(x)]/h. This is the first-principles definition.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามอนุพันธ์ first principles ระดับ recall"
+  },
+  {
+    "id": 32,
+    "question": "Which theorem guarantees f(c) = 0 for some c in (a,b) if f(a) and f(b) have opposite signs?",
+    "choices": [
+      "A) MVT",
+      "B) Rolle's",
+      "C) IVT",
+      "D) FTC"
+    ],
+    "correct": 2,
+    "explanation": "The Intermediate Value Theorem (IVT) states that a continuous function on [a,b] takes every value between f(a) and f(b).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก IVT จาก MVT และ Rolle's"
+  },
+  {
+    "id": 33,
+    "question": "Which term describes d/dx[tan(x)] = sec^2(x)?",
+    "choices": [
+      "A) Tan",
+      "B) Sec",
+      "C) Trig",
+      "D) Quot."
+    ],
+    "correct": 2,
+    "explanation": "d/dx[tan(x)] = sec^2(x) is a trig derivative formula derived using the Quotient Rule on sin/cos.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำ derivative formula ของ tan"
+  },
+  {
+    "id": 34,
+    "question": "Which name describes the form 0*inf when computing a limit?",
+    "choices": [
+      "A) Defined",
+      "B) Indet.",
+      "C) Convrg.",
+      "D) Zero"
+    ],
+    "correct": 1,
+    "explanation": "0*inf is another indeterminate form that must be rewritten (as 0/(1/inf) or inf/(1/0)) before applying L'Hopital.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จัก extended forms ของ indeterminate"
+  },
+  {
+    "id": 35,
+    "question": "Which concept measures how fast a function increases at a point?",
+    "choices": [
+      "A) Area",
+      "B) Rate",
+      "C) Volume",
+      "D) Length"
+    ],
+    "correct": 1,
+    "explanation": "The derivative gives the instantaneous rate of change (slope of the tangent line) at a given point.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความหมายของ derivative ระดับ recall"
+  },
+  {
+    "id": 36,
+    "question": "What is the name of the theorem: if f(a)=f(b), then f'(c)=0 for some c in (a,b)?",
+    "choices": [
+      "A) MVT",
+      "B) IVT",
+      "C) FTC",
+      "D) Rolle's"
+    ],
+    "correct": 3,
+    "explanation": "Rolle's Theorem: if f is continuous on [a,b], differentiable on (a,b), and f(a)=f(b), then f'(c)=0 for some c.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก Rolle's Theorem จาก MVT"
+  },
+  {
+    "id": 37,
+    "question": "Which term names the area under a curve between x=a and x=b?",
+    "choices": [
+      "A) Def.int",
+      "B) Indef.",
+      "C) Deriv.",
+      "D) Length"
+    ],
+    "correct": 0,
+    "explanation": "The definite integral (Def.int) from a to b gives the signed area under the curve f(x) above the x-axis.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม definite integral ระดับ recall"
+  },
+  {
+    "id": 38,
+    "question": "Which rule states d/dx[a^x] = a^x * ln(a)?",
+    "choices": [
+      "A) Power",
+      "B) Exp.gen",
+      "C) Chain",
+      "D) Log"
+    ],
+    "correct": 1,
+    "explanation": "The General Exponential Rule: d/dx[a^x] = a^x * ln(a), where a is a positive constant.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก d/dx[a^x] กับ d/dx[e^x]"
+  },
+  {
+    "id": 39,
+    "question": "What term describes an integral that has no explicit numerical bounds?",
+    "choices": [
+      "A) Def.int",
+      "B) Indef.",
+      "C) Improp.",
+      "D) Bound."
+    ],
+    "correct": 1,
+    "explanation": "An indefinite integral has no bounds and includes the constant of integration C. Result is a function.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ indefinite integral ระดับ recall"
+  },
+  {
+    "id": 40,
+    "question": "Which term names a point where f is defined but f' does not exist?",
+    "choices": [
+      "A) Smooth",
+      "B) Cusp",
+      "C) Infl.pt",
+      "D) Corner"
+    ],
+    "correct": 3,
+    "explanation": "A corner is a point where f is continuous but the left and right derivatives differ, so f' is undefined there.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า corner ทำให้ derivative ไม่ exist"
+  },
+  {
+    "id": 41,
+    "question": "Which technique traps a limit using two simpler functions?",
+    "choices": [
+      "A) L'Hop.",
+      "B) Direct",
+      "C) Squeeze",
+      "D) Factor"
+    ],
+    "correct": 2,
+    "explanation": "The Squeeze Theorem: if g(x) <= f(x) <= h(x) and lim g = lim h = L, then lim f = L.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำชื่อ Squeeze Theorem และวิธีใช้"
+  },
+  {
+    "id": 42,
+    "question": "What is the geometric meaning of the derivative f'(a)?",
+    "choices": [
+      "A) Area",
+      "B) Slope",
+      "C) Volume",
+      "D) Avg"
+    ],
+    "correct": 1,
+    "explanation": "f'(a) is the slope of the tangent line to the curve y=f(x) at the point x=a.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความหมายเรขาคณิตของ derivative ระดับ recall"
+  },
+  {
+    "id": 43,
+    "question": "Which term describes the process of finding a derivative?",
+    "choices": [
+      "A) Integrt.",
+      "B) Approx.",
+      "C) Differ.",
+      "D) Factor"
+    ],
+    "correct": 2,
+    "explanation": "Differentiation is the process of finding the derivative of a function.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ differentiation ระดับ recall"
+  },
+  {
+    "id": 44,
+    "question": "What is the name of d/dx[arcsin(x)] = 1/sqrt(1-x^2)?",
+    "choices": [
+      "A) Inv.trig",
+      "B) Trig",
+      "C) Chain",
+      "D) Log"
+    ],
+    "correct": 0,
+    "explanation": "Inverse trig derivative: d/dx[arcsin(x)] = 1/sqrt(1-x^2). A standard formula for inverse trig functions.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำ category ของ inverse trig derivatives"
+  },
+  {
+    "id": 45,
+    "question": "Which property states integral(a to b)f + integral(b to c)f = integral(a to c)f?",
+    "choices": [
+      "A) Linear",
+      "B) Addit.",
+      "C) Symm.",
+      "D) Bound."
+    ],
+    "correct": 1,
+    "explanation": "The additivity property of definite integrals allows splitting at an intermediate point b.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ชื่อ property ของ definite integral"
+  },
+  {
+    "id": 46,
+    "question": "Which name describes f(x) if f(-x) = f(x)?",
+    "choices": [
+      "A) Odd",
+      "B) Even",
+      "C) Periodic",
+      "D) Linear"
+    ],
+    "correct": 1,
+    "explanation": "An even function satisfies f(-x) = f(x). Its graph is symmetric about the y-axis. Example: cos(x), x^2.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม even function ระดับ recall"
+  },
+  {
+    "id": 47,
+    "question": "Which name describes f(x) if f(-x) = -f(x)?",
+    "choices": [
+      "A) Odd",
+      "B) Even",
+      "C) Periodic",
+      "D) Const."
+    ],
+    "correct": 0,
+    "explanation": "An odd function satisfies f(-x) = -f(x). Its graph is symmetric about the origin. Example: sin(x), x^3.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม odd function ระดับ recall"
+  },
+  {
+    "id": 48,
+    "question": "Which rule is used to differentiate x^n when n is any real number?",
+    "choices": [
+      "A) Chain",
+      "B) Power",
+      "C) Quot.",
+      "D) Exp"
+    ],
+    "correct": 1,
+    "explanation": "The Power Rule d/dx[x^n] = n*x^(n-1) applies for any real number n, including fractions and negatives.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power Rule ระดับ recall"
+  },
+  {
+    "id": 49,
+    "question": "Which term names f'(x) evaluated at a specific point x=a?",
+    "choices": [
+      "A) Avg.der",
+      "B) Inst.",
+      "C) Global",
+      "D) Approx."
+    ],
+    "correct": 1,
+    "explanation": "The instantaneous rate of change at x=a is f'(a), the derivative evaluated at that specific point.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก instantaneous vs average rate of change"
+  },
+  {
+    "id": 50,
+    "question": "Which name is given to a function whose value equals its derivative?",
+    "choices": [
+      "A) ln(x)",
+      "B) sin(x)",
+      "C) x^2",
+      "D) e^x"
+    ],
+    "correct": 3,
+    "explanation": "e^x is the unique function (up to constant multiples) that equals its own derivative: d/dx[e^x] = e^x.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คุณสมบัติพิเศษของ e^x ระดับ recall"
+  },
+  {
+    "id": 51,
+    "question": "Which term names the second derivative d^2y/dx^2?",
+    "choices": [
+      "A) 1st der.",
+      "B) 2nd der.",
+      "C) Integrl",
+      "D) Partial"
+    ],
+    "correct": 1,
+    "explanation": "The second derivative d^2y/dx^2 = (d/dx)(dy/dx) measures the rate of change of the first derivative.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "notation second derivative ระดับ recall"
+  },
+  {
+    "id": 52,
+    "question": "Which concept links the slope of the tangent and the curve's curvature direction?",
+    "choices": [
+      "A) Conc.",
+      "B) Slope",
+      "C) Asympt.",
+      "D) Period"
+    ],
+    "correct": 0,
+    "explanation": "Concavity (up or down) describes whether the tangent line slope is increasing or decreasing, determined by f''(x).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "เชื่อม concavity กับ second derivative"
+  },
+  {
+    "id": 53,
+    "question": "What is the name of the rule that finds d/dx[log_a(x)]?",
+    "choices": [
+      "A) Gen.log",
+      "B) Power",
+      "C) Chain",
+      "D) Nat.log"
+    ],
+    "correct": 0,
+    "explanation": "The General Logarithm Rule: d/dx[log_a(x)] = 1/(x*ln(a)). For a=e it reduces to 1/x.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก log_a(x) กับ ln(x) และจำสูตร"
+  },
+  {
+    "id": 54,
+    "question": "What name is given to the line that just touches a curve at one point?",
+    "choices": [
+      "A) Secant",
+      "B) Normal",
+      "C) Tangent",
+      "D) Chord"
+    ],
+    "correct": 2,
+    "explanation": "A tangent line touches the curve at exactly one point (locally) and has slope equal to f'(a) at that point.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ tangent line ระดับ recall"
+  },
+  {
+    "id": 55,
+    "question": "Which name describes the form 1^inf when evaluating a limit?",
+    "choices": [
+      "A) Defined",
+      "B) Indet.",
+      "C) Zero",
+      "D) Infty"
+    ],
+    "correct": 1,
+    "explanation": "1^infinity is an indeterminate form. It requires logarithmic techniques or L'Hopital to resolve.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ extended indeterminate forms นอกจาก 0/0 และ inf/inf"
+  },
+  {
+    "id": 56,
+    "question": "Which term names the process of finding the area using infinitely many thin rectangles?",
+    "choices": [
+      "A) Differ.",
+      "B) Riemann",
+      "C) Newton",
+      "D) Taylor"
+    ],
+    "correct": 1,
+    "explanation": "A Riemann sum approximates the area under a curve using rectangles. As the width approaches 0, it becomes the definite integral.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำ Riemann sum และเชื่อมกับ integral"
+  },
+  {
+    "id": 57,
+    "question": "What is the name of the FTC Part 2: integral(a to b) f(x)dx = F(b)-F(a)?",
+    "choices": [
+      "A) FTC2",
+      "B) MVT",
+      "C) IVT",
+      "D) L'Hop."
+    ],
+    "correct": 0,
+    "explanation": "FTC Part 2 (Evaluation Theorem) states: if F is an antiderivative of f, then integral(a to b) f dx = F(b)-F(a).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก FTC1 กับ FTC2"
+  },
+  {
+    "id": 58,
+    "question": "Which name is given to the graph feature where f is increasing?",
+    "choices": [
+      "A) f'>0",
+      "B) f'<0",
+      "C) f''=0",
+      "D) f=0"
+    ],
+    "correct": 0,
+    "explanation": "A function is increasing on an interval where f'(x) > 0 (positive first derivative).",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เชื่อม increasing function กับ f'>0 ระดับ recall"
+  },
+  {
+    "id": 59,
+    "question": "What name is given to the number e = 2.718...?",
+    "choices": [
+      "A) Pi",
+      "B) Euler",
+      "C) Golden",
+      "D) Napier"
+    ],
+    "correct": 1,
+    "explanation": "The number e ≈ 2.71828... is Euler's number, the base of the natural logarithm and natural exponential.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อของค่า e ระดับ recall"
+  },
+  {
+    "id": 60,
+    "question": "Which notation means the derivative of y with respect to x (Leibniz)?",
+    "choices": [
+      "A) f'(x)",
+      "B) Df(x)",
+      "C) dy/dx",
+      "D) y'"
+    ],
+    "correct": 2,
+    "explanation": "Leibniz notation dy/dx represents the derivative of y with respect to x. It emphasizes the ratio interpretation.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Leibniz notation ระดับ recall"
+  },
+  {
+    "id": 61,
+    "question": "Which term describes d/dx[csc(x)] = -csc(x)*cot(x)?",
+    "choices": [
+      "A) Trig",
+      "B) Chain",
+      "C) Csc",
+      "D) Quot."
+    ],
+    "correct": 0,
+    "explanation": "d/dx[csc(x)] = -csc(x)*cot(x) is a standard trig derivative formula.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "trig derivative ที่ซับซ้อน ต้องจำสูตรเฉพาะ csc"
+  },
+  {
+    "id": 62,
+    "question": "Which name is given to an integral with an infinite bound like integral(1 to inf)?",
+    "choices": [
+      "A) Def.int",
+      "B) Improp.",
+      "C) Indef.",
+      "D) Riemann"
+    ],
+    "correct": 1,
+    "explanation": "An improper integral has an infinite bound or discontinuous integrand. Evaluated using limits.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก improper integral จาก definite integral"
+  },
+  {
+    "id": 63,
+    "question": "Which concept names the slope of a line passing through two points on a curve?",
+    "choices": [
+      "A) Tangent",
+      "B) Normal",
+      "C) Secant",
+      "D) Chord"
+    ],
+    "correct": 2,
+    "explanation": "The secant line passes through two points on the curve. Its slope is [f(b)-f(a)]/(b-a), the average rate of change.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก secant line จาก tangent line"
+  },
+  {
+    "id": 64,
+    "question": "What name is given to the technique: rewrite limit as inf/inf then apply L'Hopital?",
+    "choices": [
+      "A) Rewrite",
+      "B) L'Hop.",
+      "C) Factor",
+      "D) Squeeze"
+    ],
+    "correct": 1,
+    "explanation": "L'Hopital's Rule applies to inf/inf form by differentiating numerator and denominator separately.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจดจำ L'Hopital ใช้กับ inf/inf ด้วย"
+  },
+  {
+    "id": 65,
+    "question": "Which term names the line perpendicular to the tangent at a point?",
+    "choices": [
+      "A) Tangent",
+      "B) Secant",
+      "C) Normal",
+      "D) Asympt."
+    ],
+    "correct": 2,
+    "explanation": "The normal line at a point is perpendicular to the tangent line. Its slope is -1/f'(a).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก normal line จาก tangent line"
+  },
+  {
+    "id": 66,
+    "question": "Which rule states d/dx[c*f(x)] = c*f'(x)?",
+    "choices": [
+      "A) Sum",
+      "B) Const.",
+      "C) Power",
+      "D) Chain"
+    ],
+    "correct": 1,
+    "explanation": "The Constant Multiple Rule states d/dx[c*f(x)] = c*f'(x). Constants factor out of derivatives.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อ rule พื้นฐาน constant multiple ระดับ recall"
+  },
+  {
+    "id": 67,
+    "question": "Which rule states d/dx[f+g] = f'+g'?",
+    "choices": [
+      "A) Product",
+      "B) Chain",
+      "C) Sum",
+      "D) Const."
+    ],
+    "correct": 2,
+    "explanation": "The Sum Rule states d/dx[f(x)+g(x)] = f'(x)+g'(x). Derivatives are linear operators.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อ Sum Rule ระดับ recall"
+  },
+  {
+    "id": 68,
+    "question": "Which term names the process of finding the maximum or minimum of a function?",
+    "choices": [
+      "A) Integrt.",
+      "B) Differ.",
+      "C) Optimz.",
+      "D) Factor"
+    ],
+    "correct": 2,
+    "explanation": "Optimization uses calculus (setting f'=0) to find maximum or minimum values of a function.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า optimization เกี่ยวข้องกับ derivative"
+  },
+  {
+    "id": 69,
+    "question": "Which term names an integral that can be evaluated and gives a number (not a function)?",
+    "choices": [
+      "A) Indef.",
+      "B) Def.int",
+      "C) Improp.",
+      "D) Series"
+    ],
+    "correct": 1,
+    "explanation": "A definite integral has bounds a and b and evaluates to a real number (the area).",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ definite integral ระดับ recall"
+  },
+  {
+    "id": 70,
+    "question": "Which concept is defined as lim x->a f(x) = f(a)?",
+    "choices": [
+      "A) Differ.",
+      "B) Bound.",
+      "C) Cont.",
+      "D) Integbl."
+    ],
+    "correct": 2,
+    "explanation": "Continuity at x=a requires three conditions: f(a) exists, lim f(x) exists, and they are equal.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม continuity ต้องครบสามเงื่อนไข"
+  },
+  {
+    "id": 71,
+    "question": "What name is given to d/dx[arctan(x)] = 1/(1+x^2)?",
+    "choices": [
+      "A) Trig",
+      "B) Chain",
+      "C) Power",
+      "D) Inv.trig"
+    ],
+    "correct": 3,
+    "explanation": "d/dx[arctan(x)] = 1/(1+x^2) is an inverse trig derivative formula.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำ category inverse trig derivatives"
+  },
+  {
+    "id": 72,
+    "question": "Which name is given to an inflection point where f'(x) is also zero?",
+    "choices": [
+      "A) Loc.max",
+      "B) Saddle",
+      "C) Loc.min",
+      "D) Cusp"
+    ],
+    "correct": 1,
+    "explanation": "A saddle point (in 1D) is where f'(x)=0 but it is neither max nor min — the sign of f' doesn't change.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก saddle/flat inflection จาก local extrema"
+  },
+  {
+    "id": 73,
+    "question": "What is the name of the method that differentiates both sides of F(x,y)=0 with respect to x?",
+    "choices": [
+      "A) Log dif",
+      "B) Param.",
+      "C) Impl.",
+      "D) Explic."
+    ],
+    "correct": 2,
+    "explanation": "Implicit differentiation differentiates both sides of F(x,y)=0 with respect to x, treating y as a function of x.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จัก implicit differentiation technique"
+  },
+  {
+    "id": 74,
+    "question": "Which term names d/dx[sec(x)] = sec(x)*tan(x)?",
+    "choices": [
+      "A) Power",
+      "B) Trig",
+      "C) Quot.",
+      "D) Chain"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[sec(x)] = sec(x)*tan(x) is a standard trig derivative, derived from the Quotient Rule on 1/cos(x).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตร trig derivative ของ sec"
+  },
+  {
+    "id": 75,
+    "question": "Which rule states integral(c*f) = c*integral(f)?",
+    "choices": [
+      "A) Addit.",
+      "B) Const.",
+      "C) Linear",
+      "D) Power"
+    ],
+    "correct": 1,
+    "explanation": "The Constant Multiple Rule for integrals: integral(c*f(x))dx = c*integral(f(x))dx.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อ rule พื้นฐาน สำหรับ integral ระดับ recall"
+  },
+  {
+    "id": 76,
+    "question": "Which term describes a function value that is greater than all nearby values?",
+    "choices": [
+      "A) Glob.max",
+      "B) Glob.min",
+      "C) Loc.max",
+      "D) Loc.min"
+    ],
+    "correct": 2,
+    "explanation": "A local maximum (relative maximum) is a value f(c) greater than f(x) for all x near c.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ local maximum ระดับ recall"
+  },
+  {
+    "id": 77,
+    "question": "What is the name for the smallest value of f on its entire domain?",
+    "choices": [
+      "A) Loc.min",
+      "B) Glob.min",
+      "C) Loc.max",
+      "D) Crit.pt"
+    ],
+    "correct": 1,
+    "explanation": "The global (absolute) minimum is the smallest value f takes over its entire domain.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก global min จาก local min"
+  },
+  {
+    "id": 78,
+    "question": "Which term names the substitution t = g(x) to change the variable of integration?",
+    "choices": [
+      "A) Parts",
+      "B) Partial",
+      "C) u-sub",
+      "D) Trig."
+    ],
+    "correct": 2,
+    "explanation": "u-substitution (change of variable) substitutes u = g(x) to simplify an integral.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อ u-substitution technique ระดับ recall"
+  },
+  {
+    "id": 79,
+    "question": "What name is given to the formula: d/dx[cot(x)] = -csc^2(x)?",
+    "choices": [
+      "A) Chain",
+      "B) Power",
+      "C) Trig",
+      "D) Log"
+    ],
+    "correct": 2,
+    "explanation": "d/dx[cot(x)] = -csc^2(x) is a trig derivative formula, analogous to d/dx[tan(x)] = sec^2(x).",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำสูตร trig derivative ของ cot"
+  },
+  {
+    "id": 80,
+    "question": "Which term names the integral used for arc length of a curve?",
+    "choices": [
+      "A) Area",
+      "B) Volume",
+      "C) Arc len",
+      "D) Surface"
+    ],
+    "correct": 2,
+    "explanation": "Arc length = integral(a to b) sqrt(1 + [f'(x)]^2) dx. This is the arc length formula.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ชื่อและสูตร arc length ขั้นสูง"
+  },
+  {
+    "id": 81,
+    "question": "What is the name of lim_(n->inf) sum_(k=1 to n) f(x_k)*Dx?",
+    "choices": [
+      "A) Riemann",
+      "B) Taylor",
+      "C) Newton",
+      "D) Cauchy"
+    ],
+    "correct": 0,
+    "explanation": "A Riemann sum is the sum of rectangle areas f(x_k)*Dx. As n->inf, it converges to the definite integral.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเชื่อม Riemann sum กับนิยาม integral"
+  },
+  {
+    "id": 82,
+    "question": "Which concept describes d/dx[f(x)] > 0 implying f is what?",
+    "choices": [
+      "A) Conc.up",
+      "B) Incrsng",
+      "C) Decrsng",
+      "D) Const."
+    ],
+    "correct": 1,
+    "explanation": "If f'(x) > 0 on an interval, then f is increasing (strictly) on that interval.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เชื่อม f'>0 กับ increasing ระดับ recall"
+  },
+  {
+    "id": 83,
+    "question": "Which term names the process of computing lim h->0 to find derivatives?",
+    "choices": [
+      "A) 1st prin",
+      "B) Chain",
+      "C) Implic.",
+      "D) L'Hop."
+    ],
+    "correct": 0,
+    "explanation": "Differentiation from first principles uses the limit definition lim h->0 [f(x+h)-f(x)]/h.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ชื่อ first principles differentiation"
+  },
+  {
+    "id": 84,
+    "question": "Which name is given to integral(f'(x)/f(x))dx = ln|f(x)|+C?",
+    "choices": [
+      "A) Log int",
+      "B) Exp int",
+      "C) u-sub",
+      "D) Parts"
+    ],
+    "correct": 0,
+    "explanation": "The logarithmic integral formula: integral f'(x)/f(x) dx = ln|f(x)|+C. Follows from u-sub with u=f(x).",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำ formula logarithmic integral และเชื่อมกับ u-sub"
+  },
+  {
+    "id": 85,
+    "question": "Which theorem states every continuous function on [a,b] attains its max and min?",
+    "choices": [
+      "A) IVT",
+      "B) MVT",
+      "C) EVT",
+      "D) FTC"
+    ],
+    "correct": 2,
+    "explanation": "The Extreme Value Theorem (EVT) guarantees that a continuous function on a closed interval [a,b] attains its maximum and minimum.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก EVT จาก IVT และ MVT"
+  },
+  {
+    "id": 86,
+    "question": "Which name is given to the form inf - inf when evaluating a limit?",
+    "choices": [
+      "A) Defined",
+      "B) Indet.",
+      "C) Zero",
+      "D) Infty"
+    ],
+    "correct": 1,
+    "explanation": "inf - inf is an indeterminate form. Must be algebraically manipulated before using L'Hopital or other techniques.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ว่า inf-inf เป็น indeterminate form"
+  },
+  {
+    "id": 87,
+    "question": "What is the name of the technique that differentiates x = f(t), y = g(t) to find dy/dx?",
+    "choices": [
+      "A) Impl.",
+      "B) Log dif",
+      "C) Param.",
+      "D) Explic."
+    ],
+    "correct": 2,
+    "explanation": "Parametric differentiation finds dy/dx = (dy/dt)/(dx/dt) when x and y are both functions of parameter t.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จัก parametric differentiation technique"
+  },
+  {
+    "id": 88,
+    "question": "Which property states integral(a to b) f = -integral(b to a) f?",
+    "choices": [
+      "A) Addit.",
+      "B) Linear",
+      "C) Reverse",
+      "D) Symm."
+    ],
+    "correct": 2,
+    "explanation": "Reversing the limits of integration negates the integral: integral(a to b) f = -integral(b to a) f.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ property ของ definite integral เมื่อสลับ bounds"
+  },
+  {
+    "id": 89,
+    "question": "Which term names d/dx[cos(x)] = -sin(x)?",
+    "choices": [
+      "A) Trig",
+      "B) Chain",
+      "C) Power",
+      "D) Log"
+    ],
+    "correct": 0,
+    "explanation": "d/dx[cos(x)] = -sin(x) is a standard trig derivative formula.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร trig derivative ระดับ recall"
+  },
+  {
+    "id": 90,
+    "question": "What name is given to the largest value f attains on its entire domain?",
+    "choices": [
+      "A) Loc.max",
+      "B) Crit.pt",
+      "C) Infl.pt",
+      "D) Glob.max"
+    ],
+    "correct": 3,
+    "explanation": "The global (absolute) maximum is the largest value f takes over its entire domain.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก global max จาก local max"
+  },
+  {
+    "id": 91,
+    "question": "Which concept describes that f is differentiable implies f is continuous?",
+    "choices": [
+      "A) Chain",
+      "B) Differ.",
+      "C) Cont.",
+      "D) FTC"
+    ],
+    "correct": 2,
+    "explanation": "If f is differentiable at x=a, it must be continuous at x=a. But continuity does NOT imply differentiability.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจความสัมพันธ์ระหว่าง differentiability กับ continuity"
+  },
+  {
+    "id": 92,
+    "question": "Which term names the point where f(x)=0?",
+    "choices": [
+      "A) Crit.pt",
+      "B) Zero",
+      "C) Infl.pt",
+      "D) Asympt."
+    ],
+    "correct": 1,
+    "explanation": "A zero (or root) of f is a value x where f(x) = 0. Not the same as a critical point where f'(x)=0.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ zero/root ระดับ recall"
+  },
+  {
+    "id": 93,
+    "question": "What name is given to a function that cannot be written as y = f(x) explicitly?",
+    "choices": [
+      "A) Explic.",
+      "B) Param.",
+      "C) Impl.",
+      "D) Vector"
+    ],
+    "correct": 2,
+    "explanation": "An implicit function is defined by an equation F(x,y)=0 where y cannot be isolated easily.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก implicit กับ explicit function [ปรับระดับ→3]"
+  },
+  {
+    "id": 94,
+    "question": "Which name is given to the technique: split f(x)/[(x-a)(x-b)] into partial fractions?",
+    "choices": [
+      "A) u-sub",
+      "B) Parts",
+      "C) Partial",
+      "D) Trig."
+    ],
+    "correct": 2,
+    "explanation": "Partial fractions decomposes a rational function into simpler fractions for easier integration.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จัก partial fraction decomposition technique"
+  },
+  {
+    "id": 95,
+    "question": "What is the name of f(x) = f(x+T) for all x?",
+    "choices": [
+      "A) Even",
+      "B) Odd",
+      "C) Periodic",
+      "D) Bounded"
+    ],
+    "correct": 2,
+    "explanation": "A periodic function satisfies f(x+T) = f(x) for all x, where T is the period. sin and cos have period 2*pi.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์ periodic function ระดับ recall"
+  },
+  {
+    "id": 96,
+    "question": "Which term names a trig substitution like x = a*sin(t) to simplify sqrt(a^2-x^2)?",
+    "choices": [
+      "A) u-sub",
+      "B) Parts",
+      "C) Trig.",
+      "D) Partial"
+    ],
+    "correct": 2,
+    "explanation": "Trigonometric substitution uses x = a*sin(t), x = a*tan(t), or x = a*sec(t) to simplify radical expressions.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จัก trig substitution technique ขั้นสูง"
+  },
+  {
+    "id": 97,
+    "question": "What is the name of the test: series converges if |a_(n+1)/a_n| < 1?",
+    "choices": [
+      "A) Root",
+      "B) Ratio",
+      "C) Integral",
+      "D) Compar."
+    ],
+    "correct": 1,
+    "explanation": "The Ratio Test checks convergence of series by computing lim |a_(n+1)/a_n|. If < 1, converges; if > 1, diverges.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จัก Ratio Test ซึ่งเกินขอบเขต Calc 1 เล็กน้อย"
+  },
+  {
+    "id": 98,
+    "question": "Which rule states integral of f(x)+g(x) = integral f + integral g?",
+    "choices": [
+      "A) Const.",
+      "B) Sum",
+      "C) Chain",
+      "D) Power"
+    ],
+    "correct": 1,
+    "explanation": "The Sum Rule for integrals: integral[f(x)+g(x)]dx = integral f(x)dx + integral g(x)dx.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Sum Rule for integration ระดับ recall"
+  },
+  {
+    "id": 99,
+    "question": "Which name describes a function where lim x->a f(x) exists but f(a) is undefined?",
+    "choices": [
+      "A) Cont.",
+      "B) Remov.",
+      "C) Jump",
+      "D) Infty"
+    ],
+    "correct": 1,
+    "explanation": "A removable discontinuity occurs when lim f(x) exists but f(a) is undefined or doesn't equal the limit.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยกประเภท discontinuity ได้"
+  },
+  {
+    "id": 100,
+    "question": "Which term names the anti-chain-rule: integral f'(g(x))*g'(x)dx = f(g(x))+C?",
+    "choices": [
+      "A) Parts",
+      "B) Partial",
+      "C) u-sub",
+      "D) Trig."
+    ],
+    "correct": 2,
+    "explanation": "u-substitution is the integration counterpart of the Chain Rule. Setting u=g(x) transforms the integral to integral f'(u)du.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเชื่อม u-sub กับ reverse Chain Rule [ปรับระดับ→3]"
+  }
+]

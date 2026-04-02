@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "What is the correct ORDER to open, read, and close a file in Python?",
+    "choices": [
+      "A) read -> open -> close",
+      "B) open -> close -> read",
+      "C) open -> read -> close",
+      "D) read -> close -> open"
+    ],
+    "correct": 2,
+    "explanation": "The correct sequence for file handling is: open() the file first to get a file object, then read() the contents, then close() to release the resource.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับขั้นตอนพื้นฐานที่ต้องจำ"
+  },
+  {
+    "id": 2,
+    "question": "When Python evaluates 'if x > 0: ... elif x == 0: ...', which condition is checked FIRST?",
+    "choices": [
+      "A) The elif condition",
+      "B) Both conditions simultaneously",
+      "C) The else condition",
+      "D) The if condition"
+    ],
+    "correct": 3,
+    "explanation": "Python evaluates if/elif/else from top to bottom. The if condition is always checked first. If it is True, the elif block is skipped entirely.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับการทำงาน if/elif/else ขั้นพื้นฐาน"
+  },
+  {
+    "id": 3,
+    "question": "What is the NEXT step after a for loop variable is assigned a value from the iterable?",
+    "choices": [
+      "A) Check loop condition again",
+      "B) Execute the loop body",
+      "C) Increment the index manually",
+      "D) Return to the for line and stop"
+    ],
+    "correct": 1,
+    "explanation": "In a for loop, after the variable is assigned the next value from the iterable, Python immediately executes the loop body (the indented block). Then it moves to the next item.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับการทำงาน for loop ขั้นพื้นฐาน"
+  },
+  {
+    "id": 4,
+    "question": "When a function is called, what happens FIRST before the function body runs?",
+    "choices": [
+      "A) The return value is stored",
+      "B) Arguments are passed and parameters are assigned",
+      "C) Local variables are printed",
+      "D) The function is imported"
+    ],
+    "correct": 1,
+    "explanation": "When a function is called, the arguments provided by the caller are first bound to the function's parameter names. Only then does execution of the function body begin.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ function call sequence [ปรับระดับ→1]"
+  },
+  {
+    "id": 5,
+    "question": "What is the correct sequence when Python encounters a while loop?",
+    "choices": [
+      "A) Execute body -> check condition -> repeat",
+      "B) Check condition -> execute body -> repeat if True",
+      "C) Execute body -> check condition -> stop if False",
+      "D) Check condition -> stop if True -> execute body"
+    ],
+    "correct": 1,
+    "explanation": "A while loop always checks the condition BEFORE executing the body. If the condition is True, the body runs; then the condition is checked again. If False, the loop exits.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจว่า while เช็ค condition ก่อน (ต่างจาก do-while) [ปรับระดับ→1]"
+  },
+  {
+    "id": 6,
+    "question": "When creating an object from a class, what is the NEXT step after calling ClassName()?",
+    "choices": [
+      "A) __str__ is called automatically",
+      "B) All methods are loaded into memory",
+      "C) __init__ is called to initialize the object",
+      "D) The class definition is re-read"
+    ],
+    "correct": 2,
+    "explanation": "After ClassName() is called, Python creates a new instance and immediately calls __init__(self, ...) with any provided arguments to initialize the object's attributes.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ object instantiation sequence และบทบาทของ __init__ [ปรับระดับ→1]"
+  },
+  {
+    "id": 7,
+    "question": "In a try/except block, what happens NEXT after an exception is raised inside try?",
+    "choices": [
+      "A) The program crashes immediately",
+      "B) The rest of the try block is skipped and except runs",
+      "C) The try block restarts from the beginning",
+      "D) Python runs the try block once more before except"
+    ],
+    "correct": 1,
+    "explanation": "When an exception is raised inside a try block, execution immediately jumps to the matching except block. Any remaining statements in the try block are skipped.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ flow control ของ exception handling [ปรับระดับ→1]"
+  },
+  {
+    "id": 8,
+    "question": "When a function returns a value, what is the NEXT thing Python does?",
+    "choices": [
+      "A) Deletes the function from memory",
+      "B) Returns to the caller and continues from the call site",
+      "C) Runs the function again with the returned value",
+      "D) Prints the returned value automatically"
+    ],
+    "correct": 1,
+    "explanation": "When return is executed, the function ends and control passes back to the caller. Execution resumes at the point after the function call, and the returned value is available to the caller.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ call stack และ return flow [ปรับระดับ→1]"
+  },
+  {
+    "id": 9,
+    "question": "What is the correct ORDER of steps when Python evaluates: result = [x*2 for x in range(3)]?",
+    "choices": [
+      "A) Build list -> evaluate range(3) -> assign to result",
+      "B) Eval range -> x*2 -> build list",
+      "C) Assign result=[] -> compute x*2 for all x at once -> fill list",
+      "D) Compute x*2 -> evaluate range(3) -> assign x -> build list"
+    ],
+    "correct": 1,
+    "explanation": "Python evaluates range(3) first to get the iterable, then iterates: assigns x=0 then computes 0*2=0, assigns x=1 then computes 1*2=2, assigns x=2 then computes 2*2=4. The completed list [0,2,4] is then assigned to result.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ list comprehension evaluation order อย่างละเอียด [ปรับระดับ→2]"
+  },
+  {
+    "id": 10,
+    "question": "When using 'with open(file) as f: data = f.read()', what happens AFTER the with block ends?",
+    "choices": [
+      "A) data is deleted from memory",
+      "B) The file is closed automatically by the context manager",
+      "C) Python re-opens the file for verification",
+      "D) f.close() must still be called manually"
+    ],
+    "correct": 1,
+    "explanation": "The with statement uses a context manager. When the with block exits (normally or due to an exception), __exit__ is called automatically, which closes the file. No manual f.close() is needed.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ context manager protocol และ automatic resource cleanup"
+  },
+  {
+    "id": 11,
+    "question": "What is the FIRST thing Python does when it encounters a for loop?",
+    "choices": [
+      "A) Execute the loop body once",
+      "B) Call iter() on the iterable to get an iterator",
+      "C) Check if the list is empty before starting",
+      "D) Assign the loop variable to None"
+    ],
+    "correct": 1,
+    "explanation": "Python calls iter() on the iterable to get an iterator object. Then it repeatedly calls next() on that iterator to get each value.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับแรกของ for loop ขั้นพื้นฐาน"
+  },
+  {
+    "id": 12,
+    "question": "What is the correct ORDER when Python runs 'import math'?",
+    "choices": [
+      "A) Run math code -> load module -> bind name",
+      "B) Bind name math -> load module -> execute",
+      "C) Find module -> load and execute it -> bind name math",
+      "D) Check sys.path -> bind name -> execute math"
+    ],
+    "correct": 2,
+    "explanation": "Python finds the module file, loads and executes its code to build the module object, then binds the name 'math' to that object in the current namespace.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับ import statement พื้นฐาน"
+  },
+  {
+    "id": 13,
+    "question": "In a recursive function, what is checked FIRST on each call?",
+    "choices": [
+      "A) The recursive call is made immediately",
+      "B) The base case condition",
+      "C) The function parameters are printed",
+      "D) The stack depth is checked automatically"
+    ],
+    "correct": 1,
+    "explanation": "Every recursive function must check the base case first. If the base case is met, it returns without recursing. Otherwise it makes the recursive call.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "หลักการ recursion ขั้นพื้นฐาน"
+  },
+  {
+    "id": 14,
+    "question": "What happens FIRST when Python evaluates 'x = 5 + 3'?",
+    "choices": [
+      "A) Assign 5 to x, then add 3",
+      "B) Store x in memory, then compute",
+      "C) Evaluate the right-hand side (5 + 3)",
+      "D) Create variable x, then evaluate"
+    ],
+    "correct": 2,
+    "explanation": "Python evaluates the right-hand side expression (5 + 3 = 8) first, then assigns the result to the variable x.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับการประมวลผล assignment พื้นฐาน"
+  },
+  {
+    "id": 15,
+    "question": "What is the correct ORDER of steps when calling print('hello')?",
+    "choices": [
+      "A) Send to screen -> evaluate argument -> call print",
+      "B) Call print -> evaluate 'hello' -> output",
+      "C) Evaluate 'hello' -> pass to print -> output to screen",
+      "D) Output to screen -> pass argument -> call print"
+    ],
+    "correct": 2,
+    "explanation": "Python first evaluates the argument ('hello' is already a string literal), then passes it to print(), which writes it to stdout.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับการทำงานของ function call พื้นฐาน"
+  },
+  {
+    "id": 16,
+    "question": "When 'if x > 0' is True, what happens to the elif and else blocks?",
+    "choices": [
+      "A) They are still evaluated for safety",
+      "B) elif runs but else is skipped",
+      "C) They are both skipped entirely",
+      "D) else runs after if completes"
+    ],
+    "correct": 2,
+    "explanation": "Once an if condition is True and its block executes, all subsequent elif and else blocks are skipped. Python's if/elif/else is mutually exclusive.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลักษณะ mutually exclusive ของ if/elif/else"
+  },
+  {
+    "id": 17,
+    "question": "What is the NEXT step after a for loop exhausts all items?",
+    "choices": [
+      "A) Raise StopIteration error to user",
+      "B) Restart from the first item",
+      "C) Execute the else block if present, then continue",
+      "D) Crash with IndexError"
+    ],
+    "correct": 2,
+    "explanation": "When the iterator is exhausted, the for loop ends. If an else clause is present, it runs. Then execution continues with code after the loop.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ for...else construct และลำดับหลัง loop สิ้นสุด [ปรับระดับ→1]"
+  },
+  {
+    "id": 18,
+    "question": "What is the FIRST step when a list comprehension [f(x) for x in lst if cond] is evaluated?",
+    "choices": [
+      "A) Compute f(x) for all elements first",
+      "B) Evaluate lst to get the iterable",
+      "C) Check the if condition for all elements",
+      "D) Create an empty result list"
+    ],
+    "correct": 1,
+    "explanation": "Python first evaluates the iterable expression (lst) to get the source sequence. Then it iterates, checking the condition and computing f(x) for each passing item.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ evaluation order ของ list comprehension [ปรับระดับ→1]"
+  },
+  {
+    "id": 19,
+    "question": "What happens NEXT after 'break' executes inside a for loop?",
+    "choices": [
+      "A) The current iteration completes, then loop stops",
+      "B) The loop body restarts from the top",
+      "C) The loop exits immediately and skips its else block",
+      "D) Python jumps to the next elif"
+    ],
+    "correct": 2,
+    "explanation": "break immediately exits the loop. Importantly, if the loop has an else clause, that else block is NOT executed when break is used.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ว่า break ข้าม else block ของ loop [ปรับระดับ→1]"
+  },
+  {
+    "id": 20,
+    "question": "What is the correct ORDER when Python imports a module with 'from math import sqrt'?",
+    "choices": [
+      "A) Load math -> bind 'sqrt' name -> execute math",
+      "B) Bind sqrt -> load math -> find module",
+      "C) Find and load math module -> extract sqrt -> bind name",
+      "D) Extract sqrt -> find module -> load module"
+    ],
+    "correct": 2,
+    "explanation": "Python finds and loads the math module (executing it), then looks up 'sqrt' in the module's namespace and binds that specific name in the current namespace.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ from...import vs import module [ปรับระดับ→1]"
+  },
+  {
+    "id": 21,
+    "question": "When 'continue' runs inside a while loop, what is the NEXT step?",
+    "choices": [
+      "A) Exit the while loop entirely",
+      "B) Execute the else block",
+      "C) Re-check the while condition",
+      "D) Skip to the next function"
+    ],
+    "correct": 2,
+    "explanation": "continue skips the rest of the current loop iteration and goes back to check the while condition. If True, the body runs again.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ continue flow ใน while loop [ปรับระดับ→1]"
+  },
+  {
+    "id": 22,
+    "question": "What happens FIRST when Python defines a function with 'def f(): ...'?",
+    "choices": [
+      "A) The function body is executed immediately",
+      "B) A function object is created and bound to name f",
+      "C) Python checks syntax of the body",
+      "D) Arguments are reserved in memory"
+    ],
+    "correct": 1,
+    "explanation": "When Python encounters a def statement, it creates a function object (compiling the body to bytecode) and binds it to the name f. The body does NOT execute yet.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจว่า def สร้าง object ไม่ใช่ execute [ปรับระดับ→1]"
+  },
+  {
+    "id": 23,
+    "question": "What is the ORDER of execution in try/except/finally when NO exception occurs?",
+    "choices": [
+      "A) try -> finally -> except",
+      "B) except -> try -> finally",
+      "C) try -> except -> finally",
+      "D) try body -> finally (except skipped)"
+    ],
+    "correct": 3,
+    "explanation": "When no exception occurs: the try body runs completely, the except block is skipped, and finally always runs at the end.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ try/except/finally flow เมื่อไม่เกิด exception"
+  },
+  {
+    "id": 24,
+    "question": "What is the FIRST step in evaluating 'result = func(a + b)'?",
+    "choices": [
+      "A) Call func, then evaluate a + b",
+      "B) Bind result, then call func",
+      "C) Evaluate a + b, then pass to func",
+      "D) Look up func name, then bind result"
+    ],
+    "correct": 2,
+    "explanation": "Python evaluates all arguments before making the function call. So a + b is computed first, then the result is passed to func().",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ argument evaluation order"
+  },
+  {
+    "id": 25,
+    "question": "When does the else block of a while loop execute?",
+    "choices": [
+      "A) When the loop body never executes",
+      "B) After every loop iteration",
+      "C) When break is used to exit the loop",
+      "D) When the condition becomes False naturally"
+    ],
+    "correct": 3,
+    "explanation": "The else clause of a while loop runs when the condition becomes False (loop ends normally). It is skipped if break is used.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "while...else construct ที่หลายคนไม่รู้จัก"
+  },
+  {
+    "id": 26,
+    "question": "What is the NEXT step after list.append(x) is called?",
+    "choices": [
+      "A) A new list is returned with x added",
+      "B) x is inserted at index 0",
+      "C) The original list is modified in place, returns None",
+      "D) x is checked for duplicates first"
+    ],
+    "correct": 2,
+    "explanation": "list.append() modifies the list in place by adding x at the end. It returns None, not a new list.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า append() modifies in place และ return None"
+  },
+  {
+    "id": 27,
+    "question": "What is the correct ORDER when Python evaluates 'a and b'?",
+    "choices": [
+      "A) Evaluate b first, then a",
+      "B) Evaluate both simultaneously",
+      "C) Evaluate a; if False return a without evaluating b",
+      "D) Evaluate a and b, then apply AND"
+    ],
+    "correct": 2,
+    "explanation": "Python uses short-circuit evaluation. For 'a and b', if a is falsy, Python returns a immediately without evaluating b.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ short-circuit evaluation"
+  },
+  {
+    "id": 28,
+    "question": "What is the FIRST step when Python runs a script file?",
+    "choices": [
+      "A) Execute all function definitions",
+      "B) Check all variable names for errors",
+      "C) Compile source code to bytecode",
+      "D) Load all imports simultaneously"
+    ],
+    "correct": 2,
+    "explanation": "Python first compiles the source code to bytecode (.pyc). This compilation phase catches SyntaxErrors. Then the bytecode is executed by the Python virtual machine.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับการทำงานของ Python interpreter"
+  },
+  {
+    "id": 29,
+    "question": "What is the correct ORDER for a recursive factorial(n) call when n > 0?",
+    "choices": [
+      "A) Return n -> call factorial(n-1) -> multiply",
+      "B) Call factorial(n-1) -> wait for result -> multiply by n",
+      "C) Multiply n * (n-1) -> recurse -> return",
+      "D) Check n==0 -> return n -> recurse"
+    ],
+    "correct": 1,
+    "explanation": "When n > 0: Python calls factorial(n-1) (pushing to call stack), waits for it to return, then multiplies that result by n and returns.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ recursive call stack order"
+  },
+  {
+    "id": 30,
+    "question": "What happens NEXT when Python encounters 'raise ValueError(\"bad\")'?",
+    "choices": [
+      "A) Program prints the message and continues",
+      "B) ValueError is logged and ignored",
+      "C) Execution stops and unwinds the call stack looking for except",
+      "D) Python restarts the current function"
+    ],
+    "correct": 2,
+    "explanation": "raise creates the exception object and begins unwinding the call stack, looking for a matching except clause. If none is found, the program terminates with a traceback.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ exception propagation"
+  },
+  {
+    "id": 31,
+    "question": "What is the FIRST step when Python executes a class definition?",
+    "choices": [
+      "A) Create instances for each method",
+      "B) Execute the class body to build the namespace",
+      "C) Call __init__ with default values",
+      "D) Import all required base classes"
+    ],
+    "correct": 1,
+    "explanation": "When Python executes a class statement, it runs the class body in a fresh namespace, collecting all defined attributes and methods. Then it creates a class object from that namespace.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ class definition execution"
+  },
+  {
+    "id": 32,
+    "question": "What is the NEXT step after 'except ValueError as e:' catches an exception?",
+    "choices": [
+      "A) Re-raise the exception automatically",
+      "B) Skip to finally, ignoring the except body",
+      "C) Execute the except block body with e bound to exception",
+      "D) Return None from the current function"
+    ],
+    "correct": 2,
+    "explanation": "The caught exception is bound to the name e, and the except block body executes. After the except block completes, execution continues after the entire try/except structure.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ exception binding และ execution flow"
+  },
+  {
+    "id": 33,
+    "question": "In a list comprehension [x for x in lst if x > 0], what is evaluated FOR EACH item?",
+    "choices": [
+      "A) x is appended, then condition checked",
+      "B) x is computed, then filtered",
+      "C) Condition is checked first, then x added if True",
+      "D) All items collected, then filtered at the end"
+    ],
+    "correct": 2,
+    "explanation": "For each item x in lst, Python first evaluates the condition (x > 0). If True, x is added to the result list. If False, it is skipped.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ filter evaluation order ใน comprehension"
+  },
+  {
+    "id": 34,
+    "question": "What is the correct ORDER when sorting a list with list.sort()?",
+    "choices": [
+      "A) Return new list -> sort elements -> assign",
+      "B) Copy list -> sort copy -> return copy",
+      "C) Sort elements in place -> return None",
+      "D) Sort elements -> return sorted list"
+    ],
+    "correct": 2,
+    "explanation": "list.sort() sorts the list in place (modifies the original) and returns None. To get a new sorted list, use sorted() instead.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก list.sort() กับ sorted() ให้ถูก"
+  },
+  {
+    "id": 35,
+    "question": "What is the FIRST thing Python checks when evaluating 'a or b'?",
+    "choices": [
+      "A) Evaluates b and returns it if truthy",
+      "B) Evaluates both a and b, then applies OR",
+      "C) Evaluates a; if truthy returns a without checking b",
+      "D) Checks type compatibility of a and b"
+    ],
+    "correct": 2,
+    "explanation": "Short-circuit evaluation: Python evaluates a first. If a is truthy, it returns a immediately without evaluating b.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "short-circuit evaluation ของ or operator"
+  },
+  {
+    "id": 36,
+    "question": "What is the NEXT step after __init__ finishes running?",
+    "choices": [
+      "A) The class definition is reloaded",
+      "B) The new instance is returned to the caller",
+      "C) __str__ is called to display the object",
+      "D) All attributes are validated automatically"
+    ],
+    "correct": 1,
+    "explanation": "After __init__ completes setting up the object's attributes, the new instance is returned to wherever ClassName() was called.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ object creation ครบวงจร"
+  },
+  {
+    "id": 37,
+    "question": "What is the correct ORDER when Python opens a file with 'open(fname, \"w\")'?",
+    "choices": [
+      "A) Read existing content -> open -> return handle",
+      "B) Return handle -> create file -> set mode",
+      "C) Locate or create file -> set write mode -> return file object",
+      "D) Write empty string -> locate file -> return handle"
+    ],
+    "correct": 2,
+    "explanation": "Python locates the file (creating it if needed for 'w' mode), sets the write mode (truncating existing content), and returns a file object for writing.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ file open modes และลำดับ"
+  },
+  {
+    "id": 38,
+    "question": "When does finally run relative to a return statement inside try?",
+    "choices": [
+      "A) finally is skipped when return is in try",
+      "B) finally runs before the function actually returns",
+      "C) finally runs after the function returns to caller",
+      "D) return cancels finally execution"
+    ],
+    "correct": 1,
+    "explanation": "Even when return is executed inside try, finally runs before the function actually returns to the caller. The return value is temporarily held while finally executes.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ interaction ระหว่าง return และ finally"
+  },
+  {
+    "id": 39,
+    "question": "What is the correct ORDER for Python to resolve a name like 'x' in a function?",
+    "choices": [
+      "A) Built-in -> global -> enclosing -> local",
+      "B) Global -> local -> enclosing -> built-in",
+      "C) Local -> enclosing -> global -> built-in",
+      "D) Enclosing -> local -> global -> built-in"
+    ],
+    "correct": 2,
+    "explanation": "Python uses LEGB rule: Local first, then Enclosing (closures), then Global, then Built-in. This is the name lookup order.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "LEGB scoping rule ต้องจำลำดับให้ถูก"
+  },
+  {
+    "id": 40,
+    "question": "What happens FIRST when a generator function is called (not iterated)?",
+    "choices": [
+      "A) The function body runs until the first yield",
+      "B) A generator object is returned without running the body",
+      "C) All values are computed and stored",
+      "D) The function raises StopIteration"
+    ],
+    "correct": 1,
+    "explanation": "Calling a generator function returns a generator object immediately without executing any of the function body. The body runs lazily when next() is called.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "generator lazy execution ต้องเข้าใจ"
+  },
+  {
+    "id": 41,
+    "question": "What is the NEXT step after 'next()' is called on a generator?",
+    "choices": [
+      "A) Function restarts from the beginning",
+      "B) Body runs from where it last paused until the next yield",
+      "C) All remaining values are computed at once",
+      "D) Generator is closed automatically"
+    ],
+    "correct": 1,
+    "explanation": "When next() is called, the generator resumes execution from where it was paused (after the last yield), runs until the next yield, and returns that yielded value.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "generator execution model ซับซ้อน"
+  },
+  {
+    "id": 42,
+    "question": "What is the FIRST step when Python evaluates a dict comprehension {k: v for k, v in items}?",
+    "choices": [
+      "A) Create an empty dict, then fill it",
+      "B) Evaluate items to get the iterable",
+      "C) Compute all values first, then all keys",
+      "D) Check for duplicate keys first"
+    ],
+    "correct": 1,
+    "explanation": "Like list comprehensions, Python evaluates the iterable expression (items) first. Then it iterates, unpacking each (k, v) pair and building the dict.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "dict comprehension evaluation order"
+  },
+  {
+    "id": 43,
+    "question": "What is the correct ORDER when calling a method on an object: obj.method(arg)?",
+    "choices": [
+      "A) Look up method -> pass obj as self -> execute body",
+      "B) Pass arg -> look up method -> bind self",
+      "C) Execute body -> look up method -> bind self",
+      "D) Bind arg to method -> pass obj -> execute"
+    ],
+    "correct": 0,
+    "explanation": "Python looks up 'method' in obj's class, then calls it with obj automatically passed as the first argument (self), plus any additional arguments.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ method binding และ self passing"
+  },
+  {
+    "id": 44,
+    "question": "What is the NEXT step after a while loop condition evaluates to False?",
+    "choices": [
+      "A) Loop body runs one final time",
+      "B) Raise StopIteration exception",
+      "C) Execute else block if present, then exit loop",
+      "D) Jump back to the top of the loop"
+    ],
+    "correct": 2,
+    "explanation": "When the while condition is False, the loop ends. If there is an else clause, it runs. Then execution continues with the code after the loop.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ while...else construct"
+  },
+  {
+    "id": 45,
+    "question": "What is the correct ORDER when Python unpacks 'a, b = (1, 2)'?",
+    "choices": [
+      "A) Assign a=1 -> then assign b=2 sequentially",
+      "B) Evaluate right side -> bind a and b simultaneously",
+      "C) Create a -> create b -> evaluate tuple",
+      "D) Check types -> bind a=1 -> bind b=2"
+    ],
+    "correct": 1,
+    "explanation": "Python evaluates the right-hand side first to get the tuple (1, 2), then simultaneously binds a=1 and b=2. This enables the classic swap: a, b = b, a.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "tuple unpacking evaluation order"
+  },
+  {
+    "id": 46,
+    "question": "What is the NEXT step after 'list.sort()' completes?",
+    "choices": [
+      "A) Returns the sorted list",
+      "B) The original list is now sorted; None is returned",
+      "C) A copy of the sorted list is created",
+      "D) The list is converted to a tuple"
+    ],
+    "correct": 1,
+    "explanation": "list.sort() modifies the list in place and returns None. The original list object is now sorted.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "in-place sort ต้องรู้ return value"
+  },
+  {
+    "id": 47,
+    "question": "What is the FIRST step when Python evaluates 'not x'?",
+    "choices": [
+      "A) Convert x to string, then negate",
+      "B) Evaluate x, then return its boolean opposite",
+      "C) Check if x is None first",
+      "D) Return False without evaluating x"
+    ],
+    "correct": 1,
+    "explanation": "Python evaluates x to get its value, converts it to bool if necessary, then returns the boolean opposite (True becomes False and vice versa).",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "not operator evaluation พื้นฐาน"
+  },
+  {
+    "id": 48,
+    "question": "What is the correct ORDER when str.split(',') is called on 'a,b,c'?",
+    "choices": [
+      "A) Return list -> find commas -> split at commas",
+      "B) Scan string for commas -> split at each -> return list",
+      "C) Count commas -> allocate list -> fill with substrings",
+      "D) Copy string -> remove commas -> split evenly"
+    ],
+    "correct": 1,
+    "explanation": "split() scans the string for the delimiter (','), splits at each occurrence, and returns a list of the substrings between delimiters.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ split() process"
+  },
+  {
+    "id": 49,
+    "question": "What is the NEXT step after dict[key] raises a KeyError?",
+    "choices": [
+      "A) Python returns None automatically",
+      "B) The dict is searched again with a default",
+      "C) KeyError propagates up the call stack",
+      "D) The key is added to the dict with value None"
+    ],
+    "correct": 2,
+    "explanation": "KeyError is an exception. It propagates up the call stack until caught by an except block, or terminates the program with a traceback.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ exception propagation"
+  },
+  {
+    "id": 50,
+    "question": "What is the correct ORDER when 'enumerate(lst)' is used in a for loop?",
+    "choices": [
+      "A) Count items -> pair with values -> iterate",
+      "B) Iterate index from 0 -> pair each with lst item -> yield tuple",
+      "C) Convert lst to dict -> iterate dict items",
+      "D) Compute length -> generate index list -> zip with lst"
+    ],
+    "correct": 1,
+    "explanation": "enumerate wraps the iterator, yielding (index, value) tuples. Starting from index 0, each next() call returns the next (count, item) pair.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ enumerate iteration process"
+  },
+  {
+    "id": 51,
+    "question": "What is the FIRST step when Python evaluates 'len(s)' for a string s?",
+    "choices": [
+      "A) Count characters by iterating through s",
+      "B) Look up the __len__ method on s and call it",
+      "C) Convert s to a list, then count",
+      "D) Check if s is None first"
+    ],
+    "correct": 1,
+    "explanation": "len() calls the __len__ special method on the object. For strings, this returns the stored character count efficiently without iterating.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ dunder method protocol"
+  },
+  {
+    "id": 52,
+    "question": "What is the correct ORDER when 'f-string' f'{x+1}' is evaluated?",
+    "choices": [
+      "A) Build string template -> evaluate x+1 -> insert",
+      "B) Evaluate expression x+1 -> convert to str -> embed in string",
+      "C) Parse braces -> store expression -> evaluate at print time",
+      "D) Copy string -> replace {x+1} with x, then add 1"
+    ],
+    "correct": 1,
+    "explanation": "Python evaluates the expression inside the braces (x+1), converts the result to a string, then embeds it into the surrounding string template.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "f-string evaluation order"
+  },
+  {
+    "id": 53,
+    "question": "What is the NEXT step after 'list.pop()' is called on a non-empty list?",
+    "choices": [
+      "A) The list is cleared entirely",
+      "B) Last element is removed from list and returned",
+      "C) None is returned; list is modified",
+      "D) A copy of the last element is returned; list unchanged"
+    ],
+    "correct": 1,
+    "explanation": "pop() removes the last element from the list (modifying it in place) and returns that element's value.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "list pop() behavior พื้นฐาน"
+  },
+  {
+    "id": 54,
+    "question": "What happens FIRST when Python encounters an 'elif' clause?",
+    "choices": [
+      "A) It always evaluates the elif condition",
+      "B) It checks if all previous if/elif conditions were False",
+      "C) It checks if the previous if was True",
+      "D) It skips to else directly"
+    ],
+    "correct": 1,
+    "explanation": "Python only evaluates an elif condition if all preceding if/elif conditions were False. If any previous branch was True, this elif is skipped.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "elif evaluation precondition"
+  },
+  {
+    "id": 55,
+    "question": "What is the correct ORDER when 'zip(a, b)' is used in iteration?",
+    "choices": [
+      "A) Concatenate a and b -> iterate pairs",
+      "B) Compute all pairs -> store list -> iterate",
+      "C) Lazily yield (a[i], b[i]) pairs on each next() call",
+      "D) Convert both to lists -> pair by index -> return"
+    ],
+    "correct": 2,
+    "explanation": "zip() returns a lazy iterator. On each next() call, it calls next() on both iterators and yields a tuple of the current pair.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "zip() lazy iteration behavior"
+  },
+  {
+    "id": 56,
+    "question": "What is the NEXT step when a recursive call hits the base case?",
+    "choices": [
+      "A) The entire recursion restarts from the first call",
+      "B) Returns a value, and the call stack begins unwinding",
+      "C) Python continues to recurse one more level",
+      "D) The function prints its return value"
+    ],
+    "correct": 1,
+    "explanation": "When the base case is reached, the function returns its value. The call stack then unwinds: each waiting caller receives the returned value and completes its own computation.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ call stack unwinding"
+  },
+  {
+    "id": 57,
+    "question": "What is the FIRST step when 'dict.update(other)' is called?",
+    "choices": [
+      "A) Create a new merged dict and return it",
+      "B) Clear the original dict first",
+      "C) Iterate over other's key-value pairs",
+      "D) Check for type compatibility"
+    ],
+    "correct": 2,
+    "explanation": "dict.update() iterates over the other dict's key-value pairs and adds/overwrites them in the original dict in place.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ dict update process"
+  },
+  {
+    "id": 58,
+    "question": "What is the correct ORDER when Python evaluates a default argument 'def f(x=[])'?",
+    "choices": [
+      "A) Default created fresh on each function call",
+      "B) Default [] is evaluated once at function definition time",
+      "C) Default is evaluated when first called",
+      "D) Default is checked at runtime each call"
+    ],
+    "correct": 1,
+    "explanation": "Default argument values are evaluated ONCE when the def statement is executed, not each time the function is called. This is the mutable default argument gotcha.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "mutable default argument gotcha ที่สำคัญมาก"
+  },
+  {
+    "id": 59,
+    "question": "What is the correct ORDER when 'map(f, lst)' is iterated?",
+    "choices": [
+      "A) Apply f to all items first, store results, then iterate",
+      "B) Convert lst to set -> apply f -> iterate",
+      "C) Lazily apply f to each item as next() is called",
+      "D) Apply f once to the whole list"
+    ],
+    "correct": 2,
+    "explanation": "map() returns a lazy iterator. Each time next() is called, it calls f on the next item from lst and returns the result. Nothing is computed upfront.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ map() lazy evaluation"
+  },
+  {
+    "id": 60,
+    "question": "What is the FIRST step when Python sees 'x += 1' (augmented assignment)?",
+    "choices": [
+      "A) Increment x without looking it up",
+      "B) Look up current value of x, add 1, rebind x",
+      "C) Create a new variable x+1",
+      "D) Check if x is defined globally first"
+    ],
+    "correct": 1,
+    "explanation": "x += 1 is equivalent to x = x + 1. Python looks up x's current value, adds 1, and rebinds x to the new value.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "augmented assignment evaluation order"
+  },
+  {
+    "id": 61,
+    "question": "What is the NEXT step after 'str.strip()' completes?",
+    "choices": [
+      "A) The original string is modified in place",
+      "B) A new string with stripped whitespace is returned",
+      "C) Whitespace count is returned",
+      "D) None is returned; original string changed"
+    ],
+    "correct": 1,
+    "explanation": "Strings are immutable. strip() returns a NEW string with leading/trailing whitespace removed. The original string is unchanged.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string immutability"
+  },
+  {
+    "id": 62,
+    "question": "What is the correct ORDER when Python evaluates 'x if cond else y'?",
+    "choices": [
+      "A) Evaluate x -> evaluate y -> check cond",
+      "B) Check cond -> evaluate x if True, else evaluate y",
+      "C) Evaluate both x and y -> choose based on cond",
+      "D) Evaluate cond -> evaluate x -> evaluate y"
+    ],
+    "correct": 1,
+    "explanation": "In a ternary expression, Python evaluates cond first. If True, only x is evaluated and returned. If False, only y is evaluated and returned.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ternary expression evaluation order"
+  },
+  {
+    "id": 63,
+    "question": "What is the FIRST step when Python runs 'for k, v in d.items()'?",
+    "choices": [
+      "A) Convert d to a list of tuples first",
+      "B) Call d.items() to get a dict_items view",
+      "C) Sort the dict keys before iterating",
+      "D) Copy all key-value pairs to a new dict"
+    ],
+    "correct": 1,
+    "explanation": "d.items() is called first, returning a dict_items view object. The for loop then iterates over it, unpacking each (key, value) tuple.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลำดับ dict.items() iteration"
+  },
+  {
+    "id": 64,
+    "question": "What is the correct ORDER when Python executes 'super().__init__()'?",
+    "choices": [
+      "A) Run child __init__ -> then parent __init__",
+      "B) Look up parent class -> call its __init__ with self",
+      "C) Create new parent instance -> merge with child",
+      "D) Skip child __init__ and run parent __init__ only"
+    ],
+    "correct": 1,
+    "explanation": "super() returns a proxy to the parent class. Calling __init__() on it invokes the parent's __init__ with the child's self, initializing inherited attributes.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "super() call mechanics ใน OOP"
+  },
+  {
+    "id": 65,
+    "question": "What happens NEXT when StopIteration is raised inside a for loop?",
+    "choices": [
+      "A) The exception propagates to the user",
+      "B) The for loop catches it and terminates cleanly",
+      "C) The loop restarts from the beginning",
+      "D) Python skips to the except block"
+    ],
+    "correct": 1,
+    "explanation": "A for loop is designed to catch StopIteration internally. When the iterator raises it, the for loop terminates normally without propagating the exception.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ iterator protocol และ StopIteration"
+  },
+  {
+    "id": 66,
+    "question": "What is the correct ORDER when Python executes 'a = b = 5'?",
+    "choices": [
+      "A) Assign b=5 -> then assign a=b",
+      "B) Evaluate 5 -> assign to b -> assign to a",
+      "C) Create a and b -> evaluate 5 -> assign simultaneously",
+      "D) Evaluate 5 -> assign to a -> copy a to b"
+    ],
+    "correct": 1,
+    "explanation": "Python evaluates the rightmost value (5) once, then assigns from right to left: first b=5, then a=5. Both names point to the same object.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "chained assignment evaluation order"
+  },
+  {
+    "id": 67,
+    "question": "What is the FIRST step when 'isinstance(obj, cls)' is evaluated?",
+    "choices": [
+      "A) Check if obj equals an instance of cls",
+      "B) Look up obj's __class__ and check against cls MRO",
+      "C) Create a temporary cls instance to compare",
+      "D) Call cls.__init__ with obj's attributes"
+    ],
+    "correct": 1,
+    "explanation": "isinstance() checks obj's type against cls and its parent classes (using the MRO). It returns True if obj is an instance of cls or any subclass.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ MRO และ isinstance mechanism"
+  },
+  {
+    "id": 68,
+    "question": "What is the correct ORDER when Python handles 'try: ... except: ... finally: ...' with an exception?",
+    "choices": [
+      "A) try -> finally -> except",
+      "B) try (exception) -> except body -> finally",
+      "C) try (exception) -> finally -> except",
+      "D) except -> try -> finally"
+    ],
+    "correct": 1,
+    "explanation": "When an exception occurs: try runs until exception, then except body handles it, then finally always runs. Order: try (partial) → except → finally.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "try/except/finally order กรณีมี exception"
+  },
+  {
+    "id": 69,
+    "question": "What is the NEXT step after 'import numpy as np' succeeds?",
+    "choices": [
+      "A) numpy is added to sys.modules; name np is bound",
+      "B) Only np name is bound; numpy not tracked",
+      "C) All numpy functions are loaded into global scope",
+      "D) numpy is executed again on first np.array() call"
+    ],
+    "correct": 0,
+    "explanation": "After import, the module is added to sys.modules (cached for future imports) and the alias 'np' is bound in the current namespace.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ sys.modules caching และ import binding"
+  },
+  {
+    "id": 70,
+    "question": "What is the correct ORDER when Python evaluates nested list comprehension [[x for x in row] for row in matrix]?",
+    "choices": [
+      "A) Evaluate all inner comprehensions first simultaneously",
+      "B) Iterate outer (row in matrix) -> for each row evaluate inner",
+      "C) Build all inner lists -> then assign to outer",
+      "D) Flatten matrix first -> then apply comprehension"
+    ],
+    "correct": 1,
+    "explanation": "The outer for loop iterates first. For each row, the inner list comprehension is evaluated completely, producing a list. These inner lists are collected into the outer list.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "nested comprehension evaluation order ซับซ้อน"
+  },
+  {
+    "id": 71,
+    "question": "What is the FIRST step when Python evaluates 'a == b'?",
+    "choices": [
+      "A) Check if a and b are the same object (identity)",
+      "B) Call a.__eq__(b) to get the result",
+      "C) Compare memory addresses of a and b",
+      "D) Convert both to string and compare"
+    ],
+    "correct": 1,
+    "explanation": "The == operator calls a.__eq__(b). If that returns NotImplemented, Python tries b.__eq__(a). This allows custom equality for user-defined classes.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ == dunder method protocol"
+  },
+  {
+    "id": 72,
+    "question": "What is the correct ORDER when using 'filter(pred, lst)'?",
+    "choices": [
+      "A) Remove all items -> add back only passing items",
+      "B) Lazily yield items where pred(item) is True on each next()",
+      "C) Apply pred to all items upfront, then return passing items",
+      "D) Sort lst -> apply pred -> return list"
+    ],
+    "correct": 1,
+    "explanation": "filter() is lazy. On each next() call, it advances through lst, applying pred to each item, and yields the first item where pred returns True.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "filter() lazy evaluation behavior"
+  },
+  {
+    "id": 73,
+    "question": "What happens NEXT when a function is called with too many positional arguments?",
+    "choices": [
+      "A) Extra arguments are ignored silently",
+      "B) Extra arguments are stored in a list",
+      "C) TypeError is raised immediately",
+      "D) Python uses defaults for the extra positions"
+    ],
+    "correct": 2,
+    "explanation": "Python immediately raises TypeError with a message like 'takes N positional arguments but M were given' when argument count does not match.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "argument mismatch error handling"
+  },
+  {
+    "id": 74,
+    "question": "What is the FIRST step when Python creates a new set {1, 2, 3}?",
+    "choices": [
+      "A) Sort the elements, then store",
+      "B) Evaluate each element and hash them into a hash table",
+      "C) Convert to list, remove duplicates, then store",
+      "D) Check all elements are the same type"
+    ],
+    "correct": 1,
+    "explanation": "Sets use a hash table internally. Python evaluates each element, computes its hash, and stores it in the hash table (automatically handling duplicates).",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ set internal hash table"
+  },
+  {
+    "id": 75,
+    "question": "What is the correct ORDER when Python processes 'try: risky() except TypeError: handle()'?",
+    "choices": [
+      "A) Check type -> call risky -> handle if needed",
+      "B) Call risky() -> if TypeError raised -> call handle()",
+      "C) Call handle() -> then try risky()",
+      "D) Evaluate TypeError class -> call risky -> check result"
+    ],
+    "correct": 1,
+    "explanation": "Python calls risky(). If a TypeError is raised during execution, control transfers to the except block and handle() is called. If no exception, handle() is skipped.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "try/except flow พื้นฐาน"
+  },
+  {
+    "id": 76,
+    "question": "What is the NEXT step after 'dict.pop(key)' is called?",
+    "choices": [
+      "A) Key-value pair is removed and value is returned",
+      "B) Key is removed but value is kept",
+      "C) None is returned; key remains in dict",
+      "D) A new dict without the key is returned"
+    ],
+    "correct": 0,
+    "explanation": "dict.pop(key) removes the key-value pair from the dict and returns the associated value. If key not found, raises KeyError (or returns default if provided).",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ dict.pop() return value"
+  },
+  {
+    "id": 77,
+    "question": "What is the FIRST step in Python's 'for x in range(0, 10, 2)' iteration?",
+    "choices": [
+      "A) Generate list [0,2,4,6,8] upfront",
+      "B) Create a range object with start=0 stop=10 step=2",
+      "C) Compute all values and store in memory",
+      "D) Convert range to tuple first"
+    ],
+    "correct": 1,
+    "explanation": "range() creates a range object (not a list) that knows start, stop, and step. Values are computed lazily on demand, saving memory.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "range() lazy object creation"
+  },
+  {
+    "id": 78,
+    "question": "What is the correct ORDER when 'sorted(lst, key=f)' is called?",
+    "choices": [
+      "A) Sort lst -> apply f to result -> return",
+      "B) Apply f to all items -> sort by key values -> return new list",
+      "C) Return lst -> apply f -> sort in place",
+      "D) Copy lst -> sort original -> apply f to copy"
+    ],
+    "correct": 1,
+    "explanation": "sorted() applies the key function to each element to get sort keys, sorts elements by those keys, and returns a new sorted list. The original is unchanged.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ key function in sorting"
+  },
+  {
+    "id": 79,
+    "question": "What is the FIRST step when Python evaluates '3 < x < 10'?",
+    "choices": [
+      "A) Evaluate (3 < x) and (x < 10) simultaneously",
+      "B) Evaluate 3 < x first; if False, skip x < 10",
+      "C) Convert to (3 < x) and (x < 10) with short-circuit",
+      "D) Check x type before comparing"
+    ],
+    "correct": 2,
+    "explanation": "Python chained comparisons use short-circuit evaluation. 3 < x < 10 is evaluated as (3 < x) and (x < 10). x is evaluated once; if 3 < x is False, x < 10 is skipped.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "chained comparison evaluation ซับซ้อน"
+  },
+  {
+    "id": 80,
+    "question": "What happens NEXT after a with block raises an exception?",
+    "choices": [
+      "A) Exception is silently suppressed",
+      "B) __exit__ is called with exception info, then exception propagates",
+      "C) __exit__ is skipped; exception propagates immediately",
+      "D) The with block retries automatically"
+    ],
+    "correct": 1,
+    "explanation": "When an exception occurs in a with block, __exit__(exc_type, exc_val, tb) is called. If __exit__ returns True, the exception is suppressed; otherwise it propagates.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "context manager exception handling mechanism"
+  },
+  {
+    "id": 81,
+    "question": "What is the correct ORDER when Python runs 'class B(A): pass'?",
+    "choices": [
+      "A) Create B instance -> inherit A methods -> bind B",
+      "B) Locate A -> execute B body -> create B class object -> bind B",
+      "C) Bind B name -> locate A -> execute B body",
+      "D) Copy A's methods to B -> execute B body -> bind B"
+    ],
+    "correct": 1,
+    "explanation": "Python first resolves A (the base class), executes the body of B (empty here, using pass), creates the B class object inheriting from A, and binds the name B.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "class definition with inheritance order"
+  },
+  {
+    "id": 82,
+    "question": "What is the NEXT step after 'list.extend(iterable)' completes?",
+    "choices": [
+      "A) A new combined list is returned",
+      "B) Original list is modified in place; None returned",
+      "C) iterable is cleared after extending",
+      "D) Original list is cleared and replaced"
+    ],
+    "correct": 1,
+    "explanation": "list.extend() adds all items from the iterable to the end of the list in place and returns None, similar to append() but for multiple items.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "extend() vs append() in-place behavior"
+  },
+  {
+    "id": 83,
+    "question": "What is the FIRST step when Python evaluates 'x = [1,2,3][:]' (full slice)?",
+    "choices": [
+      "A) Return a reference to the same list",
+      "B) Evaluate the list [1,2,3], then create a shallow copy",
+      "C) Create an empty list, then copy elements one by one",
+      "D) Evaluate indices start=0 stop=3 then slice"
+    ],
+    "correct": 1,
+    "explanation": "The slice [:] evaluates the list [1,2,3] and creates a new list that is a shallow copy containing the same elements.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "full slice shallow copy behavior"
+  },
+  {
+    "id": 84,
+    "question": "What is the correct ORDER when Python handles multiple except clauses?",
+    "choices": [
+      "A) All except clauses are checked simultaneously",
+      "B) Most specific exception class is tried first",
+      "C) Except clauses are checked top to bottom; first match runs",
+      "D) Except clauses run in reverse order"
+    ],
+    "correct": 2,
+    "explanation": "Python checks except clauses from top to bottom, running the first one whose exception type matches the raised exception.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "multiple except clauses matching order"
+  },
+  {
+    "id": 85,
+    "question": "What is the NEXT step after a generator function yields a value?",
+    "choices": [
+      "A) Function terminates and is removed from memory",
+      "B) Function is suspended and yielded value is returned to caller",
+      "C) Function immediately continues to next yield",
+      "D) Generator resets to the beginning"
+    ],
+    "correct": 1,
+    "explanation": "After yield, the generator is suspended (state preserved: local vars, instruction pointer). The yielded value is returned to the caller. Execution resumes on next next() call.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "generator suspension mechanism"
+  },
+  {
+    "id": 86,
+    "question": "What is the FIRST step when Python processes 'with open(f) as fh, open(g) as gh'?",
+    "choices": [
+      "A) Open both files simultaneously",
+      "B) Open f first, bind to fh, then open g and bind to gh",
+      "C) Open g first since it is last, then open f",
+      "D) Evaluate both open() calls then bind both names"
+    ],
+    "correct": 1,
+    "explanation": "Multiple context managers are processed left to right. open(f) is called and fh is bound first, then open(g) is called and gh is bound.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "multiple context manager ordering"
+  },
+  {
+    "id": 87,
+    "question": "What is the correct ORDER when Python creates a lambda 'f = lambda x: x+1'?",
+    "choices": [
+      "A) Evaluate x+1 -> store result -> bind to f",
+      "B) Create anonymous function object -> bind to f",
+      "C) Create f variable -> execute lambda body",
+      "D) Compile lambda body -> execute it once -> bind to f"
+    ],
+    "correct": 1,
+    "explanation": "The lambda keyword creates a function object (without executing the body) and assigns it to f. The body x+1 runs only when f is called.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "lambda definition vs execution"
+  },
+  {
+    "id": 88,
+    "question": "What is the NEXT step after 'str.join(lst)' is called?",
+    "choices": [
+      "A) lst is modified with separator inserted",
+      "B) A new string is built with str between each lst item",
+      "C) str is repeated len(lst) times",
+      "D) str and lst are concatenated directly"
+    ],
+    "correct": 1,
+    "explanation": "join() constructs a new string by concatenating all items in lst with str as the separator between each pair. The original lst is unchanged.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "str.join() process"
+  },
+  {
+    "id": 89,
+    "question": "What is the FIRST step when Python evaluates 'a is b'?",
+    "choices": [
+      "A) Call a.__eq__(b) to compare values",
+      "B) Compare the memory addresses (identity) of a and b",
+      "C) Convert both to str and compare",
+      "D) Check if type(a) == type(b)"
+    ],
+    "correct": 1,
+    "explanation": "'is' tests identity, not equality. Python compares the id() (memory address) of a and b. True only if they are the exact same object.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "is vs == identity vs equality"
+  },
+  {
+    "id": 90,
+    "question": "What is the correct ORDER when 'vars(obj)' is called?",
+    "choices": [
+      "A) Return obj's class variables only",
+      "B) Return obj's __dict__ containing instance attributes",
+      "C) Call __repr__ on obj and parse result",
+      "D) List all methods and attributes of obj"
+    ],
+    "correct": 1,
+    "explanation": "vars(obj) returns obj.__dict__, the dictionary of the instance's own attributes. Class attributes and inherited attributes are not included.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก instance __dict__ กับ class attributes"
+  },
+  {
+    "id": 91,
+    "question": "What is the NEXT step after an unhandled exception reaches the top level?",
+    "choices": [
+      "A) Python restarts the script automatically",
+      "B) Python prints traceback to stderr and exits",
+      "C) Python converts it to a warning and continues",
+      "D) Python asks user to handle the exception"
+    ],
+    "correct": 1,
+    "explanation": "If an exception is not caught anywhere, Python prints the full traceback to stderr and terminates the program with a non-zero exit code.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "unhandled exception termination behavior"
+  },
+  {
+    "id": 92,
+    "question": "What is the FIRST step when 'list.insert(i, x)' is called?",
+    "choices": [
+      "A) x is appended, then moved to position i",
+      "B) Elements at index i and beyond are shifted right",
+      "C) List is copied, then x is inserted in the copy",
+      "D) Length is checked before inserting"
+    ],
+    "correct": 1,
+    "explanation": "list.insert(i, x) shifts all elements at index i and beyond one position to the right, then places x at index i. The list grows by one.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "list insert mechanism"
+  },
+  {
+    "id": 93,
+    "question": "What is the correct ORDER when Python uses *args in 'def f(*args)'?",
+    "choices": [
+      "A) Extra args are ignored",
+      "B) Positional arguments are collected into a tuple named args",
+      "C) Positional arguments are collected into a list named args",
+      "D) First arg is bound to args; rest ignored"
+    ],
+    "correct": 1,
+    "explanation": "*args collects any extra positional arguments into a tuple. It is a tuple (not a list), so it is immutable.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "*args type (tuple) และ collection behavior"
+  },
+  {
+    "id": 94,
+    "question": "What is the NEXT step after Python resolves a name in local scope?",
+    "choices": [
+      "A) Python also checks enclosing scope for safety",
+      "B) The found value is used immediately without further lookup",
+      "C) Python checks if the name is also in global scope",
+      "D) Python logs the lookup in sys.audit"
+    ],
+    "correct": 1,
+    "explanation": "LEGB rule is short-circuit: once Python finds the name in local scope, it uses that value immediately without looking further up the scope chain.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "LEGB short-circuit — first match wins"
+  },
+  {
+    "id": 95,
+    "question": "What is the correct ORDER when 'str.format()' is evaluated?",
+    "choices": [
+      "A) Print string -> find placeholders -> insert values",
+      "B) Evaluate all arguments -> replace {} in template -> return new string",
+      "C) Parse {} positions -> evaluate arguments -> return string",
+      "D) Evaluate arguments at call time -> store -> format on print"
+    ],
+    "correct": 1,
+    "explanation": "str.format() evaluates its arguments, then replaces {} placeholders in the string template with the string representations of those arguments, returning a new string.",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "str.format() evaluation order พื้นฐาน"
+  },
+  {
+    "id": 96,
+    "question": "What is the FIRST step when Python evaluates a set comprehension {x*2 for x in lst}?",
+    "choices": [
+      "A) Create empty set -> compute all x*2 at once -> add",
+      "B) Evaluate lst -> iterate -> compute x*2 -> add to set (duplicates discarded)",
+      "C) Compute all values -> sort -> remove duplicates -> create set",
+      "D) Convert lst to set first -> then apply x*2"
+    ],
+    "correct": 1,
+    "explanation": "Python evaluates lst, then iterates. For each item, it computes x*2 and adds it to the set. Duplicates are automatically discarded by the hash table.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "set comprehension evaluation"
+  },
+  {
+    "id": 97,
+    "question": "What is the NEXT step after 'del lst[i]' is executed?",
+    "choices": [
+      "A) Element at i is set to None",
+      "B) Element at i is removed; elements after i shift left",
+      "C) A new list without index i is returned",
+      "D) lst is cleared and rebuilt without element i"
+    ],
+    "correct": 1,
+    "explanation": "del lst[i] removes the element at index i from the list. All elements after position i shift one position to the left, and the list shrinks by one.",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "del list element shifting"
+  },
+  {
+    "id": 98,
+    "question": "What is the correct ORDER when Python evaluates 'x, *rest = [1,2,3,4]'?",
+    "choices": [
+      "A) Assign all to rest -> move first to x",
+      "B) Bind x=1 -> collect remaining [2,3,4] into rest",
+      "C) Bind x=[1] -> bind rest=[2,3,4]",
+      "D) Evaluate list -> assign rest first -> then x"
+    ],
+    "correct": 1,
+    "explanation": "Extended unpacking: Python binds x to the first element (1), and *rest collects all remaining elements into a list [2, 3, 4].",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "extended unpacking * operator behavior"
+  },
+  {
+    "id": 99,
+    "question": "What is the NEXT step when 'yield from iterable' is encountered in a generator?",
+    "choices": [
+      "A) Iterable is flattened and all values yielded at once",
+      "B) Generator delegates to iterable, yielding each value one by one",
+      "C) Iterable is converted to list and returned",
+      "D) Generator terminates after first item of iterable"
+    ],
+    "correct": 1,
+    "explanation": "yield from delegates iteration to the sub-iterable, transparently yielding each of its values one at a time to the outer caller.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "yield from delegation mechanism"
+  },
+  {
+    "id": 100,
+    "question": "What is the correct ORDER for Python's garbage collection of an object?",
+    "choices": [
+      "A) Object deleted -> reference count checked -> memory freed",
+      "B) Reference count drops to zero -> __del__ called -> memory freed",
+      "C) Memory freed -> __del__ called -> remove references",
+      "D) __del__ called -> reference count incremented -> free memory"
+    ],
+    "correct": 1,
+    "explanation": "When an object's reference count drops to zero, Python calls __del__ (if defined) for cleanup, then frees the memory. Cyclic garbage collector handles reference cycles separately.",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "garbage collection reference counting mechanism"
+  }
+]

@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "What does print(2 ** 3) output?",
+    "choices": [
+      "A) 6",
+      "B) 8",
+      "C) 9",
+      "D) 5"
+    ],
+    "correct": 1,
+    "explanation": "** is the exponentiation operator. 2 ** 3 = 2 * 2 * 2 = 8.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "operator ** พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 2,
+    "question": "What does len('hello') return?",
+    "choices": [
+      "A) 4",
+      "B) 6",
+      "C) 5",
+      "D) 0"
+    ],
+    "correct": 2,
+    "explanation": "len() counts characters in a string. 'hello' has 5 characters: h, e, l, l, o.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() บน string พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 3,
+    "question": "What does print(10 % 3) output?",
+    "choices": [
+      "A) 3",
+      "B) 0",
+      "C) 1",
+      "D) 2"
+    ],
+    "correct": 2,
+    "explanation": "% is the modulo operator. 10 % 3 = 1 because 10 = 3*3 + 1. The remainder when dividing 10 by 3 is 1.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "modulo operator พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 4,
+    "question": "What does print(type(3.14)) output?",
+    "choices": [
+      "A) <int>",
+      "B) <str>",
+      "C) <float>",
+      "D) <double>"
+    ],
+    "correct": 2,
+    "explanation": "3.14 is a floating-point literal. type(3.14) returns <class 'float'>. Python displays it as <class 'float'>; here the short form is float.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ Python type ของ floating-point literal"
+  },
+  {
+    "id": 5,
+    "question": "What does print(bool(0)) output?",
+    "choices": [
+      "A) 0",
+      "B) True",
+      "C) None",
+      "D) False"
+    ],
+    "correct": 3,
+    "explanation": "bool(0) converts 0 to a boolean. In Python, 0 is falsy, so bool(0) = False. Any non-zero number is True.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ truthy/falsy ใน Python"
+  },
+  {
+    "id": 6,
+    "question": "What does print(3 == 3.0) output?",
+    "choices": [
+      "A) False",
+      "B) Error",
+      "C) None",
+      "D) True"
+    ],
+    "correct": 3,
+    "explanation": "In Python, == compares values, not types. 3 and 3.0 have the same numeric value, so 3 == 3.0 is True.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจว่า == เปรียบเทียบ value ไม่ใช่ type"
+  },
+  {
+    "id": 7,
+    "question": "x = [1,2,3]; x.append(4); what is len(x)?",
+    "choices": [
+      "A) 3",
+      "B) 5",
+      "C) 4",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "x starts with 3 elements [1,2,3]. After x.append(4), x = [1,2,3,4] which has 4 elements. len(x) = 4.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง track list state หลัง append แล้วนับขนาด"
+  },
+  {
+    "id": 8,
+    "question": "What does print('ab' * 3) output?",
+    "choices": [
+      "A) ab3",
+      "B) ababab",
+      "C) ab ab ab",
+      "D) Error"
+    ],
+    "correct": 1,
+    "explanation": "String repetition: 'ab' * 3 repeats the string 3 times = 'ababab'. This is string multiplication in Python.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string repetition operator *"
+  },
+  {
+    "id": 9,
+    "question": "i=1; while i<10: i*=3; what is i after the loop?",
+    "choices": [
+      "A) 9",
+      "B) 3",
+      "C) 27",
+      "D) 12"
+    ],
+    "correct": 2,
+    "explanation": "i=1: 1<10 so i=3; 3<10 so i=9; 9<10 so i=27; 27 is not <10, loop ends. Final i = 27.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง trace while loop ที่ multiply step และหาค่าสุดท้ายได้ถูก"
+  },
+  {
+    "id": 10,
+    "question": "d={'a':1,'b':2}; d['c']=3; what is len(d)?",
+    "choices": [
+      "A) 2",
+      "B) 4",
+      "C) 3",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "Dictionary d starts with 2 keys ('a' and 'b'). After d['c']=3, a new key 'c' is added. d now has 3 key-value pairs, so len(d) = 3.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง track dict state หลัง add key และเข้าใจว่า len() นับ key"
+  },
+  {
+    "id": 11,
+    "question": "What does print(7 // 2) output?",
+    "choices": [
+      "A) 3.5",
+      "B) 4",
+      "C) 3",
+      "D) 2"
+    ],
+    "correct": 2,
+    "explanation": "// is the floor division operator. 7 // 2 = 3 (integer part of 7/2 = 3.5).",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "floor division operator พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 12,
+    "question": "What does print(5 + 3) output?",
+    "choices": [
+      "A) 53",
+      "B) 9",
+      "C) 7",
+      "D) 8"
+    ],
+    "correct": 3,
+    "explanation": "5 + 3 = 8. Basic integer addition.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "arithmetic พื้นฐานที่สุด ระดับ recall"
+  },
+  {
+    "id": 13,
+    "question": "What does len([1, 2, 3, 4]) return?",
+    "choices": [
+      "A) 3",
+      "B) 5",
+      "C) 0",
+      "D) 4"
+    ],
+    "correct": 3,
+    "explanation": "len() counts elements in a list. [1, 2, 3, 4] has 4 elements, so len() returns 4.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() บน list พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 14,
+    "question": "What does print(10 - 3) output?",
+    "choices": [
+      "A) 8",
+      "B) 13",
+      "C) 6",
+      "D) 7"
+    ],
+    "correct": 3,
+    "explanation": "10 - 3 = 7. Basic integer subtraction.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "arithmetic พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 15,
+    "question": "What does print(4 * 5) output?",
+    "choices": [
+      "A) 20",
+      "B) 9",
+      "C) 45",
+      "D) 1"
+    ],
+    "correct": 0,
+    "explanation": "4 * 5 = 20. Basic integer multiplication.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "arithmetic พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 16,
+    "question": "What does print(int('42')) output?",
+    "choices": [
+      "A) '42'",
+      "B) 42.0",
+      "C) Error",
+      "D) 42"
+    ],
+    "correct": 3,
+    "explanation": "int('42') converts the string '42' to the integer 42. print(42) outputs 42.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "int() conversion พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 17,
+    "question": "What does print(str(99)) output?",
+    "choices": [
+      "A) 99",
+      "B) '99'",
+      "C) 99.0",
+      "D) Error"
+    ],
+    "correct": 0,
+    "explanation": "str(99) converts integer 99 to string '99'. print() outputs it without quotes: 99.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "str() conversion พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 18,
+    "question": "What does print(9 % 4) output?",
+    "choices": [
+      "A) 2",
+      "B) 1",
+      "C) 4",
+      "D) 3"
+    ],
+    "correct": 1,
+    "explanation": "9 % 4 = 1 because 9 = 4*2 + 1. The remainder when dividing 9 by 4 is 1.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "modulo operator พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 19,
+    "question": "What does len('Python') return?",
+    "choices": [
+      "A) 5",
+      "B) 7",
+      "C) 4",
+      "D) 6"
+    ],
+    "correct": 3,
+    "explanation": "'Python' has 6 characters: P, y, t, h, o, n. len('Python') = 6.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() บน string นับตัวอักษร ระดับ recall"
+  },
+  {
+    "id": 20,
+    "question": "What does print(3 ** 2) output?",
+    "choices": [
+      "A) 6",
+      "B) 9",
+      "C) 8",
+      "D) 5"
+    ],
+    "correct": 1,
+    "explanation": "3 ** 2 = 3 * 3 = 9. Exponentiation: base 3 raised to power 2.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "exponentiation operator พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 21,
+    "question": "What does print(float(5)) output?",
+    "choices": [
+      "A) 5",
+      "B) '5.0'",
+      "C) 5.0",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "float(5) converts integer 5 to 5.0. print(5.0) outputs 5.0.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "float() conversion พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 22,
+    "question": "What does print(15 // 4) output?",
+    "choices": [
+      "A) 4",
+      "B) 3",
+      "C) 3.75",
+      "D) 5"
+    ],
+    "correct": 1,
+    "explanation": "15 // 4 = 3 (floor of 3.75). Floor division discards the fractional part.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "floor division พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 23,
+    "question": "What does print(bool(1)) output?",
+    "choices": [
+      "A) True",
+      "B) 1",
+      "C) False",
+      "D) None"
+    ],
+    "correct": 0,
+    "explanation": "bool(1) converts 1 to boolean. Any non-zero integer is True in Python.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "truthy value พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 24,
+    "question": "What does print(20 // 6) output?",
+    "choices": [
+      "A) 2",
+      "B) 4",
+      "C) 3",
+      "D) 3.33"
+    ],
+    "correct": 2,
+    "explanation": "20 // 6 = 3 (floor of 3.333...). Floor division returns the largest integer <= the result.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "floor division ระดับ recall"
+  },
+  {
+    "id": 25,
+    "question": "What does print(len([])) output?",
+    "choices": [
+      "A) 0",
+      "B) 1",
+      "C) None",
+      "D) Error"
+    ],
+    "correct": 0,
+    "explanation": "len([]) returns 0 because the list is empty. An empty list has no elements.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() บน empty list ระดับ recall"
+  },
+  {
+    "id": 26,
+    "question": "x = [10, 20, 30]; what is x[0]?",
+    "choices": [
+      "A) 20",
+      "B) 30",
+      "C) Error",
+      "D) 10"
+    ],
+    "correct": 3,
+    "explanation": "Python list indexing starts at 0. x[0] is the first element, which is 10.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "list index 0 พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 27,
+    "question": "What does print(2 + 3 * 4) output?",
+    "choices": [
+      "A) 14",
+      "B) 20",
+      "C) 24",
+      "D) 11"
+    ],
+    "correct": 0,
+    "explanation": "Operator precedence: * before +. 3*4=12, then 2+12=14.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ operator precedence (* ก่อน +)"
+  },
+  {
+    "id": 28,
+    "question": "What does print('cat' + 'dog') output?",
+    "choices": [
+      "A) cat dog",
+      "B) catdog",
+      "C) Error",
+      "D) cat+dog"
+    ],
+    "correct": 1,
+    "explanation": "String concatenation with + joins strings directly. 'cat' + 'dog' = 'catdog' with no space.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string concatenation ไม่มี space"
+  },
+  {
+    "id": 29,
+    "question": "What does print(type('hi')) output?",
+    "choices": [
+      "A) <int>",
+      "B) <list>",
+      "C) <str>",
+      "D) <char>"
+    ],
+    "correct": 2,
+    "explanation": "type('hi') returns <class 'str'>. String literals are of type str in Python.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ type ของ string literal"
+  },
+  {
+    "id": 30,
+    "question": "x = [5, 6, 7]; what is x[-1]?",
+    "choices": [
+      "A) 5",
+      "B) Error",
+      "C) 6",
+      "D) 7"
+    ],
+    "correct": 3,
+    "explanation": "Negative indexing in Python: x[-1] refers to the last element. In [5,6,7], the last element is 7.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ negative index ใน list"
+  },
+  {
+    "id": 31,
+    "question": "What does print(bool('')) output?",
+    "choices": [
+      "A) True",
+      "B) Error",
+      "C) None",
+      "D) False"
+    ],
+    "correct": 3,
+    "explanation": "An empty string '' is falsy in Python. bool('') = False. Any non-empty string is True.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า empty string เป็น falsy"
+  },
+  {
+    "id": 32,
+    "question": "What does print(10 / 4) output?",
+    "choices": [
+      "A) 2",
+      "B) 2.5",
+      "C) 3",
+      "D) 2.0"
+    ],
+    "correct": 1,
+    "explanation": "/ is true division in Python 3. 10 / 4 = 2.5, always returns a float.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก / (true div) จาก // (floor div)"
+  },
+  {
+    "id": 33,
+    "question": "What does print(type(True)) output?",
+    "choices": [
+      "A) <int>",
+      "B) <bool>",
+      "C) <str>",
+      "D) <flag>"
+    ],
+    "correct": 1,
+    "explanation": "True is of type bool. type(True) returns <class 'bool'>.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ type ของ boolean literal"
+  },
+  {
+    "id": 34,
+    "question": "What does print('hello'[1]) output?",
+    "choices": [
+      "A) he",
+      "B) h",
+      "C) e",
+      "D) l"
+    ],
+    "correct": 2,
+    "explanation": "String indexing starts at 0. 'hello'[1] is the second character 'e'.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ string indexing"
+  },
+  {
+    "id": 35,
+    "question": "What does print(int(3.9)) output?",
+    "choices": [
+      "A) 4",
+      "B) 3",
+      "C) 3.9",
+      "D) Error"
+    ],
+    "correct": 1,
+    "explanation": "int() truncates (not rounds) towards zero. int(3.9) = 3, discarding the decimal part.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า int() truncates ไม่ใช่ round"
+  },
+  {
+    "id": 36,
+    "question": "What does print(len('a b')) return?",
+    "choices": [
+      "A) 2",
+      "B) 3",
+      "C) 1",
+      "D) 4"
+    ],
+    "correct": 1,
+    "explanation": "'a b' has 3 characters: 'a', ' ', 'b'. The space counts as a character.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า space นับเป็น character ใน len()"
+  },
+  {
+    "id": 37,
+    "question": "What does print('xyz'[-1]) output?",
+    "choices": [
+      "A) x",
+      "B) xy",
+      "C) y",
+      "D) z"
+    ],
+    "correct": 3,
+    "explanation": "Negative index -1 refers to the last character. 'xyz'[-1] = 'z'.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ negative indexing บน string"
+  },
+  {
+    "id": 38,
+    "question": "a=5; a+=3; what is a?",
+    "choices": [
+      "A) 3",
+      "B) 5",
+      "C) 15",
+      "D) 8"
+    ],
+    "correct": 3,
+    "explanation": "+= is augmented assignment. a += 3 is equivalent to a = a + 3. 5 + 3 = 8.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ augmented assignment operator +="
+  },
+  {
+    "id": 39,
+    "question": "What does print(type([1,2,3])) output?",
+    "choices": [
+      "A) <list>",
+      "B) <array>",
+      "C) <tuple>",
+      "D) <dict>"
+    ],
+    "correct": 0,
+    "explanation": "type([1,2,3]) returns <class 'list'>. Square brackets create a list.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ type ของ list literal"
+  },
+  {
+    "id": 40,
+    "question": "x=[1,2,3]; x[1]=9; what is x[1]?",
+    "choices": [
+      "A) 2",
+      "B) 9",
+      "C) 1",
+      "D) Error"
+    ],
+    "correct": 1,
+    "explanation": "x[1] = 9 assigns 9 to index 1. After the assignment, x = [1,9,3], so x[1] = 9.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง track list mutation จาก index assignment"
+  },
+  {
+    "id": 41,
+    "question": "What does print(bool([])) output?",
+    "choices": [
+      "A) True",
+      "B) None",
+      "C) Error",
+      "D) False"
+    ],
+    "correct": 3,
+    "explanation": "An empty list [] is falsy in Python. bool([]) = False. Any non-empty list is True.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า empty list เป็น falsy"
+  },
+  {
+    "id": 42,
+    "question": "What does print(3 != 4) output?",
+    "choices": [
+      "A) False",
+      "B) Error",
+      "C) True",
+      "D) None"
+    ],
+    "correct": 2,
+    "explanation": "!= is the not-equal operator. 3 != 4 is True because 3 and 4 are different values.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ comparison operator !="
+  },
+  {
+    "id": 43,
+    "question": "What does print(10 > 5 > 1) output?",
+    "choices": [
+      "A) Error",
+      "B) False",
+      "C) 1",
+      "D) True"
+    ],
+    "correct": 3,
+    "explanation": "Python supports chained comparisons. 10 > 5 > 1 means (10 > 5) and (5 > 1), both True, so result is True.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ chained comparison ใน Python"
+  },
+  {
+    "id": 44,
+    "question": "What does print(2 ** 0) output?",
+    "choices": [
+      "A) 0",
+      "B) 2",
+      "C) 1",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "Any number raised to the power 0 equals 1. 2 ** 0 = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ property ของ x**0 = 1"
+  },
+  {
+    "id": 45,
+    "question": "What does print(len(range(5))) output?",
+    "choices": [
+      "A) 4",
+      "B) 6",
+      "C) 5",
+      "D) 0"
+    ],
+    "correct": 2,
+    "explanation": "range(5) generates 0,1,2,3,4 — five values. len(range(5)) = 5.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า range(5) มี 5 elements (0-4)"
+  },
+  {
+    "id": 46,
+    "question": "What does print('hi' == 'Hi') output?",
+    "choices": [
+      "A) None",
+      "B) True",
+      "C) Error",
+      "D) False"
+    ],
+    "correct": 3,
+    "explanation": "String comparison is case-sensitive. 'hi' and 'Hi' differ in the first character, so == returns False.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า string comparison เป็น case-sensitive"
+  },
+  {
+    "id": 47,
+    "question": "What does print(float('3.5')) output?",
+    "choices": [
+      "A) '3.5'",
+      "B) 3",
+      "C) Error",
+      "D) 3.5"
+    ],
+    "correct": 3,
+    "explanation": "float('3.5') converts the string '3.5' to the float 3.5. print(3.5) outputs 3.5.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ float() conversion จาก string"
+  },
+  {
+    "id": 48,
+    "question": "x=10; x-=4; x*=2; what is x?",
+    "choices": [
+      "A) 16",
+      "B) 12",
+      "C) 8",
+      "D) 10"
+    ],
+    "correct": 1,
+    "explanation": "x=10, x-=4 gives x=6, x*=2 gives x=12. 10-4=6, 6*2=12. Answer is 12.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง trace augmented assignment หลายขั้นตอน"
+  },
+  {
+    "id": 49,
+    "question": "What does print('abc'[0:2]) output?",
+    "choices": [
+      "A) abc",
+      "B) ab",
+      "C) bc",
+      "D) a"
+    ],
+    "correct": 1,
+    "explanation": "Slicing 'abc'[0:2] returns characters from index 0 up to (not including) index 2: 'a','b' = 'ab'.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ string slicing [start:stop]"
+  },
+  {
+    "id": 50,
+    "question": "What does print([1,2]+[3,4]) output?",
+    "choices": [
+      "A) [1,2,3,4]",
+      "B) [4,6]",
+      "C) Error",
+      "D) [1,2][3,4]"
+    ],
+    "correct": 0,
+    "explanation": "The + operator on lists performs concatenation. [1,2]+[3,4] = [1,2,3,4].",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ list concatenation ด้วย +"
+  },
+  {
+    "id": 51,
+    "question": "What does print(range(1,5)) output?",
+    "choices": [
+      "A) [1,2,3,4]",
+      "B) [1,2,3,5]",
+      "C) range(1,5)",
+      "D) [1..5]"
+    ],
+    "correct": 2,
+    "explanation": "print(range(1,5)) outputs 'range(1, 5)', not a list. To see elements, use list(range(1,5)).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า range object print ออกมาเป็น range(...) ไม่ใช่ list"
+  },
+  {
+    "id": 52,
+    "question": "What does print(list(range(3))) output?",
+    "choices": [
+      "A) [1,2,3]",
+      "B) [0,1,2,3]",
+      "C) [0,1,2]",
+      "D) range(3)"
+    ],
+    "correct": 2,
+    "explanation": "range(3) generates 0, 1, 2. list(range(3)) converts it to [0, 1, 2].",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ range(n) เริ่มจาก 0 ถึง n-1"
+  },
+  {
+    "id": 53,
+    "question": "What does print(type((1,2))) output?",
+    "choices": [
+      "A) <list>",
+      "B) <set>",
+      "C) <dict>",
+      "D) <tuple>"
+    ],
+    "correct": 3,
+    "explanation": "type((1,2)) returns <class 'tuple'>. Parentheses with comma create a tuple.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า (1,2) เป็น tuple ไม่ใช่ list"
+  },
+  {
+    "id": 54,
+    "question": "What does print(bool(None)) output?",
+    "choices": [
+      "A) True",
+      "B) Error",
+      "C) None",
+      "D) False"
+    ],
+    "correct": 3,
+    "explanation": "None is falsy in Python. bool(None) = False.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า None เป็น falsy value"
+  },
+  {
+    "id": 55,
+    "question": "What does print(10 % 2) output?",
+    "choices": [
+      "A) 0",
+      "B) 5",
+      "C) 2",
+      "D) 1"
+    ],
+    "correct": 0,
+    "explanation": "10 % 2 = 0 because 10 is evenly divisible by 2 with no remainder.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ modulo ของเลขคู่ได้ 0"
+  },
+  {
+    "id": 56,
+    "question": "s='hello'; s=s.upper(); print(s)?",
+    "choices": [
+      "A) hello",
+      "B) HELLO",
+      "C) Hello",
+      "D) Error"
+    ],
+    "correct": 1,
+    "explanation": "str.upper() returns a new uppercase string. s = s.upper() reassigns s to 'HELLO'. print(s) = HELLO.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string method upper() และว่า string immutable"
+  },
+  {
+    "id": 57,
+    "question": "What does print(int(True)) output?",
+    "choices": [
+      "A) True",
+      "B) 0",
+      "C) Error",
+      "D) 1"
+    ],
+    "correct": 3,
+    "explanation": "In Python, True has integer value 1 and False has value 0. int(True) = 1.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า True มีค่า integer เป็น 1"
+  },
+  {
+    "id": 58,
+    "question": "x=[1,2,3]; print(x[1:]) output?",
+    "choices": [
+      "A) [1,2]",
+      "B) [1,2,3]",
+      "C) [2,3]",
+      "D) [3]"
+    ],
+    "correct": 2,
+    "explanation": "x[1:] slices from index 1 to the end. In [1,2,3], that is [2,3].",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ list slicing [start:]"
+  },
+  {
+    "id": 59,
+    "question": "What does print(4 ** 0.5) output?",
+    "choices": [
+      "A) 2",
+      "B) 2.0",
+      "C) 4.0",
+      "D) 0.5"
+    ],
+    "correct": 1,
+    "explanation": "4 ** 0.5 computes the square root of 4. The result is 2.0 (a float because exponent is float).",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า x**0.5 คือ square root และ return float"
+  },
+  {
+    "id": 60,
+    "question": "What does print(1 + 2 == 3) output?",
+    "choices": [
+      "A) 3",
+      "B) False",
+      "C) Error",
+      "D) True"
+    ],
+    "correct": 3,
+    "explanation": "1+2=3, then 3==3 is True. Arithmetic evaluates before comparison.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ precedence ของ arithmetic ก่อน comparison"
+  },
+  {
+    "id": 61,
+    "question": "n=5; s=sum(range(n)); print(s)?",
+    "choices": [
+      "A) 15",
+      "B) 5",
+      "C) 10",
+      "D) 14"
+    ],
+    "correct": 2,
+    "explanation": "range(5) = 0,1,2,3,4. sum(0+1+2+3+4) = 10.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace sum(range(n)) และรู้ว่า range เริ่มจาก 0"
+  },
+  {
+    "id": 62,
+    "question": "x=[1,2,3]; y=x; y.append(4); len(x)?",
+    "choices": [
+      "A) 3",
+      "B) 5",
+      "C) Error",
+      "D) 4"
+    ],
+    "correct": 3,
+    "explanation": "y = x makes y reference the same list object as x. y.append(4) modifies the shared list. x is now [1,2,3,4], len(x) = 4.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ reference semantics ของ list ใน Python"
+  },
+  {
+    "id": 63,
+    "question": "def f(x): return x*2; print(f(f(3)))?",
+    "choices": [
+      "A) 6",
+      "B) 18",
+      "C) 12",
+      "D) 9"
+    ],
+    "correct": 2,
+    "explanation": "f(3) = 3*2 = 6. f(f(3)) = f(6) = 6*2 = 12.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace nested function call สองชั้น"
+  },
+  {
+    "id": 64,
+    "question": "x=0; for i in range(4): x+=i; print(x)?",
+    "choices": [
+      "A) 10",
+      "B) 4",
+      "C) 6",
+      "D) 8"
+    ],
+    "correct": 2,
+    "explanation": "range(4) = 0,1,2,3. x = 0+0+1+2+3 = 6.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace for loop accumulator"
+  },
+  {
+    "id": 65,
+    "question": "What does [x**2 for x in range(3)] give?",
+    "choices": [
+      "A) [1,4,9]",
+      "B) [0,2,4]",
+      "C) [0,1,4]",
+      "D) [1,2,3]"
+    ],
+    "correct": 2,
+    "explanation": "range(3) = 0,1,2. x**2 for each: 0,1,4. Result: [0,1,4].",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ list comprehension และ exponent"
+  },
+  {
+    "id": 66,
+    "question": "a=3; b=a; a=7; print(b)?",
+    "choices": [
+      "A) 7",
+      "B) 3",
+      "C) None",
+      "D) Error"
+    ],
+    "correct": 1,
+    "explanation": "Integers are immutable. b=a copies the value 3 into b. Reassigning a=7 does not affect b. b remains 3.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ value semantics ของ integer (immutable)"
+  },
+  {
+    "id": 67,
+    "question": "def f(n): return n if n<2 else f(n-1)+f(n-2); f(4)?",
+    "choices": [
+      "A) 4",
+      "B) 2",
+      "C) 3",
+      "D) 5"
+    ],
+    "correct": 2,
+    "explanation": "This is Fibonacci. f(0)=0,f(1)=1,f(2)=1,f(3)=2,f(4)=3.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace recursive function (Fibonacci)"
+  },
+  {
+    "id": 68,
+    "question": "s = [i for i in range(1,5) if i%2==0]; print(s)?",
+    "choices": [
+      "A) [1,3]",
+      "B) [2,4]",
+      "C) [1,2,3,4]",
+      "D) [0,2]"
+    ],
+    "correct": 1,
+    "explanation": "range(1,5) = 1,2,3,4. Filter i%2==0 keeps evens: 2,4. Result: [2,4].",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ list comprehension with conditional filter"
+  },
+  {
+    "id": 69,
+    "question": "x=5; print(x//2, x%2)?",
+    "choices": [
+      "A) 2 1",
+      "B) 2.5 1",
+      "C) 3 0",
+      "D) 2 0"
+    ],
+    "correct": 0,
+    "explanation": "5//2 = 2 (floor div) and 5%2 = 1 (remainder). print outputs '2 1'.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace floor div และ modulo พร้อมกัน"
+  },
+  {
+    "id": 70,
+    "question": "d={}; d['x']=1; d['x']+=9; print(d['x'])?",
+    "choices": [
+      "A) 1",
+      "B) 9",
+      "C) Error",
+      "D) 10"
+    ],
+    "correct": 3,
+    "explanation": "d['x'] = 1, then d['x'] += 9 is d['x'] = d['x'] + 9 = 1+9 = 10.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง track dict value update ด้วย augmented assignment"
+  },
+  {
+    "id": 71,
+    "question": "What does print(2 * 3 + 1) output?",
+    "choices": [
+      "A) 8",
+      "B) 9",
+      "C) 7",
+      "D) 6"
+    ],
+    "correct": 2,
+    "explanation": "* has higher precedence than +. 2*3=6, then 6+1=7.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "arithmetic operator precedence พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 72,
+    "question": "What does print(8 - 5) output?",
+    "choices": [
+      "A) 4",
+      "B) 85",
+      "C) 3",
+      "D) 2"
+    ],
+    "correct": 2,
+    "explanation": "8 - 5 = 3. Basic integer subtraction.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "arithmetic พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 73,
+    "question": "What does len((1, 2, 3)) return?",
+    "choices": [
+      "A) 2",
+      "B) 4",
+      "C) 0",
+      "D) 3"
+    ],
+    "correct": 3,
+    "explanation": "len() works on tuples. (1,2,3) has 3 elements, so len() returns 3.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() บน tuple ระดับ recall"
+  },
+  {
+    "id": 74,
+    "question": "What does print(6 / 2) output?",
+    "choices": [
+      "A) 3",
+      "B) 6",
+      "C) 3.0",
+      "D) 1.5"
+    ],
+    "correct": 2,
+    "explanation": "/ is true division, always returns float. 6 / 2 = 3.0, not 3.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "/ always returns float ใน Python 3"
+  },
+  {
+    "id": 75,
+    "question": "x = [1,2,3]; print(x[2])?",
+    "choices": [
+      "A) 1",
+      "B) 2",
+      "C) 3",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "x[2] is the element at index 2 (third position). In [1,2,3], index 2 is 3.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "list index พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 76,
+    "question": "What does print(int(False)) output?",
+    "choices": [
+      "A) False",
+      "B) 1",
+      "C) None",
+      "D) 0"
+    ],
+    "correct": 3,
+    "explanation": "False has integer value 0. int(False) = 0.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ว่า False มีค่า integer เป็น 0"
+  },
+  {
+    "id": 77,
+    "question": "What does print(100 % 10) output?",
+    "choices": [
+      "A) 10",
+      "B) 1",
+      "C) 100",
+      "D) 0"
+    ],
+    "correct": 3,
+    "explanation": "100 is evenly divisible by 10 with no remainder. 100 % 10 = 0.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "modulo พื้นฐาน หาร ลงตัว = 0"
+  },
+  {
+    "id": 78,
+    "question": "What does print(len('')) output?",
+    "choices": [
+      "A) 1",
+      "B) None",
+      "C) 0",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "An empty string '' has zero characters. len('') = 0.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() บน empty string ระดับ recall"
+  },
+  {
+    "id": 79,
+    "question": "What does print(3 * 'x') output?",
+    "choices": [
+      "A) 3x",
+      "B) x3",
+      "C) xxx",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "3 * 'x' repeats string 'x' three times: 'xxx'. String repetition works with int on either side.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "string repetition พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 80,
+    "question": "What does print(type(42)) output?",
+    "choices": [
+      "A) <float>",
+      "B) <num>",
+      "C) <int>",
+      "D) <str>"
+    ],
+    "correct": 2,
+    "explanation": "42 is an integer literal. type(42) returns <class 'int'>.",
+    "difficulty": 1,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "type() บน integer literal ระดับ recall"
+  },
+  {
+    "id": 81,
+    "question": "t=(1,2,3); what is t[0]+t[2]?",
+    "choices": [
+      "A) 5",
+      "B) 6",
+      "C) 4",
+      "D) 3"
+    ],
+    "correct": 2,
+    "explanation": "t[0] = 1, t[2] = 3. 1 + 3 = 4.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง index tuple และบวกค่า"
+  },
+  {
+    "id": 82,
+    "question": "What does print('abc'.upper()) output?",
+    "choices": [
+      "A) ABC",
+      "B) Abc",
+      "C) abc",
+      "D) Error"
+    ],
+    "correct": 0,
+    "explanation": "str.upper() converts all characters to uppercase. 'abc'.upper() = 'ABC'.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string method upper()"
+  },
+  {
+    "id": 83,
+    "question": "What does print('HELLO'.lower()) output?",
+    "choices": [
+      "A) HELLO",
+      "B) Hello",
+      "C) hello",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "str.lower() converts all characters to lowercase. 'HELLO'.lower() = 'hello'.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string method lower()"
+  },
+  {
+    "id": 84,
+    "question": "What does print(max(3, 1, 4)) output?",
+    "choices": [
+      "A) 1",
+      "B) 4",
+      "C) 3",
+      "D) 8"
+    ],
+    "correct": 1,
+    "explanation": "max() returns the largest argument. max(3,1,4) = 4.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in max()"
+  },
+  {
+    "id": 85,
+    "question": "What does print(min(5, 2, 8)) output?",
+    "choices": [
+      "A) 8",
+      "B) 5",
+      "C) 2",
+      "D) 15"
+    ],
+    "correct": 2,
+    "explanation": "min() returns the smallest argument. min(5,2,8) = 2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in min()"
+  },
+  {
+    "id": 86,
+    "question": "What does print(abs(-7)) output?",
+    "choices": [
+      "A) -7",
+      "B) 0",
+      "C) Error",
+      "D) 7"
+    ],
+    "correct": 3,
+    "explanation": "abs() returns the absolute value. abs(-7) = 7.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in abs()"
+  },
+  {
+    "id": 87,
+    "question": "What does print(sum([1,2,3,4])) output?",
+    "choices": [
+      "A) 10",
+      "B) 24",
+      "C) 4",
+      "D) 1234"
+    ],
+    "correct": 0,
+    "explanation": "sum() adds all elements. 1+2+3+4 = 10.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in sum() และบวกค่า"
+  },
+  {
+    "id": 88,
+    "question": "What does 'hello'.count('l') return?",
+    "choices": [
+      "A) 1",
+      "B) 3",
+      "C) 0",
+      "D) 2"
+    ],
+    "correct": 3,
+    "explanation": "str.count() counts occurrences. 'hello' has 'l' at index 2 and 3, so count('l') = 2.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string method count()"
+  },
+  {
+    "id": 89,
+    "question": "What does print([2]*3) output?",
+    "choices": [
+      "A) 6",
+      "B) [2,2]",
+      "C) [2,2,2]",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "[2]*3 repeats list [2] three times: [2, 2, 2].",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ list repetition operator *"
+  },
+  {
+    "id": 90,
+    "question": "What does print(round(3.567, 2)) output?",
+    "choices": [
+      "A) 3.56",
+      "B) 3.6",
+      "C) 3.57",
+      "D) 4.0"
+    ],
+    "correct": 2,
+    "explanation": "round(3.567, 2) rounds to 2 decimal places. The third decimal 7 >= 5, so rounds up: 3.57.",
+    "difficulty": 2,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in round() และการปัดทศนิยม"
+  },
+  {
+    "id": 91,
+    "question": "x=7; print(x if x>5 else 0)?",
+    "choices": [
+      "A) 5",
+      "B) 0",
+      "C) 7",
+      "D) Error"
+    ],
+    "correct": 2,
+    "explanation": "Ternary expression: x if x>5 else 0. x=7 > 5 is True, so result is x = 7.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ ternary/conditional expression"
+  },
+  {
+    "id": 92,
+    "question": "def add(a,b=2): return a+b; print(add(3))?",
+    "choices": [
+      "A) 3",
+      "B) Error",
+      "C) 6",
+      "D) 5"
+    ],
+    "correct": 3,
+    "explanation": "add(3) uses default argument b=2. a=3, b=2, return 3+2 = 5.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ default argument ใน function"
+  },
+  {
+    "id": 93,
+    "question": "nums=[3,1,4,2]; nums.sort(); print(nums[0])?",
+    "choices": [
+      "A) 3",
+      "B) 4",
+      "C) 2",
+      "D) 1"
+    ],
+    "correct": 3,
+    "explanation": "list.sort() sorts in ascending order in-place. After sort, nums=[1,2,3,4]. nums[0] = 1.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace sort in-place แล้ว index"
+  },
+  {
+    "id": 94,
+    "question": "x=2; y=3; x,y=y,x; print(x,y)?",
+    "choices": [
+      "A) 2 3",
+      "B) 3 3",
+      "C) 2 2",
+      "D) 3 2"
+    ],
+    "correct": 3,
+    "explanation": "Tuple unpacking swap: x,y = y,x swaps values. x becomes 3, y becomes 2. print(x,y) = 3 2.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ tuple unpacking swap"
+  },
+  {
+    "id": 95,
+    "question": "t=[1,2,3]; t.pop(); print(t)?",
+    "choices": [
+      "A) [2,3]",
+      "B) [1,2,3]",
+      "C) [1,2]",
+      "D) [1,3]"
+    ],
+    "correct": 2,
+    "explanation": "list.pop() removes and returns the last element. t.pop() removes 3. t = [1,2].",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace list.pop() และ state ของ list"
+  },
+  {
+    "id": 96,
+    "question": "d={'a':1}; print(d.get('b',0))?",
+    "choices": [
+      "A) None",
+      "B) 0",
+      "C) Error",
+      "D) 1"
+    ],
+    "correct": 1,
+    "explanation": "dict.get(key, default) returns default if key not found. 'b' is not in d, so returns 0.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ dict.get() กับ default value"
+  },
+  {
+    "id": 97,
+    "question": "r=range(2,10,3); print(list(r))?",
+    "choices": [
+      "A) [2,5,8]",
+      "B) [2,3,4]",
+      "C) [2,5,9]",
+      "D) [2,4,6]"
+    ],
+    "correct": 0,
+    "explanation": "range(2,10,3) starts at 2, steps by 3: 2, 5, 8. Next would be 11 > 10, stop. list = [2,5,8].",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace range(start, stop, step)"
+  },
+  {
+    "id": 98,
+    "question": "x=[5,3,8,1]; print(sorted(x)[0])?",
+    "choices": [
+      "A) 5",
+      "B) 8",
+      "C) 3",
+      "D) 1"
+    ],
+    "correct": 3,
+    "explanation": "sorted(x) returns a new sorted list [1,3,5,8]. Index [0] is the smallest: 1.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace sorted() และ index ผล"
+  },
+  {
+    "id": 99,
+    "question": "a=[1,2]; b=a[:]; b.append(3); len(a)?",
+    "choices": [
+      "A) 3",
+      "B) 0",
+      "C) 1",
+      "D) 2"
+    ],
+    "correct": 3,
+    "explanation": "b = a[:] creates a shallow copy of a. b.append(3) only modifies b, not a. len(a) = 2.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ shallow copy ด้วย slice และ reference semantics"
+  },
+  {
+    "id": 100,
+    "question": "f=lambda x,y: x**y; print(f(2,4))?",
+    "choices": [
+      "A) 8",
+      "B) 6",
+      "C) 16",
+      "D) 24"
+    ],
+    "correct": 2,
+    "explanation": "lambda x,y: x**y computes x to the power y. f(2,4) = 2**4 = 16.",
+    "difficulty": 3,
+    "game_type": "racer",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง trace lambda expression กับ exponentiation"
+  }
+]

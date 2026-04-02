@@ -36,6 +36,52 @@ const DEFAULT_GAME_PROMPT =
   `You are an expert exam question writer. Respond ONLY with a valid JSON array — no markdown fences, no explanation. ${NO_CHINESE}`
 
 // ---------------------------------------------------------------------------
+// Text cleaning — strip PDF artefacts before sending to AI
+// ---------------------------------------------------------------------------
+function cleanText(raw: string): string {
+  return raw
+    .replace(/\x00/g, "")                   // strip null bytes from PDF
+    .replace(/([^\n]{15,})\1+/g, "$1")      // deduplicate repeated slide titles
+    .replace(/[ \t]{2,}/g, " ")             // collapse multiple spaces/tabs
+    .replace(/\n{3,}/g, "\n\n")             // collapse excessive newlines
+    .trim()
+}
+
+// ---------------------------------------------------------------------------
+// URL → text helpers
+// ---------------------------------------------------------------------------
+async function fetchGoogleDrive(url: string): Promise<string> {
+  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/)
+  if (!match) throw new Error("ไม่พบ ID ใน Google Drive URL — ตรวจสอบลิงก์อีกครั้ง")
+  const id = match[1]
+
+  // Try Docs → Slides → Sheet (txt export)
+  const candidates = [
+    `https://docs.google.com/document/d/${id}/export?format=txt`,
+    `https://docs.google.com/presentation/d/${id}/export/txt`,
+    `https://docs.google.com/spreadsheets/d/${id}/export?format=csv`,
+  ]
+  for (const exportUrl of candidates) {
+    try {
+      const res = await fetch(exportUrl, { redirect: "follow" })
+      if (res.ok) return cleanText(await res.text()).slice(0, 4000)
+    } catch { /* try next */ }
+  }
+  throw new Error("เข้าถึง Google Drive ไม่ได้ — ตรวจสอบว่าเปิดแชร์แบบ 'ทุกคนที่มีลิงก์' แล้ว")
+}
+
+async function fetchYouTubeTranscript(url: string): Promise<string> {
+  const match = url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{11})/)
+  if (!match) throw new Error("ไม่พบ Video ID ใน YouTube URL")
+  const videoId = match[1]
+
+  const { YoutubeTranscript } = await import("youtube-transcript")
+  const items = await YoutubeTranscript.fetchTranscript(videoId)
+  if (!items || items.length === 0) throw new Error("วิดีโอนี้ไม่มี transcript — ลองเปิดคำบรรยายอัตโนมัติก่อน")
+  return cleanText(items.map(t => t.text).join(" ")).slice(0, 4000)
+}
+
+// ---------------------------------------------------------------------------
 // File → text (Agent 0: Parser)
 // ---------------------------------------------------------------------------
 async function extractText(file: File): Promise<string> {
@@ -47,7 +93,7 @@ async function extractText(file: File): Promise<string> {
     const { extractText: unpdfExtract } = await import("unpdf")
     const uint8 = new Uint8Array(buffer)
     const { text } = await unpdfExtract(uint8, { mergePages: true })
-    return (text ?? "").slice(0, 12000)
+    return cleanText(text ?? "").slice(0, 4000)
   }
 
   if (
@@ -56,11 +102,11 @@ async function extractText(file: File): Promise<string> {
   ) {
     const mammoth = await import("mammoth")
     const result = await mammoth.extractRawText({ buffer })
-    return result.value.slice(0, 12000)
+    return cleanText(result.value).slice(0, 4000)
   }
 
   // Plain text
-  return buffer.toString("utf-8").slice(0, 12000)
+  return cleanText(buffer.toString("utf-8")).slice(0, 4000)
 }
 
 // ---------------------------------------------------------------------------
@@ -70,41 +116,43 @@ async function summarize(client: OpenAI, text: string): Promise<string[]> {
   const res = await client.chat.completions.create({
     model: MODEL,
     temperature: 0.3,
+    max_tokens: 400,
     messages: [
       {
         role: "system",
         content:
-          `You are an expert academic summarizer. Respond only with a JSON array of strings — no markdown, no extra text. ${NO_CHINESE}`,
+          `You are an expert academic summarizer. Respond only with a JSON object containing key "bullets" as an array of strings. ${NO_CHINESE}`,
       },
       {
         role: "user",
-        content: `Summarize the following study material into 6-8 concise bullet points that capture the most important concepts.
+        content: `สรุปเนื้อหาต่อไปนี้เป็น 6-8 ประเด็นสำคัญ
+ถ้าเอกสารเป็นภาษาไทย ให้ตอบเป็นภาษาไทยเท่านั้น
+ถ้าเอกสารเป็นภาษาอังกฤษ ให้ตอบเป็นภาษาอังกฤษเท่านั้น
+ตอบเป็น JSON เท่านั้น: {"bullets": ["ประเด็นที่ 1", "ประเด็นที่ 2", ...]}
 
-CRITICAL RULES:
-- Write ONLY in the SAME language as the document below (Thai = ภาษาไทย, English = English)
-- Do NOT translate — mirror the document's language exactly
-- Do NOT use Chinese (中文), Japanese, Korean, or any other language
-- Return ONLY a JSON array of strings: ["point 1", "point 2", ...]
-
-Document:
+เอกสาร:
 ${text}`,
       },
     ],
   })
 
-  const raw = res.choices[0]?.message?.content?.trim() ?? "[]"
+  const raw = res.choices[0]?.message?.content?.trim() ?? "{}"
+  let bullets: string[] = []
   try {
     const parsed = JSON.parse(raw)
-    if (Array.isArray(parsed)) return parsed as string[]
+    if (Array.isArray(parsed)) bullets = parsed as string[]
+    else if (Array.isArray(parsed?.bullets)) bullets = parsed.bullets as string[]
   } catch {
-    // fallback: split by newline
-    return raw
+    bullets = raw
       .split("\n")
       .map((l) => l.replace(/^[-•*\d.]+\s*/, "").trim())
       .filter(Boolean)
       .slice(0, 8)
   }
-  return []
+  // กรอง JSON objects ออก — model บางครั้ง return question JSON แทน summary text
+  return bullets
+    .filter((b) => typeof b === "string" && !b.trim().startsWith("{") && !b.trim().startsWith("[") && b.length > 5)
+    .slice(0, 8)
 }
 
 // ---------------------------------------------------------------------------
@@ -113,12 +161,13 @@ ${text}`,
 async function generateQuestions(client: OpenAI, text: string, gameType?: string) {
   const gameHint = gameType && GAME_PROMPTS[gameType] ? GAME_PROMPTS[gameType] : ""
   const systemPrompt = gameHint
-    ? `${gameHint}\n\nRespond ONLY with a valid JSON array — no markdown fences, no explanation.`
-    : DEFAULT_GAME_PROMPT
+    ? `${gameHint}\n\nRespond ONLY with a valid JSON object containing key "questions" as an array.`
+    : `${DEFAULT_GAME_PROMPT.replace("JSON array", 'JSON object containing key "questions" as an array')}`
 
   const res = await client.chat.completions.create({
     model: MODEL,
     temperature: 0.5,
+    max_tokens: 1800,
     messages: [
       {
         role: "system",
@@ -126,34 +175,26 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
       },
       {
         role: "user",
-        content: `Create exactly 10 multiple-choice questions from the study material below.
-Rules:
-- CRITICAL: Write ONLY in the same language as the document (Thai or English). NEVER use Chinese, Japanese, Korean, or any other language.
-- Each question must have exactly 4 choices
-- Only 1 correct answer per question
-- Include a brief explanation for the correct answer
+        content: `สร้างคำถามแบบเลือกตอบ 10 ข้อจากเนื้อหาด้านล่าง
+กฎสำคัญ:
+- ถ้าเนื้อหาเป็นภาษาไทย ให้เขียนคำถามและตัวเลือกเป็นภาษาไทยทั้งหมด
+- ถ้าเนื้อหาเป็นภาษาอังกฤษ ให้เขียนเป็นภาษาอังกฤษทั้งหมด
+- แต่ละข้อมี 4 ตัวเลือก, คำตอบถูกต้อง 1 ข้อ
+- มีคำอธิบายสั้นๆ สำหรับคำตอบที่ถูก
 
-Return ONLY a JSON array in this exact format:
-[
-  {
-    "id": 1,
-    "question": "...",
-    "choices": ["A text", "B text", "C text", "D text"],
-    "correct": 0,
-    "explanation": "..."
-  }
-]
-("correct" is 0-based index: 0=A, 1=B, 2=C, 3=D)
+ตอบเป็น JSON เท่านั้น:
+{"questions":[{"id":1,"question":"...","choices":["A...","B...","C...","D..."],"correct":0,"explanation":"...","difficulty":1}]}
+(correct = index 0-3, difficulty = 1/2/3)
 
-Study Material:
+เนื้อหา:
 ${text}`,
       },
     ],
   })
 
-  const raw = res.choices[0]?.message?.content?.trim() ?? "[]"
+  const raw = res.choices[0]?.message?.content?.trim() ?? "{}"
 
-  // Strip possible markdown code fences
+  // Strip possible markdown code fences (Groq sometimes still adds them)
   const cleaned = raw
     .replace(/^```[a-z]*\n?/i, "")
     .replace(/\n?```$/i, "")
@@ -162,7 +203,10 @@ ${text}`,
   try {
     const parsed = JSON.parse(cleaned)
     if (Array.isArray(parsed)) return parsed
-  } catch {
+    if (Array.isArray(parsed?.questions)) return parsed.questions
+  } catch (e) {
+    console.error("[generateQuestions] JSON parse failed:", e)
+    console.error("[generateQuestions] raw output (first 500):", cleaned.slice(0, 500))
     return null
   }
   return null
@@ -181,13 +225,28 @@ export async function POST(req: NextRequest) {
     let gameType: string | undefined
 
     if (contentType.includes("application/json")) {
-      // Re-generate mode: client sends stored extracted text + gameType
-      const body = await req.json() as { text?: string; gameType?: string }
-      if (!body.text || body.text.trim().length < 50) {
-        return NextResponse.json({ error: "No text provided" }, { status: 400 })
+      const body = await req.json() as { text?: string; gameType?: string; url?: string; urlType?: string }
+
+      // URL mode: Google Drive or YouTube
+      if (body.url && body.urlType) {
+        if (body.urlType === "gdrive") {
+          text = await fetchGoogleDrive(body.url)
+        } else if (body.urlType === "youtube") {
+          text = await fetchYouTubeTranscript(body.url)
+        } else {
+          return NextResponse.json({ error: "Unknown urlType" }, { status: 400 })
+        }
+        if (!text || text.trim().length < 50) {
+          return NextResponse.json({ error: "ดึงเนื้อหาไม่ได้ หรือเนื้อหาน้อยเกินไป" }, { status: 422 })
+        }
+      } else {
+        // Re-generate mode: client sends stored extracted text + gameType
+        if (!body.text || body.text.trim().length < 50) {
+          return NextResponse.json({ error: "No text provided" }, { status: 400 })
+        }
+        text = cleanText(body.text).slice(0, 4000)
+        gameType = body.gameType ?? undefined
       }
-      text = body.text.slice(0, 12000)
-      gameType = body.gameType ?? undefined
     } else {
       // File upload mode
       const form = await req.formData()
@@ -198,7 +257,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "No file provided" }, { status: 400 })
       }
 
-      // Agent 0: extract text
+      // Agent 0: extract + clean text
       text = await extractText(file)
 
       if (!text || text.trim().length < 50) {
@@ -208,7 +267,7 @@ export async function POST(req: NextRequest) {
 
     const client = getClient()
 
-    // For re-generate (JSON mode with gameType), skip summarizer to save tokens
+    // Re-generate mode (single game) — skip summarizer to save tokens
     if (gameType) {
       const questions = await generateQuestions(client, text, gameType)
       if (!questions) {
@@ -217,18 +276,31 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ questions, gameType })
     }
 
-    // Initial upload: run summarizer + default question generator in parallel
-    const [summaryBullets, questions] = await Promise.all([
+    // Initial upload — generate all 5 game variants + summary in parallel
+    const [summaryBullets, flappy, racer, shooter, snake, bricks] = await Promise.all([
       summarize(client, text),
-      generateQuestions(client, text),
+      generateQuestions(client, text, "flappy"),
+      generateQuestions(client, text, "racer"),
+      generateQuestions(client, text, "shooter"),
+      generateQuestions(client, text, "snake"),
+      generateQuestions(client, text, "bricks"),
     ])
 
+    // Use flappy as the default general questions (fallback)
+    const questions = flappy ?? racer ?? shooter ?? snake ?? bricks
     if (!questions) {
       return NextResponse.json({ error: "Failed to parse AI question response" }, { status: 500 })
     }
 
     return NextResponse.json({
       questions,
+      allGameQuestions: {
+        flappy: flappy ?? questions,
+        racer: racer ?? questions,
+        shooter: shooter ?? questions,
+        snake: snake ?? questions,
+        bricks: bricks ?? questions,
+      },
       summary: summaryBullets,
       extractedText: text,
     })

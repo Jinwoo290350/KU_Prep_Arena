@@ -13,11 +13,16 @@ import {
   Leaf,
   Upload,
   Bot,
-  AlertCircle,
+  Sparkles,
+  CheckCircle2,
+  LogIn,
+  LogOut,
 } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useQuestions } from "@/lib/questions-context"
+import { UploadDialog } from "@/components/upload-dialog"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -25,73 +30,101 @@ const navItems = [
   { href: "/planner", label: "Smart Planner", icon: CalendarDays },
   { href: "/flashcards", label: "Flashcards", icon: BookOpen },
   { href: "/quiz-battle", label: "AI Mentor", icon: Bot },
+  { href: "/fortune", label: "Daily Fortune", icon: Sparkles },
 ]
 
 function UploadSection() {
-  const {
-    questions, setQuestions, setUploadedFileName, hasQuestions, uploadedFileName,
-    setUploadedText, setSummary, isGenerating, setIsGenerating,
-  } = useQuestions()
-  const [error, setError] = useState<string | null>(null)
-
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-    setError(null)
-    setUploadedFileName(file.name)
-    setIsGenerating(true)
-    try {
-      const form = new FormData()
-      form.append("file", file)
-      const res = await fetch("/api/generate", { method: "POST", body: form })
-      if (res.ok) {
-        const data = await res.json()
-        setQuestions(data.questions ?? [])
-        setSummary(data.summary ?? [])
-        setUploadedText(data.extractedText ?? null)
-      } else {
-        const data = await res.json().catch(() => ({}))
-        setError(data.error ?? "Failed to generate questions")
-        setUploadedFileName(null)
-      }
-    } catch {
-      setError("Network error — check connection")
-      setUploadedFileName(null)
-    } finally {
-      setIsGenerating(false)
-    }
-  }
+  const { questions, hasQuestions, uploadedFileName, isGenerating } = useQuestions()
 
   return (
     <div className="px-3 mb-3">
-      <label className={cn(
-        "flex items-center gap-2 px-3 py-2.5 rounded-lg cursor-pointer text-sm font-medium transition-all",
-        hasQuestions
-          ? "bg-ku-green-500/10 dark:bg-ku-green-800/40 text-ku-green-600 dark:text-ku-green-200 border border-ku-green-500/30"
-          : "bg-ku-green-500 text-white hover:bg-ku-green-600 dark:bg-ku-green-700 dark:hover:bg-ku-green-600"
-      )}>
-        <Upload className={cn("h-4 w-4 shrink-0", isGenerating && "animate-spin")} />
-        <span className="truncate">
-          {isGenerating ? "Generating..." : hasQuestions ? (uploadedFileName || "Material loaded") : "Upload Material"}
-        </span>
-        <input
-          type="file"
-          className="sr-only"
-          accept=".pdf,.txt,.docx"
-          onChange={handleFileChange}
-        />
-      </label>
-      {hasQuestions && !error && (
+      <UploadDialog>
+        <button className={cn(
+          "w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+          hasQuestions
+            ? "bg-ku-green-500/10 dark:bg-ku-green-800/40 text-ku-green-600 dark:text-ku-green-200 border border-ku-green-500/30 hover:bg-ku-green-500/15"
+            : "bg-ku-green-500 text-white hover:bg-ku-green-600 dark:bg-ku-green-700 dark:hover:bg-ku-green-600"
+        )}>
+          {hasQuestions
+            ? <CheckCircle2 className="h-4 w-4 shrink-0" />
+            : <Upload className={cn("h-4 w-4 shrink-0", isGenerating && "animate-spin")} />
+          }
+          <span className="truncate text-left">
+            {isGenerating ? "กำลังสร้าง..." : hasQuestions ? (uploadedFileName || "โหลดแล้ว") : "เพิ่มเนื้อหาการเรียน"}
+          </span>
+        </button>
+      </UploadDialog>
+      {hasQuestions && (
         <p className="text-[10px] text-muted-foreground mt-1 px-1 truncate">
           {uploadedFileName || "Study material"} · {questions.length} questions
         </p>
       )}
-      {error && (
-        <div className="flex items-center gap-1.5 mt-1.5 px-1">
-          <AlertCircle className="h-3 w-3 text-destructive shrink-0" />
-          <p className="text-[10px] text-destructive leading-tight">{error}</p>
+    </div>
+  )
+}
+
+function UserSection() {
+  const { data: session, status } = useSession()
+
+  if (status === "loading") {
+    return (
+      <div className="px-3 py-3 border-t border-border">
+        <div className="h-9 rounded-lg bg-secondary animate-pulse" />
+      </div>
+    )
+  }
+
+  if (!session?.user) {
+    return (
+      <div className="px-3 py-3 border-t border-border">
+        <Button
+          variant="outline"
+          size="sm"
+          className="w-full gap-2 text-xs"
+          onClick={() => signIn("google")}
+        >
+          <LogIn className="h-3.5 w-3.5" />
+          Sign in with Google
+        </Button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="px-3 py-3 border-t border-border">
+      <div className="flex items-center gap-2 mb-2">
+        {session.user.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={session.user.image}
+            alt={session.user.name ?? "User"}
+            className="h-7 w-7 rounded-full object-cover shrink-0"
+          />
+        ) : (
+          <div className="h-7 w-7 rounded-full bg-ku-green-500 flex items-center justify-center shrink-0">
+            <span className="text-[10px] font-bold text-white">
+              {(session.user.name ?? "U")[0].toUpperCase()}
+            </span>
+          </div>
+        )}
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-semibold text-foreground truncate leading-tight">
+            {session.user.name}
+          </p>
+          <p className="text-[10px] text-muted-foreground truncate leading-tight">
+            {session.user.email}
+          </p>
         </div>
-      )}
+      </div>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="w-full gap-2 text-xs text-muted-foreground hover:text-foreground justify-start"
+        onClick={() => signOut()}
+      >
+        <LogOut className="h-3.5 w-3.5" />
+        Sign out
+      </Button>
     </div>
   )
 }
@@ -186,14 +219,8 @@ export function AppSidebar() {
           </ul>
         </nav>
 
-        {/* Bottom section */}
-        <div className="px-3 py-4 border-t border-border">
-          <div className="rounded-xl border border-dashed border-border p-3 text-center">
-            <p className="text-xs text-muted-foreground">
-              Upload study material above to generate quiz questions for all games.
-            </p>
-          </div>
-        </div>
+        {/* User auth section */}
+        <UserSection />
       </aside>
     </>
   )

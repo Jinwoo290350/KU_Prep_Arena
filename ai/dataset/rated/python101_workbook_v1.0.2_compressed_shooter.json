@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "Which keyword is used to define a named function in Python?",
+    "choices": [
+      "A) def",
+      "B) func",
+      "C) fn",
+      "D) define"
+    ],
+    "correct": 0,
+    "explanation": "def is the keyword to define a named function. class defines classes and lambda creates anonymous functions.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword พื้นฐานที่สุด ระดับ recall"
+  },
+  {
+    "id": 2,
+    "question": "Which built-in function reads text input from the user?",
+    "choices": [
+      "A) input",
+      "B) read",
+      "C) scan",
+      "D) get"
+    ],
+    "correct": 0,
+    "explanation": "input() reads a line from stdin. read() is a file method. scan() and get() are not Python built-ins.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 3,
+    "question": "Which keyword iterates over each item in a sequence?",
+    "choices": [
+      "A) while",
+      "B) for",
+      "C) loop",
+      "D) each"
+    ],
+    "correct": 1,
+    "explanation": "for iterates over a sequence. while repeats while a condition is True. loop and each are not Python keywords.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword loop พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 4,
+    "question": "Which list method adds a single element to the end?",
+    "choices": [
+      "A) add",
+      "B) push",
+      "C) insert",
+      "D) append"
+    ],
+    "correct": 3,
+    "explanation": "append() adds one element to the end. insert(i,x) adds at index. add() is a set method. push() does not exist in Python lists.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก append จาก add/push ที่มาจากภาษาอื่น [ปรับระดับ→1]"
+  },
+  {
+    "id": 5,
+    "question": "Which Python data type stores key-value pairs?",
+    "choices": [
+      "A) list",
+      "B) tuple",
+      "C) dict",
+      "D) set"
+    ],
+    "correct": 2,
+    "explanation": "dict stores key-value pairs. list and tuple store ordered sequences. set stores unique unordered elements.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยกชนิด data structure และ use case ของแต่ละอัน [ปรับระดับ→1]"
+  },
+  {
+    "id": 6,
+    "question": "Which keyword loads an external module into Python?",
+    "choices": [
+      "A) require",
+      "B) include",
+      "C) import",
+      "D) load"
+    ],
+    "correct": 2,
+    "explanation": "import loads a module. require is Node.js, include is PHP/C, load is not a Python keyword.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก import จาก keyword ของภาษาอื่น [ปรับระดับ→1]"
+  },
+  {
+    "id": 7,
+    "question": "Which built-in returns the number of items in a list?",
+    "choices": [
+      "A) count",
+      "B) size",
+      "C) len",
+      "D) num"
+    ],
+    "correct": 2,
+    "explanation": "len() counts items. size() and num() do not exist. count() counts occurrences of a specific value.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก len() จาก size()/count() ที่อาจสับสน [ปรับระดับ→1]"
+  },
+  {
+    "id": 8,
+    "question": "Which keyword begins the error-handling block in Python?",
+    "choices": [
+      "A) catch",
+      "B) except",
+      "C) error",
+      "D) handle"
+    ],
+    "correct": 1,
+    "explanation": "except handles errors after try. Python uses try/except, not try/catch like Java/JavaScript.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก except จาก catch ที่ใช้ในภาษาอื่น [ปรับระดับ→1]"
+  },
+  {
+    "id": 9,
+    "question": "Which Python concept creates a lazy sequence without storing all values in memory?",
+    "choices": [
+      "A) list",
+      "B) iter",
+      "C) array",
+      "D) tuple"
+    ],
+    "correct": 1,
+    "explanation": "An iterator yields values one at a time on demand. Lists store all elements eagerly.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ concept lazy evaluation และแยก iterator จาก list [ปรับระดับ→2]"
+  },
+  {
+    "id": 10,
+    "question": "Which keyword creates a one-liner anonymous function?",
+    "choices": [
+      "A) def",
+      "B) func",
+      "C) arrow",
+      "D) lambda"
+    ],
+    "correct": 3,
+    "explanation": "lambda creates an anonymous function: lambda x: x*2. Unlike def, it is a single expression.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า lambda ต่างจาก def อย่างไรและเมื่อไรใช้ [ปรับระดับ→2]"
+  },
+  {
+    "id": 11,
+    "question": "Which keyword is used to define a class in Python?",
+    "choices": [
+      "A) object",
+      "B) struct",
+      "C) type",
+      "D) class"
+    ],
+    "correct": 3,
+    "explanation": "class defines a class. object is the base type, struct is C, type() is a built-in function.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 12,
+    "question": "Which keyword sends a value back from a function?",
+    "choices": [
+      "A) yield",
+      "B) return",
+      "C) send",
+      "D) output"
+    ],
+    "correct": 1,
+    "explanation": "return exits a function and returns a value. yield is for generators. send and output are not Python keywords.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword return พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 13,
+    "question": "Which built-in displays output to the screen?",
+    "choices": [
+      "A) display",
+      "B) write",
+      "C) show",
+      "D) print"
+    ],
+    "correct": 3,
+    "explanation": "print() outputs text to stdout. display(), write(), and show() are not standard built-ins for console output.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in print() พื้นฐานที่สุด ระดับ recall"
+  },
+  {
+    "id": 14,
+    "question": "Which keyword repeats a block while a condition is True?",
+    "choices": [
+      "A) for",
+      "B) loop",
+      "C) while",
+      "D) repeat"
+    ],
+    "correct": 2,
+    "explanation": "while repeats while the condition is True. for iterates over a sequence. loop and repeat are not Python keywords.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword while พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 15,
+    "question": "Which built-in converts a value to integer type?",
+    "choices": [
+      "A) num",
+      "B) toint",
+      "C) int",
+      "D) integer"
+    ],
+    "correct": 2,
+    "explanation": "int() converts a value to integer type. num, toint, and integer are not Python built-ins.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in int() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 16,
+    "question": "Which keyword executes a block when a condition is True?",
+    "choices": [
+      "A) when",
+      "B) check",
+      "C) if",
+      "D) test"
+    ],
+    "correct": 2,
+    "explanation": "if runs its block when the condition is True. when, check, and test are not Python keywords.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword if พื้นฐานที่สุด ระดับ recall"
+  },
+  {
+    "id": 17,
+    "question": "Which built-in generates a sequence of integers?",
+    "choices": [
+      "A) seq",
+      "B) nums",
+      "C) range",
+      "D) list"
+    ],
+    "correct": 2,
+    "explanation": "range() generates a sequence of integers. list() creates a list. seq and nums are not Python built-ins.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in range() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 18,
+    "question": "Which built-in converts a value to string type?",
+    "choices": [
+      "A) str",
+      "B) string",
+      "C) text",
+      "D) char"
+    ],
+    "correct": 0,
+    "explanation": "str() converts to string. string, text, and char are not Python built-in converters.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in str() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 19,
+    "question": "Which built-in returns the data type of a value?",
+    "choices": [
+      "A) typeof",
+      "B) kind",
+      "C) type",
+      "D) class"
+    ],
+    "correct": 2,
+    "explanation": "type() returns the type of an object. typeof is JavaScript, kind and class() are not Python built-ins.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in type() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 20,
+    "question": "Which keyword starts an exception-handling block?",
+    "choices": [
+      "A) begin",
+      "B) try",
+      "C) guard",
+      "D) test"
+    ],
+    "correct": 1,
+    "explanation": "try begins the block where exceptions may occur. begin is Pascal, guard is Swift, test is not a Python keyword.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword try พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 21,
+    "question": "Which keyword checks another condition after if?",
+    "choices": [
+      "A) elseif",
+      "B) elif",
+      "C) orif",
+      "D) else"
+    ],
+    "correct": 1,
+    "explanation": "elif checks another condition when if was False. elseif is PHP/VBA. else if (two words) is not a single Python keyword.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword elif พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 22,
+    "question": "Which keyword runs when no if/elif condition matched?",
+    "choices": [
+      "A) default",
+      "B) other",
+      "C) else",
+      "D) finally"
+    ],
+    "correct": 2,
+    "explanation": "else runs when no if/elif was True. default is switch (C/Java). finally runs after try/except.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword else พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 23,
+    "question": "Which built-in converts a value to a floating-point number?",
+    "choices": [
+      "A) double",
+      "B) real",
+      "C) decimal",
+      "D) float"
+    ],
+    "correct": 3,
+    "explanation": "float() converts to floating-point. double, real, and decimal are not Python built-in functions.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in float() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 24,
+    "question": "Which built-in creates a list from an iterable?",
+    "choices": [
+      "A) array",
+      "B) list",
+      "C) make",
+      "D) collect"
+    ],
+    "correct": 1,
+    "explanation": "list() creates a list from any iterable. array() needs import. make and collect are not built-ins.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in list() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 25,
+    "question": "Which keyword tests if a value is in a sequence?",
+    "choices": [
+      "A) has",
+      "B) within",
+      "C) in",
+      "D) inside"
+    ],
+    "correct": 2,
+    "explanation": "in tests membership: 3 in [1,2,3] is True. has, within, and inside are not Python keywords.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword in พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 26,
+    "question": "Which keyword ensures a file is closed after its block?",
+    "choices": [
+      "A) open",
+      "B) use",
+      "C) with",
+      "D) file"
+    ],
+    "correct": 2,
+    "explanation": "with is the context manager keyword. with open('f') as f: ensures closure. open() alone does not guarantee it.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก with (context manager) จาก open() [ปรับระดับ→1]"
+  },
+  {
+    "id": 27,
+    "question": "Which keyword negates a boolean expression?",
+    "choices": [
+      "A) no",
+      "B) neg",
+      "C) not",
+      "D) false"
+    ],
+    "correct": 2,
+    "explanation": "not reverses a boolean. not True = False. no and neg are not Python keywords.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก not จาก ! (ที่ใช้ในภาษาอื่น) [ปรับระดับ→1]"
+  },
+  {
+    "id": 28,
+    "question": "Which keyword means both conditions must be True?",
+    "choices": [
+      "A) both",
+      "B) &&",
+      "C) and",
+      "D) plus"
+    ],
+    "correct": 2,
+    "explanation": "and is the logical AND operator. Both operands must be True. && is C/Java/JavaScript syntax.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก and จาก && ของภาษาอื่น [ปรับระดับ→1]"
+  },
+  {
+    "id": 29,
+    "question": "Which keyword means at least one condition must be True?",
+    "choices": [
+      "A) either",
+      "B) ||",
+      "C) or",
+      "D) any"
+    ],
+    "correct": 2,
+    "explanation": "or is logical OR. True if at least one operand is True. || is C/Java/JavaScript syntax.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องแยก or จาก || ของภาษาอื่น [ปรับระดับ→1]"
+  },
+  {
+    "id": 30,
+    "question": "Which built-in creates a dictionary from pairs?",
+    "choices": [
+      "A) map",
+      "B) dict",
+      "C) pairs",
+      "D) hash"
+    ],
+    "correct": 1,
+    "explanation": "dict() creates a dictionary. map() applies a function. pairs and hash() do not create dicts.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in dict() ต่างจาก map()"
+  },
+  {
+    "id": 31,
+    "question": "Which built-in creates a set of unique elements?",
+    "choices": [
+      "A) unique",
+      "B) set",
+      "C) bag",
+      "D) frozenset"
+    ],
+    "correct": 1,
+    "explanation": "set() creates a mutable collection of unique elements. frozenset is immutable. unique and bag are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in set() และแยกจาก frozenset"
+  },
+  {
+    "id": 32,
+    "question": "Which built-in applies a function to every item in an iterable?",
+    "choices": [
+      "A) each",
+      "B) apply",
+      "C) map",
+      "D) loop"
+    ],
+    "correct": 2,
+    "explanation": "map(func, iterable) applies func to every element. each, apply, and loop are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in map() และแยกจาก apply()"
+  },
+  {
+    "id": 33,
+    "question": "Which built-in filters items by a condition?",
+    "choices": [
+      "A) where",
+      "B) select",
+      "C) filter",
+      "D) find"
+    ],
+    "correct": 2,
+    "explanation": "filter(func, iterable) keeps items where func returns True. where and select are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in filter() ต่างจาก where/select"
+  },
+  {
+    "id": 34,
+    "question": "Which Python concept refers to a function inside another function?",
+    "choices": [
+      "A) method",
+      "B) closure",
+      "C) nested",
+      "D) lambda"
+    ],
+    "correct": 2,
+    "explanation": "A nested function is defined inside another function. A closure captures variables from the enclosing scope. lambda is anonymous.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก nested function จาก closure และ lambda"
+  },
+  {
+    "id": 35,
+    "question": "Which built-in returns the largest value among arguments?",
+    "choices": [
+      "A) biggest",
+      "B) top",
+      "C) max",
+      "D) ceil"
+    ],
+    "correct": 2,
+    "explanation": "max() returns the largest value. biggest and top are not built-ins. ceil() rounds up to nearest int.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in max() ต่างจาก ceil()"
+  },
+  {
+    "id": 36,
+    "question": "Which built-in returns the smallest value among arguments?",
+    "choices": [
+      "A) floor",
+      "B) min",
+      "C) least",
+      "D) low"
+    ],
+    "correct": 1,
+    "explanation": "min() returns the smallest value. floor() rounds down (math module). least and low are not built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in min() ต่างจาก floor()"
+  },
+  {
+    "id": 37,
+    "question": "Which built-in adds all elements in an iterable?",
+    "choices": [
+      "A) add",
+      "B) total",
+      "C) sum",
+      "D) plus"
+    ],
+    "correct": 2,
+    "explanation": "sum() returns the total of all elements. add, total, and plus are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in sum()"
+  },
+  {
+    "id": 38,
+    "question": "Which built-in returns a new sorted list?",
+    "choices": [
+      "A) order",
+      "B) sort",
+      "C) sorted",
+      "D) arrange"
+    ],
+    "correct": 2,
+    "explanation": "sorted() returns a new sorted list. sort() is a list method that sorts in-place. order and arrange are not built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก sorted() (built-in) จาก sort() (method)"
+  },
+  {
+    "id": 39,
+    "question": "Which built-in reverses an iterable lazily?",
+    "choices": [
+      "A) flip",
+      "B) back",
+      "C) reversed",
+      "D) invert"
+    ],
+    "correct": 2,
+    "explanation": "reversed() returns a lazy iterator in reverse. flip and invert are not built-ins. reverse() is a list method.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in reversed() ต่างจาก reverse() method"
+  },
+  {
+    "id": 40,
+    "question": "Which built-in combines iterables element-by-element?",
+    "choices": [
+      "A) join",
+      "B) merge",
+      "C) zip",
+      "D) pair"
+    ],
+    "correct": 2,
+    "explanation": "zip() pairs elements from multiple iterables. join() is a string method. merge and pair are not built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in zip() ต่างจาก join()"
+  },
+  {
+    "id": 41,
+    "question": "Which keyword skips to the next loop iteration?",
+    "choices": [
+      "A) skip",
+      "B) next",
+      "C) pass",
+      "D) continue"
+    ],
+    "correct": 3,
+    "explanation": "continue skips the rest of the current iteration. break exits the loop. pass does nothing. next() advances an iterator.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก continue จาก break และ pass"
+  },
+  {
+    "id": 42,
+    "question": "Which keyword exits a loop immediately?",
+    "choices": [
+      "A) break",
+      "B) exit",
+      "C) stop",
+      "D) end"
+    ],
+    "correct": 0,
+    "explanation": "break immediately exits the innermost loop. exit() terminates the program. stop and end are not Python keywords.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก break จาก exit() และ continue"
+  },
+  {
+    "id": 43,
+    "question": "Which keyword is a do-nothing placeholder in an empty block?",
+    "choices": [
+      "A) null",
+      "B) noop",
+      "C) void",
+      "D) pass"
+    ],
+    "correct": 3,
+    "explanation": "pass is a no-op placeholder. Used where Python requires a statement but no action is needed. null is not a Python keyword.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ keyword pass และ use case"
+  },
+  {
+    "id": 44,
+    "question": "Which built-in opens a file for reading or writing?",
+    "choices": [
+      "A) file",
+      "B) read",
+      "C) open",
+      "D) load"
+    ],
+    "correct": 2,
+    "explanation": "open() opens a file. file() was removed in Python 3. read() is a file method, not a standalone built-in for opening.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in open() และแยกจาก read()"
+  },
+  {
+    "id": 45,
+    "question": "Which built-in yields items with their index?",
+    "choices": [
+      "A) index",
+      "B) count",
+      "C) number",
+      "D) enumerate"
+    ],
+    "correct": 3,
+    "explanation": "enumerate() yields (index, value) pairs. index() returns position. count() counts occurrences. number is not a built-in.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in enumerate() และแยกจาก index()"
+  },
+  {
+    "id": 46,
+    "question": "Which keyword raises an exception manually?",
+    "choices": [
+      "A) throw",
+      "B) raise",
+      "C) error",
+      "D) signal"
+    ],
+    "correct": 1,
+    "explanation": "raise raises an exception. throw is Java/JavaScript. error and signal are not Python keywords.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก raise จาก throw ของภาษาอื่น"
+  },
+  {
+    "id": 47,
+    "question": "Which keyword deletes a variable or object?",
+    "choices": [
+      "A) remove",
+      "B) free",
+      "C) del",
+      "D) drop"
+    ],
+    "correct": 2,
+    "explanation": "del deletes a variable or element. remove() is a list method. free() is from C. drop is not a Python keyword.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ keyword del ต่างจาก remove() method"
+  },
+  {
+    "id": 48,
+    "question": "Which built-in returns True if all elements are truthy?",
+    "choices": [
+      "A) every",
+      "B) allTrue",
+      "C) all",
+      "D) check"
+    ],
+    "correct": 2,
+    "explanation": "all() returns True if every element is truthy. every is JavaScript. allTrue and check are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in all() ต่างจาก every() ของ JS"
+  },
+  {
+    "id": 49,
+    "question": "Which built-in returns True if any element is truthy?",
+    "choices": [
+      "A) some",
+      "B) any",
+      "C) one",
+      "D) exists"
+    ],
+    "correct": 1,
+    "explanation": "any() returns True if at least one element is truthy. some is JavaScript. one and exists are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in any() ต่างจาก some() ของ JS"
+  },
+  {
+    "id": 50,
+    "question": "Which built-in returns the absolute value of a number?",
+    "choices": [
+      "A) mag",
+      "B) pos",
+      "C) abs",
+      "D) norm"
+    ],
+    "correct": 2,
+    "explanation": "abs() returns the absolute value. mag, pos, and norm are not standard Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in abs()"
+  },
+  {
+    "id": 51,
+    "question": "Which built-in rounds a number to a given precision?",
+    "choices": [
+      "A) trunc",
+      "B) ceil",
+      "C) floor",
+      "D) round"
+    ],
+    "correct": 3,
+    "explanation": "round(x, n) rounds x to n decimal places. trunc, ceil, and floor are in the math module.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก round() built-in จาก math.ceil/floor"
+  },
+  {
+    "id": 52,
+    "question": "Which Python concept reuses behavior from a parent class?",
+    "choices": [
+      "A) override",
+      "B) mixin",
+      "C) inherit",
+      "D) compose"
+    ],
+    "correct": 2,
+    "explanation": "Inheritance allows a child class to reuse code from a parent class. override replaces a method. compose is a different design pattern.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ concept inheritance ต่างจาก override"
+  },
+  {
+    "id": 53,
+    "question": "Which Python name refers to the current object instance?",
+    "choices": [
+      "A) me",
+      "B) this",
+      "C) self",
+      "D) object"
+    ],
+    "correct": 2,
+    "explanation": "self is the conventional first parameter of instance methods. this is JavaScript/Java. me is not a Python keyword.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก self จาก this ของภาษาอื่น"
+  },
+  {
+    "id": 54,
+    "question": "Which built-in converts an iterable to a tuple?",
+    "choices": [
+      "A) pair",
+      "B) freeze",
+      "C) tup",
+      "D) tuple"
+    ],
+    "correct": 3,
+    "explanation": "tuple() creates a tuple from an iterable. pair, freeze, and tup are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in tuple()"
+  },
+  {
+    "id": 55,
+    "question": "Which Python concept allows a function to call itself?",
+    "choices": [
+      "A) loop",
+      "B) recurse",
+      "C) iterate",
+      "D) repeat"
+    ],
+    "correct": 1,
+    "explanation": "Recursion allows a function to call itself. loop and iterate refer to iteration constructs.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ concept recursion ต่างจาก iteration"
+  },
+  {
+    "id": 56,
+    "question": "Which Python concept bundles data and methods together?",
+    "choices": [
+      "A) module",
+      "B) struct",
+      "C) object",
+      "D) package"
+    ],
+    "correct": 2,
+    "explanation": "An object bundles data and methods — this is encapsulation. A module organizes related code in a file.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ concept object/encapsulation"
+  },
+  {
+    "id": 57,
+    "question": "Which built-in returns a unique integer identity of an object?",
+    "choices": [
+      "A) hash",
+      "B) addr",
+      "C) id",
+      "D) ref"
+    ],
+    "correct": 2,
+    "explanation": "id() returns a unique integer (memory address). hash() returns a hash value. addr and ref are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in id() ต่างจาก hash()"
+  },
+  {
+    "id": 58,
+    "question": "Which built-in checks if an object is an instance of a class?",
+    "choices": [
+      "A) typeof",
+      "B) kindof",
+      "C) isa",
+      "D) isinstance"
+    ],
+    "correct": 3,
+    "explanation": "isinstance(obj, cls) checks class membership. typeof is JavaScript. kindof and isa are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in isinstance() ต่างจาก type()"
+  },
+  {
+    "id": 59,
+    "question": "Which keyword declares a variable as global inside a function?",
+    "choices": [
+      "A) extern",
+      "B) public",
+      "C) global",
+      "D) shared"
+    ],
+    "correct": 2,
+    "explanation": "global declares that a variable in a function refers to global scope. extern is C/C++. public and shared are not Python keywords.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ keyword global ต่างจาก extern ของ C"
+  },
+  {
+    "id": 60,
+    "question": "Which keyword lets a nested function write to its enclosing scope?",
+    "choices": [
+      "A) outer",
+      "B) upvar",
+      "C) enclosing",
+      "D) nonlocal"
+    ],
+    "correct": 3,
+    "explanation": "nonlocal allows a nested function to write to a variable in the enclosing scope. outer, upvar, and enclosing are not Python keywords.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ keyword nonlocal และ LEGB scope rule"
+  },
+  {
+    "id": 61,
+    "question": "Which concept lets the same method behave differently per object type?",
+    "choices": [
+      "A) override",
+      "B) overload",
+      "C) polymorph",
+      "D) abstract"
+    ],
+    "correct": 2,
+    "explanation": "Polymorphism allows the same method name to behave differently depending on the object's class.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ concept polymorphism ต่างจาก override"
+  },
+  {
+    "id": 62,
+    "question": "Which keyword pauses a generator and yields a value?",
+    "choices": [
+      "A) return",
+      "B) emit",
+      "C) give",
+      "D) yield"
+    ],
+    "correct": 3,
+    "explanation": "yield pauses a generator and returns a value. The next call resumes from where it paused. return ends the function.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก yield จาก return และเข้าใจ generator"
+  },
+  {
+    "id": 63,
+    "question": "Which concept is a nested function that remembers its enclosing scope?",
+    "choices": [
+      "A) nested",
+      "B) lambda",
+      "C) closure",
+      "D) callback"
+    ],
+    "correct": 2,
+    "explanation": "A closure captures and remembers variables from its enclosing scope even after the outer function returns.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ closure concept ต่างจาก nested function"
+  },
+  {
+    "id": 64,
+    "question": "Which built-in retrieves the next item from an iterator?",
+    "choices": [
+      "A) next",
+      "B) loop",
+      "C) step",
+      "D) advance"
+    ],
+    "correct": 0,
+    "explanation": "next() retrieves the next item from an iterator. It is part of the iteration protocol alongside iter().",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ iteration protocol: iter() + next()"
+  },
+  {
+    "id": 65,
+    "question": "Which term refers to special __add__-style methods that implement operators?",
+    "choices": [
+      "A) override",
+      "B) dunder",
+      "C) operator",
+      "D) magic"
+    ],
+    "correct": 3,
+    "explanation": "Magic methods (also called dunder methods) like __add__ implement operator overloading.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ magic/dunder method concept"
+  },
+  {
+    "id": 66,
+    "question": "Which decorator makes a method callable without an instance?",
+    "choices": [
+      "A) const",
+      "B) static",
+      "C) readonly",
+      "D) frozen"
+    ],
+    "correct": 1,
+    "explanation": "@staticmethod defines a method that takes no self/cls. const and readonly are not Python keywords. frozen is used in dataclasses.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ staticmethod decorator และ class design"
+  },
+  {
+    "id": 67,
+    "question": "Which concept describes passing a function as an argument?",
+    "choices": [
+      "A) callback",
+      "B) delegate",
+      "C) hook",
+      "D) inject"
+    ],
+    "correct": 0,
+    "explanation": "A callback is a function passed as an argument to be called later. delegate and hook are similar patterns.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ concept higher-order function / callback"
+  },
+  {
+    "id": 68,
+    "question": "Which built-in converts an iterable to an iterator object?",
+    "choices": [
+      "A) next",
+      "B) gen",
+      "C) iter",
+      "D) walk"
+    ],
+    "correct": 2,
+    "explanation": "iter() takes an iterable and returns an iterator. next() advances it. gen and walk are not built-ins.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ iter() ใน iteration protocol"
+  },
+  {
+    "id": 69,
+    "question": "Which decorator binds a method to the class, not an instance?",
+    "choices": [
+      "A) noself",
+      "B) static",
+      "C) classonly",
+      "D) clsmethod"
+    ],
+    "correct": 3,
+    "explanation": "@classmethod passes cls as the first argument. @staticmethod passes nothing. noself and classonly are not Python decorators.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก classmethod จาก staticmethod"
+  },
+  {
+    "id": 70,
+    "question": "Which concept hides the internal details of a class?",
+    "choices": [
+      "A) abstraction",
+      "B) encapsulate",
+      "C) isolation",
+      "D) module"
+    ],
+    "correct": 1,
+    "explanation": "Encapsulation hides internal details and exposes a public interface. Abstraction focuses on what, not how.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก encapsulation จาก abstraction"
+  },
+  {
+    "id": 71,
+    "question": "Which built-in lists all attributes and methods of an object?",
+    "choices": [
+      "A) show",
+      "B) attrs",
+      "C) dir",
+      "D) info"
+    ],
+    "correct": 2,
+    "explanation": "dir() returns a list of attributes and methods. show, attrs, and info are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in dir() สำหรับ introspection"
+  },
+  {
+    "id": 72,
+    "question": "Which built-in checks if an object has a named attribute?",
+    "choices": [
+      "A) has",
+      "B) hasattr",
+      "C) getattr",
+      "D) hasfield"
+    ],
+    "correct": 1,
+    "explanation": "hasattr(obj, name) returns True if the object has the attribute. getattr() retrieves the value.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in hasattr() ต่างจาก getattr()"
+  },
+  {
+    "id": 73,
+    "question": "Which built-in retrieves an attribute by name as a string?",
+    "choices": [
+      "A) fetch",
+      "B) hasattr",
+      "C) getattr",
+      "D) lookup"
+    ],
+    "correct": 2,
+    "explanation": "getattr(obj, 'name') is equivalent to obj.name using a string. hasattr() checks existence.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in getattr() สำหรับ dynamic access"
+  },
+  {
+    "id": 74,
+    "question": "Which keyword asserts a condition for debugging?",
+    "choices": [
+      "A) check",
+      "B) verify",
+      "C) assert",
+      "D) test"
+    ],
+    "correct": 2,
+    "explanation": "assert condition raises AssertionError if False. Used for debugging. check, verify, and test are not Python keywords.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ keyword assert และ use case"
+  },
+  {
+    "id": 75,
+    "question": "Which built-in converts a value to True or False?",
+    "choices": [
+      "A) flag",
+      "B) bit",
+      "C) bool",
+      "D) boolean"
+    ],
+    "correct": 2,
+    "explanation": "bool() converts to True or False. flag, bit, and boolean are not Python built-ins.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in bool() พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 76,
+    "question": "Which string method returns True if all characters are digits?",
+    "choices": [
+      "A) isnum",
+      "B) isdigit",
+      "C) isnumeric",
+      "D) isint"
+    ],
+    "correct": 1,
+    "explanation": "isdigit() returns True if all characters are digits. isnumeric() covers more Unicode digits. isnum and isint are not methods.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ string method isdigit() ต่างจาก isnumeric()"
+  },
+  {
+    "id": 77,
+    "question": "Which Python type is immutable and ordered?",
+    "choices": [
+      "A) list",
+      "B) set",
+      "C) dict",
+      "D) tuple"
+    ],
+    "correct": 3,
+    "explanation": "tuple is immutable and ordered. list is mutable and ordered. set is mutable and unordered.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ property immutable+ordered ของ tuple"
+  },
+  {
+    "id": 78,
+    "question": "Which Python concept refers to a single .py file of definitions?",
+    "choices": [
+      "A) package",
+      "B) module",
+      "C) library",
+      "D) script"
+    ],
+    "correct": 1,
+    "explanation": "A module is a single .py file. A package is a directory of modules. A library is a collection of packages.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก module จาก package และ library"
+  },
+  {
+    "id": 79,
+    "question": "Which keyword creates an alias when importing a module?",
+    "choices": [
+      "A) rename",
+      "B) alias",
+      "C) as",
+      "D) name"
+    ],
+    "correct": 2,
+    "explanation": "as creates an alias: import numpy as np. alias, rename, and name are not Python keywords for this.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ keyword as สำหรับ import alias"
+  },
+  {
+    "id": 80,
+    "question": "Which keyword imports a specific name from a module?",
+    "choices": [
+      "A) get",
+      "B) use",
+      "C) from",
+      "D) take"
+    ],
+    "correct": 2,
+    "explanation": "from module import name imports a specific name. Example: from math import pi. get, use, and take are not Python keywords for this.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword from (used with import) พื้นฐาน ระดับ recall"
+  },
+  {
+    "id": 81,
+    "question": "Which keyword runs a block regardless of exceptions?",
+    "choices": [
+      "A) always",
+      "B) ensure",
+      "C) finally",
+      "D) cleanup"
+    ],
+    "correct": 2,
+    "explanation": "finally runs whether or not an exception occurred. always, ensure, and cleanup are not Python keywords.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ keyword finally ใน try/except/finally"
+  },
+  {
+    "id": 82,
+    "question": "Which built-in converts a number to its binary string?",
+    "choices": [
+      "A) binary",
+      "B) base2",
+      "C) bin",
+      "D) tobits"
+    ],
+    "correct": 2,
+    "explanation": "bin(n) returns the binary string '0b...'. binary, base2, and tobits are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in bin()"
+  },
+  {
+    "id": 83,
+    "question": "Which built-in converts a number to its hexadecimal string?",
+    "choices": [
+      "A) hex",
+      "B) hexa",
+      "C) base16",
+      "D) tohex"
+    ],
+    "correct": 0,
+    "explanation": "hex(n) returns the hexadecimal string '0x...'. hexa, base16, and tohex are not Python built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in hex()"
+  },
+  {
+    "id": 84,
+    "question": "Which built-in returns the Unicode code point of a character?",
+    "choices": [
+      "A) code",
+      "B) ord",
+      "C) chr",
+      "D) ascii"
+    ],
+    "correct": 1,
+    "explanation": "ord(c) returns the Unicode code point for character c. chr() does the reverse.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in ord() ต่างจาก chr()"
+  },
+  {
+    "id": 85,
+    "question": "Which built-in converts a Unicode code point to a character?",
+    "choices": [
+      "A) ord",
+      "B) str",
+      "C) chr",
+      "D) char"
+    ],
+    "correct": 2,
+    "explanation": "chr(n) returns the character for code point n. ord() does the reverse. str() converts to string. char is not a built-in.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in chr() ต่างจาก ord()"
+  },
+  {
+    "id": 86,
+    "question": "Which Python concept uses indentation to define code blocks?",
+    "choices": [
+      "A) block",
+      "B) scope",
+      "C) indent",
+      "D) braces"
+    ],
+    "correct": 2,
+    "explanation": "Python uses indentation (significant whitespace) to define blocks instead of curly braces.",
+    "difficulty": 1,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "concept indentation ที่ unique ของ Python ระดับ recall"
+  },
+  {
+    "id": 87,
+    "question": "Which Python type is mutable and stores only unique unordered items?",
+    "choices": [
+      "A) list",
+      "B) tuple",
+      "C) set",
+      "D) dict"
+    ],
+    "correct": 2,
+    "explanation": "set is mutable and stores unique unordered items. list is mutable but ordered. tuple is immutable.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ property unique+unordered ของ set"
+  },
+  {
+    "id": 88,
+    "question": "Which built-in evaluates a string as a Python expression?",
+    "choices": [
+      "A) create",
+      "B) new",
+      "C) eval",
+      "D) getattr"
+    ],
+    "correct": 2,
+    "explanation": "eval() evaluates a string as a Python expression and returns the result. create and new are not Python built-ins.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ dynamic evaluation ด้วย eval()"
+  },
+  {
+    "id": 89,
+    "question": "Which Python concept describes a class that cannot be instantiated directly?",
+    "choices": [
+      "A) interface",
+      "B) abstract",
+      "C) virtual",
+      "D) sealed"
+    ],
+    "correct": 1,
+    "explanation": "An abstract class (using ABC) cannot be instantiated. interface is Java. virtual and sealed are C++ terms.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ abstract class concept จาก abc module"
+  },
+  {
+    "id": 90,
+    "question": "Which concept wraps a function to return a modified version?",
+    "choices": [
+      "A) wrapper",
+      "B) proxy",
+      "C) adapter",
+      "D) decorator"
+    ],
+    "correct": 3,
+    "explanation": "A decorator takes a function and returns a modified version, used with @ syntax.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ decorator pattern ใน Python"
+  },
+  {
+    "id": 91,
+    "question": "Which syntax collects extra positional arguments into a tuple?",
+    "choices": [
+      "A) vararg",
+      "B) args",
+      "C) *args",
+      "D) params"
+    ],
+    "correct": 2,
+    "explanation": "*args in a function signature collects extra positional arguments into a tuple.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ *args syntax สำหรับ variadic positional args"
+  },
+  {
+    "id": 92,
+    "question": "Which syntax collects extra keyword arguments into a dict?",
+    "choices": [
+      "A) kwargs",
+      "B) **kwargs",
+      "C) kw",
+      "D) options"
+    ],
+    "correct": 1,
+    "explanation": "**kwargs collects extra keyword arguments into a dict. kwargs alone, kw, and options are not valid Python syntax for this.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ **kwargs syntax สำหรับ variadic keyword args"
+  },
+  {
+    "id": 93,
+    "question": "Which built-in displays documentation of a function or module?",
+    "choices": [
+      "A) doc",
+      "B) info",
+      "C) help",
+      "D) man"
+    ],
+    "correct": 2,
+    "explanation": "help() prints documentation. doc and info are not built-ins. man is a Unix shell command.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in help() สำหรับ documentation"
+  },
+  {
+    "id": 94,
+    "question": "Which dict method returns a view of all dictionary keys?",
+    "choices": [
+      "A) keys",
+      "B) items",
+      "C) values",
+      "D) entries"
+    ],
+    "correct": 0,
+    "explanation": "dict.keys() returns a view of all keys. items() returns (key,value) pairs. values() returns only values. entries() is not a dict method.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ dict.keys() ต่างจาก items()/values()"
+  },
+  {
+    "id": 95,
+    "question": "Which concept describes sharing methods from multiple classes?",
+    "choices": [
+      "A) mixin",
+      "B) extend",
+      "C) inherit",
+      "D) compose"
+    ],
+    "correct": 0,
+    "explanation": "A mixin provides methods to multiple classes via multiple inheritance. compose is a different design pattern.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ concept mixin ใน multiple inheritance"
+  },
+  {
+    "id": 96,
+    "question": "Which keyword checks if two names refer to the same object?",
+    "choices": [
+      "A) ==",
+      "B) equals",
+      "C) same",
+      "D) is"
+    ],
+    "correct": 3,
+    "explanation": "is checks identity (same object in memory). == checks equality of value. equals and same are not Python keywords.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก is (identity) จาก == (equality)"
+  },
+  {
+    "id": 97,
+    "question": "Which two-keyword phrase tests non-membership in a sequence?",
+    "choices": [
+      "A) notin",
+      "B) out of",
+      "C) not in",
+      "D) absent"
+    ],
+    "correct": 2,
+    "explanation": "not in tests non-membership: 5 not in [1,2,3] is True. notin and absent are not Python keywords.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ not in operator"
+  },
+  {
+    "id": 98,
+    "question": "Which built-in returns an iterator of (index, value) pairs?",
+    "choices": [
+      "A) pairs",
+      "B) indexed",
+      "C) zip",
+      "D) enumerate"
+    ],
+    "correct": 3,
+    "explanation": "enumerate(iterable) yields (index, value) tuples. zip() pairs multiple iterables. pairs and indexed are not built-ins.",
+    "difficulty": 2,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ enumerate() ต่างจาก zip()"
+  },
+  {
+    "id": 99,
+    "question": "Which concept describes an object that can be used in a for loop?",
+    "choices": [
+      "A) loopable",
+      "B) sequence",
+      "C) iterable",
+      "D) walkable"
+    ],
+    "correct": 2,
+    "explanation": "An iterable implements __iter__ and can be used in a for loop. sequence is a more specific type.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจ iterable protocol"
+  },
+  {
+    "id": 100,
+    "question": "Which magic method defines how an object appears as a string?",
+    "choices": [
+      "A) __str__",
+      "B) tostr",
+      "C) asstr",
+      "D) display"
+    ],
+    "correct": 0,
+    "explanation": "__str__ defines the human-readable string representation, called by str() and print(). tostr, asstr, and display are not Python methods.",
+    "difficulty": 3,
+    "game_type": "shooter",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ dunder method __str__ และ use case"
+  }
+]

@@ -8,6 +8,7 @@ export interface QuizQuestion {
   choices: [string, string, string, string]
   correct: number // 0-3 for A B C D
   explanation: string
+  difficulty?: number // 1=easy, 2=medium, 3=hard
 }
 
 export interface UserProfile {

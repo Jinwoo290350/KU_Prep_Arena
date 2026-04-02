@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "What is the definition of a derivative?",
+    "choices": [
+      "A) The area under a curve",
+      "B) The limit of [f(x+h) - f(x)] / h as h -> 0",
+      "C) The average rate of change over [a, b]",
+      "D) The integral of f(x) over an interval"
+    ],
+    "correct": 1,
+    "explanation": "อนุพันธ์ของฟังก์ชัน f ที่จุด x นิยามโดย f'(x) = lim(h->0) [f(x+h) - f(x)]/h ซึ่งแสดงถึง instantaneous rate of change",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เป็นนิยามพื้นฐานที่นักศึกษาต้องรู้ตั้งแต่เริ่มเรียน Calculus"
+  },
+  {
+    "id": 2,
+    "question": "Which term describes a function with no breaks, jumps, or holes at point c?",
+    "choices": [
+      "A) Differentiable",
+      "B) Integrable",
+      "C) Continuous",
+      "D) Bounded"
+    ],
+    "correct": 2,
+    "explanation": "ฟังก์ชัน f ต่อเนื่อง (continuous) ที่จุด c หมายความว่า: (1) f(c) มีค่า (2) lim f(x) มีค่า และ (3) lim(x->c) f(x) = f(c) ไม่มีการขาด กระโดด หรือรู",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เป็นคำศัพท์พื้นฐานที่นักศึกษาต้องรู้ความหมายตั้งแต่ต้น"
+  },
+  {
+    "id": 3,
+    "question": "What is the definition of an antiderivative of f(x)?",
+    "choices": [
+      "A) A function F(x) such that F'(x) = f(x)",
+      "B) A function F(x) such that F(x) = f'(x)",
+      "C) The area under f(x) from 0 to x",
+      "D) The inverse function of f(x)"
+    ],
+    "correct": 0,
+    "explanation": "F(x) คือ antiderivative ของ f(x) ถ้า F'(x) = f(x) กล่าวคือ F เป็นฟังก์ชันที่เมื่อ differentiate แล้วได้ f",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามพื้นฐาน สำคัญมากในการเรียน integration"
+  },
+  {
+    "id": 4,
+    "question": "Which term describes the expression 0/0 encountered when evaluating a limit?",
+    "choices": [
+      "A) Asymptotic form",
+      "B) Undefined expression",
+      "C) Removable singularity",
+      "D) Indeterminate form"
+    ],
+    "correct": 3,
+    "explanation": "0/0 เรียกว่า indeterminate form เพราะค่าที่แท้จริงของลิมิตยังไม่ชัดเจน ต้องใช้วิธีการเพิ่มเติมเช่น factoring หรือ L'Hopital's Rule",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้คำศัพท์เฉพาะทาง และแยกแยะจาก undefined ธรรมดาได้"
+  },
+  {
+    "id": 5,
+    "question": "What is a critical point of a function f(x)?",
+    "choices": [
+      "A) Any point where f(x) = 0",
+      "B) A point where f is discontinuous",
+      "C) A point where f'(x) = 0 or f'(x) is undefined",
+      "D) A point where the second derivative equals zero"
+    ],
+    "correct": 2,
+    "explanation": "Critical point คือจุด x ในโดเมนของ f ที่ f'(x) = 0 หรือ f'(x) ไม่มีค่า (undefined) จุดเหล่านี้เป็นจุดที่อาจเป็น local maximum หรือ minimum",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ทั้งสองกรณี (f'=0 และ f' undefined) นักศึกษามักลืมกรณีที่ f' ไม่มีค่า"
+  },
+  {
+    "id": 6,
+    "question": "Which term describes the property that a function curves upward like a bowl (f'' > 0)?",
+    "choices": [
+      "A) Convex / Concave up",
+      "B) Concave down",
+      "C) Inflection",
+      "D) Monotone increasing"
+    ],
+    "correct": 0,
+    "explanation": "เมื่อ f''(x) > 0 กราฟโค้งขึ้น เรียกว่า concave up (หรือ convex) ดูเหมือนชาม ส่วน concave down คือ f''(x) < 0 กราฟโค้งลง",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักสับสนระหว่าง concave up กับ concave down"
+  },
+  {
+    "id": 7,
+    "question": "What does the Fundamental Theorem of Calculus (Part 1) state?",
+    "choices": [
+      "A) Every continuous function has an antiderivative",
+      "B) d/dx [integral from a to x of f(t) dt] = f(x)",
+      "C) integral from a to b of f(x) dx = F(b) - F(a)",
+      "D) A differentiable function is always continuous"
+    ],
+    "correct": 1,
+    "explanation": "FTC Part 1 กล่าวว่า ถ้า F(x) = integral from a to x of f(t) dt แล้ว F'(x) = f(x) นั่นคือ differentiation และ integration เป็นกระบวนการผกผันกัน",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ครูให้ระดับ 3 เพราะนักศึกษามักสับสนระหว่าง FTC Part 1 และ Part 2"
+  },
+  {
+    "id": 8,
+    "question": "What is an inflection point?",
+    "choices": [
+      "A) A point where f'(x) = 0",
+      "B) A point where f(x) crosses the x-axis",
+      "C) A point where the concavity of f changes",
+      "D) A point where f is not differentiable"
+    ],
+    "correct": 2,
+    "explanation": "Inflection point คือจุดที่ concavity ของกราฟเปลี่ยนทิศทาง (จาก concave up ไป concave down หรือกลับกัน) โดยทั่วไปเกิดเมื่อ f''(x) = 0 และเครื่องหมายเปลี่ยน",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจนิยามของ concavity ก่อนจึงจะเข้าใจ inflection point"
+  },
+  {
+    "id": 9,
+    "question": "Which term describes a line that a curve approaches but never touches as x -> infinity?",
+    "choices": [
+      "A) Tangent line",
+      "B) Secant line",
+      "C) Asymptote",
+      "D) Normal line"
+    ],
+    "correct": 2,
+    "explanation": "Asymptote คือเส้นตรงที่กราฟเข้าใกล้แต่ไม่แตะเมื่อ x หรือ y เข้าสู่อนันต์ มี 3 ชนิด: horizontal, vertical, และ oblique asymptote",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษาหลายคนรู้คำนี้แต่ไม่เข้าใจว่าเกี่ยวข้องกับ limit อย่างไร"
+  },
+  {
+    "id": 10,
+    "question": "What condition is required for a function to be differentiable at point c?",
+    "choices": [
+      "A) f(c) must equal zero",
+      "B) f must be continuous at c and the limit of [f(c+h)-f(c)]/h must exist",
+      "C) f must be continuous on all of R",
+      "D) f''(c) must exist and be non-zero"
+    ],
+    "correct": 1,
+    "explanation": "ฟังก์ชัน f จะ differentiable ที่จุด c ได้ต้องต่อเนื่องที่ c ก่อน และลิมิต lim(h->0)[f(c+h)-f(c)]/h ต้องมีค่าจากทั้งซ้ายและขวาเท่ากัน การ differentiable implies continuity แต่ไม่กลับกัน",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจความสัมพันธ์ระหว่าง continuity และ differentiability ซึ่งเป็นแนวคิดที่ลึกกว่าการจำสูตร"
+  },
+  {
+    "id": 11,
+    "question": "What is the definition of a limit of f(x) as x approaches a?",
+    "choices": [
+      "A) The value f(a)",
+      "B) The value f approaches as x gets arbitrarily close to a",
+      "C) The maximum value of f near a",
+      "D) The slope of f at point a"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->a) f(x) = L หมายความว่า f(x) เข้าใกล้ L เมื่อ x เข้าใกล้ a ไม่จำเป็นต้องเท่ากับ f(a)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม limit เป็นพื้นฐานของ Calculus ทั้งหมด"
+  },
+  {
+    "id": 12,
+    "question": "Which term describes the rule d/dx[f(g(x))] = f'(g(x)) * g'(x)?",
+    "choices": [
+      "A) Product rule",
+      "B) Quotient rule",
+      "C) Chain rule",
+      "D) Power rule"
+    ],
+    "correct": 2,
+    "explanation": "Chain rule ใช้สำหรับหาอนุพันธ์ของฟังก์ชันซ้อน (composite function) โดย differentiate ฟังก์ชันนอกแล้วคูณด้วย derivative ของฟังก์ชันใน",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อกฎที่นักศึกษาต้องรู้จักตั้งแต่เรียน differentiation"
+  },
+  {
+    "id": 13,
+    "question": "What is the definition of a definite integral of f(x) from a to b?",
+    "choices": [
+      "A) The antiderivative of f evaluated at b",
+      "B) The limit of Riemann sums as partition width -> 0",
+      "C) The area above the x-axis only",
+      "D) The derivative of f at b minus at a"
+    ],
+    "correct": 1,
+    "explanation": "Definite integral นิยามเป็น limit ของ Riemann sum: integral(a,b) f(x)dx = lim(n->inf) sum f(x_i*)Δx แสดงถึงพื้นที่สุทธิใต้กราฟ",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามพื้นฐานของ definite integral"
+  },
+  {
+    "id": 14,
+    "question": "Which concept describes the instantaneous rate of change of a function?",
+    "choices": [
+      "A) Average velocity",
+      "B) Definite integral",
+      "C) Derivative",
+      "D) Riemann sum"
+    ],
+    "correct": 2,
+    "explanation": "Derivative f'(x) คือ instantaneous rate of change ของ f ที่จุด x ซึ่งต่างจาก average rate of change ที่วัดตลอดช่วง [a,b]",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความเข้าใจพื้นฐานว่า derivative หมายถึงอะไรในเชิงอัตราการเปลี่ยนแปลง"
+  },
+  {
+    "id": 15,
+    "question": "What is the term for the constant C added in every indefinite integral?",
+    "choices": [
+      "A) Integration factor",
+      "B) Constant of integration",
+      "C) Boundary constant",
+      "D) Normalization term"
+    ],
+    "correct": 1,
+    "explanation": "Constant of integration (C) เพิ่มใน indefinite integral เพราะ derivative ของค่าคงที่ใดๆ เป็นศูนย์ ทำให้มี antiderivative ได้หลายฟังก์ชัน",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์พื้นฐานที่นักศึกษาต้องรู้เมื่อเรียน integration"
+  },
+  {
+    "id": 16,
+    "question": "Which rule gives d/dx[f(x)*g(x)] = f'(x)g(x) + f(x)g'(x)?",
+    "choices": [
+      "A) Chain rule",
+      "B) Quotient rule",
+      "C) Power rule",
+      "D) Product rule"
+    ],
+    "correct": 3,
+    "explanation": "Product rule ใช้หา derivative ของผลคูณสองฟังก์ชัน: d/dx[fg] = f'g + fg' จำง่ายว่า 'derivative ตัวแรก คูณ ตัวหลัง + ตัวแรก คูณ derivative ตัวหลัง'",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อกฎการหาอนุพันธ์พื้นฐาน"
+  },
+  {
+    "id": 17,
+    "question": "What is the term for a point where a function reaches its highest value on a closed interval?",
+    "choices": [
+      "A) Saddle point",
+      "B) Global maximum",
+      "C) Local minimum",
+      "D) Inflection point"
+    ],
+    "correct": 1,
+    "explanation": "Global (absolute) maximum คือค่าสูงสุดของฟังก์ชันบนช่วงปิด [a,b] ต่างจาก local maximum ที่เป็นค่าสูงสุดเฉพาะในบริเวณใกล้เคียงจุดนั้น",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์พื้นฐานเรื่อง optimization"
+  },
+  {
+    "id": 18,
+    "question": "Which term describes the technique of substituting u = g(x) to simplify an integral?",
+    "choices": [
+      "A) Integration by parts",
+      "B) Partial fractions",
+      "C) u-substitution",
+      "D) Trigonometric substitution"
+    ],
+    "correct": 2,
+    "explanation": "u-substitution (หรือ substitution rule) คือการแทนค่า u = g(x) ทำให้ integral ซับซ้อนกลายเป็น integral ที่ง่ายขึ้น เป็น reverse ของ chain rule",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เทคนิค integration พื้นฐานที่นักศึกษาต้องรู้ชื่อและวิธีใช้"
+  },
+  {
+    "id": 19,
+    "question": "What does Rolle's Theorem require before guaranteeing f'(c) = 0?",
+    "choices": [
+      "A) f continuous on [a,b], differentiable on (a,b), and f(a) = f(b)",
+      "B) f differentiable on [a,b] and f(a) > 0",
+      "C) f continuous at one endpoint only",
+      "D) f''(x) exists on all of R"
+    ],
+    "correct": 0,
+    "explanation": "Rolle's Theorem: ถ้า f ต่อเนื่องบน [a,b], differentiable บน (a,b), และ f(a) = f(b) แล้วมีจุด c ใน (a,b) ที่ f'(c) = 0",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำเงื่อนไขสามข้อของทฤษฎีบท Rolle ให้ครบถ้วน"
+  },
+  {
+    "id": 20,
+    "question": "Which term describes the rule used to find limits of 0/0 or inf/inf forms?",
+    "choices": [
+      "A) Sandwich theorem",
+      "B) Intermediate Value Theorem",
+      "C) L'Hopital's Rule",
+      "D) Mean Value Theorem"
+    ],
+    "correct": 2,
+    "explanation": "L'Hopital's Rule: ถ้า limit อยู่ในรูป 0/0 หรือ inf/inf ให้ differentiate ทั้งตัวเศษและตัวส่วน แล้วหา limit ใหม่",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำชื่อและเงื่อนไขการใช้งานของกฎนี้"
+  },
+  {
+    "id": 21,
+    "question": "What is the definition of a one-sided limit from the right?",
+    "choices": [
+      "A) lim(x->a) f(x) = f(a)",
+      "B) The value f(x) approaches as x -> a from values x > a",
+      "C) The derivative at a from the right side",
+      "D) The integral from a to a+epsilon"
+    ],
+    "correct": 1,
+    "explanation": "Right-hand limit: lim(x->a+) f(x) คือค่าที่ f(x) เข้าใกล้เมื่อ x เข้าหา a จากด้านขวา (x > a เท่านั้น)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกแยะ one-sided limit จาก two-sided limit ให้ได้"
+  },
+  {
+    "id": 22,
+    "question": "Which term refers to the technique integral of u dv = uv - integral of v du?",
+    "choices": [
+      "A) u-substitution",
+      "B) Trigonometric identity method",
+      "C) Partial fraction decomposition",
+      "D) Integration by parts"
+    ],
+    "correct": 3,
+    "explanation": "Integration by parts มาจาก product rule: integral u dv = uv - integral v du ใช้กับ integral ที่เป็นผลคูณของฟังก์ชันสองชนิด",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ทั้งชื่อและสูตรของเทคนิคนี้"
+  },
+  {
+    "id": 23,
+    "question": "What does the Mean Value Theorem guarantee for a differentiable f on [a,b]?",
+    "choices": [
+      "A) f reaches its maximum inside (a,b)",
+      "B) There exists c in (a,b) where f'(c) = [f(b)-f(a)]/(b-a)",
+      "C) f is constant on some subinterval",
+      "D) The integral of f equals f(b) - f(a)"
+    ],
+    "correct": 1,
+    "explanation": "Mean Value Theorem (MVT): ถ้า f ต่อเนื่องบน [a,b] และ differentiable บน (a,b) แล้วมีจุด c ที่ f'(c) = [f(b)-f(a)]/(b-a) ซึ่งคือ average rate of change",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า MVT รับประกันอะไร และเงื่อนไขที่ต้องการคืออะไร"
+  },
+  {
+    "id": 24,
+    "question": "Which concept describes the second derivative test for local extrema?",
+    "choices": [
+      "A) If f'(c)=0 and f''(c)>0 then c is local min; f''(c)<0 then local max",
+      "B) If f''(c)=0 then c is always an inflection point",
+      "C) If f'(c)>0 then c is a local maximum",
+      "D) The second derivative test requires f'''(c) to be nonzero"
+    ],
+    "correct": 0,
+    "explanation": "Second derivative test: ถ้า f'(c)=0 และ f''(c)>0 แสดงว่า c เป็น local minimum; ถ้า f''(c)<0 เป็น local maximum; ถ้า f''(c)=0 ทดสอบไม่ได้",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักสับสนเรื่องเครื่องหมายกับ max/min"
+  },
+  {
+    "id": 25,
+    "question": "What is a Riemann sum?",
+    "choices": [
+      "A) The exact area under a curve",
+      "B) An approximation of a definite integral using rectangles",
+      "C) The derivative of a sum of functions",
+      "D) A series expansion of f(x)"
+    ],
+    "correct": 1,
+    "explanation": "Riemann sum คือการประมาณค่า definite integral โดยแบ่งช่วง [a,b] เป็น n ช่วงย่อยแล้วสร้างสี่เหลี่ยมผืนผ้าใต้กราฟ",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจความหมายของ Riemann sum ก่อนเรียน definite integral"
+  },
+  {
+    "id": 26,
+    "question": "Which concept refers to the horizontal line y = L that f(x) approaches as x -> +inf?",
+    "choices": [
+      "A) Vertical asymptote",
+      "B) Oblique asymptote",
+      "C) Horizontal asymptote",
+      "D) Removable discontinuity"
+    ],
+    "correct": 2,
+    "explanation": "Horizontal asymptote คือเส้นแนวนอน y = L ที่กราฟเข้าใกล้เมื่อ x -> +inf หรือ x -> -inf หาได้จาก lim(x->inf) f(x)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกประเภท asymptote และรู้วิธีหา horizontal asymptote"
+  },
+  {
+    "id": 27,
+    "question": "What is the definition of a left-hand limit?",
+    "choices": [
+      "A) lim(x->a-) f(x): value f approaches as x -> a from values x < a",
+      "B) lim(x->a+) f(x): value f approaches from x > a",
+      "C) The value of f at the left endpoint of the domain",
+      "D) The limit of f'(x) as x decreases"
+    ],
+    "correct": 0,
+    "explanation": "Left-hand limit lim(x->a-) f(x) คือค่าที่ f(x) เข้าใกล้เมื่อ x เข้าหา a จากด้านซ้าย (x < a) limit สองด้านมีค่าเท่ากันจึงจะมี two-sided limit",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกแยะ left-hand และ right-hand limit ได้ชัดเจน"
+  },
+  {
+    "id": 28,
+    "question": "Which concept describes the technique of differentiating both sides of an equation with respect to x when y is a function of x?",
+    "choices": [
+      "A) Logarithmic differentiation",
+      "B) Parametric differentiation",
+      "C) Implicit differentiation",
+      "D) Partial differentiation"
+    ],
+    "correct": 2,
+    "explanation": "Implicit differentiation ใช้เมื่อไม่สามารถแก้ y ออกมาได้ง่ายๆ โดย differentiate ทั้งสองด้านและใช้ chain rule กับทุกพจน์ที่มี y",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จักชื่อและหลักการของ implicit differentiation"
+  },
+  {
+    "id": 29,
+    "question": "What is the term for a discontinuity where the limit exists but does not equal f(a)?",
+    "choices": [
+      "A) Jump discontinuity",
+      "B) Infinite discontinuity",
+      "C) Removable discontinuity",
+      "D) Essential discontinuity"
+    ],
+    "correct": 2,
+    "explanation": "Removable discontinuity เกิดเมื่อ lim(x->a) f(x) มีค่า แต่ไม่เท่ากับ f(a) หรือ f(a) ไม่นิยาม สามารถ 'แก้' ได้โดยนิยาม f(a) ใหม่",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกประเภทของ discontinuity ให้ได้"
+  },
+  {
+    "id": 30,
+    "question": "Which term describes a parametric curve where both x and y are expressed as functions of parameter t?",
+    "choices": [
+      "A) Polar curve",
+      "B) Implicit curve",
+      "C) Level curve",
+      "D) Parametric curve"
+    ],
+    "correct": 3,
+    "explanation": "Parametric curve นิยามด้วย x = f(t) และ y = g(t) โดย t เป็น parameter ทำให้สามารถแสดงกราฟที่ซับซ้อนกว่า y = f(x) ได้",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จักประเภทของเส้นโค้งและการแทนพารามิเตอร์"
+  },
+  {
+    "id": 31,
+    "question": "What is the definition of a local minimum of f at point c?",
+    "choices": [
+      "A) f(c) = 0 and f'(c) = 0",
+      "B) f(c) <= f(x) for all x in some open interval around c",
+      "C) f(c) is the smallest value on the entire domain",
+      "D) f''(c) < 0 at point c"
+    ],
+    "correct": 1,
+    "explanation": "Local (relative) minimum: f มีค่าต่ำสุดท้องถิ่นที่ c ถ้า f(c) ≤ f(x) สำหรับ x ทุกตัวในบางช่วงเปิดรอบๆ c",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามพื้นฐานของ local extremum"
+  },
+  {
+    "id": 32,
+    "question": "Which term describes the process of finding dy/dx for x = f(t), y = g(t)?",
+    "choices": [
+      "A) Implicit differentiation",
+      "B) Logarithmic differentiation",
+      "C) Parametric differentiation",
+      "D) Partial differentiation"
+    ],
+    "correct": 2,
+    "explanation": "สำหรับ parametric equations x=f(t), y=g(t) หา dy/dx โดย dy/dx = (dy/dt)/(dx/dt) = g'(t)/f'(t) เรียกว่า parametric differentiation",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษาต้องรู้วิธีหา dy/dx จาก parametric form"
+  },
+  {
+    "id": 33,
+    "question": "What is the definition of a vertical asymptote of f(x) at x = a?",
+    "choices": [
+      "A) f(a) = 0",
+      "B) lim(x->a) f(x) = +inf or -inf",
+      "C) f'(a) is undefined",
+      "D) f is not continuous on [a-1, a+1]"
+    ],
+    "correct": 1,
+    "explanation": "Vertical asymptote ที่ x = a เกิดเมื่อ lim(x->a+) f(x) = ±inf หรือ lim(x->a-) f(x) = ±inf มักเกิดเมื่อตัวส่วน = 0",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้นิยามของ vertical asymptote และเงื่อนไขที่ทำให้เกิด"
+  },
+  {
+    "id": 34,
+    "question": "Which concept describes using ln to simplify differentiation of products and powers?",
+    "choices": [
+      "A) Implicit differentiation",
+      "B) Logarithmic differentiation",
+      "C) Chain rule application",
+      "D) Exponential substitution"
+    ],
+    "correct": 1,
+    "explanation": "Logarithmic differentiation: take ln ของทั้งสองด้าน แล้ว differentiate ช่วยหา derivative ของฟังก์ชันที่อยู่ในรูปผลคูณ ผลหาร หรือยกกำลังซับซ้อน",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "เป็นเทคนิคที่ต้องรู้จักชื่อและวิธีการ"
+  },
+  {
+    "id": 35,
+    "question": "What does the Intermediate Value Theorem (IVT) guarantee?",
+    "choices": [
+      "A) f has a local max on every closed interval",
+      "B) A continuous f on [a,b] takes every value between f(a) and f(b)",
+      "C) f'(c) equals the average rate of change",
+      "D) f is differentiable whenever it is continuous"
+    ],
+    "correct": 1,
+    "explanation": "IVT: ถ้า f ต่อเนื่องบน [a,b] และ N อยู่ระหว่าง f(a) กับ f(b) แล้วมีจุด c ใน (a,b) ที่ f(c) = N ใช้พิสูจน์ว่ามีรากของสมการ",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ชื่อและผลลัพธ์ของ IVT"
+  },
+  {
+    "id": 36,
+    "question": "What is the Fundamental Theorem of Calculus Part 2?",
+    "choices": [
+      "A) d/dx integral(a,x) f(t)dt = f(x)",
+      "B) integral(a,b) f(x)dx = F(b) - F(a) where F' = f",
+      "C) Every Riemann-integrable function has an antiderivative",
+      "D) The integral of f' equals f on any open interval"
+    ],
+    "correct": 1,
+    "explanation": "FTC Part 2: integral(a,b) f(x)dx = F(b) - F(a) โดย F เป็น antiderivative ใดๆ ของ f ทำให้คำนวณ definite integral ได้โดยไม่ต้องหา limit ของ Riemann sum",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก FTC Part 2 ออกจาก Part 1 ได้"
+  },
+  {
+    "id": 37,
+    "question": "Which term describes a function that is increasing and whose derivative is positive on an interval?",
+    "choices": [
+      "A) Concave up on that interval",
+      "B) Monotone increasing on that interval",
+      "C) Having a local max on that interval",
+      "D) Convex on that interval"
+    ],
+    "correct": 1,
+    "explanation": "ฟังก์ชันที่ f'(x) > 0 บนช่วง (a,b) จะ monotone increasing บนช่วงนั้น กล่าวคือ x1 < x2 implies f(x1) < f(x2)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความสัมพันธ์พื้นฐานระหว่างเครื่องหมายของ f' กับการเพิ่มของ f"
+  },
+  {
+    "id": 38,
+    "question": "What is the term for the line tangent to a curve at point (a, f(a))?",
+    "choices": [
+      "A) Secant line through (a, f(a))",
+      "B) Tangent line with slope f'(a)",
+      "C) Normal line with slope -1/f'(a)",
+      "D) Asymptotic line at x = a"
+    ],
+    "correct": 1,
+    "explanation": "Tangent line ที่จุด (a, f(a)) มีความชัน f'(a) และมีสมการ y - f(a) = f'(a)(x - a) เป็นเส้นตรงที่สัมผัสกราฟที่จุดนั้น",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามพื้นฐานของ tangent line"
+  },
+  {
+    "id": 39,
+    "question": "Which concept describes the form inf - inf when evaluating limits?",
+    "choices": [
+      "A) Undefined limit",
+      "B) Zero limit",
+      "C) Indeterminate form",
+      "D) Removable singularity"
+    ],
+    "correct": 2,
+    "explanation": "inf - inf เป็น indeterminate form เช่นเดียวกับ 0/0 และ inf/inf ต้องจัดรูปใหม่ก่อนหา limit ค่าที่แท้จริงอาจเป็นค่าใดก็ได้",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า inf - inf เป็น indeterminate form ไม่ใช่ 0"
+  },
+  {
+    "id": 40,
+    "question": "What is the term for a function that satisfies f(-x) = f(x) for all x in its domain?",
+    "choices": [
+      "A) Odd function",
+      "B) Periodic function",
+      "C) Even function",
+      "D) Monotone function"
+    ],
+    "correct": 2,
+    "explanation": "Even function คือฟังก์ชันที่ f(-x) = f(x) กราฟสมมาตรรอบแกน y เช่น cos(x), x^2 ต่างจาก odd function ที่ f(-x) = -f(x)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์พื้นฐานที่ใช้บ่อยในการวิเคราะห์ฟังก์ชัน"
+  },
+  {
+    "id": 41,
+    "question": "Which term describes d/dx[f(x)/g(x)] = [f'g - fg'] / g^2?",
+    "choices": [
+      "A) Product rule",
+      "B) Chain rule",
+      "C) Power rule",
+      "D) Quotient rule"
+    ],
+    "correct": 3,
+    "explanation": "Quotient rule ใช้หา derivative ของผลหาร: d/dx[f/g] = (f'g - fg')/g^2 จำง่ายว่า 'low d-high minus high d-low, over low squared'",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ชื่อกฎพื้นฐานที่นักศึกษาต้องรู้จักทันที"
+  },
+  {
+    "id": 42,
+    "question": "What is a squeeze theorem (sandwich theorem) used for?",
+    "choices": [
+      "A) Proving that a function is integrable",
+      "B) Finding limits by bounding f(x) between two functions that share the same limit",
+      "C) Showing that f is continuous everywhere",
+      "D) Determining if a critical point is a max or min"
+    ],
+    "correct": 1,
+    "explanation": "Squeeze Theorem: ถ้า g(x) ≤ f(x) ≤ h(x) ใกล้ a และ lim g(x) = lim h(x) = L แล้ว lim f(x) = L ด้วย ใช้กับลิมิตเช่น lim x*sin(1/x)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จักชื่อและหลักการของ Squeeze Theorem"
+  },
+  {
+    "id": 43,
+    "question": "Which concept describes the property that f is bounded and attains its max and min on a closed interval?",
+    "choices": [
+      "A) Mean Value Theorem",
+      "B) Extreme Value Theorem",
+      "C) Bolzano's Theorem",
+      "D) Rolle's Theorem"
+    ],
+    "correct": 1,
+    "explanation": "Extreme Value Theorem (EVT): ถ้า f ต่อเนื่องบน [a,b] แล้ว f ต้องมีค่าสูงสุดและต่ำสุด (global max และ global min) บนช่วงนั้น",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จัก EVT และเงื่อนไขที่จำเป็น"
+  },
+  {
+    "id": 44,
+    "question": "What is the definition of the natural logarithm ln(x)?",
+    "choices": [
+      "A) ln(x) = log base 10 of x",
+      "B) ln(x) = integral from 1 to x of (1/t) dt",
+      "C) ln(x) = e^x",
+      "D) ln(x) = derivative of e^x"
+    ],
+    "correct": 1,
+    "explanation": "Natural logarithm นิยามว่า ln(x) = integral(1,x) (1/t) dt สำหรับ x > 0 ทำให้ d/dx [ln(x)] = 1/x โดยตรงจาก FTC Part 1",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม ln(x) แบบอินทิเกรลเป็นแนวคิดขั้นสูงที่นักศึกษาหลายคนไม่คุ้นเคย"
+  },
+  {
+    "id": 45,
+    "question": "Which term describes a function whose graph never repeats and passes the horizontal line test?",
+    "choices": [
+      "A) Continuous function",
+      "B) One-to-one (injective) function",
+      "C) Even function",
+      "D) Differentiable function"
+    ],
+    "correct": 1,
+    "explanation": "One-to-one (injective) function: f(x1) = f(x2) implies x1 = x2 กราฟผ่าน horizontal line test ฟังก์ชันที่เป็น one-to-one จึงมี inverse function",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้นิยามและความสัมพันธ์กับ inverse function"
+  },
+  {
+    "id": 46,
+    "question": "What is the term for inf * 0 when evaluating a limit?",
+    "choices": [
+      "A) Zero because infinity times any finite is infinity",
+      "B) Indeterminate form that must be rewritten",
+      "C) Always equals 1",
+      "D) Undefined — the limit does not exist"
+    ],
+    "correct": 1,
+    "explanation": "inf * 0 เป็น indeterminate form ต้องแปลงเป็น 0/0 หรือ inf/inf ก่อนจะใช้ L'Hopital หรือวิธีอื่น ค่าที่แท้จริงขึ้นอยู่กับฟังก์ชันที่เฉพาะเจาะจง",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักเข้าใจผิดว่า inf*0 = 0 หรือ = inf"
+  },
+  {
+    "id": 47,
+    "question": "Which concept describes the second-order derivative of position with respect to time?",
+    "choices": [
+      "A) Velocity",
+      "B) Speed",
+      "C) Jerk",
+      "D) Acceleration"
+    ],
+    "correct": 3,
+    "explanation": "Acceleration = d^2s/dt^2 คือ derivative ลำดับสองของ position (s) ตามเวลา t เทียบกับ velocity = ds/dt ซึ่งเป็น derivative ลำดับหนึ่ง",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "แนวคิดพื้นฐานของการประยุกต์ derivative กับ physics"
+  },
+  {
+    "id": 48,
+    "question": "What is the definition of an improper integral?",
+    "choices": [
+      "A) An integral where the integrand is undefined somewhere in [a,b] or a limit is infinite",
+      "B) An integral that cannot be solved analytically",
+      "C) An integral with a negative value",
+      "D) An integral computed using Riemann sums only"
+    ],
+    "correct": 0,
+    "explanation": "Improper integral เกิดในสองกรณี: (1) ขอบเขตอินทิเกรชันเป็นอนันต์ หรือ (2) integrand ไม่มีค่า (discontinuous) ที่จุดใดในช่วง คำนวณโดยใช้ limit",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจนิยามและรู้จักสองกรณีของ improper integral"
+  },
+  {
+    "id": 49,
+    "question": "Which term describes a point x = c where f'(c) does not exist but c is still in the domain of f?",
+    "choices": [
+      "A) Inflection point",
+      "B) Corner or cusp — a critical point with undefined derivative",
+      "C) Removable discontinuity",
+      "D) Vertical tangent point only"
+    ],
+    "correct": 1,
+    "explanation": "จุดที่ f'(c) ไม่มีค่าแต่ c อยู่ในโดเมนของ f เรียกว่า critical point ชนิดหนึ่ง อาจเกิดจาก corner, cusp, หรือ vertical tangent ซึ่งทั้งหมดทำให้ derivative ไม่มีค่า",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเข้าใจลักษณะทางเรขาคณิตที่ทำให้ derivative ไม่มีค่า"
+  },
+  {
+    "id": 50,
+    "question": "What concept describes writing a rational function as a sum of simpler fractions before integrating?",
+    "choices": [
+      "A) u-substitution",
+      "B) Integration by parts",
+      "C) Partial fraction decomposition",
+      "D) Trigonometric substitution"
+    ],
+    "correct": 2,
+    "explanation": "Partial fraction decomposition: เขียน P(x)/Q(x) ให้เป็นผลบวกของเศษส่วนย่อยๆ ก่อน integrate แยกกัน ใช้เมื่อ degree ของ Q สูงกว่า P",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "เทคนิคขั้นสูงที่ต้องรู้ทั้งชื่อ เงื่อนไข และวิธีการ"
+  },
+  {
+    "id": 51,
+    "question": "Which concept describes f'(x) < 0 on an interval, meaning f is decreasing?",
+    "choices": [
+      "A) Concave down on that interval",
+      "B) Monotone decreasing on that interval",
+      "C) Having a local minimum on that interval",
+      "D) f is negative on that interval"
+    ],
+    "correct": 1,
+    "explanation": "Monotone decreasing: ถ้า f'(x) < 0 บนช่วง (a,b) แสดงว่า f ลดลงตลอด กล่าวคือ x1 < x2 implies f(x1) > f(x2)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความสัมพันธ์พื้นฐานระหว่าง f' < 0 กับการลดของ f"
+  },
+  {
+    "id": 52,
+    "question": "What is the definition of a secant line through points (a, f(a)) and (b, f(b))?",
+    "choices": [
+      "A) A line with slope f'(a)",
+      "B) A line perpendicular to the tangent at a",
+      "C) A line with slope [f(b)-f(a)]/(b-a) through those two points",
+      "D) The line y = f(a) extended horizontally"
+    ],
+    "correct": 2,
+    "explanation": "Secant line ผ่านสองจุดบนกราฟมีความชัน [f(b)-f(a)]/(b-a) ซึ่งคือ average rate of change ของ f บน [a,b] เมื่อ b->a secant line กลายเป็น tangent line",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามพื้นฐานของ secant line และความสัมพันธ์กับ average rate of change"
+  },
+  {
+    "id": 53,
+    "question": "Which term describes the rule that if lim f(x) = A and lim g(x) = B, then lim [f(x)+g(x)] = A+B?",
+    "choices": [
+      "A) Continuity theorem",
+      "B) Limit laws",
+      "C) Sandwich theorem",
+      "D) L'Hopital's Rule"
+    ],
+    "correct": 1,
+    "explanation": "Limit laws คือกฎที่บอกว่า limit สามารถกระจายผ่านการบวก ลบ คูณ หาร และยกกำลังได้ (ภายใต้เงื่อนไขที่เหมาะสม)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "กฎพื้นฐานในการคำนวณ limit ที่นักศึกษาต้องรู้"
+  },
+  {
+    "id": 54,
+    "question": "What is the term for the curve traced by a point on the circumference of a rolling circle?",
+    "choices": [
+      "A) Ellipse",
+      "B) Cycloid",
+      "C) Helix",
+      "D) Catenary"
+    ],
+    "correct": 1,
+    "explanation": "Cycloid เป็น parametric curve ที่เกิดจากจุดบนวงกลมที่กลิ้งไปตามเส้นตรง แสดงด้วย x = r(t - sin t), y = r(1 - cos t)",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "คำศัพท์เฉพาะทาง parametric curve ที่นักศึกษาส่วนใหญ่ไม่คุ้นเคย"
+  },
+  {
+    "id": 55,
+    "question": "Which concept describes the process of finding d^2y/dx^2 for a parametric curve?",
+    "choices": [
+      "A) d/dx (dy/dx) = [d/dt(dy/dx)] / (dx/dt)",
+      "B) (d^2y/dt^2) / (d^2x/dt^2)",
+      "C) d/dx (dy/dx) = d^2y/dt^2 directly",
+      "D) Second parametric derivative equals y''(t)/x''(t)"
+    ],
+    "correct": 0,
+    "explanation": "Second derivative ของ parametric curve: d^2y/dx^2 = d/dx(dy/dx) = [d/dt(dy/dx)] / (dx/dt) ไม่ใช่แค่ y''(t)/x''(t)",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นักศึกษามักเข้าใจผิดว่า d^2y/dx^2 = y''(t)/x''(t)"
+  },
+  {
+    "id": 56,
+    "question": "What is the definition of an even function in terms of its integral property?",
+    "choices": [
+      "A) integral(-a,a) f(x)dx = 0 always",
+      "B) integral(-a,a) f(x)dx = 2*integral(0,a) f(x)dx",
+      "C) integral(-a,a) f(x)dx = integral(0,a) f(x)dx",
+      "D) integral(-a,a) f(x)dx is always negative"
+    ],
+    "correct": 1,
+    "explanation": "สำหรับ even function f(-x) = f(x): integral(-a,a) f(x)dx = 2*integral(0,a) f(x)dx เพราะกราฟสมมาตรรอบแกน y ทำให้พื้นที่ทั้งสองด้านเท่ากัน",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องเชื่อมโยงสมบัติของ even function กับ integration ซึ่งต้องการความเข้าใจลึก"
+  },
+  {
+    "id": 57,
+    "question": "Which term describes a point where f'(x) changes sign from positive to negative?",
+    "choices": [
+      "A) Inflection point",
+      "B) Saddle point",
+      "C) Local maximum",
+      "D) Local minimum"
+    ],
+    "correct": 2,
+    "explanation": "Local maximum เกิดที่จุด c ที่ f'(x) เปลี่ยนจากบวกเป็นลบ (f เพิ่มก่อนแล้วลด) นี่คือ first derivative test สำหรับ local max",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ first derivative test ในการระบุประเภทของ extremum"
+  },
+  {
+    "id": 58,
+    "question": "What is the term for the form 1^inf encountered when evaluating limits?",
+    "choices": [
+      "A) Trivial form equal to 1",
+      "B) Indeterminate form",
+      "C) Convergent series form",
+      "D) Exponential limit form, always e"
+    ],
+    "correct": 1,
+    "explanation": "1^inf เป็น indeterminate form เพราะค่าจริงขึ้นอยู่กับอัตราการเข้าหา 1 และ inf ตัวอย่างคือ lim(1+1/n)^n = e ซึ่ง ≠ 1",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นักศึกษามักเชื่อว่า 1^inf = 1 เสมอ ทั้งที่เป็น indeterminate form"
+  },
+  {
+    "id": 59,
+    "question": "Which concept describes the area between two curves f(x) and g(x) where f >= g on [a,b]?",
+    "choices": [
+      "A) integral(a,b) [f(x) + g(x)] dx",
+      "B) integral(a,b) [f(x) - g(x)] dx",
+      "C) integral(a,b) f(x) dx * integral(a,b) g(x) dx",
+      "D) integral(a,b) [f(x)]^2 dx"
+    ],
+    "correct": 1,
+    "explanation": "Area between curves = integral(a,b) [f(x) - g(x)] dx เมื่อ f(x) >= g(x) บน [a,b] เป็นการลบพื้นที่ใต้ g ออกจากพื้นที่ใต้ f",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้สูตรและเงื่อนไข f >= g บนช่วง"
+  },
+  {
+    "id": 60,
+    "question": "What is the term for the formula d/dx [a^x] = a^x * ln(a)?",
+    "choices": [
+      "A) Natural exponential rule",
+      "B) Power rule for integers",
+      "C) General exponential derivative rule",
+      "D) Logarithmic chain rule"
+    ],
+    "correct": 2,
+    "explanation": "General exponential derivative rule: d/dx [a^x] = a^x * ln(a) ซึ่ง generalize จาก d/dx[e^x] = e^x (กรณี a = e จะได้ ln(e) = 1)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักสับสนกับ power rule และลืมว่าต้องคูณ ln(a)"
+  },
+  {
+    "id": 61,
+    "question": "Which term describes the condition lim(x->a-) f(x) = lim(x->a+) f(x)?",
+    "choices": [
+      "A) f is differentiable at a",
+      "B) The two-sided limit exists at a",
+      "C) f is continuous at a",
+      "D) f has a critical point at a"
+    ],
+    "correct": 1,
+    "explanation": "Two-sided limit lim(x->a) f(x) มีค่า ก็ต่อเมื่อ left-hand limit = right-hand limit เป็นเงื่อนไขจำเป็นแต่ยังไม่เพียงพอสำหรับ continuity",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักสับสนระหว่างเงื่อนไขของ limit existence กับ continuity"
+  },
+  {
+    "id": 62,
+    "question": "What is the definition of arc length of a parametric curve from t=a to t=b?",
+    "choices": [
+      "A) integral(a,b) sqrt((dx/dt)^2 + (dy/dt)^2) dt",
+      "B) integral(a,b) (dy/dx) dt",
+      "C) integral(a,b) sqrt(1 + (dy/dx)^2) dx directly",
+      "D) integral(a,b) |dx/dt + dy/dt| dt"
+    ],
+    "correct": 0,
+    "explanation": "Arc length สำหรับ parametric curve: L = integral(a,b) sqrt((dx/dt)^2 + (dy/dt)^2) dt มาจากการ approximate ด้วยเส้นตรงสั้นๆ แล้วหา limit",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "สูตรที่ต้องจำและเข้าใจที่มา ต่างจาก arc length ของ y=f(x)"
+  },
+  {
+    "id": 63,
+    "question": "Which concept describes a function that satisfies f(-x) = -f(x) for all x?",
+    "choices": [
+      "A) Even function",
+      "B) Odd function",
+      "C) Periodic function",
+      "D) Symmetric function"
+    ],
+    "correct": 1,
+    "explanation": "Odd function: f(-x) = -f(x) กราฟสมมาตรรอบจุดกำเนิด เช่น sin(x), x^3 คุณสมบัติ: integral(-a,a) f(x)dx = 0",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "คำศัพท์พื้นฐานที่ใช้บ่อยในการวิเคราะห์ integral"
+  },
+  {
+    "id": 64,
+    "question": "What is the term for the theorem stating every polynomial of odd degree has at least one real root?",
+    "choices": [
+      "A) Extreme Value Theorem",
+      "B) Rolle's Theorem",
+      "C) Intermediate Value Theorem applied to polynomials",
+      "D) Fundamental Theorem of Algebra"
+    ],
+    "correct": 2,
+    "explanation": "IVT applied: polynomial ดีกรีคี่ที่มีสัมประสิทธิ์จริงจะมีราก เพราะ p(x)->+inf เมื่อ x->+inf และ p(x)->-inf เมื่อ x->-inf (หรือกลับกัน) IVT รับประกันว่ามีจุดตัดแกน x",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องนำ IVT ไปประยุกต์กับ polynomial ซึ่งต้องการความเข้าใจที่ลึกกว่าการจำทฤษฎีบท"
+  },
+  {
+    "id": 65,
+    "question": "Which term describes the formula for the volume of a solid of revolution using the disk method?",
+    "choices": [
+      "A) V = integral(a,b) 2*pi*x*f(x) dx",
+      "B) V = integral(a,b) pi*[f(x)]^2 dx",
+      "C) V = integral(a,b) pi*[f(x) - g(x)] dx",
+      "D) V = integral(a,b) [f(x)]^2 dx"
+    ],
+    "correct": 1,
+    "explanation": "Disk method: V = integral(a,b) pi*[f(x)]^2 dx หมุนรอบแกน x ตัดขวางได้แผ่นวงกลม (disk) รัศมี f(x) พื้นที่ = pi*r^2 แล้วอินทิเกรตตามความยาว",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จักวิธีการและสูตรของ disk method"
+  },
+  {
+    "id": 66,
+    "question": "What is the definition of the epsilon-delta definition of a limit?",
+    "choices": [
+      "A) For every epsilon > 0, there exists delta > 0 such that |x-a|<delta implies |f(x)-L|<epsilon",
+      "B) For some epsilon > 0, all x satisfy |f(x)-L| < delta",
+      "C) lim f(x) = L if f(x) approaches L from above",
+      "D) If |f(x)-L| < epsilon then x is within delta of a"
+    ],
+    "correct": 0,
+    "explanation": "Epsilon-delta definition (rigorous): lim(x->a) f(x) = L ถ้าสำหรับทุก ε > 0 มีอยู่ δ > 0 ที่ถ้า 0 < |x-a| < δ แล้ว |f(x)-L| < ε",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นิยามเชิงเข้มงวดที่ต้องการความเข้าใจลึกมาก"
+  },
+  {
+    "id": 67,
+    "question": "Which concept describes a function f that is continuous on [a,b] and differentiable on (a,b) with f(a) = f(b) = 0?",
+    "choices": [
+      "A) Mean Value Theorem conditions",
+      "B) Extreme Value Theorem conditions",
+      "C) Rolle's Theorem conditions",
+      "D) Fundamental Theorem conditions"
+    ],
+    "correct": 2,
+    "explanation": "Rolle's Theorem มีเงื่อนไข 3 ข้อ: continuous บน [a,b], differentiable บน (a,b), และ f(a) = f(b) (ไม่จำเป็นต้องเป็น 0 แต่ต้องเท่ากัน)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องระบุทฤษฎีบทจากเงื่อนไขที่กำหนดให้"
+  },
+  {
+    "id": 68,
+    "question": "What is the term for a function whose limit as x -> a equals its value f(a)?",
+    "choices": [
+      "A) Differentiable at a",
+      "B) Integrable near a",
+      "C) Continuous at a",
+      "D) Bounded near a"
+    ],
+    "correct": 2,
+    "explanation": "Continuity at a: lim(x->a) f(x) = f(a) ซึ่งรวมเงื่อนไขสามข้อ: f(a) มีค่า, limit มีค่า, และทั้งสองเท่ากัน",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยามพื้นฐานของ continuity ที่นักศึกษาต้องรู้จัก"
+  },
+  {
+    "id": 69,
+    "question": "Which term describes the formula dy/dx = (dy/dt) / (dx/dt) for parametric equations?",
+    "choices": [
+      "A) Chain rule for parametric differentiation",
+      "B) Quotient rule for parameters",
+      "C) Implicit differentiation formula",
+      "D) First derivative formula for parametric curves"
+    ],
+    "correct": 3,
+    "explanation": "สำหรับ parametric equations x=x(t), y=y(t): dy/dx = (dy/dt)/(dx/dt) เรียกว่า first derivative formula for parametric curves มาจาก chain rule",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้สูตรและที่มาของการหา dy/dx จาก parametric form"
+  },
+  {
+    "id": 70,
+    "question": "What is the concept behind logarithmic differentiation of y = x^x?",
+    "choices": [
+      "A) Power rule: d/dx [x^x] = x * x^(x-1)",
+      "B) Take ln: ln(y) = x*ln(x), differentiate implicitly",
+      "C) Product rule: x * d/dx[x] + x * d/dx[x]",
+      "D) Chain rule: x^x = e^x differentiated directly"
+    ],
+    "correct": 1,
+    "explanation": "y = x^x ใช้ logarithmic differentiation: ln(y) = x*ln(x) แล้ว differentiate: y'/y = ln(x) + 1 ดังนั้น y' = x^x(ln(x) + 1) ไม่สามารถใช้ power rule ได้เพราะ exponent ก็เป็น x",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นักศึกษามักใช้ power rule ผิดกับ x^x ต้องเข้าใจว่าต้อง take ln ก่อน"
+  },
+  {
+    "id": 71,
+    "question": "Which term describes the method of using shells (cylinders) to find the volume of a solid of revolution?",
+    "choices": [
+      "A) Disk method",
+      "B) Washer method",
+      "C) Shell method",
+      "D) Cross-section method"
+    ],
+    "correct": 2,
+    "explanation": "Shell method: V = integral(a,b) 2*pi*x*f(x) dx ใช้ cylindrical shells แทนที่จะใช้ disks หมุนรอบแกน y โดย integrate ตาม x",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จักวิธีต่างๆ ของการหาปริมาตรและแยกแยะได้"
+  },
+  {
+    "id": 72,
+    "question": "What is the term for a point where f has a local max or min (first derivative test)?",
+    "choices": [
+      "A) Inflection point",
+      "B) Stationary point where f' changes sign",
+      "C) Asymptote location",
+      "D) Saddle point"
+    ],
+    "correct": 1,
+    "explanation": "First derivative test: ถ้า f'(c) = 0 และ f' เปลี่ยนเครื่องหมาย c คือ local extremum เรียกจุดที่ f'(c) = 0 ว่า stationary point",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จัก stationary point และการทดสอบด้วย first derivative test"
+  },
+  {
+    "id": 73,
+    "question": "Which concept describes the substitution x = a*sin(theta) used in integrals involving sqrt(a^2 - x^2)?",
+    "choices": [
+      "A) u-substitution",
+      "B) Hyperbolic substitution",
+      "C) Trigonometric substitution",
+      "D) Integration by parts setup"
+    ],
+    "correct": 2,
+    "explanation": "Trigonometric substitution: ใช้ x = a*sin(θ) เมื่อ integrand มี sqrt(a^2 - x^2) ทำให้ radical หายไปเพราะ a^2 - a^2*sin^2(θ) = a^2*cos^2(θ)",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "เทคนิค integration ขั้นสูงที่ต้องรู้จักชื่อและเงื่อนไขการใช้"
+  },
+  {
+    "id": 74,
+    "question": "What is the term for the average value of f(x) on [a,b]?",
+    "choices": [
+      "A) [f(a) + f(b)] / 2",
+      "B) f((a+b)/2)",
+      "C) (1/(b-a)) * integral(a,b) f(x) dx",
+      "D) integral(a,b) f(x) dx / f(b)"
+    ],
+    "correct": 2,
+    "explanation": "Average value of f on [a,b] = (1/(b-a)) * integral(a,b) f(x) dx เป็นการ generalize ของค่าเฉลี่ยแบบ continuous",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตรที่ต้องจำและนักศึกษามักเขียน b-a ผิดตำแหน่ง"
+  },
+  {
+    "id": 75,
+    "question": "Which term describes the property that every Cauchy sequence converges, related to the completeness of real numbers?",
+    "choices": [
+      "A) Archimedean property",
+      "B) Completeness of R",
+      "C) Intermediate Value property",
+      "D) Bolzano-Weierstrass theorem"
+    ],
+    "correct": 1,
+    "explanation": "Completeness of R: ทุก Cauchy sequence ในจำนวนจริงลู่เข้า (converge) ในจำนวนจริง เป็นพื้นฐานที่รับประกันการมีค่าของ limit หลายๆ ตัว",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "แนวคิดขั้นสูงที่เชื่อมโยง limit กับ completeness ของจำนวนจริง"
+  },
+  {
+    "id": 76,
+    "question": "What is the term for the form 0^0 encountered when evaluating limits?",
+    "choices": [
+      "A) Always equal to 1",
+      "B) Always equal to 0",
+      "C) Indeterminate form",
+      "D) Undefined — limit does not exist"
+    ],
+    "correct": 2,
+    "explanation": "0^0 เป็น indeterminate form ในบริบทของ limit ต้องแก้โดยใช้ logarithm และ L'Hopital หรือวิธีอื่น ค่าจริงอาจแตกต่างกันขึ้นกับฟังก์ชัน",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นักศึกษามักเชื่อว่า 0^0 = 1 หรือ 0 โดยไม่คำนึงถึงบริบทของ limit"
+  },
+  {
+    "id": 77,
+    "question": "Which concept describes using the result integral(a,b) f(x)dx = -integral(b,a) f(x)dx?",
+    "choices": [
+      "A) Symmetry property of integrals",
+      "B) Linearity of integration",
+      "C) Reversal of limits property",
+      "D) Absolute value property"
+    ],
+    "correct": 2,
+    "explanation": "Reversal of limits property: integral(a,b) f dx = -integral(b,a) f dx เป็นหนึ่งใน properties ของ definite integral ใช้บ่อยเมื่อขอบเขตอยู่ในลำดับกลับกัน",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สมบัติพื้นฐานของ definite integral ที่ต้องรู้จัก"
+  },
+  {
+    "id": 78,
+    "question": "What is the term for d/dx [arctan(x)] = 1/(1+x^2)?",
+    "choices": [
+      "A) Inverse trigonometric derivative — arctangent formula",
+      "B) Hyperbolic derivative formula",
+      "C) Quotient rule result for tan(x)",
+      "D) Chain rule for tan inverse"
+    ],
+    "correct": 0,
+    "explanation": "d/dx [arctan(x)] = 1/(1+x^2) คือ inverse trigonometric derivative สำหรับ arctangent มักใช้ใน integration: integral 1/(1+x^2) dx = arctan(x) + C",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตรสำคัญที่ต้องจำสำหรับ inverse trig derivatives"
+  },
+  {
+    "id": 79,
+    "question": "Which term describes the property that integral(a,a) f(x)dx = 0?",
+    "choices": [
+      "A) Zero-width integral property",
+      "B) Trivial integral theorem",
+      "C) Degenerate interval property",
+      "D) Same-limit integral rule"
+    ],
+    "correct": 3,
+    "explanation": "Same-limit integral rule: เมื่อขอบเขตบนและล่างเท่ากัน integral(a,a) f(x)dx = 0 เสมอ เพราะกำลังอินทิเกรตบนช่วงที่ไม่มีความกว้าง",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สมบัติพื้นฐานที่ต้องรู้จักและเข้าใจ"
+  },
+  {
+    "id": 80,
+    "question": "What is the concept of a normal line to a curve at point (a, f(a))?",
+    "choices": [
+      "A) A line with slope f'(a) at point a",
+      "B) A line perpendicular to the tangent, with slope -1/f'(a)",
+      "C) The horizontal tangent line at local extrema",
+      "D) A line parallel to the x-axis at height f(a)"
+    ],
+    "correct": 1,
+    "explanation": "Normal line คือเส้นตั้งฉากกับ tangent line ที่จุด (a, f(a)) ความชันของ normal line = -1/f'(a) (negative reciprocal ของความชัน tangent)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จักทั้ง tangent และ normal line และความสัมพันธ์ระหว่างความชัน"
+  },
+  {
+    "id": 81,
+    "question": "Which term describes the process of estimating a function near x=a using f(a) + f'(a)(x-a)?",
+    "choices": [
+      "A) Second-order Taylor approximation",
+      "B) Linear approximation or linearization",
+      "C) Secant line estimation",
+      "D) Newton's method step"
+    ],
+    "correct": 1,
+    "explanation": "Linear approximation (linearization): L(x) = f(a) + f'(a)(x-a) เป็นการประมาณค่า f(x) ด้วยเส้น tangent ที่ x=a ใช้ได้ดีเมื่อ x ใกล้ a",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จักชื่อและสูตรของ linearization"
+  },
+  {
+    "id": 82,
+    "question": "What does 'differentiable implies continuous' mean?",
+    "choices": [
+      "A) If f is continuous then f is differentiable",
+      "B) If f is differentiable at c then f is continuous at c",
+      "C) Continuous functions are always differentiable",
+      "D) Differentiability and continuity are equivalent"
+    ],
+    "correct": 1,
+    "explanation": "Theorem: ถ้า f differentiable ที่ c แล้ว f ต้องต่อเนื่องที่ c ด้วย แต่ตรงกลับไม่จริง: f = |x| ต่อเนื่องที่ 0 แต่ไม่ differentiable ที่ 0",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ความสัมพันธ์สำคัญที่นักศึกษามักเข้าใจผิดว่าเป็นสองทาง"
+  },
+  {
+    "id": 83,
+    "question": "Which concept describes the total displacement of an object as integral(a,b) v(t) dt?",
+    "choices": [
+      "A) Total distance traveled",
+      "B) Net displacement",
+      "C) Average velocity times time",
+      "D) Speed integral"
+    ],
+    "correct": 1,
+    "explanation": "Net displacement = integral(a,b) v(t) dt ซึ่งอาจเป็นลบถ้า v เปลี่ยนเครื่องหมาย ต่างจาก total distance = integral(a,b) |v(t)| dt",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษาต้องแยกแยะ net displacement กับ total distance"
+  },
+  {
+    "id": 84,
+    "question": "What is the term for Newton's method to find roots of f(x) = 0?",
+    "choices": [
+      "A) x_{n+1} = x_n - f(x_n)/f'(x_n)",
+      "B) x_{n+1} = x_n + f(x_n)/f'(x_n)",
+      "C) x_{n+1} = f(x_n) - x_n",
+      "D) x_{n+1} = x_n * f'(x_n)/f(x_n)"
+    ],
+    "correct": 0,
+    "explanation": "Newton's method: x_{n+1} = x_n - f(x_n)/f'(x_n) ใช้ tangent line ณ x_n เพื่อประมาณรากของสมการ เป็น iterative method",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องจำสูตร iteration ให้ถูกต้องและเข้าใจที่มาจาก tangent line"
+  },
+  {
+    "id": 85,
+    "question": "Which term describes the power series representation of e^x = sum(n=0,inf) x^n / n!?",
+    "choices": [
+      "A) Fourier series",
+      "B) Laurent series",
+      "C) Taylor/Maclaurin series for e^x",
+      "D) Binomial series expansion"
+    ],
+    "correct": 2,
+    "explanation": "e^x = sum(n=0,inf) x^n/n! = 1 + x + x^2/2! + x^3/3! + ... คือ Maclaurin series (Taylor series ที่ x=0) ของ e^x",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จัก series representation ของ e^x และชื่อที่ถูกต้อง"
+  },
+  {
+    "id": 86,
+    "question": "What is the concept of related rates in calculus?",
+    "choices": [
+      "A) Comparing f(a) and f(b) using MVT",
+      "B) Finding how rates of change of related quantities are connected via differentiation",
+      "C) The ratio f'(x)/f(x) called the relative rate",
+      "D) Integrating velocity to find position"
+    ],
+    "correct": 1,
+    "explanation": "Related rates: ถ้าปริมาณหลายตัวขึ้นอยู่กับเวลา t เราสามารถหาความสัมพันธ์ระหว่าง rate of change ของแต่ละปริมาณโดย differentiate ทั้งสองด้านตาม t",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจแนวคิดของ related rates ก่อนแก้โจทย์ประยุกต์"
+  },
+  {
+    "id": 87,
+    "question": "Which term describes the form inf^0 when evaluating limits?",
+    "choices": [
+      "A) Always equal to 1",
+      "B) Always equal to infinity",
+      "C) Indeterminate form requiring logarithm technique",
+      "D) Undefined in all cases"
+    ],
+    "correct": 2,
+    "explanation": "inf^0 เป็น indeterminate form ต้องแก้โดย take logarithm: let y = f(x)^g(x) แล้ว ln(y) = g(x)*ln(f(x)) แล้วหา limit ของ ln(y)",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "หนึ่งใน indeterminate forms ที่น้อยคนรู้จัก"
+  },
+  {
+    "id": 88,
+    "question": "What is the term for the formula d/dx [arcsin(x)] = 1/sqrt(1-x^2)?",
+    "choices": [
+      "A) Inverse sine derivative formula",
+      "B) Cosine complement rule",
+      "C) Chain rule applied to sin",
+      "D) Arcsine integration formula"
+    ],
+    "correct": 0,
+    "explanation": "d/dx [arcsin(x)] = 1/sqrt(1-x^2) คือ inverse trig derivative formula สำหรับ arcsine ใช้บ่อยใน integration: integral 1/sqrt(1-x^2) dx = arcsin(x) + C",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร inverse trig derivative ที่ต้องจำ"
+  },
+  {
+    "id": 89,
+    "question": "Which concept describes writing F(x) = integral(a,x) f(t) dt as an accumulation function?",
+    "choices": [
+      "A) Definite integral evaluation",
+      "B) Accumulation function defined by integration",
+      "C) Antiderivative by parts",
+      "D) Riemann sum approximation"
+    ],
+    "correct": 1,
+    "explanation": "Accumulation function F(x) = integral(a,x) f(t) dt สะสมพื้นที่ใต้ f จาก a ถึง x โดย FTC Part 1 รับประกันว่า F'(x) = f(x)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจแนวคิดของ accumulation function และความสัมพันธ์กับ FTC"
+  },
+  {
+    "id": 90,
+    "question": "What is the definition of d/dx [tan(x)]?",
+    "choices": [
+      "A) sec(x)",
+      "B) -csc^2(x)",
+      "C) cos^2(x)",
+      "D) sec^2(x)"
+    ],
+    "correct": 3,
+    "explanation": "d/dx [tan(x)] = sec^2(x) มาจาก quotient rule: tan(x) = sin(x)/cos(x) แล้ว differentiate ได้ (cos^2(x) + sin^2(x))/cos^2(x) = 1/cos^2(x) = sec^2(x)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร derivative ของ tan(x) ที่ต้องจำ"
+  },
+  {
+    "id": 91,
+    "question": "Which concept describes the formula integral(a,b) f(x) dx = integral(a,c) f(x) dx + integral(c,b) f(x) dx?",
+    "choices": [
+      "A) Additivity over intervals property",
+      "B) Linearity of integration",
+      "C) FTC Part 2 extension",
+      "D) Reversal of limits rule"
+    ],
+    "correct": 0,
+    "explanation": "Additivity over intervals: สามารถแบ่ง definite integral ที่จุดกลาง c ได้ integral(a,b) = integral(a,c) + integral(c,b) ใช้บ่อยเมื่อ f ไม่ต่อเนื่องที่จุดใดจุดหนึ่ง",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สมบัติ integration ที่สำคัญและใช้บ่อย"
+  },
+  {
+    "id": 92,
+    "question": "What is the term for d/dx [sec(x)] = sec(x)tan(x)?",
+    "choices": [
+      "A) Secant derivative rule",
+      "B) Chain rule applied to cos^(-1)(x)",
+      "C) Trigonometric quotient formula",
+      "D) Cotangent complement rule"
+    ],
+    "correct": 0,
+    "explanation": "d/dx [sec(x)] = sec(x)tan(x) เป็น secant derivative rule มาจาก d/dx[1/cos(x)] = sin(x)/cos^2(x) = sec(x)tan(x)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร trig derivative ที่นักศึกษามักลืมหรือสับสน"
+  },
+  {
+    "id": 93,
+    "question": "Which term describes finding the minimum cost/maximum profit by setting f'(x) = 0 and solving?",
+    "choices": [
+      "A) Linear programming",
+      "B) Optimization using calculus",
+      "C) Constraint satisfaction problem",
+      "D) Root finding method"
+    ],
+    "correct": 1,
+    "explanation": "Optimization using calculus: หา extremum โดย find critical points (f'=0 หรือ f' undefined), test with second derivative test หรือ boundary values เพื่อหา max หรือ min",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "แนวคิดพื้นฐานของการประยุกต์ derivative กับ optimization"
+  },
+  {
+    "id": 94,
+    "question": "What is the definition of the differential df?",
+    "choices": [
+      "A) df = f'(x) dx — the product of derivative and a small change in x",
+      "B) df = f(x+1) - f(x)",
+      "C) df = integral of f(x) dx",
+      "D) df = lim(h->0) [f(x+h) - f(x)]"
+    ],
+    "correct": 0,
+    "explanation": "Differential df = f'(x) dx ใช้ประมาณการเปลี่ยนแปลงของ f เมื่อ x เปลี่ยนจำนวนเล็กน้อย dx เป็นพื้นฐานของ linear approximation",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม differential ที่นักศึกษาต้องรู้จักและแยกจาก derivative"
+  },
+  {
+    "id": 95,
+    "question": "Which term describes the theorem that a function continuous on a closed interval [a,b] must be bounded?",
+    "choices": [
+      "A) Extreme Value Theorem",
+      "B) Intermediate Value Theorem",
+      "C) Boundedness Theorem",
+      "D) Mean Value Theorem"
+    ],
+    "correct": 2,
+    "explanation": "Boundedness Theorem: ถ้า f ต่อเนื่องบน [a,b] แล้ว f จะมีขอบเขต (bounded) บน [a,b] นั่นคือมีจำนวน M ที่ |f(x)| ≤ M สำหรับทุก x ใน [a,b]",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ทฤษฎีบทที่นักศึกษามักไม่รู้จักชื่อแม้จะเข้าใจแนวคิด"
+  },
+  {
+    "id": 96,
+    "question": "What is the term for the substitution method in integration where you change the variable of integration?",
+    "choices": [
+      "A) Change of variable (u-substitution) in integration",
+      "B) Integration by parts formula",
+      "C) Reduction formula technique",
+      "D) Partial differentiation method"
+    ],
+    "correct": 0,
+    "explanation": "Change of variable (u-substitution): integral f(g(x))g'(x) dx = integral f(u) du โดย u = g(x), du = g'(x)dx เป็น reverse ของ chain rule",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เทคนิคพื้นฐานที่ต้องรู้จักชื่อและวิธีการ"
+  },
+  {
+    "id": 97,
+    "question": "Which concept states that if f'(x) = 0 for all x in (a,b), then f is constant on (a,b)?",
+    "choices": [
+      "A) Zero derivative implies constant — consequence of MVT",
+      "B) FTC Part 1 result",
+      "C) Rolle's theorem consequence",
+      "D) Continuity implies constancy"
+    ],
+    "correct": 0,
+    "explanation": "ถ้า f'(x) = 0 ตลอดช่วง (a,b) แล้ว f คงที่บนช่วงนั้น มาจาก MVT: ถ้า f'(c) = 0 สำหรับทุก c ใน (a,b) แล้ว f(b)-f(a) = f'(c)(b-a) = 0",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจว่า f'=0 ทุกที่ นำไปสู่ f constant อย่างไร"
+  },
+  {
+    "id": 98,
+    "question": "What is the term for the equation of a tangent line at (a, f(a)) in point-slope form?",
+    "choices": [
+      "A) y = f(a) + f'(a)(x - a)",
+      "B) y = f'(a)*x + f(a)",
+      "C) y - a = f(a)(x - f'(a))",
+      "D) y = f(a)*x + f'(a)"
+    ],
+    "correct": 0,
+    "explanation": "Tangent line equation ที่ (a, f(a)): y - f(a) = f'(a)(x - a) หรือเขียนได้เป็น y = f(a) + f'(a)(x - a) ใช้ slope = f'(a) และจุด (a, f(a))",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรพื้นฐานที่ใช้บ่อยมากในบทเรียน differentiation"
+  },
+  {
+    "id": 99,
+    "question": "Which term describes the property integral(a,b) [c*f(x)] dx = c * integral(a,b) f(x) dx?",
+    "choices": [
+      "A) Homogeneity (scalar multiple) property of integration",
+      "B) Additive property of integration",
+      "C) FTC linearity property",
+      "D) Constant multiple rule for derivatives"
+    ],
+    "correct": 0,
+    "explanation": "Homogeneity / scalar multiple property: ค่าคงที่ c สามารถดึงออกนอก integral ได้ เป็นหนึ่งใน linearity properties ของ integration",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สมบัติพื้นฐานที่ใช้บ่อยใน integration"
+  },
+  {
+    "id": 100,
+    "question": "What is the term for the curve defined by the equation r = f(theta) in the polar coordinate system?",
+    "choices": [
+      "A) Parametric curve",
+      "B) Implicit curve",
+      "C) Polar curve",
+      "D) Level set curve"
+    ],
+    "correct": 2,
+    "explanation": "Polar curve นิยามในระบบพิกัด polar ด้วย r = f(θ) เช่น r = a (วงกลม), r = 1 + cos(θ) (cardioid) สามารถแปลงเป็น Cartesian ได้ด้วย x = r*cos(θ), y = r*sin(θ)",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้จักระบบพิกัด polar และประเภทของเส้นโค้งที่แสดงในระบบนั้น"
+  }
+]

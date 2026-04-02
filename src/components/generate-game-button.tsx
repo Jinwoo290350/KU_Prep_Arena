@@ -12,12 +12,13 @@ interface Props {
 }
 
 export function GenerateGameButton({ gameType, label }: Props) {
-  const { uploadedText, setQuestions } = useQuestions()
+  const { uploadedText, setGameQuestions, gameQuestions } = useQuestions()
   const [loading, setLoading] = useState(false)
-  const [done, setDone] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   if (!uploadedText) return null
+
+  const alreadyGenerated = Array.isArray(gameQuestions[gameType]) && (gameQuestions[gameType]?.length ?? 0) > 0
 
   const handleGenerate = async () => {
     setLoading(true)
@@ -30,8 +31,7 @@ export function GenerateGameButton({ gameType, label }: Props) {
       })
       const data = await res.json() as { questions?: QuizQuestion[]; error?: string }
       if (res.ok && Array.isArray(data.questions)) {
-        setQuestions(data.questions)
-        setDone(true)
+        setGameQuestions(gameType, data.questions)
       } else {
         setError(data.error ?? "Failed to generate questions")
       }
@@ -53,8 +53,8 @@ export function GenerateGameButton({ gameType, label }: Props) {
         <Sparkles className={`h-4 w-4 shrink-0 ${loading ? "animate-spin" : ""}`} />
         {loading
           ? "Generating…"
-          : done
-          ? `${label} questions ready ✓`
+          : alreadyGenerated
+          ? `Regenerate ${label} Questions`
           : `Generate ${label} Questions`}
       </Button>
       {error && (

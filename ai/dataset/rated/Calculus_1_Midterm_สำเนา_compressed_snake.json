@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "When applying L'Hopital's Rule, what is the FIRST step?",
+    "choices": [
+      "A) Differentiate numerator and denominator separately",
+      "B) Multiply by the conjugate",
+      "C) Verify the limit is an indeterminate form (0/0 or inf/inf)",
+      "D) Substitute x directly into the function"
+    ],
+    "correct": 2,
+    "explanation": "ขั้นตอนแรกของ L'Hopital คือตรวจสอบก่อนว่าลิมิตอยู่ในรูป indeterminate form (0/0 หรือ inf/inf) ถ้าไม่ใช่ ห้ามใช้ L'Hopital",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามเฉพาะขั้นตอนแรก เป็นความรู้พื้นฐานเรื่องเงื่อนไขการใช้ L'Hopital"
+  },
+  {
+    "id": 2,
+    "question": "After verifying 0/0 form, what is the NEXT step in L'Hopital's Rule?",
+    "choices": [
+      "A) Apply quotient rule to the entire fraction",
+      "B) Find lim of f'(x)/g'(x) where f and g are numerator and denominator",
+      "C) Multiply numerator and denominator by x",
+      "D) Factor the numerator only"
+    ],
+    "correct": 1,
+    "explanation": "หลังจากตรวจสอบว่าเป็น indeterminate form แล้ว ให้หาอนุพันธ์ของเศษ f'(x) และส่วน g'(x) แยกกัน แล้วหา lim f'(x)/g'(x)",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เป็นขั้นตอนถัดไปหลังตรวจสอบ indeterminate form ไม่ซับซ้อน"
+  },
+  {
+    "id": 3,
+    "question": "In integration by parts (int u dv = uv - int v du), what comes AFTER choosing u and dv?",
+    "choices": [
+      "A) Evaluate the definite integral bounds",
+      "B) Differentiate u to get du, and integrate dv to get v",
+      "C) Factor the integrand",
+      "D) Apply u-substitution first"
+    ],
+    "correct": 1,
+    "explanation": "หลังจากเลือก u และ dv แล้ว ขั้นตอนถัดไปคือหา du โดย differentiate u และหา v โดย integrate dv ก่อนนำไปแทนในสูตร",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนของ integration by parts แต่เป็นการถามตรงๆ ครูให้ระดับ 2"
+  },
+  {
+    "id": 4,
+    "question": "When using u-substitution, what MUST you do after integrating in terms of u?",
+    "choices": [
+      "A) Differentiate again to verify",
+      "B) Add the constant of integration only if definite",
+      "C) Substitute back the original expression for u",
+      "D) Apply the Fundamental Theorem of Calculus"
+    ],
+    "correct": 2,
+    "explanation": "หลัง integrate ในรูป u แล้ว ต้องแทนค่า u กลับด้วยนิพจน์เดิมในรูป x เพื่อให้คำตอบสุดท้ายอยู่ในรูป x",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นักศึกษามักลืมขั้นตอน back-substitution ทำให้คำตอบไม่สมบูรณ์"
+  },
+  {
+    "id": 5,
+    "question": "When applying the Chain Rule to d/dx f(g(x)), what is differentiated FIRST?",
+    "choices": [
+      "A) The inner function g(x)",
+      "B) The product of f and g",
+      "C) The outer function f evaluated at g(x)",
+      "D) Both f and g simultaneously using Product Rule"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx f(g(x)) = f'(g(x)) * g'(x) ดังนั้นต้อง differentiate outer function f ก่อน (evaluated ที่ g(x)) แล้วคูณด้วย g'(x)",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจโครงสร้างของ Chain Rule ว่า outer function ถูก differentiate ก่อน"
+  },
+  {
+    "id": 6,
+    "question": "In FTC Part 2, after finding the antiderivative F(x), what is the NEXT step?",
+    "choices": [
+      "A) Differentiate F(x) to verify it equals f(x)",
+      "B) Evaluate F(b) - F(a) for the bounds [a, b]",
+      "C) Add the constant of integration C",
+      "D) Apply integration by parts to F(x)"
+    ],
+    "correct": 1,
+    "explanation": "ตาม Fundamental Theorem of Calculus Part 2: integral from a to b of f(x)dx = F(b) - F(a) หลังหา F(x) แล้วต้องแทนค่า b และ a แล้วลบกัน",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจขั้นตอนสุดท้ายของ FTC Part 2 ซึ่งนักศึกษามักลืมลบ F(a)"
+  },
+  {
+    "id": 7,
+    "question": "When using logarithmic differentiation for y = x^x, what is the FIRST step?",
+    "choices": [
+      "A) Apply Power Rule directly",
+      "B) Write ln(y) = x * ln(x), then differentiate both sides",
+      "C) Use Chain Rule on x^x immediately",
+      "D) Rewrite as e^(x * ln(x)) and stop there"
+    ],
+    "correct": 1,
+    "explanation": "Logarithmic differentiation: ขั้นแรกนำ ln ทั้งสองข้าง ln(y) = x*ln(x) แล้วจึง differentiate implicitly จะได้ (1/y)*(dy/dx) = ln(x) + 1",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ครูให้ระดับ 3 เพราะ logarithmic differentiation เป็นเทคนิคที่ซับซ้อน นักศึกษามักไม่รู้จะเริ่มจากไหน"
+  },
+  {
+    "id": 8,
+    "question": "After applying L'Hopital once and still getting 0/0, what is the NEXT step?",
+    "choices": [
+      "A) Conclude the limit does not exist",
+      "B) Try factoring instead",
+      "C) Apply L'Hopital's Rule again to the new expression",
+      "D) Multiply by the conjugate"
+    ],
+    "correct": 2,
+    "explanation": "L'Hopital's Rule สามารถใช้ซ้ำได้ ถ้าหลังใช้ครั้งแรกแล้วยังคงได้รูป indeterminate form ให้ apply L'Hopital อีกครั้งกับนิพจน์ใหม่",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า L'Hopital สามารถใช้ซ้ำได้ และต้องตรวจสอบเงื่อนไขก่อนทุกครั้ง"
+  },
+  {
+    "id": 9,
+    "question": "In implicit differentiation of x^2 + y^2 = 25, what happens AFTER differentiating both sides?",
+    "choices": [
+      "A) Solve for y in terms of x first",
+      "B) Isolate dy/dx by moving all dy/dx terms to one side",
+      "C) Square both sides to remove the derivative",
+      "D) Substitute y = sqrt(25 - x^2) before differentiating"
+    ],
+    "correct": 1,
+    "explanation": "หลัง differentiate ทั้งสองข้างได้ 2x + 2y*(dy/dx) = 0 ขั้นต่อไปคือ isolate dy/dx: 2y*(dy/dx) = -2x ดังนั้น dy/dx = -x/y",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Implicit differentiation ต้องการความเข้าใจเรื่องการหา dy/dx จากนิพจน์ที่มีทั้ง x และ y"
+  },
+  {
+    "id": 10,
+    "question": "When choosing u in integration by parts for int x * e^x dx, which choice minimizes work?",
+    "choices": [
+      "A) u = e^x, dv = x dx",
+      "B) u = x * e^x, dv = dx",
+      "C) u = x, dv = e^x dx",
+      "D) u = 1, dv = x * e^x dx"
+    ],
+    "correct": 2,
+    "explanation": "เลือก u = x เพราะ du = dx (ง่ายลง) และ dv = e^x dx เพราะ v = e^x (integrate ได้ง่าย) การเลือก u = e^x จะทำให้ integral ซับซ้อนขึ้น ใช้ LIATE rule ช่วยในการเลือก",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ strategy การเลือก u และ dv อย่าง LIATE ไม่ใช่แค่รู้สูตร"
+  },
+  {
+    "id": 11,
+    "question": "What is the FIRST step when applying u-substitution to int 2x * cos(x^2) dx?",
+    "choices": [
+      "A) Integrate cos(x^2) directly",
+      "B) Let u = x^2 and compute du = 2x dx",
+      "C) Apply integration by parts with u = 2x",
+      "D) Rewrite cos(x^2) using a trig identity"
+    ],
+    "correct": 1,
+    "explanation": "ขั้นแรกกำหนด u = x^2 เพราะ du = 2x dx ซึ่งปรากฏอยู่แล้วใน integrand ทำให้แทนที่ได้ทั้งหมด",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามเฉพาะขั้นแรกของ u-substitution เป็นทักษะพื้นฐาน"
+  },
+  {
+    "id": 12,
+    "question": "After setting u = x^2 and du = 2x dx, what is the NEXT step in u-substitution?",
+    "choices": [
+      "A) Integrate in terms of x immediately",
+      "B) Rewrite the integral entirely in terms of u",
+      "C) Differentiate both sides again",
+      "D) Apply the quotient rule to du/dx"
+    ],
+    "correct": 1,
+    "explanation": "หลังกำหนด u และ du แล้ว ต้องแทนที่ทุกอย่างในสมการ integral ให้อยู่ในรูป u ทั้งหมด ก่อนจะ integrate",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นตอนตรงไปตรงมา แค่แทนค่า u ลงใน integral"
+  },
+  {
+    "id": 13,
+    "question": "In the LIATE rule for integration by parts, what does the letter L stand for?",
+    "choices": [
+      "A) Linear functions",
+      "B) Logarithmic functions",
+      "C) Limit expressions",
+      "D) Laplace transforms"
+    ],
+    "correct": 1,
+    "explanation": "LIATE ย่อมาจาก Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential ใช้เป็น guide เลือก u ใน integration by parts",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เป็นความรู้ท่องจำ ระดับพื้นฐาน"
+  },
+  {
+    "id": 14,
+    "question": "In LIATE, which type of function should be chosen as u FIRST (highest priority)?",
+    "choices": [
+      "A) Exponential",
+      "B) Trigonometric",
+      "C) Algebraic (polynomial)",
+      "D) Logarithmic"
+    ],
+    "correct": 3,
+    "explanation": "LIATE: Logarithmic มีลำดับความสำคัญสูงสุด ดังนั้นถ้ามี ln(x) ใน integrand ให้เลือก u = ln(x) ก่อนเสมอ",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามลำดับความสำคัญใน LIATE ตรงๆ ไม่ซับซ้อน"
+  },
+  {
+    "id": 15,
+    "question": "To find critical points of f(x), what is the FIRST step?",
+    "choices": [
+      "A) Compute f''(x) and set it equal to zero",
+      "B) Compute f'(x) and set it equal to zero",
+      "C) Evaluate f(x) at the endpoints",
+      "D) Find where f(x) = 0"
+    ],
+    "correct": 1,
+    "explanation": "Critical points คือจุดที่ f'(x) = 0 หรือ f'(x) ไม่มีค่า ดังนั้นขั้นแรกต้องหา f'(x) แล้ว set = 0",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นตอนแรกหา critical points เป็นพื้นฐาน Calculus 1"
+  },
+  {
+    "id": 16,
+    "question": "After finding f'(x) = 0 gives x = c, what is the NEXT step to classify the critical point?",
+    "choices": [
+      "A) Evaluate f(c) to find the maximum value",
+      "B) Check the sign of f'(x) on intervals around x = c",
+      "C) Integrate f(x) from 0 to c",
+      "D) Set f(x) = 0 and solve again"
+    ],
+    "correct": 1,
+    "explanation": "หลังหา critical point x = c แล้ว ให้ตรวจสอบ sign ของ f'(x) ทางซ้ายและขวาของ c เพื่อบอกว่าเป็น local max, local min หรือ inflection point",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "การ classify critical point ด้วย first derivative test เป็นพื้นฐาน"
+  },
+  {
+    "id": 17,
+    "question": "What is the correct ORDER when applying the Quotient Rule to d/dx [f(x)/g(x)]?",
+    "choices": [
+      "A) g*f' - f*g' all divided by g^2",
+      "B) f'*g' divided by 2g",
+      "C) f*g' - g*f' all divided by f^2",
+      "D) f'*g + f*g' divided by g^2"
+    ],
+    "correct": 0,
+    "explanation": "Quotient Rule: d/dx[f/g] = (g*f' - f*g') / g^2 จำง่ายๆว่า low*d(high) - high*d(low) หารด้วย low^2",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามลำดับการเขียน Quotient Rule ตรงๆ"
+  },
+  {
+    "id": 18,
+    "question": "For parametric equations x(t) and y(t), what must be computed FIRST to find dy/dx?",
+    "choices": [
+      "A) Find d^2y/dx^2 directly",
+      "B) Compute dx/dt and dy/dt separately",
+      "C) Eliminate t to get y as a function of x",
+      "D) Integrate both x(t) and y(t)"
+    ],
+    "correct": 1,
+    "explanation": "dy/dx = (dy/dt) / (dx/dt) ดังนั้นต้องหา dy/dt และ dx/dt แยกกันก่อน แล้วจึงหาร",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นแรกของ parametric derivative ตรงไปตรงมา"
+  },
+  {
+    "id": 19,
+    "question": "After computing dx/dt and dy/dt for a parametric curve, what is the NEXT step?",
+    "choices": [
+      "A) Add dx/dt + dy/dt",
+      "B) Multiply dx/dt by dy/dt",
+      "C) Divide dy/dt by dx/dt to get dy/dx",
+      "D) Integrate dy/dt with respect to t"
+    ],
+    "correct": 2,
+    "explanation": "dy/dx = (dy/dt) / (dx/dt) หารค่า dy/dt ด้วย dx/dt เพื่อได้ slope ของ parametric curve",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "เป็นขั้นตอนที่สองของ parametric derivative ง่ายถ้ารู้สูตร"
+  },
+  {
+    "id": 20,
+    "question": "What is the FIRST step in applying the Second Derivative Test to x = c?",
+    "choices": [
+      "A) Evaluate f(c)",
+      "B) Compute f''(c)",
+      "C) Check if f'(c) = 0 (c is a critical point)",
+      "D) Find all inflection points first"
+    ],
+    "correct": 2,
+    "explanation": "Second Derivative Test ใช้ได้เฉพาะที่ critical point เท่านั้น ดังนั้นต้องตรวจสอบว่า f'(c) = 0 ก่อน",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามเงื่อนไขเบื้องต้นของ Second Derivative Test ตรงๆ"
+  },
+  {
+    "id": 21,
+    "question": "After confirming f'(c) = 0, what is the NEXT step in the Second Derivative Test?",
+    "choices": [
+      "A) Evaluate f''(c) and check its sign",
+      "B) Find all x where f(x) = 0",
+      "C) Integrate f(x) near x = c",
+      "D) Compute the third derivative"
+    ],
+    "correct": 0,
+    "explanation": "หลังยืนยัน critical point แล้ว คำนวณ f''(c): ถ้า f''(c) > 0 เป็น local min, ถ้า f''(c) < 0 เป็น local max, ถ้า f''(c) = 0 test ไม่สรุปผล",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นตอนหลักของ Second Derivative Test เป็นพื้นฐาน"
+  },
+  {
+    "id": 22,
+    "question": "In applying the Chain Rule to sin(3x^2), what is differentiated LAST?",
+    "choices": [
+      "A) The constant 3",
+      "B) The outer function sin, evaluated at 3x^2",
+      "C) The inner function 3x^2 to get 6x",
+      "D) Both sin and 3x^2 at the same time"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule: d/dx sin(3x^2) = cos(3x^2) * 6x ขั้นสุดท้ายคือคูณด้วย derivative ของ inner function (3x^2)' = 6x",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามเฉพาะขั้นสุดท้ายของ Chain Rule ตรงๆ"
+  },
+  {
+    "id": 23,
+    "question": "What is the correct ORDER of steps when evaluating int_1^3 (2x) dx using FTC Part 2?",
+    "choices": [
+      "A) Find F(x), evaluate F(3)-F(1), simplify",
+      "B) Evaluate at x=1 first, then find antiderivative",
+      "C) Differentiate 2x, then substitute bounds",
+      "D) Apply L'Hopital to the integral bounds"
+    ],
+    "correct": 0,
+    "explanation": "FTC Part 2: ขั้นที่ 1 หา antiderivative F(x) = x^2, ขั้นที่ 2 แทนค่าขอบ F(3) - F(1) = 9 - 1 = 8",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามลำดับขั้นตอน FTC Part 2 แบบตรงๆ"
+  },
+  {
+    "id": 24,
+    "question": "When converting a limit to use L'Hopital on 0*inf form, what is the FIRST step?",
+    "choices": [
+      "A) Apply L'Hopital directly",
+      "B) Rewrite as a fraction: 0/(1/inf) or inf/(1/0)",
+      "C) Multiply by the conjugate",
+      "D) Use substitution t = 1/x"
+    ],
+    "correct": 1,
+    "explanation": "L'Hopital ใช้ได้เฉพาะรูป 0/0 หรือ inf/inf ดังนั้นรูป 0*inf ต้องแปลงเป็น fraction ก่อน เช่น f*g = f/(1/g)",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้เทคนิคการแปลง 0*inf form ก่อนใช้ L'Hopital"
+  },
+  {
+    "id": 25,
+    "question": "When differentiating a product f(x)*g(x), what is the FIRST term written in Product Rule?",
+    "choices": [
+      "A) f(x) * g(x)",
+      "B) f'(x) * g(x)",
+      "C) f(x) * g'(x)",
+      "D) f'(x) * g'(x)"
+    ],
+    "correct": 1,
+    "explanation": "Product Rule: d/dx[f*g] = f'*g + f*g' ดังนั้น term แรกคือ f'(x)*g(x) คือ derivative ของตัวแรกคูณตัวที่สองไม่ differentiate",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามลำดับ term ใน Product Rule ตรงๆ"
+  },
+  {
+    "id": 26,
+    "question": "What is the correct ORDER of steps in u-substitution for a definite integral int_0^1 2x*e^(x^2) dx?",
+    "choices": [
+      "A) Find antiderivative in x, substitute bounds, evaluate",
+      "B) Let u=x^2, change bounds to u-bounds, integrate, evaluate",
+      "C) Integrate e^(x^2) directly, multiply by 2x",
+      "D) Apply FTC first, then substitute u"
+    ],
+    "correct": 1,
+    "explanation": "สำหรับ definite integral: ให้ u = x^2, แปลงขอบ (x=0 -> u=0, x=1 -> u=1), แทนใน integral ได้ int_0^1 e^u du = [e^u]_0^1 = e - 1",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า definite integral u-substitution ต้องแปลงขอบด้วย"
+  },
+  {
+    "id": 27,
+    "question": "In implicit differentiation, after differentiating x^3 + y^3 = 6xy, what is the NEXT step?",
+    "choices": [
+      "A) Divide both sides by 3",
+      "B) Collect all terms with dy/dx on one side, factor out dy/dx",
+      "C) Substitute y = x to simplify",
+      "D) Integrate both sides again"
+    ],
+    "correct": 1,
+    "explanation": "หลัง differentiate ได้ 3x^2 + 3y^2(dy/dx) = 6y + 6x(dy/dx) ต้องย้ายทุก term ที่มี dy/dx ไปอยู่ข้างเดียวกัน แล้ว factor out dy/dx",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจขั้นตอน isolate dy/dx เมื่อมี dy/dx หลายตำแหน่ง"
+  },
+  {
+    "id": 28,
+    "question": "When solving for dy/dx in implicit differentiation, what is the FINAL step?",
+    "choices": [
+      "A) Set dy/dx = 0 and solve",
+      "B) Factor out dy/dx and divide to isolate it",
+      "C) Integrate both sides with respect to x",
+      "D) Substitute x = 0 to find the slope"
+    ],
+    "correct": 1,
+    "explanation": "ขั้นสุดท้ายหลัง collect dy/dx terms: factor out dy/dx แล้วหารทั้งสองข้าง เพื่อให้ได้ dy/dx = expression",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ขั้นสุดท้ายของ implicit differentiation ต้องรู้ว่าต้อง factor และหาร"
+  },
+  {
+    "id": 29,
+    "question": "What ORDER is correct when applying integration by parts to int x^2 * sin(x) dx?",
+    "choices": [
+      "A) u=sin(x), dv=x^2 dx -> compute du,v -> apply formula",
+      "B) u=x^2, dv=sin(x)dx -> compute du,v -> apply formula -> repeat if needed",
+      "C) Use u-substitution with u=x^2 first",
+      "D) Differentiate x^2*sin(x) then reverse"
+    ],
+    "correct": 1,
+    "explanation": "เลือก u = x^2 (Algebraic, ลดดีกรีเมื่อ differentiate) dv = sin(x)dx จาก LIATE หลังจากนั้น du = 2x dx, v = -cos(x) แล้วใช้สูตร อาจต้องใช้ integration by parts ซ้ำ",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเลือก u ถูกต้องตาม LIATE และรู้ว่าอาจต้องทำซ้ำ"
+  },
+  {
+    "id": 30,
+    "question": "In the Quotient Rule for d/dx[f/g], what MUST come first in the numerator?",
+    "choices": [
+      "A) f times g'",
+      "B) g times f'",
+      "C) f' times f",
+      "D) g' times g"
+    ],
+    "correct": 1,
+    "explanation": "Quotient Rule numerator: g(x)*f'(x) - f(x)*g'(x) ลำดับสำคัญมาก เพราะถ้าเขียนสลับจะได้ผลเครื่องหมายตรงข้าม",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักสับสนลำดับ term ใน Quotient Rule"
+  },
+  {
+    "id": 31,
+    "question": "What is the FIRST step in finding where f(x) is concave up or down?",
+    "choices": [
+      "A) Find f'(x) and set equal to zero",
+      "B) Compute f''(x) and find where it changes sign",
+      "C) Plot f(x) on a graph",
+      "D) Find all vertical asymptotes"
+    ],
+    "correct": 1,
+    "explanation": "Concavity ถูกกำหนดโดย f''(x): ถ้า f''(x) > 0 concave up, ถ้า f''(x) < 0 concave down ดังนั้นต้องหา f''(x) ก่อนและหาจุดที่เปลี่ยน sign",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่าต้องใช้ f''(x) ในการวิเคราะห์ concavity"
+  },
+  {
+    "id": 32,
+    "question": "After computing f''(x), what is the NEXT step to find inflection points?",
+    "choices": [
+      "A) Set f''(x) = 0 and verify sign change around those points",
+      "B) Set f'(x) = 0 and solve",
+      "C) Evaluate f(x) at all critical points",
+      "D) Find where f''(x) is maximum"
+    ],
+    "correct": 0,
+    "explanation": "Inflection point คือจุดที่ concavity เปลี่ยน ต้องหาจุดที่ f''(x) = 0 และตรวจสอบว่า sign ของ f''(x) เปลี่ยนจริงรอบๆ จุดนั้น",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ทั้งการหาจุดและการยืนยัน sign change"
+  },
+  {
+    "id": 33,
+    "question": "What is the correct sequence to evaluate lim_{x->2} (x^2-4)/(x-2) using algebra?",
+    "choices": [
+      "A) Substitute x=2 directly to get 0/0, then factor numerator, cancel, substitute",
+      "B) Apply L'Hopital immediately without checking",
+      "C) Multiply by conjugate x+2, then substitute",
+      "D) Find antiderivative first, then evaluate"
+    ],
+    "correct": 0,
+    "explanation": "ขั้นที่ 1 แทน x=2 ได้ 0/0 (indeterminate) ขั้นที่ 2 factor: (x-2)(x+2)/(x-2) ขั้นที่ 3 ยกเลิก (x-2) ขั้นที่ 4 แทน x=2 ได้ 4",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนการแก้ 0/0 ด้วย algebraic manipulation"
+  },
+  {
+    "id": 34,
+    "question": "When using Chain Rule on e^(sin(x)), what is the CORRECT order of steps?",
+    "choices": [
+      "A) diff inner sin(x) first, multiply by e^(sin(x))",
+      "B) diff outer e^(sin(x)) as if sin(x) were constant first",
+      "C) diff e^(sin(x)) -> e^(sin(x)) * cos(x), outer then inner",
+      "D) Use Product Rule on e and sin(x)"
+    ],
+    "correct": 2,
+    "explanation": "d/dx e^(sin(x)) = e^(sin(x)) * cos(x) ขั้นที่ 1 diff outer function e^u = e^u, ขั้นที่ 2 คูณด้วย diff inner function cos(x)",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ exponential ต้องเข้าใจลำดับ outer -> inner"
+  },
+  {
+    "id": 35,
+    "question": "In finding absolute extrema on [a,b], what is the correct ORDER of steps?",
+    "choices": [
+      "A) Find f'(x)=0, evaluate f at critical points and endpoints, compare",
+      "B) Find f''(x)=0, evaluate at those points, use Second Derivative Test",
+      "C) Graph f(x), visually identify max and min",
+      "D) Integrate f(x) over [a,b], divide by (b-a)"
+    ],
+    "correct": 0,
+    "explanation": "ขั้นที่ 1 หา f'(x) = 0 เพื่อได้ critical points ใน [a,b] ขั้นที่ 2 แทนค่า f ที่ critical points และ endpoints a, b ขั้นที่ 3 เปรียบเทียบค่า",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนครบทั้งหมด รวมทั้ง endpoints"
+  },
+  {
+    "id": 36,
+    "question": "After finding f'(x) = 3x^2 - 6x = 0, what is the NEXT step?",
+    "choices": [
+      "A) Factor as 3x(x-2) = 0 and solve for x",
+      "B) Integrate f'(x) to get f(x)",
+      "C) Set f''(x) = 0 to find inflection points",
+      "D) Evaluate f'(0) immediately"
+    ],
+    "correct": 0,
+    "explanation": "หลังได้ f'(x) = 3x^2 - 6x = 0 ต้อง factor: 3x(x-2) = 0 ดังนั้น x = 0 หรือ x = 2 เป็น critical points",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนการหาค่า x จาก f'(x) = 0"
+  },
+  {
+    "id": 37,
+    "question": "In the integration by parts formula uv - int v du, what does the term 'int v du' mean?",
+    "choices": [
+      "A) Integrate v with respect to x",
+      "B) A new integral that must be evaluated, using v and du",
+      "C) The derivative of v times u",
+      "D) The original integral restated"
+    ],
+    "correct": 1,
+    "explanation": "int v du เป็น integral ใหม่ที่ต้องคำนวณ โดยใช้ v ที่ได้จาก integrate dv และ du ที่ได้จาก differentiate u สูตรนี้เปลี่ยน integral หนึ่งเป็นอีก integral",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจความหมายของแต่ละ term ใน integration by parts"
+  },
+  {
+    "id": 38,
+    "question": "When evaluating lim_{x->0} sin(x)/x, what MUST be identified FIRST?",
+    "choices": [
+      "A) That this is 0/0 indeterminate form",
+      "B) That sin(0) = 1",
+      "C) That L'Hopital cannot be applied here",
+      "D) That x = 0 is a vertical asymptote"
+    ],
+    "correct": 0,
+    "explanation": "แทน x=0: sin(0)/0 = 0/0 เป็น indeterminate form ดังนั้นต้องระบุก่อนว่าเป็น 0/0 จึงจะใช้ L'Hopital หรือ squeeze theorem ได้",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องระบุ indeterminate form ก่อนเสมอ"
+  },
+  {
+    "id": 39,
+    "question": "What is the correct ORDER of steps to differentiate y = (x^2+1)^(1/2) using Chain Rule?",
+    "choices": [
+      "A) diff outer: (1/2)u^(-1/2) at u=x^2+1, diff inner: 2x, multiply",
+      "B) diff inner 2x first, then apply Power Rule to outer",
+      "C) Use Product Rule on x^2 and 1, then take square root",
+      "D) Take ln of both sides first"
+    ],
+    "correct": 0,
+    "explanation": "d/dx (x^2+1)^(1/2): outer = (1/2)(x^2+1)^(-1/2), inner = 2x, คูณกัน = x*(x^2+1)^(-1/2) = x/sqrt(x^2+1)",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ Power of function ต้องเข้าใจลำดับ"
+  },
+  {
+    "id": 40,
+    "question": "When applying L'Hopital to lim_{x->inf} x/e^x, what is the result AFTER differentiating once?",
+    "choices": [
+      "A) lim 1/e^x which equals 0",
+      "B) lim x/e^x again (no progress)",
+      "C) lim -1/e^x which equals 0",
+      "D) lim e^x/x which is infinity"
+    ],
+    "correct": 0,
+    "explanation": "x/e^x เป็นรูป inf/inf ใช้ L'Hopital: diff num = 1, diff denom = e^x ได้ lim 1/e^x เมื่อ x->inf = 0",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่าหลังใช้ L'Hopital ครั้งเดียวได้ผลที่ประเมินได้"
+  },
+  {
+    "id": 41,
+    "question": "For int x*ln(x) dx, after choosing u=ln(x) and dv=x dx, what is the NEXT step?",
+    "choices": [
+      "A) Compute du = 1/x dx and v = x^2/2",
+      "B) Compute du = x dx and v = ln(x)",
+      "C) Apply u-substitution with u = ln(x)",
+      "D) Differentiate x*ln(x) using Product Rule"
+    ],
+    "correct": 0,
+    "explanation": "u = ln(x) -> du = (1/x)dx และ dv = x dx -> v = x^2/2 จากนั้นแทนในสูตร: (x^2/2)ln(x) - int (x^2/2)(1/x)dx",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องคำนวณ du และ v ให้ถูกต้องก่อนใช้สูตร"
+  },
+  {
+    "id": 42,
+    "question": "In implicit differentiation, when differentiating y^3 with respect to x, what is the result?",
+    "choices": [
+      "A) 3y^2",
+      "B) 3y^2 * (dy/dx)",
+      "C) 3y^2 * dx/dy",
+      "D) y^3 * (dy/dx)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx(y^3) = 3y^2 * (dy/dx) ต้องใช้ Chain Rule เพราะ y เป็น function ของ x ดังนั้นต้องคูณด้วย dy/dx เสมอ",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Implicit differentiation ของ y^n ต้องใช้ Chain Rule"
+  },
+  {
+    "id": 43,
+    "question": "What is the FIRST step when evaluating lim_{x->0^+} x * ln(x)?",
+    "choices": [
+      "A) Apply L'Hopital directly to x*ln(x)",
+      "B) Rewrite as ln(x) / (1/x) to get -inf/+inf form",
+      "C) Substitute x = 0 directly",
+      "D) Use squeeze theorem immediately"
+    ],
+    "correct": 1,
+    "explanation": "x*ln(x) เป็นรูป 0*(- inf) ต้องแปลงก่อน: เขียนเป็น ln(x)/(1/x) ได้รูป -inf/+inf แล้วจึงใช้ L'Hopital",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้วิธีแปลง 0*inf ให้เป็น fraction ก่อน L'Hopital"
+  },
+  {
+    "id": 44,
+    "question": "When finding the tangent line using implicit differentiation, what is computed AFTER finding dy/dx?",
+    "choices": [
+      "A) Integrate dy/dx to recover y",
+      "B) Substitute the given point into dy/dx to get the slope",
+      "C) Set dy/dx = 0 to find extrema",
+      "D) Find d^2y/dx^2 next"
+    ],
+    "correct": 1,
+    "explanation": "หลังหา dy/dx (ในรูป x และ y) แล้ว แทนพิกัด (x_0, y_0) ของจุดที่กำหนด เพื่อหา slope จากนั้นใช้ y - y_0 = m(x - x_0)",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนหลังหา dy/dx ในการหา tangent line"
+  },
+  {
+    "id": 45,
+    "question": "After completing u-substitution for a definite integral int_0^2 2x*sqrt(x^2+1) dx, the bounds become?",
+    "choices": [
+      "A) u from 0 to 2 (unchanged)",
+      "B) u from 1 to 5 (applying u = x^2+1)",
+      "C) u from 0 to 4",
+      "D) u from 1 to 3"
+    ],
+    "correct": 1,
+    "explanation": "u = x^2 + 1: เมื่อ x=0, u=1 เมื่อ x=2, u=5 ดังนั้นขอบเปลี่ยนจาก [0,2] เป็น [1,5]",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้วิธีแปลงขอบเมื่อทำ u-substitution ใน definite integral"
+  },
+  {
+    "id": 46,
+    "question": "What is the correct ORDER of the LIATE priority from HIGHEST to LOWEST?",
+    "choices": [
+      "A) Algebraic > Logarithmic > Exponential > Trig > Inverse trig",
+      "B) Logarithmic > Inverse trig > Algebraic > Trig > Exponential",
+      "C) Exponential > Trig > Algebraic > Inverse trig > Logarithmic",
+      "D) Trig > Algebraic > Logarithmic > Inverse trig > Exponential"
+    ],
+    "correct": 1,
+    "explanation": "LIATE: L=Logarithmic (1st), I=Inverse trig (2nd), A=Algebraic (3rd), T=Trigonometric (4th), E=Exponential (5th) ลำดับนี้ช่วยเลือก u",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำลำดับ LIATE ทั้งหมดอย่างถูกต้อง"
+  },
+  {
+    "id": 47,
+    "question": "When using the Second Derivative Test, if f''(c) > 0, what can be concluded?",
+    "choices": [
+      "A) x=c is a local maximum",
+      "B) x=c is an inflection point",
+      "C) x=c is a local minimum",
+      "D) f is increasing at x=c"
+    ],
+    "correct": 2,
+    "explanation": "ถ้า f'(c) = 0 และ f''(c) > 0 แสดงว่า f concave up ที่ x=c ดังนั้น x=c เป็น local minimum",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจำผลสรุปของ Second Derivative Test"
+  },
+  {
+    "id": 48,
+    "question": "For parametric curve x = t^2, y = t^3, what is computed SECOND in finding dy/dx?",
+    "choices": [
+      "A) dx/dt = 2t",
+      "B) dy/dt = 3t^2",
+      "C) dy/dx = (3t^2)/(2t) = 3t/2",
+      "D) d^2y/dx^2"
+    ],
+    "correct": 2,
+    "explanation": "ขั้นที่ 1 หา dx/dt = 2t และ dy/dt = 3t^2 ขั้นที่ 2 (SECOND) คือหาร: dy/dx = 3t^2 / 2t = 3t/2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนสองของ parametric derivative"
+  },
+  {
+    "id": 49,
+    "question": "In related rates, after setting up the equation relating variables, what is the NEXT step?",
+    "choices": [
+      "A) Solve the equation for one variable algebraically",
+      "B) Differentiate both sides with respect to time t",
+      "C) Substitute all known values first",
+      "D) Integrate to find the total change"
+    ],
+    "correct": 1,
+    "explanation": "Related rates: ขั้นที่ 1 เขียน equation ที่เชื่อมตัวแปร ขั้นที่ 2 differentiate ทั้งสองข้างกับ t (implicit differentiation) ขั้นที่ 3 แทนค่าที่รู้จัก",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ลำดับขั้นตอน related rates อย่างถูกต้อง"
+  },
+  {
+    "id": 50,
+    "question": "After differentiating both sides of A = pi*r^2 with respect to t in related rates, what is the result?",
+    "choices": [
+      "A) dA/dt = pi * 2r",
+      "B) dA/dt = 2*pi*r * (dr/dt)",
+      "C) dA/dt = pi*r^2 * (dr/dt)",
+      "D) dA/dt = 2*pi * (dr/dt)"
+    ],
+    "correct": 1,
+    "explanation": "d/dt(A) = d/dt(pi*r^2) ใช้ Chain Rule: dA/dt = pi*2r*(dr/dt) = 2*pi*r*(dr/dt) เพราะ r เป็น function ของ t",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ Chain Rule ใน related rates อย่างถูกต้อง"
+  },
+  {
+    "id": 51,
+    "question": "When applying integration by parts twice to int e^x*sin(x) dx, what happens at the end?",
+    "choices": [
+      "A) The integral evaluates to zero",
+      "B) The original integral reappears; move it to one side and solve",
+      "C) A contradiction is reached",
+      "D) L'Hopital must be applied to finish"
+    ],
+    "correct": 1,
+    "explanation": "int e^x*sin(x) dx ใช้ integration by parts สองครั้งแล้วได้ original integral กลับมา ให้ย้ายไปอีกข้างหนึ่ง: 2*int = expression ดังนั้น int = expression/2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "เทคนิค cyclic integration by parts ซับซ้อน ต้องเข้าใจการจัดการ integral ซ้ำ"
+  },
+  {
+    "id": 52,
+    "question": "For lim_{x->0} (e^x - 1 - x) / x^2, how many times must L'Hopital be applied?",
+    "choices": [
+      "A) Zero times — substitute directly",
+      "B) Exactly once",
+      "C) Twice, since each application still gives 0/0",
+      "D) Three times"
+    ],
+    "correct": 2,
+    "explanation": "ครั้งที่ 1: num=(e^x-1), denom=2x ยังคงเป็น 0/0 ครั้งที่ 2: num=e^x, denom=2 แทน x=0 ได้ 1/2 ต้องใช้ L'Hopital 2 ครั้ง",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ว่าต้องใช้ L'Hopital หลายครั้งและตรวจสอบทุกขั้น"
+  },
+  {
+    "id": 53,
+    "question": "What is the CORRECT sequence to find d^2y/dx^2 for parametric x=cos(t), y=sin(t)?",
+    "choices": [
+      "A) Find dy/dx = -cot(t), then diff w.r.t. t, divide by dx/dt",
+      "B) Diff y twice then diff x twice and divide",
+      "C) Find dy/dx = (dy/dt)/(dx/dt), diff result w.r.t. t, divide by dx/dt",
+      "D) Use Chain Rule on x^2+y^2=1 implicitly"
+    ],
+    "correct": 2,
+    "explanation": "d^2y/dx^2 = (d/dt(dy/dx)) / (dx/dt) ขั้นที่ 1 หา dy/dx = cos(t)/(-sin(t)) = -cot(t) ขั้นที่ 2 diff กับ t ได้ csc^2(t) ขั้นที่ 3 หาร dx/dt = -sin(t)",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Second derivative ของ parametric curve ซับซ้อน ต้องรู้สูตร d^2y/dx^2 อย่างถูกต้อง"
+  },
+  {
+    "id": 54,
+    "question": "In implicit differentiation of sin(xy) = x, what is the result of differentiating the left side?",
+    "choices": [
+      "A) cos(xy)",
+      "B) cos(xy) * (y + x*dy/dx)",
+      "C) cos(xy) * x * (dy/dx)",
+      "D) -cos(xy) * xy"
+    ],
+    "correct": 1,
+    "explanation": "d/dx sin(xy): outer = cos(xy), inner = xy ต้องใช้ Product Rule ใน inner: d/dx(xy) = y + x*(dy/dx) ดังนั้น d/dx sin(xy) = cos(xy)*(y + x*dy/dx)",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ทั้ง Chain Rule และ Product Rule พร้อมกัน ซับซ้อนมาก"
+  },
+  {
+    "id": 55,
+    "question": "For int sin^2(x) dx, what is the FIRST step using the reduction identity?",
+    "choices": [
+      "A) Use integration by parts with u=sin(x)",
+      "B) Replace sin^2(x) with (1 - cos(2x))/2",
+      "C) Let u = sin(x), du = cos(x)dx",
+      "D) Factor sin^2(x) as sin(x)*sin(x) and use Product Rule"
+    ],
+    "correct": 1,
+    "explanation": "ขั้นแรกใช้ power-reduction identity: sin^2(x) = (1 - cos(2x))/2 แล้ว integrate ทีละ term ได้ x/2 - sin(2x)/4 + C",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ trig identity power-reduction และรู้ว่าต้องใช้ก่อน integrate"
+  },
+  {
+    "id": 56,
+    "question": "What ORDER of operations is needed to find the area between f(x) = x^2 and g(x) = x on [0,1]?",
+    "choices": [
+      "A) Find intersection, set up int_0^1 |f-g| dx, integrate",
+      "B) Integrate f and g separately then subtract results",
+      "C) Find f'=g' first, then integrate",
+      "D) Apply FTC Part 1 to both functions"
+    ],
+    "correct": 0,
+    "explanation": "ขั้นที่ 1 หาจุดตัด (x=0, x=1) ขั้นที่ 2 กำหนดว่าฟังก์ชันไหนอยู่บน (g(x)=x >= f(x)=x^2 บน [0,1]) ขั้นที่ 3 int_0^1 (x - x^2) dx",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ขั้นตอนทั้งหมดของการหา area between curves"
+  },
+  {
+    "id": 57,
+    "question": "In the process of logarithmic differentiation for y = (sin x)^x, what comes AFTER taking ln of both sides?",
+    "choices": [
+      "A) Apply Power Rule to (sin x)^x",
+      "B) Differentiate both sides implicitly: (1/y)(dy/dx) = d/dx[x*ln(sin x)]",
+      "C) Factor out x from both sides",
+      "D) Integrate both sides with respect to x"
+    ],
+    "correct": 1,
+    "explanation": "ขั้นที่ 1 ln y = x*ln(sin x) ขั้นที่ 2 diff implicitly: (1/y)(dy/dx) = ln(sin x) + x*(cos x/sin x) ขั้นที่ 3 คูณกลับด้วย y",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Logarithmic differentiation ซับซ้อน ต้องรู้ขั้นตอนทั้งหมด"
+  },
+  {
+    "id": 58,
+    "question": "After differentiating ln y = x*ln(sin x) to get (1/y)(dy/dx) = ..., what is the FINAL step?",
+    "choices": [
+      "A) Divide both sides by ln y",
+      "B) Multiply both sides by y to isolate dy/dx, then substitute y back",
+      "C) Take exponential of both sides",
+      "D) Integrate both sides to recover y"
+    ],
+    "correct": 1,
+    "explanation": "ขั้นสุดท้าย: dy/dx = y * [ln(sin x) + x*cot x] แล้วแทน y = (sin x)^x กลับ ได้ dy/dx = (sin x)^x * [ln(sin x) + x*cot x]",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ขั้นตอนสุดท้ายของ logarithmic differentiation"
+  },
+  {
+    "id": 59,
+    "question": "What is the CORRECT sequence for integration by parts applied to int ln(x) dx?",
+    "choices": [
+      "A) u=ln(x), dv=dx; du=1/x dx, v=x; apply formula -> x*ln(x) - int 1 dx",
+      "B) u=x, dv=ln(x)dx; du=dx, v=x*ln(x)-x; apply formula",
+      "C) u-substitution with u=ln(x) first",
+      "D) u=1, dv=ln(x)dx; solve without computing v"
+    ],
+    "correct": 0,
+    "explanation": "int ln(x) dx: u=ln(x), dv=dx -> du=1/x dx, v=x -> x*ln(x) - int x*(1/x)dx = x*ln(x) - int 1 dx = x*ln(x) - x + C",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "int ln(x) dx เป็น classic แต่ต้องรู้ว่าเลือก dv=dx ซึ่งไม่ใช่สัญชาตญาณแรก"
+  },
+  {
+    "id": 60,
+    "question": "When using FTC Part 1 for d/dx int_a^(g(x)) f(t) dt, what is the CORRECT result?",
+    "choices": [
+      "A) f(g(x))",
+      "B) f(x) * g'(x)",
+      "C) f(g(x)) * g'(x)",
+      "D) F(g(x)) - F(a)"
+    ],
+    "correct": 2,
+    "explanation": "FTC Part 1 + Chain Rule: d/dx int_a^(g(x)) f(t)dt = f(g(x)) * g'(x) ต้องคูณด้วย g'(x) เพราะ upper bound เป็น function ของ x",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "FTC Part 1 กับ Chain Rule ร่วมกันเป็นหัวข้อยาก"
+  },
+  {
+    "id": 61,
+    "question": "What is the FIRST step when verifying if L'Hopital's Rule can be applied to lim (x^2-1)/(x-1)?",
+    "choices": [
+      "A) Differentiate numerator and denominator immediately",
+      "B) Substitute x=1 to check if 0/0 or inf/inf form occurs",
+      "C) Factor x^2-1 first",
+      "D) Check if denominator equals zero"
+    ],
+    "correct": 1,
+    "explanation": "ต้องแทน x=1 ก่อน: (1-1)/(1-1) = 0/0 ยืนยันเป็น indeterminate form จึงใช้ L'Hopital ได้ (หรือ factor แทน)",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นแรกตรวจสอบ indeterminate form ตรงๆ"
+  },
+  {
+    "id": 62,
+    "question": "In the Chain Rule for d/dx [f(g(h(x)))], what is differentiated FIRST (outermost)?",
+    "choices": [
+      "A) h(x) — the innermost function",
+      "B) g(h(x)) — the middle function",
+      "C) f evaluated at g(h(x)) — the outermost function",
+      "D) All three simultaneously"
+    ],
+    "correct": 2,
+    "explanation": "Chain Rule สำหรับ 3 functions: f'(g(h(x))) * g'(h(x)) * h'(x) differentiate จากนอกสุด f ไปในสุด h เสมอ",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule 3 ชั้น ต้องเข้าใจลำดับ outside-in"
+  },
+  {
+    "id": 63,
+    "question": "What step comes IMMEDIATELY AFTER identifying u = 3x+1 in int (3x+1)^5 dx?",
+    "choices": [
+      "A) Raise u to the 5th power",
+      "B) Compute du = 3 dx, rewrite integral as (1/3) int u^5 du",
+      "C) Integrate (3x+1)^5 using Power Rule on x",
+      "D) Expand (3x+1)^5 using binomial theorem"
+    ],
+    "correct": 1,
+    "explanation": "u = 3x+1 -> du = 3dx -> dx = du/3 แทนใน integral: int u^5 * (du/3) = (1/3) int u^5 du",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นตอนต่อเนื่องของ u-substitution เป็นพื้นฐาน"
+  },
+  {
+    "id": 64,
+    "question": "After integrating (1/3) int u^5 du = (1/3)(u^6/6) + C, what is the NEXT step?",
+    "choices": [
+      "A) Differentiate to verify",
+      "B) Substitute u = 3x+1 back to express in terms of x",
+      "C) Evaluate at the bounds if indefinite",
+      "D) Multiply by 3 to cancel the constant"
+    ],
+    "correct": 1,
+    "explanation": "ขั้นสุดท้ายของ u-substitution indefinite: แทน u กลับด้วย 3x+1 ได้คำตอบ (3x+1)^6/18 + C",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Back-substitution ขั้นสุดท้าย เป็นพื้นฐาน"
+  },
+  {
+    "id": 65,
+    "question": "When finding a local minimum using First Derivative Test, what sign pattern of f'(x) around x=c indicates local min?",
+    "choices": [
+      "A) f' changes from positive to negative",
+      "B) f' stays positive on both sides",
+      "C) f' changes from negative to positive",
+      "D) f' equals zero on both sides"
+    ],
+    "correct": 2,
+    "explanation": "Local minimum: f'(x) < 0 (decreasing) ทางซ้ายของ c และ f'(x) > 0 (increasing) ทางขวา เปลี่ยนจาก - เป็น +",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "First Derivative Test sign pattern ตรงๆ"
+  },
+  {
+    "id": 66,
+    "question": "What is the FIRST step when using implicit differentiation on x*y^2 = 4?",
+    "choices": [
+      "A) Solve for y before differentiating",
+      "B) Differentiate both sides with respect to x using Product Rule on left",
+      "C) Divide both sides by x first",
+      "D) Take square root of both sides"
+    ],
+    "correct": 1,
+    "explanation": "Implicit differentiation: diff ทั้งสองข้างกับ x ทันที ด้านซ้ายใช้ Product Rule: y^2 + x*2y*(dy/dx) = 0",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ขั้นแรกของ implicit differentiation ตรงๆ"
+  },
+  {
+    "id": 67,
+    "question": "When finding dy/dx from y^2 + x*2y*(dy/dx) = 0, what is the NEXT step?",
+    "choices": [
+      "A) Divide by y^2 first",
+      "B) Move y^2 to the right: x*2y*(dy/dx) = -y^2, then solve for dy/dx",
+      "C) Integrate both sides",
+      "D) Substitute y = sqrt(4/x)"
+    ],
+    "correct": 1,
+    "explanation": "ย้าย y^2: 2xy*(dy/dx) = -y^2 จากนั้น dy/dx = -y^2/(2xy) = -y/(2x)",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้วิธี isolate dy/dx ในสมการ implicit"
+  },
+  {
+    "id": 68,
+    "question": "For int_0^pi sin(x) dx using FTC Part 2, what is the CORRECT sequence?",
+    "choices": [
+      "A) F(x)=-cos(x); F(pi)-F(0)=(-(-1))-(-1)=2",
+      "B) F(x)=cos(x); F(pi)-F(0)=(-1)-(1)=-2",
+      "C) F(x)=-cos(x); F(pi)-F(0)=1-(-1)=2 same result",
+      "D) Both A and C are equivalent correct sequences"
+    ],
+    "correct": 3,
+    "explanation": "F(x) = -cos(x) เป็น antiderivative ที่ถูกต้อง F(pi)-F(0) = -cos(pi)-(-cos(0)) = -(-1)-(-1) = 1+1 = 2 คำตอบ A และ C ให้ผลเดียวกัน",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องระวังการแทนค่าขอบให้ถูกต้อง"
+  },
+  {
+    "id": 69,
+    "question": "In u-substitution for int cos(x)*sqrt(sin(x)) dx, after letting u=sin(x), du becomes?",
+    "choices": [
+      "A) du = cos(x)dx — so integral becomes int sqrt(u) du",
+      "B) du = -sin(x)dx",
+      "C) du = sqrt(cos(x))dx",
+      "D) du = cos^2(x)dx"
+    ],
+    "correct": 0,
+    "explanation": "u = sin(x) -> du = cos(x)dx integral ใหม่: int sqrt(u) du = int u^(1/2) du = (2/3)u^(3/2) + C = (2/3)(sin x)^(3/2) + C",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้วิธีหา du และแทนใน integral"
+  },
+  {
+    "id": 70,
+    "question": "When finding the tangent line at (1,1) on x^2 + y^2 = 2 using implicit diff, what is LAST step?",
+    "choices": [
+      "A) Find dy/dx = -x/y then write y-1=(-1)(x-1)",
+      "B) Solve for y = sqrt(2-x^2) first",
+      "C) Apply Quotient Rule to x^2/y^2",
+      "D) Differentiate again to find curvature"
+    ],
+    "correct": 0,
+    "explanation": "dy/dx = -x/y ที่ (1,1): slope = -1/1 = -1 สมการ tangent: y-1 = -1*(x-1) หรือ y = -x+2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนทั้งหมดจนถึงสมการ tangent line"
+  },
+  {
+    "id": 71,
+    "question": "For lim_{x->inf} (2x^2+3)/(x^2-5), what is the QUICKEST correct approach?",
+    "choices": [
+      "A) Apply L'Hopital twice: diff num and denom twice",
+      "B) Divide numerator and denominator by x^2 (leading term)",
+      "C) Factor x^2 from numerator only",
+      "D) Multiply by conjugate (2x^2-3)/(2x^2-3)"
+    ],
+    "correct": 1,
+    "explanation": "หารทั้ง num และ denom ด้วย x^2: (2 + 3/x^2)/(1 - 5/x^2) -> เมื่อ x->inf ได้ 2/1 = 2 วิธีนี้เร็วกว่า L'Hopital",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้เทคนิคหา limit at infinity โดย divide by highest power"
+  },
+  {
+    "id": 72,
+    "question": "In integration by parts for int x^3*e^x dx, how many times must the process be REPEATED?",
+    "choices": [
+      "A) Once",
+      "B) Twice",
+      "C) Three times until polynomial is gone",
+      "D) Four times"
+    ],
+    "correct": 2,
+    "explanation": "u = x^3 degree 3: ทุกครั้งที่ integrate by parts polynomial ลดดีกรี 1 ต้องทำ 3 ครั้งจนกว่า polynomial เป็น constant แล้ว integrate",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จำนวนครั้งที่ต้องทำ integration by parts กับ polynomial degree 3"
+  },
+  {
+    "id": 73,
+    "question": "What is the CORRECT order to evaluate int_1^e ln(x)/x dx using u-substitution?",
+    "choices": [
+      "A) u=ln(x), du=1/x dx; change bounds: u(1)=0,u(e)=1; integrate int_0^1 u du",
+      "B) u=1/x, du=-1/x^2 dx; rewrite integral",
+      "C) Apply integration by parts with u=ln(x)",
+      "D) Differentiate ln(x)/x first, then integrate"
+    ],
+    "correct": 0,
+    "explanation": "u = ln(x), du = (1/x)dx ขอบ: x=1 -> u=0, x=e -> u=1 integral = int_0^1 u du = [u^2/2]_0^1 = 1/2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ครบทั้ง substitution, ขอบใหม่, และการ integrate"
+  },
+  {
+    "id": 74,
+    "question": "When computing the second derivative d^2y/dx^2 for y = x^4, what is the CORRECT sequence?",
+    "choices": [
+      "A) dy/dx = 4x^3, then d^2y/dx^2 = 12x^2",
+      "B) d^2y/dx^2 = 4*3x^2 = 12x^2, skip dy/dx",
+      "C) dy/dx = 4x^3, then differentiate 4x^3 to get 12x^2",
+      "D) Options A and C describe the same correct process"
+    ],
+    "correct": 3,
+    "explanation": "d^2y/dx^2: ขั้นที่ 1 หา y' = 4x^3 ขั้นที่ 2 diff อีกครั้ง y'' = 12x^2 ทั้ง A และ C อธิบายกระบวนการเดียวกัน",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Second derivative ขั้นตอนพื้นฐาน diff สองครั้ง"
+  },
+  {
+    "id": 75,
+    "question": "In related rates: a ladder 10m long slides down wall. What is set up FIRST?",
+    "choices": [
+      "A) Differentiate the Pythagorean equation x^2+y^2=100 with respect to t",
+      "B) Solve x^2+y^2=100 for y algebraically",
+      "C) Write the relationship x^2 + y^2 = 100 from Pythagorean theorem",
+      "D) Substitute known values of x and y immediately"
+    ],
+    "correct": 2,
+    "explanation": "Related rates: ขั้นที่ 1 เขียน equation เชื่อมตัวแปร: x^2 + y^2 = 100 (Pythagorean theorem) ขั้นที่ 2 diff กับ t ขั้นที่ 3 แทนค่า",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นแรกของ related rates คือเขียน geometric relationship"
+  },
+  {
+    "id": 76,
+    "question": "What is the NEXT step after writing 2x(dx/dt) + 2y(dy/dt) = 0 in the ladder problem?",
+    "choices": [
+      "A) Integrate to get x^2 + y^2 = 100 again",
+      "B) Substitute known values: x, y, dx/dt to solve for dy/dt",
+      "C) Find critical points by setting 2x(dx/dt) = 0",
+      "D) Apply L'Hopital to the equation"
+    ],
+    "correct": 1,
+    "explanation": "หลัง differentiate ได้ equation ของ rates แล้ว แทนค่าที่รู้จัก (x, y, dx/dt หรือ dy/dt) เพื่อหาค่าที่ต้องการ",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ขั้นตอนแทนค่าใน related rates ต้องรู้ว่าทำหลัง differentiate"
+  },
+  {
+    "id": 77,
+    "question": "For the Quotient Rule applied to d/dx[sin(x)/x], what is the FULL correct sequence?",
+    "choices": [
+      "A) (x*cos(x) - sin(x)*1) / x^2",
+      "B) (sin(x)*1 - x*cos(x)) / x^2",
+      "C) (cos(x)*x + sin(x)) / x^2",
+      "D) (cos(x) - sin(x)) / x"
+    ],
+    "correct": 0,
+    "explanation": "Quotient Rule: [g*f' - f*g']/g^2 = [x*cos(x) - sin(x)*1]/x^2 = (x*cos(x) - sin(x))/x^2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ Quotient Rule อย่างถูกต้องกับ trig functions"
+  },
+  {
+    "id": 78,
+    "question": "When f''(c) = 0 in the Second Derivative Test, what should be done NEXT?",
+    "choices": [
+      "A) Conclude x=c is an inflection point automatically",
+      "B) The test is inconclusive; use First Derivative Test instead",
+      "C) Compute f'''(c) and use Higher Derivative Test",
+      "D) Conclude x=c is neither max nor min"
+    ],
+    "correct": 1,
+    "explanation": "ถ้า f''(c) = 0 Second Derivative Test ไม่สรุปผล (inconclusive) ต้องใช้วิธีอื่น เช่น First Derivative Test หรือ Higher Derivative Test",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ข้อจำกัดของ Second Derivative Test"
+  },
+  {
+    "id": 79,
+    "question": "For int_0^(pi/2) sin(x)*cos(x) dx using u-substitution u=sin(x), the NEW bounds are?",
+    "choices": [
+      "A) u from 0 to pi/2 (unchanged)",
+      "B) u from 0 to 1",
+      "C) u from 1 to 0",
+      "D) u from -1 to 1"
+    ],
+    "correct": 1,
+    "explanation": "u = sin(x): x=0 -> u=sin(0)=0, x=pi/2 -> u=sin(pi/2)=1 ขอบใหม่คือ [0, 1]",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้วิธีแปลงขอบ definite integral เมื่อทำ u-substitution"
+  },
+  {
+    "id": 80,
+    "question": "When classifying critical point x=c using First Derivative Test, what is tested AFTER finding f'(c)=0?",
+    "choices": [
+      "A) Evaluate f(c) to find the function value",
+      "B) Choose test points left and right of c, evaluate sign of f'",
+      "C) Compute f''(c) as the primary classification method",
+      "D) Find all other critical points first"
+    ],
+    "correct": 1,
+    "explanation": "First Derivative Test: เลือก test point ทางซ้ายและขวาของ c แล้วตรวจ sign ของ f' ถ้า - to + เป็น local min, + to - เป็น local max",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้วิธี First Derivative Test อย่างถูกต้อง"
+  },
+  {
+    "id": 81,
+    "question": "In L'Hopital for lim_{x->0} (tan x - x) / x^3, after applying L'Hopital once, what is obtained?",
+    "choices": [
+      "A) lim (sec^2 x - 1) / (3x^2) = 0/0 again, apply L'Hopital again",
+      "B) lim (sec^2 x) / (3x^2) which can be evaluated directly",
+      "C) lim (cos x - 1) / (3x^2)",
+      "D) The limit is 0 after one application"
+    ],
+    "correct": 0,
+    "explanation": "diff num: sec^2(x)-1, diff denom: 3x^2 แทน x=0: (1-1)/0 = 0/0 ยังคง indeterminate ต้องใช้ L'Hopital อีกครั้ง",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ L'Hopital หลายครั้งและตรวจสอบทุกขั้น"
+  },
+  {
+    "id": 82,
+    "question": "Continuing (tan x - x)/x^3: after 2nd L'Hopital gives (2 sec^2 x tan x)/(6x), what is NEXT?",
+    "choices": [
+      "A) Evaluate directly: (0)/(0) = 0/0 -> apply L'Hopital 3rd time",
+      "B) Simplify and divide: still 0/0, apply once more",
+      "C) Use limit product rule: lim[sec^2 x * (tan x / x)] * (2/6)",
+      "D) All of A, B, and C lead to the correct answer of 1/3"
+    ],
+    "correct": 3,
+    "explanation": "x=0: 2*1*0/(6*0) = 0/0 ต้องใช้ L'Hopital ครั้งที่ 3 หรือใช้ขีดจำกัดพื้นฐาน lim(tan x/x)=1 ได้คำตอบ 1/3",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "L'Hopital 3 ครั้ง ต้องคำนวณและตรวจสอบทุกขั้น"
+  },
+  {
+    "id": 83,
+    "question": "For d^2y/dx^2 of parametric x=t^2, y=t^3, what is the FULL correct sequence?",
+    "choices": [
+      "A) dy/dx=3t/2; d/dt(3t/2)=3/2; divide by dx/dt=2t: d^2y/dx^2=3/(4t)",
+      "B) d^2y/dx^2 = (d^2y/dt^2)/(d^2x/dt^2) = 6t/(2) = 3t",
+      "C) dy/dx=3t/2; diff w.r.t. x directly to get 3/2",
+      "D) d^2y/dx^2 = y''(t)/x''(t) = 6t/2 = 3t"
+    ],
+    "correct": 0,
+    "explanation": "d^2y/dx^2 = [d/dt(dy/dx)] / (dx/dt) = [d/dt(3t/2)] / (2t) = (3/2) / (2t) = 3/(4t) สูตรนี้ต่างจาก y''/x'' ซึ่งผิด",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Second derivative ของ parametric ต้องใช้สูตรพิเศษ ไม่ใช่แค่หาร y'' ด้วย x''"
+  },
+  {
+    "id": 84,
+    "question": "In computing int x^2*e^x dx by repeated integration by parts (tabular method), what is the pattern?",
+    "choices": [
+      "A) Differentiate x^2 column until zero: x^2, 2x, 2, 0; integrate e^x column: e^x, e^x, e^x",
+      "B) Differentiate e^x column repeatedly; integrate x^2 column",
+      "C) Alternate differentiating x^2 and e^x each time",
+      "D) Differentiate x^2 once, then use u-substitution for the rest"
+    ],
+    "correct": 0,
+    "explanation": "Tabular method: คอลัมน์ D (differentiate): x^2, 2x, 2, 0; คอลัมน์ I (integrate): e^x, e^x, e^x คูณตามแนวทแยง: x^2*e^x - 2x*e^x + 2*e^x + C",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Tabular method ต้องเข้าใจ pattern ของ DI table"
+  },
+  {
+    "id": 85,
+    "question": "When solving optimization: find max area rectangle inscribed in circle r=5, what is the ORDER?",
+    "choices": [
+      "A) Set up A=4xy with constraint x^2+y^2=25; substitute y; find A'=0; verify max",
+      "B) Set up A=xy; differentiate; set zero; check endpoints",
+      "C) Use Lagrange multipliers immediately",
+      "D) Guess dimensions are 5x5 and verify"
+    ],
+    "correct": 0,
+    "explanation": "ขั้น 1 A = 4xy (rectangle half-dimensions x,y) ขั้น 2 constraint x^2+y^2=25 -> y=sqrt(25-x^2) ขั้น 3 A(x)=4x*sqrt(25-x^2) ขั้น 4 A'=0 ขั้น 5 verify max",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Optimization ต้องรู้ขั้นตอนทั้งหมด ตั้งแต่ set up จนถึง verify"
+  },
+  {
+    "id": 86,
+    "question": "For lim_{x->1^-} ln(x)/(x-1), what is the CORRECT procedure?",
+    "choices": [
+      "A) Substitute x=1: ln(1)/(1-1) = 0/0; apply L'Hopital: lim (1/x)/1 = 1",
+      "B) Recognize ln(x) approaches 0 and x-1 approaches 0 so limit is 1 by inspection",
+      "C) Both A and B are correct approaches, both give 1",
+      "D) Apply L'Hopital without checking indeterminate form first"
+    ],
+    "correct": 2,
+    "explanation": "x=1: ln(1)/(0) = 0/0 ใช้ L'Hopital: diff num = 1/x, diff denom = 1 ได้ lim 1/x = 1/1 = 1 ทั้งสองวิธีให้คำตอบเดียวกัน",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ทั้ง L'Hopital procedure และตรวจสอบ indeterminate form"
+  },
+  {
+    "id": 87,
+    "question": "In implicit diff of e^(x+y) = x*y, differentiating left side gives e^(x+y)*(1+dy/dx). What is NEXT?",
+    "choices": [
+      "A) Differentiate right side: y + x*(dy/dx), set equal, collect dy/dx terms",
+      "B) Divide both sides by e^(x+y)",
+      "C) Substitute y = 0 to simplify",
+      "D) Integrate both sides to get e^(x+y) = xy + C"
+    ],
+    "correct": 0,
+    "explanation": "ขั้นถัดไป: diff right side = y + x*(dy/dx) ตั้ง equation: e^(x+y)(1+dy/dx) = y + x*(dy/dx) แล้ว collect dy/dx terms และ solve",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง diff ทั้งสองข้างและ collect dy/dx ซึ่งซับซ้อน"
+  },
+  {
+    "id": 88,
+    "question": "After differentiating both sides of e^(x+y)(1+dy/dx)=y+x*(dy/dx), what is the FINAL step?",
+    "choices": [
+      "A) Expand and move all dy/dx to left; factor out dy/dx; divide",
+      "B) Set dy/dx = 0 to find critical points",
+      "C) Substitute x = 0",
+      "D) Integrate both sides"
+    ],
+    "correct": 0,
+    "explanation": "Expand: e^(x+y) + e^(x+y)*(dy/dx) = y + x*(dy/dx) Move dy/dx: e^(x+y)*(dy/dx) - x*(dy/dx) = y - e^(x+y) Factor: dy/dx*(e^(x+y)-x) = y-e^(x+y) Divide: dy/dx = (y-e^(x+y))/(e^(x+y)-x)",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "การ isolate dy/dx จากสมการซับซ้อน ต้องทำหลายขั้น"
+  },
+  {
+    "id": 89,
+    "question": "For d/dx[x^(1/3)] using the definition of derivative, what CORRECTLY describes the process?",
+    "choices": [
+      "A) lim_{h->0} [(x+h)^(1/3) - x^(1/3)]/h; rationalize using cube difference; simplify",
+      "B) Apply Power Rule directly: (1/3)x^(-2/3) skipping limit definition",
+      "C) Use Chain Rule on (x)^(1/3)",
+      "D) Apply L'Hopital to the difference quotient"
+    ],
+    "correct": 0,
+    "explanation": "ขั้น 1 เขียน difference quotient ขั้น 2 rationalize โดยคูณด้วย (a^2+ab+b^2) (difference of cubes) ขั้น 3 simplify และหาขีดจำกัด",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้วิธี rationalize difference of cube roots ซึ่งซับซ้อน"
+  },
+  {
+    "id": 90,
+    "question": "When solving max/min of f(x) = x^3 - 3x^2 + 1 on [-1, 3], what is the COMPLETE order?",
+    "choices": [
+      "A) f'=3x^2-6x=0 -> x=0,2; evaluate f(-1),f(0),f(2),f(3); compare to find abs max/min",
+      "B) f'=3x^2-6x=0 -> x=0,2; use Second Derivative Test; stop",
+      "C) Plot f(x) on [-1,3] visually to find extrema",
+      "D) f'=0 at x=0,x=2; f(0)=1 is abs max; f(2)=-3 is abs min"
+    ],
+    "correct": 0,
+    "explanation": "ต้องประเมิน f ที่ critical points (x=0,2) และขอบ (x=-1,3) ทั้งหมด: f(-1)=-3, f(0)=1, f(2)=-3, f(3)=1 abs max=1, abs min=-3",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ขั้นตอนครบถ้วน รวมทั้ง endpoints และการ compare ค่า"
+  },
+  {
+    "id": 91,
+    "question": "What is the FIRST step when applying u-substitution to int sqrt(1-x^2) * x dx?",
+    "choices": [
+      "A) Recognize the pattern and let u = 1 - x^2",
+      "B) Use trig substitution x = sin(theta)",
+      "C) Apply integration by parts with u = sqrt(1-x^2)",
+      "D) Expand sqrt(1-x^2) using binomial series"
+    ],
+    "correct": 0,
+    "explanation": "u = 1-x^2 -> du = -2x dx สังเกตว่า x dx ปรากฏใน integrand ดังนั้น x dx = -du/2 แทนได้ทันที",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้จักระบุ u ที่เหมาะสมในรูป composite"
+  },
+  {
+    "id": 92,
+    "question": "In the Quotient Rule, after computing g(x)*f'(x), what is ALWAYS subtracted next?",
+    "choices": [
+      "A) g'(x)*f'(x)",
+      "B) f(x)*g'(x)",
+      "C) g(x)*g'(x)",
+      "D) f(x)*f'(x)"
+    ],
+    "correct": 1,
+    "explanation": "Quotient Rule: [g*f' - f*g'] / g^2 หลัง g*f' ต้องลบด้วย f*g' เสมอ ลำดับนี้สำคัญมาก",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ถามลำดับ term ที่ 2 ใน Quotient Rule ตรงๆ"
+  },
+  {
+    "id": 93,
+    "question": "After computing d^2y/dx^2 for implicit x^2+y^2=r^2, to get final answer in terms of x and y, what is LAST?",
+    "choices": [
+      "A) Substitute dy/dx = -x/y into d^2y/dx^2 expression, simplify",
+      "B) Differentiate a third time",
+      "C) Substitute y = sqrt(r^2 - x^2)",
+      "D) Set d^2y/dx^2 = 0 and solve"
+    ],
+    "correct": 0,
+    "explanation": "d^2y/dx^2 = -(y - x*(dy/dx)) / y^2 แทน dy/dx = -x/y: = -(y - x*(-x/y)) / y^2 = -(y^2 + x^2)/y^3 = -r^2/y^3",
+    "difficulty": 3,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Second implicit derivative ซับซ้อน ต้องแทน dy/dx กลับในขั้นสุดท้าย"
+  },
+  {
+    "id": 94,
+    "question": "For Chain Rule applied to d/dx[tan(x^3)], what is the CORRECT step-by-step result?",
+    "choices": [
+      "A) sec^2(x^3) * 3x^2",
+      "B) sec^2(x^3) only, no extra factor",
+      "C) 3x^2 * tan(x^3)",
+      "D) sec(x^3) * tan(x^3) * 3x^2"
+    ],
+    "correct": 0,
+    "explanation": "d/dx tan(u) = sec^2(u) * du/dx โดย u = x^3 du/dx = 3x^2 ผลลัพธ์: sec^2(x^3) * 3x^2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain Rule กับ tan function ต้องรู้ derivative ของ tan"
+  },
+  {
+    "id": 95,
+    "question": "What is the ORDER of priority when deciding between u-substitution and integration by parts?",
+    "choices": [
+      "A) Try u-substitution first (simpler); if no suitable u, use integration by parts",
+      "B) Always use integration by parts for products of functions",
+      "C) Use integration by parts first, then u-substitution if needed",
+      "D) Both methods always give the same ease of computation"
+    ],
+    "correct": 0,
+    "explanation": "หลักการ: ลอง u-substitution ก่อนเสมอ เพราะง่ายกว่า ถ้าไม่ได้ผล (ไม่มี du ที่เหมาะสม) จึงใช้ integration by parts",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ลำดับความสำคัญของ integration techniques"
+  },
+  {
+    "id": 96,
+    "question": "When differentiating f(x) = x^2 * sin(x) using Product Rule, what is the CORRECT sequence?",
+    "choices": [
+      "A) f'(x) = 2x * sin(x) + x^2 * cos(x)",
+      "B) f'(x) = 2x * cos(x)",
+      "C) f'(x) = x^2 * cos(x) only",
+      "D) f'(x) = 2x * sin(x) - x^2 * cos(x)"
+    ],
+    "correct": 0,
+    "explanation": "Product Rule: d/dx[x^2 * sin(x)] = (x^2)' * sin(x) + x^2 * (sin(x))' = 2x*sin(x) + x^2*cos(x)",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Product Rule พื้นฐาน ตรงไปตรงมา"
+  },
+  {
+    "id": 97,
+    "question": "What step comes AFTER confirming lim f(x)/g(x) = inf/inf and applying L'Hopital's Rule?",
+    "choices": [
+      "A) Evaluate the NEW limit lim f'(x)/g'(x), check if it can be determined",
+      "B) Conclude the original limit is infinity",
+      "C) Apply L'Hopital again without checking",
+      "D) Multiply numerator and denominator by 1/x"
+    ],
+    "correct": 0,
+    "explanation": "หลังใช้ L'Hopital ได้ lim f'(x)/g'(x) ต้องประเมิน limit ใหม่นี้: ถ้าได้ค่าจำกัด นั่นคือคำตอบ ถ้ายัง indeterminate ตรวจสอบก่อน L'Hopital ซ้ำ",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่าต้องประเมิน limit ใหม่หลัง L'Hopital เสมอ"
+  },
+  {
+    "id": 98,
+    "question": "In integration by parts, after computing uv - int v du, if int v du is also a product, what is NEXT?",
+    "choices": [
+      "A) Apply integration by parts again to int v du",
+      "B) Use u-substitution on int v du",
+      "C) The problem has no closed-form answer",
+      "D) Stop and accept uv as the final answer"
+    ],
+    "correct": 0,
+    "explanation": "ถ้า int v du ยังคงเป็น product ที่ integrate ยาก ต้องใช้ integration by parts ซ้ำกับ integral ใหม่นั้น ทำซ้ำจนกว่า integral จะประเมินได้",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า integration by parts สามารถใช้ซ้ำได้"
+  },
+  {
+    "id": 99,
+    "question": "For the First Derivative Test, what pattern identifies a local MAXIMUM at x=c?",
+    "choices": [
+      "A) f' goes from negative to positive through c",
+      "B) f'(c) = 0 and f''(c) > 0",
+      "C) f' goes from positive to negative through c",
+      "D) f' is zero on both sides of c"
+    ],
+    "correct": 2,
+    "explanation": "Local max: f'(x) > 0 ทางซ้าย c (increasing) และ f'(x) < 0 ทางขวา c (decreasing) เปลี่ยนจาก + เป็น -",
+    "difficulty": 1,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "First Derivative Test สำหรับ local max ตรงๆ"
+  },
+  {
+    "id": 100,
+    "question": "What is the FULL step sequence to evaluate int 0 to 1 of x*e^(x^2) dx?",
+    "choices": [
+      "A) u=x^2; du=2x dx -> x dx=du/2; bounds: 0 to 1; int (1/2)e^u du = (e-1)/2",
+      "B) Use integration by parts: u=x, dv=e^(x^2)dx",
+      "C) Differentiate x*e^(x^2) to verify, then integrate",
+      "D) Apply L'Hopital to the definite integral bounds"
+    ],
+    "correct": 0,
+    "explanation": "u = x^2, du = 2x dx -> x dx = du/2 ขอบ: x=0->u=0, x=1->u=1 integral = (1/2)int_0^1 e^u du = (1/2)[e^u]_0^1 = (e-1)/2",
+    "difficulty": 2,
+    "game_type": "snake",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ขั้นตอนครบทั้ง substitution, ขอบ, และ evaluate"
+  }
+]

@@ -6,14 +6,17 @@ import {
   CalendarDays,
   Trophy,
   TrendingUp,
-  Clock,
   Plus,
   BookOpen,
+  Clock,
+  Trash2,
 } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useQuestions } from "@/lib/questions-context"
+import { useExams, daysUntil } from "@/lib/use-exams"
+import { useScores, GAME_LABELS } from "@/lib/use-scores"
 
 /* ========================
    Empty State Component
@@ -58,9 +61,7 @@ function UploadBanner() {
           <p className="text-xs text-muted-foreground truncate">{uploadedFileName} · {questions.length} questions</p>
         </div>
         <Link href="/arena">
-          <Button size="sm" className="btn-ku-green text-sm h-8 px-3">
-            Play Games
-          </Button>
+          <Button size="sm" className="btn-ku-green text-sm h-8 px-3">Play Games</Button>
         </Link>
       </div>
     )
@@ -87,10 +88,7 @@ function UploadBanner() {
 function QuickActions() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-      <Link
-        href="/arena"
-        className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-green-500/40 transition-all group border-l-4 border-ku-green-500"
-      >
+      <Link href="/arena" className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-green-500/40 transition-all group border-l-4 border-ku-green-500">
         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ku-green-500/15 group-hover:bg-ku-green-500/25 transition-colors">
           <Gamepad2 className="h-5 w-5 text-ku-green-500" />
         </div>
@@ -99,10 +97,7 @@ function QuickActions() {
           <p className="text-xs text-muted-foreground">Play quiz games</p>
         </div>
       </Link>
-      <Link
-        href="/planner"
-        className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-green-500/40 transition-all group border-l-4 border-ku-green-300/50"
-      >
+      <Link href="/planner" className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-green-500/40 transition-all group border-l-4 border-ku-green-300/50">
         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ku-green-500/10 group-hover:bg-ku-green-500/20 transition-colors">
           <CalendarDays className="h-5 w-5 text-ku-green-500" />
         </div>
@@ -111,10 +106,7 @@ function QuickActions() {
           <p className="text-xs text-muted-foreground">Plan your schedule</p>
         </div>
       </Link>
-      <Link
-        href="/flashcards"
-        className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-gold/40 transition-all group border-l-4 border-ku-gold/50"
-      >
+      <Link href="/flashcards" className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-gold/40 transition-all group border-l-4 border-ku-gold/50">
         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ku-gold/10 group-hover:bg-ku-gold/20 transition-colors">
           <BookOpen className="h-5 w-5 text-ku-gold-dark dark:text-ku-gold" />
         </div>
@@ -128,22 +120,20 @@ function QuickActions() {
 }
 
 /* ========================
-   Upcoming Exams (empty state)
+   Upcoming Exams — localStorage-backed
    ======================== */
 function ExamSection() {
-  const [exams, setExams] = useState<{ subject: string; date: string; id: number }[]>([])
+  const { exams, addExam, removeExam } = useExams()
   const [adding, setAdding] = useState(false)
   const [subject, setSubject] = useState("")
+  const [examName, setExamName] = useState("")
   const [date, setDate] = useState("")
+  const today = new Date().toISOString().slice(0, 10)
 
-  const addExam = () => {
+  const handleAdd = () => {
     if (!subject || !date) return
-    const daysLeft = Math.ceil((new Date(date).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
-    setExams((prev) => [...prev, { subject, date, id: Date.now() }])
-    setSubject("")
-    setDate("")
-    setAdding(false)
-    void daysLeft
+    addExam({ subject, name: examName || subject, date })
+    setSubject(""); setExamName(""); setDate(""); setAdding(false)
   }
 
   return (
@@ -153,13 +143,8 @@ function ExamSection() {
           <Clock className="h-4 w-4 text-ku-green-500" />
           Upcoming Exams
         </h3>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setAdding(!adding)}
-          className="text-muted-foreground h-7 text-xs gap-1"
-        >
-          <Plus className="h-3 w-3" /> Add Exam
+        <Button variant="ghost" size="sm" onClick={() => setAdding(!adding)} className="text-muted-foreground h-7 text-xs gap-1">
+          <Plus className="h-3 w-3" /> Add
         </Button>
       </div>
 
@@ -167,18 +152,26 @@ function ExamSection() {
         <div className="mb-4 p-3 rounded-lg bg-secondary/50 border border-border flex flex-col gap-2">
           <input
             className="w-full px-3 py-2 text-sm rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ku-green-500"
-            placeholder="Subject name (e.g. Calculus II)"
+            placeholder="Subject (e.g. Calculus II)"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
+            autoFocus
+          />
+          <input
+            className="w-full px-3 py-2 text-sm rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ku-green-500"
+            placeholder="Exam name (e.g. Midterm)"
+            value={examName}
+            onChange={(e) => setExamName(e.target.value)}
           />
           <input
             type="date"
             className="w-full px-3 py-2 text-sm rounded-lg bg-background border border-border text-foreground focus:outline-none focus:border-ku-green-500"
             value={date}
+            min={today}
             onChange={(e) => setDate(e.target.value)}
           />
-          <Button size="sm" onClick={addExam} className="btn-ku-green w-full text-sm h-9">
-            Add
+          <Button size="sm" onClick={handleAdd} disabled={!subject || !date} className="btn-ku-green w-full text-sm h-9">
+            Add Exam
           </Button>
         </div>
       )}
@@ -192,17 +185,20 @@ function ExamSection() {
       ) : (
         <div className="flex flex-col gap-2">
           {exams.map((exam) => {
-            const daysLeft = Math.max(
-              0,
-              Math.ceil((new Date(exam.date).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
-            )
+            const days = daysUntil(exam.date)
             return (
-              <div key={exam.id} className="rounded-lg bg-secondary/50 p-3 border border-border flex items-center justify-between">
-                <p className="text-sm font-medium text-foreground">{exam.subject}</p>
-                <div className="text-right">
-                  <p className="text-base font-bold text-ku-gold">{daysLeft}</p>
-                  <p className="text-[10px] text-muted-foreground">days left</p>
+              <div key={exam.id} className="rounded-lg bg-secondary/50 p-3 border border-border flex items-center gap-2">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-foreground truncate">{exam.name}</p>
+                  <p className="text-[10px] text-muted-foreground">{exam.subject} · {exam.date}</p>
                 </div>
+                <div className="text-right shrink-0">
+                  <p className="text-base font-bold text-ku-gold">{days <= 0 ? "Today!" : days}</p>
+                  {days > 0 && <p className="text-[10px] text-muted-foreground">days left</p>}
+                </div>
+                <button onClick={() => removeExam(exam.id)} className="text-muted-foreground hover:text-destructive shrink-0 ml-1">
+                  <Trash2 className="h-3.5 w-3.5" />
+                </button>
               </div>
             )
           })}
@@ -213,27 +209,45 @@ function ExamSection() {
 }
 
 /* ========================
-   Leaderboard (empty state)
+   Leaderboard — best scores per game from localStorage
    ======================== */
 function LeaderboardCard() {
+  const { bestScores } = useScores()
+  const entries = Object.entries(GAME_LABELS)
+    .map(([key, label]) => ({ key, label, score: bestScores[key] ?? null }))
+    .filter((e) => e.score !== null)
+    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+
   return (
     <div className="glass-card rounded-xl p-5">
       <h3 className="text-sm font-bold text-foreground flex items-center gap-2 mb-4">
         <Trophy className="h-4 w-4 text-ku-gold" />
-        Leaderboard
+        Best Scores
       </h3>
-      <EmptyState
-        icon="🏆"
-        title="No scores yet"
-        description="Play games in KU Arena to appear on the leaderboard and track your ranking."
-        action={
-          <Link href="/arena">
-            <Button size="sm" className="btn-ku-green text-sm h-9 px-4">
-              Play Now
-            </Button>
-          </Link>
-        }
-      />
+      {entries.length === 0 ? (
+        <EmptyState
+          icon="🏆"
+          title="No scores yet"
+          description="Play games in KU Arena to track your best scores."
+          action={
+            <Link href="/arena">
+              <Button size="sm" className="btn-ku-green text-sm h-9 px-4">Play Now</Button>
+            </Link>
+          }
+        />
+      ) : (
+        <div className="flex flex-col gap-2">
+          {entries.map((e, i) => (
+            <div key={e.key} className="rounded-lg bg-secondary/50 p-3 border border-border flex items-center gap-3">
+              <span className="text-lg font-black text-muted-foreground w-6 text-center">
+                {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : i + 1}
+              </span>
+              <span className="flex-1 text-sm font-medium text-foreground">{e.label}</span>
+              <span className="font-black text-ku-green-700 dark:text-ku-green-400">{e.score}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -250,11 +264,13 @@ function MotivationCard() {
     "Spaced repetition (Flashcards) is the scientifically proven way to remember more. 🧠",
   ]
   const tip = tips[new Date().getDay() % tips.length]
-
   return (
-    <div className="glass-card rounded-xl p-4 border-l-4 border-ku-gold">
+    <div className="rounded-xl p-4"
+      style={{ background: "linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(212,168,0,0.04) 100%)", border: "1px solid rgba(201,162,39,0.25)" }}>
       <div className="flex items-start gap-3">
-        <TrendingUp className="h-4 w-4 text-ku-gold mt-0.5 shrink-0" />
+        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-ku-gold/15 shrink-0">
+          <TrendingUp className="h-4 w-4 text-ku-gold-dark dark:text-ku-gold" />
+        </div>
         <div>
           <p className="text-[10px] font-bold text-ku-gold uppercase tracking-widest mb-1">Daily Tip</p>
           <p className="text-sm text-foreground leading-relaxed">{tip}</p>
@@ -269,28 +285,13 @@ function MotivationCard() {
    ======================== */
 export function DashboardContent() {
   return (
-    <div className="flex flex-col gap-5">
-      {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-foreground">Welcome to KU Prep</h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Your AI-powered exam preparation platform. Upload study material to get started.
-        </p>
-      </div>
-
-      {/* Upload Banner — primary CTA */}
+    <div className="flex flex-col gap-5 min-h-[calc(100vh-10rem)]">
       <UploadBanner />
-
-      {/* Quick Actions */}
       <QuickActions />
-
-      {/* Two-column grid on large screens */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <ExamSection />
         <LeaderboardCard />
       </div>
-
-      {/* Daily tip */}
       <MotivationCard />
     </div>
   )

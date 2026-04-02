@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react"
 import { useQuestions } from "@/lib/questions-context"
+import { useScores } from "@/lib/use-scores"
 import type { QuizQuestion } from "@/lib/mock-data"
 import { ArrowLeft, RotateCcw, Upload } from "lucide-react"
 import Link from "next/link"
@@ -14,7 +15,7 @@ const ROWS = 18
 const CELL = 28
 const CW = COLS * CELL
 const CH = ROWS * CELL
-const TICK_MS_BASE = 160
+const TICK_MS_BASE = 250
 const LABELS = ["A", "B", "C", "D"]
 const FOOD_COLS = ["#3b82f6", "#f97316", "#a855f7", "#ef4444"]
 const MAX_LIVES = 3
@@ -117,7 +118,8 @@ function PostGame({ score, total, onRestart }: { score: number; total: number; o
 }
 
 export function SnakeQuizGame() {
-  const { questions, hasQuestions } = useQuestions()
+  const { questions, hasQuestions, gameQuestions } = useQuestions()
+  const activeQuestions = gameQuestions["snake"] ?? questions
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [gameState, setGameState] = useState<State>("pregame")
   const [score, setScore] = useState(0)
@@ -136,9 +138,12 @@ export function SnakeQuizGame() {
   const livesRef = useRef(MAX_LIVES)
   const tickMsRef = useRef(TICK_MS_BASE)
   const lastTickRef = useRef(0)
+  const pauseUntilRef = useRef(0)
   const touchStartRef = useRef<Pt | null>(null)
 
   useEffect(() => { stateRef.current = gameState }, [gameState])
+  const { recordScore } = useScores()
+  useEffect(() => { if (gameState === "result") recordScore("snake", score) }, [gameState, score, recordScore])
 
   const loadNextQuestion = useCallback(() => {
     if (qIdxRef.current >= questionsRef.current.length) {
@@ -154,8 +159,8 @@ export function SnakeQuizGame() {
     snakeRef.current = [{ x: 9, y: 9 }, { x: 8, y: 9 }, { x: 7, y: 9 }]
     dirRef.current = "RIGHT"; nextDirRef.current = "RIGHT"
     scoreRef.current = 0; livesRef.current = MAX_LIVES; totalAnswRef.current = 0
-    tickMsRef.current = TICK_MS_BASE; lastTickRef.current = 0
-    questionsRef.current = shuffle([...questions]); qIdxRef.current = 0
+    tickMsRef.current = TICK_MS_BASE; lastTickRef.current = 0; pauseUntilRef.current = 0
+    questionsRef.current = shuffle([...activeQuestions]); qIdxRef.current = 0
     foodsRef.current = []
     setScore(0); setCurrentQ(null); setTotalAnswered(0)
     setGameState("playing")
@@ -174,7 +179,7 @@ export function SnakeQuizGame() {
     const tick = (now: number) => {
       if (!running) return
       const st = stateRef.current
-      if (st === "playing" && now - lastTickRef.current > tickMsRef.current) {
+      if (st === "playing" && now - lastTickRef.current > tickMsRef.current && now > pauseUntilRef.current) {
         lastTickRef.current = now
         // Advance snake
         dirRef.current = nextDirRef.current
@@ -203,6 +208,7 @@ export function SnakeQuizGame() {
           if (eaten.choiceIdx === (curQ?.correct ?? -1)) {
             scoreRef.current++; setScore(scoreRef.current)
             tickMsRef.current = Math.max(80, TICK_MS_BASE - scoreRef.current * 4)
+            pauseUntilRef.current = now + 2000  // 2s pause to read new question (tester feedback: need more time)
             if (questionsRef.current.length) loadNextQuestion()
           } else {
             setGameState("dead"); setTimeout(() => setGameState("result"), 800)

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react"
 import { useQuestions } from "@/lib/questions-context"
+import { useScores } from "@/lib/use-scores"
 import type { QuizQuestion } from "@/lib/mock-data"
 import { ArrowLeft, RotateCcw, Heart, Upload } from "lucide-react"
 import Link from "next/link"
@@ -12,15 +13,15 @@ import { GenerateGameButton } from "@/components/generate-game-button"
 const CW = 480
 const CH = 560
 const BIRD_R = 18
-const GRAVITY = 0.38
-const FLAP = -7.2
+const GRAVITY = 0.22    // reduced: bird falls slower (tester feedback)
+const FLAP = -6.8
 const PIPE_W = 70
-const PIPE_GAP = 210    // wider gap for TRUE / FALSE zones
-const PIPE_SPEED_BASE = 2.0
+const PIPE_GAP = 280    // wider gap: more space to read & aim (tester feedback)
+const PIPE_SPEED_BASE = 1.4
 const SPEED_BUMP = 5
 const MAX_LIVES = 3
 
-type State = "pregame" | "playing" | "dead" | "result"
+type State = "pregame" | "countdown" | "playing" | "dead" | "result"
 
 // ─── True/False question derived from MCQ ─────────────────────────────────────
 interface TFQuestion {
@@ -265,7 +266,8 @@ function PostGame({ score, total, onRestart }: { score: number; total: number; o
 
 /* ─── Main Game Component ─────────────────────────────────────────────────── */
 export function FlappyKasetGame() {
-  const { questions, hasQuestions } = useQuestions()
+  const { questions, hasQuestions, gameQuestions } = useQuestions()
+  const activeQuestions = gameQuestions["flappy"] ?? questions
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef(0)
 
@@ -274,6 +276,7 @@ export function FlappyKasetGame() {
   const [lives, setLives] = useState(MAX_LIVES)
   const [displayQ, setDisplayQ] = useState<TFQuestion | null>(null)
   const [totalAnswered, setTotalAnswered] = useState(0)
+  const countdownRef = useRef(3)
 
   // Game refs
   const birdRef = useRef({ x: 90, y: CH / 2, vy: 0, rot: 0, flapT: 0 })
@@ -290,12 +293,14 @@ export function FlappyKasetGame() {
   const displayQRef = useRef<TFQuestion | null>(null)
 
   useEffect(() => { stateRef.current = gameState }, [gameState])
+  const { recordScore } = useScores()
+  useEffect(() => { if (gameState === "result") recordScore("flappy", score) }, [gameState, score, recordScore])
 
   const startGame = useCallback(() => {
     birdRef.current = { x: 90, y: CH / 2, vy: 0, rot: 0, flapT: 0 }
     pipesRef.current = []
     pipeSpeedRef.current = PIPE_SPEED_BASE
-    questionsRef.current = shuffle([...questions])
+    questionsRef.current = shuffle([...activeQuestions])
     qIdxRef.current = 0
     scoreRef.current = 0
     livesRef.current = MAX_LIVES
@@ -304,12 +309,27 @@ export function FlappyKasetGame() {
     groundOffRef.current = 0
     displayQRef.current = null
     frameRef.current = 0
+    countdownRef.current = 3
     setScore(0)
     setLives(MAX_LIVES)
     setTotalAnswered(0)
     setDisplayQ(null)
-    setGameState("playing")
+    setGameState("countdown")
   }, [questions])
+
+  // Countdown 3-2-1 before playing
+  useEffect(() => {
+    if (gameState !== "countdown") return
+    countdownRef.current = 3
+    const iv = setInterval(() => {
+      countdownRef.current--
+      if (countdownRef.current <= 0) {
+        clearInterval(iv)
+        setGameState("playing")
+      }
+    }, 1000)
+    return () => clearInterval(iv)
+  }, [gameState])
 
   const flap = useCallback(() => {
     if (stateRef.current !== "playing") return
@@ -514,6 +534,19 @@ export function FlappyKasetGame() {
         const alpha = (flashRef.current.frame / 18) * 0.25
         ctx.fillStyle = flashRef.current.correct ? `rgba(34,197,94,${alpha})` : `rgba(239,68,68,${alpha})`
         ctx.fillRect(0, 0, CW, CH)
+      }
+
+      // ── Countdown overlay ────────────────────────────────────────────────────
+      if (st === "countdown") {
+        ctx.fillStyle = "rgba(13,31,6,0.72)"
+        ctx.fillRect(0, 0, CW, CH)
+        ctx.fillStyle = "#9fd46a"
+        ctx.font = "bold 22px Inter, sans-serif"
+        ctx.textAlign = "center"; ctx.textBaseline = "middle"
+        ctx.fillText("GET READY!", CW / 2, CH / 2 - 64)
+        ctx.fillStyle = "#f5c518"
+        ctx.font = "bold 90px Inter, sans-serif"
+        ctx.fillText(String(Math.max(1, countdownRef.current)), CW / 2, CH / 2)
       }
 
       // ── Dead overlay ─────────────────────────────────────────────────────────

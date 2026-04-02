@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react"
 import { useQuestions } from "@/lib/questions-context"
+import { useScores } from "@/lib/use-scores"
 import type { QuizQuestion } from "@/lib/mock-data"
 import { ArrowLeft, RotateCcw, Heart, Upload } from "lucide-react"
 import Link from "next/link"
@@ -19,8 +20,8 @@ const ROAD_W = ROAD_R - ROAD_L
 const LANE_W = ROAD_W / LANES
 const CAR_W = 34
 const CAR_H = 56
-const BASE_SPEED = 3.2
-const SPEED_INC = 0.22
+const BASE_SPEED = 1.4   // reduced: more time to read question (tester feedback)
+const SPEED_INC = 0.15   // reduced: gentler acceleration
 const MAX_LIVES = 3
 
 const SIGN_COLS = ["#3b82f6", "#f97316", "#a855f7", "#ef4444"]
@@ -135,7 +136,8 @@ function PostGame({ score, total, onRestart }: { score: number; total: number; o
 }
 
 export function SpeedRacerGame() {
-  const { questions, hasQuestions } = useQuestions()
+  const { questions, hasQuestions, gameQuestions } = useQuestions()
+  const activeQuestions = gameQuestions["racer"] ?? questions
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef(0)
   const [gameState, setGameState] = useState<State>("pregame")
@@ -159,6 +161,8 @@ export function SpeedRacerGame() {
   const totalAnswRef = useRef(0)
 
   useEffect(() => { stateRef.current = gameState }, [gameState])
+  const { recordScore } = useScores()
+  useEffect(() => { if (gameState === "result") recordScore("racer", score) }, [gameState, score, recordScore])
 
   const nextQuestion = useCallback(() => {
     if (qIdxRef.current >= questionsRef.current.length) {
@@ -166,14 +170,14 @@ export function SpeedRacerGame() {
     }
     const q = questionsRef.current[qIdxRef.current++]
     setCurrentQ(q)
-    billboardRef.current = { y: -60, scored: false }
+    billboardRef.current = { y: -320, scored: false }
     return q
   }, [])
 
   const startGame = useCallback(() => {
     targetLaneRef.current = 1; carXRef.current = getLaneX(1)
     scoreRef.current = 0; livesRef.current = MAX_LIVES; speedRef.current = BASE_SPEED
-    questionsRef.current = shuffle([...questions]); qIdxRef.current = 0
+    questionsRef.current = shuffle([...activeQuestions]); qIdxRef.current = 0
     totalAnswRef.current = 0; billboardRef.current = null; flashRef.current = null; roadOffRef.current = 0
     setScore(0); setLives(MAX_LIVES); setTotalAnswered(0); setCurrentQ(null)
     setGameState("playing")
@@ -237,7 +241,7 @@ export function SpeedRacerGame() {
       const bill = billboardRef.current
       const curQ = questionsRef.current[qIdxRef.current - 1]
       if (bill && (st === "playing" || st === "crash")) {
-        bill.y += speed * 1.4
+        bill.y += speed * 0.85
         if (!bill.scored) {
           for (let i = 0; i < LANES; i++) {
             const lx = getLaneX(i)

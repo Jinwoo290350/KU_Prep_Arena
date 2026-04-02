@@ -1,9 +1,9 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import { useRouter } from "next/navigation"
 import {
   Swords,
-  Upload,
   Timer,
   Heart,
   CheckCircle2,
@@ -25,13 +25,18 @@ type SoloMode = "time-attack" | "survival" | "checkpoint"
 type Difficulty = "easy" | "medium" | "hard"
 type GameState = "setup" | "playing" | "result"
 
+const TIME_LIMITS: Record<Difficulty, number> = { easy: 15, medium: 8, hard: 5 }
+
 export function QuizBattleContent() {
+  const router = useRouter()
   const { questions: uploadedQuestions, uploadedFileName } = useQuestions()
-  const activeQuestions = uploadedQuestions
   const [gameState, setGameState] = useState<GameState>("setup")
   const [gameMode, setGameMode] = useState<GameMode>("solo")
   const [soloMode, setSoloMode] = useState<SoloMode>("time-attack")
   const [difficulty, setDifficulty] = useState<Difficulty>("medium")
+  const diffLevel = difficulty === "easy" ? 1 : difficulty === "medium" ? 2 : 3
+  const filtered = uploadedQuestions.filter(q => !q.difficulty || q.difficulty === diffLevel)
+  const activeQuestions = filtered.length >= 3 ? filtered : uploadedQuestions
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [score, setScore] = useState(0)
   const [lives, setLives] = useState(3)
@@ -65,6 +70,11 @@ export function QuizBattleContent() {
   }, [timeLeft, gameState, showExplanation, handleTimeout])
 
   const startGame = () => {
+    if (gameMode === "battle") {
+      const code = Math.random().toString(36).substring(2, 8).toUpperCase()
+      router.push(`/quiz-battle/host/${code}`)
+      return
+    }
     setGameState("playing")
     setCurrentQuestion(0)
     setScore(0)
@@ -72,7 +82,7 @@ export function QuizBattleContent() {
     setSelected(null)
     setShowExplanation(false)
     setTotalCorrect(0)
-    setTimeLeft(difficulty === "easy" ? 30 : difficulty === "medium" ? 20 : 12)
+    setTimeLeft(TIME_LIMITS[difficulty])
   }
 
   const handleAnswer = (idx: number) => {
@@ -100,7 +110,7 @@ export function QuizBattleContent() {
     setCurrentQuestion((q) => q + 1)
     setSelected(null)
     setShowExplanation(false)
-    setTimeLeft(difficulty === "easy" ? 30 : difficulty === "medium" ? 20 : 12)
+    setTimeLeft(TIME_LIMITS[difficulty])
   }
 
   if (gameState === "setup") {
@@ -122,7 +132,7 @@ export function QuizBattleContent() {
     return <ResultScreen score={score} totalCorrect={totalCorrect} total={activeQuestions.length} onRestart={() => setGameState("setup")} />
   }
 
-  const timerMax = difficulty === "easy" ? 30 : difficulty === "medium" ? 20 : 12
+  const timerMax = TIME_LIMITS[difficulty]
   const timerPercent = (timeLeft / timerMax) * 100
 
   return (
@@ -278,13 +288,7 @@ function SetupScreen({
             Ready
           </Badge>
         </div>
-      ) : (
-        <div className="glass-card rounded-xl p-6 border border-dashed border-border text-center">
-          <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2 opacity-50" />
-          <p className="text-sm font-semibold text-foreground mb-1">No study material uploaded</p>
-          <p className="text-xs text-muted-foreground">Use the <span className="font-semibold">Upload Material</span> button in the sidebar to get started.</p>
-        </div>
-      )}
+      ) : null}
 
       {/* Mode Selection */}
       <Card className="bg-card border-border">
@@ -338,6 +342,11 @@ function SetupScreen({
                   </button>
                 ))}
               </div>
+              <p className="text-[11px] text-muted-foreground mt-1.5 px-1 min-h-7">
+                {soloMode === "time-attack" && "Race the clock — faster answers score more points!"}
+                {soloMode === "survival" && "3 lives: wrong answer or timeout costs a life."}
+                {soloMode === "checkpoint" && "3 consecutive correct → checkpoint saved. Wrong answer → back to checkpoint."}
+              </p>
             </div>
           )}
 
@@ -376,7 +385,7 @@ function SetupScreen({
       >
         <Swords className="h-5 w-5 mr-2" />
         {hasQuestions
-          ? (gameMode === "solo" ? "Start Solo Quest" : "Find Battle Room")
+          ? (gameMode === "solo" ? "Start Solo Quest" : "Create Battle Room")
           : "Upload material first"}
       </Button>
     </div>

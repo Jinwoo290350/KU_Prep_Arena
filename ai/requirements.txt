@@ -3,6 +3,7 @@
 
 # Core
 openai>=1.35.0          # OpenAI-compatible client for vLLM endpoint
+anthropic>=0.40.0       # Claude API — high-quality teacher for data generation
 httpx>=0.27.0
 
 # PDF & text
@@ -21,6 +22,14 @@ seaborn>=0.13.0
 # Jupyter
 jupyter>=1.0.0
 ipywidgets>=8.1.0
+
+# Fine-tuning (notebook 04 — LoRA teacher-student distillation)
+# Install unsloth separately with: pip install "unsloth[cu124-torch240]"
+# unsloth         # 2× faster LoRA training (CUDA version-specific, see above)
+datasets>=2.20.0  # Hugging Face datasets
+trl>=0.9.0        # SFTTrainer for supervised fine-tuning
+peft>=0.11.0      # LoRA / PEFT adapters (used by unsloth)
+transformers==4.45.2  # Pinned: ≥4.45.0 for mllama, <4.46 compatibility
 
 # Utilities
 tqdm>=4.66.0

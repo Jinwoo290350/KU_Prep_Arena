@@ -1,0 +1,1502 @@
+[
+  {
+    "id": 1,
+    "question": "Keyword to define a function:",
+    "choices": [
+      "A. func",
+      "B. def"
+    ],
+    "correct": 1,
+    "explanation": "def is the keyword used to define a function in Python. lambda defines an anonymous inline function.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "syntax พื้นฐานที่ทุกคนต้องรู้ก่อนเขียน Python [ปรับระดับ→2] [ปรับระดับ→3]"
+  },
+  {
+    "id": 2,
+    "question": "Result of 2 ** 3 =",
+    "choices": [
+      "A. 6",
+      "B. 8"
+    ],
+    "correct": 1,
+    "explanation": "** is Python's exponentiation operator. 2 ** 3 = 2^3 = 8.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "operator พื้นฐานที่ต้องจำ ไม่ต้องคิดซับซ้อน [ปรับระดับ→2] [ปรับระดับ→3]"
+  },
+  {
+    "id": 3,
+    "question": "print() outputs to:",
+    "choices": [
+      "A. file",
+      "B. screen"
+    ],
+    "correct": 1,
+    "explanation": "print() sends output to standard output, which is the screen (terminal) by default.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความรู้พื้นฐานระดับ recall สำหรับผู้เริ่มต้น"
+  },
+  {
+    "id": 4,
+    "question": "Python type for True/False values:",
+    "choices": [
+      "A. int",
+      "B. bool"
+    ],
+    "correct": 1,
+    "explanation": "The bool type represents boolean values True or False. It is a subtype of int in Python (True == 1, False == 0).",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ความรู้พื้นฐาน data type ระดับ recall [ปรับระดับ→3]"
+  },
+  {
+    "id": 5,
+    "question": "Operator for floor division in Python:",
+    "choices": [
+      "A. /",
+      "B. //"
+    ],
+    "correct": 1,
+    "explanation": "// is the floor division operator. It divides and rounds down to the nearest integer. / gives a float result.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "operator พื้นฐาน แต่ต้องแยก / กับ // ให้ได้ [ปรับระดับ→3]"
+  },
+  {
+    "id": 6,
+    "question": "Result of 7 % 3 =",
+    "choices": [
+      "A. 2",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "% returns the remainder of division. 7 = 2*3 + 1, so 7 % 3 = 1.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นักศึกษามักสับสนว่า % คือเปอร์เซ็นต์ ต้องเข้าใจ modulo [ปรับระดับ→3]"
+  },
+  {
+    "id": 7,
+    "question": "Type returned by int('42'):",
+    "choices": [
+      "A. str",
+      "B. int"
+    ],
+    "correct": 1,
+    "explanation": "int('42') converts the string '42' to the integer 42. The return type is int.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "type conversion พื้นฐาน แต่ต้องรู้ว่า return type คืออะไร [ปรับระดับ→3]"
+  },
+  {
+    "id": 8,
+    "question": "Python type for decimals like 3.14:",
+    "choices": [
+      "A. double",
+      "B. float"
+    ],
+    "correct": 1,
+    "explanation": "float is Python's type for floating-point numbers. Python has no built-in 'double' — float is already 64-bit.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ชื่อ type ที่ถูกต้องใน Python ไม่ใช่ภาษาอื่น [ปรับระดับ→3]"
+  },
+  {
+    "id": 9,
+    "question": "Result of float('3.14') + int('2') =",
+    "choices": [
+      "A. '3.142'",
+      "B. 5.14"
+    ],
+    "correct": 1,
+    "explanation": "float('3.14') = 3.14 and int('2') = 2. Adding float + int returns float: 3.14 + 2 = 5.14.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องคิดสองขั้น: type conversion แล้วบวก พร้อมรู้ว่า float + int = float"
+  },
+  {
+    "id": 10,
+    "question": "bool(0) + bool('') evaluates to:",
+    "choices": [
+      "A. True",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "bool(0) = False = 0, bool('') = False = 0 (empty string is falsy). False + False = 0 + 0 = 0.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ falsy values, bool subtype of int, และ arithmetic ของ bool พร้อมกัน"
+  },
+  {
+    "id": 11,
+    "question": "Keyword to start a loop over a list:",
+    "choices": [
+      "A. while",
+      "B. for"
+    ],
+    "correct": 1,
+    "explanation": "for is used to iterate over a sequence like a list, tuple, or string.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "syntax พื้นฐานที่ใช้บ่อยที่สุดใน Python"
+  },
+  {
+    "id": 12,
+    "question": "Keyword to skip to next loop iteration:",
+    "choices": [
+      "A. pass",
+      "B. continue"
+    ],
+    "correct": 1,
+    "explanation": "continue skips the rest of the current iteration and moves to the next one.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword พื้นฐานใน loop control"
+  },
+  {
+    "id": 13,
+    "question": "Keyword to exit a loop immediately:",
+    "choices": [
+      "A. exit",
+      "B. break"
+    ],
+    "correct": 1,
+    "explanation": "break exits the innermost enclosing loop immediately.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword พื้นฐานที่ต้องจำ"
+  },
+  {
+    "id": 14,
+    "question": "Result of len('hello') =",
+    "choices": [
+      "A. 4",
+      "B. 5"
+    ],
+    "correct": 1,
+    "explanation": "len() returns the number of characters. 'hello' has 5 characters.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function พื้นฐานที่ใช้บ่อย"
+  },
+  {
+    "id": 15,
+    "question": "Python list uses brackets:",
+    "choices": [
+      "A. {}",
+      "B. []"
+    ],
+    "correct": 1,
+    "explanation": "Lists in Python are defined with square brackets []. Parentheses () are for tuples, {} for dicts/sets.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "syntax พื้นฐานของ list"
+  },
+  {
+    "id": 16,
+    "question": "First index of a Python list:",
+    "choices": [
+      "A. 1",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "Python uses zero-based indexing. The first element is at index 0.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "zero-based indexing เป็นความรู้พื้นฐาน"
+  },
+  {
+    "id": 17,
+    "question": "Method to add item to end of list:",
+    "choices": [
+      "A. add()",
+      "B. append()"
+    ],
+    "correct": 1,
+    "explanation": "list.append(item) adds item to the end of the list.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "list method พื้นฐานที่ใช้บ่อยที่สุด"
+  },
+  {
+    "id": 18,
+    "question": "Result of 'hello'.upper() =",
+    "choices": [
+      "A. 'Hello'",
+      "B. 'HELLO'"
+    ],
+    "correct": 1,
+    "explanation": "str.upper() returns a new string with all characters converted to uppercase.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "string method พื้นฐาน"
+  },
+  {
+    "id": 19,
+    "question": "Keyword to import a module:",
+    "choices": [
+      "A. include",
+      "B. import"
+    ],
+    "correct": 1,
+    "explanation": "import is the keyword used to bring a module into the current namespace.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "syntax พื้นฐานของ module system"
+  },
+  {
+    "id": 20,
+    "question": "Python comment character:",
+    "choices": [
+      "A. //",
+      "B. #"
+    ],
+    "correct": 1,
+    "explanation": "# starts a single-line comment in Python. Everything after # on that line is ignored.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "syntax พื้นฐานของ comment"
+  },
+  {
+    "id": 21,
+    "question": "Keyword used for conditional check:",
+    "choices": [
+      "A. when",
+      "B. if"
+    ],
+    "correct": 1,
+    "explanation": "if is used to begin a conditional statement in Python.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword ที่พื้นฐานที่สุดใน control flow"
+  },
+  {
+    "id": 22,
+    "question": "Result of type(42) ==",
+    "choices": [
+      "A. str",
+      "B. int"
+    ],
+    "correct": 1,
+    "explanation": "type(42) returns <class 'int'>. 42 is an integer literal.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ความเข้าใจ type ของ literal พื้นฐาน"
+  },
+  {
+    "id": 23,
+    "question": "Result of range(5) length =",
+    "choices": [
+      "A. 4",
+      "B. 5"
+    ],
+    "correct": 1,
+    "explanation": "range(5) generates 0,1,2,3,4 — five elements.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องรู้ว่า range(n) ให้ n ตัว"
+  },
+  {
+    "id": 24,
+    "question": "Method to convert string to lowercase:",
+    "choices": [
+      "A. down()",
+      "B. lower()"
+    ],
+    "correct": 1,
+    "explanation": "str.lower() returns a copy of the string with all characters in lowercase.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "string method พื้นฐานที่ใช้บ่อย"
+  },
+  {
+    "id": 25,
+    "question": "Keyword to define a class:",
+    "choices": [
+      "A. object",
+      "B. class"
+    ],
+    "correct": 1,
+    "explanation": "class is the keyword used to define a new class in Python.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "OOP syntax พื้นฐาน"
+  },
+  {
+    "id": 26,
+    "question": "Result of 10 // 3 =",
+    "choices": [
+      "A. 3.33",
+      "B. 3"
+    ],
+    "correct": 1,
+    "explanation": "10 // 3 performs floor division: 10 / 3 = 3.33..., floored to 3.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "floor division พื้นฐาน"
+  },
+  {
+    "id": 27,
+    "question": "String concatenation operator in Python:",
+    "choices": [
+      "A. &",
+      "B. +"
+    ],
+    "correct": 1,
+    "explanation": "The + operator concatenates two strings in Python.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "operator พื้นฐานสำหรับ string"
+  },
+  {
+    "id": 28,
+    "question": "Result of [1,2,3][1] =",
+    "choices": [
+      "A. 1",
+      "B. 2"
+    ],
+    "correct": 1,
+    "explanation": "Index 1 (zero-based) of [1,2,3] is 2.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ zero-based index ให้ถูกต้อง [ปรับระดับ→3]"
+  },
+  {
+    "id": 29,
+    "question": "Method to remove last item from list:",
+    "choices": [
+      "A. remove()",
+      "B. pop()"
+    ],
+    "correct": 1,
+    "explanation": "list.pop() removes and returns the last element. pop(i) removes at index i.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก pop() กับ remove() ให้ได้ [ปรับระดับ→3]"
+  },
+  {
+    "id": 30,
+    "question": "Result of 'py' * 3 =",
+    "choices": [
+      "A. py3",
+      "B. 'pypypy'"
+    ],
+    "correct": 1,
+    "explanation": "String * int repeats the string. 'py' * 3 = 'pypypy'.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "string repetition operator อาจสับสนกับการคูณตัวเลข [ปรับระดับ→3]"
+  },
+  {
+    "id": 31,
+    "question": "Method to split string by space:",
+    "choices": [
+      "A. divide()",
+      "B. split()"
+    ],
+    "correct": 1,
+    "explanation": "str.split() splits a string by whitespace (default) and returns a list of words.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "string method ที่ใช้บ่อย ต้องรู้ชื่อที่ถูกต้อง [ปรับระดับ→3]"
+  },
+  {
+    "id": 32,
+    "question": "Result of [1,2,3].index(2) =",
+    "choices": [
+      "A. 2",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "list.index(value) returns the index of the first occurrence of value. 2 is at index 1.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยกระหว่างค่าและ index [ปรับระดับ→3]"
+  },
+  {
+    "id": 33,
+    "question": "Keyword for else-if branch in Python:",
+    "choices": [
+      "A. else if",
+      "B. elif"
+    ],
+    "correct": 1,
+    "explanation": "Python uses elif (not else if or elsif) for else-if branches.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "syntax เฉพาะของ Python ที่ต่างจากภาษาอื่น"
+  },
+  {
+    "id": 34,
+    "question": "NumPy array creation function:",
+    "choices": [
+      "A. np.list()",
+      "B. np.array()"
+    ],
+    "correct": 1,
+    "explanation": "np.array() creates a NumPy ndarray from a Python list or sequence.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy API พื้นฐาน"
+  },
+  {
+    "id": 35,
+    "question": "Result of abs(-5) =",
+    "choices": [
+      "A. -5",
+      "B. 5"
+    ],
+    "correct": 1,
+    "explanation": "abs() returns the absolute value. abs(-5) = 5.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function ที่เข้าใจง่าย"
+  },
+  {
+    "id": 36,
+    "question": "Result of max(3, 1, 4, 1, 5) =",
+    "choices": [
+      "A. 3",
+      "B. 5"
+    ],
+    "correct": 1,
+    "explanation": "max() returns the largest value among its arguments. The largest here is 5.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function max() พื้นฐาน"
+  },
+  {
+    "id": 37,
+    "question": "Slice [1:3] on [0,1,2,3,4] returns:",
+    "choices": [
+      "A. [0,1,2]",
+      "B. [1,2]"
+    ],
+    "correct": 1,
+    "explanation": "Slice [1:3] includes index 1 and 2 but excludes index 3. Result: [1, 2].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "slicing ต้องเข้าใจว่า end index ไม่รวม"
+  },
+  {
+    "id": 38,
+    "question": "Method to join list into string:",
+    "choices": [
+      "A. concat()",
+      "B. join()"
+    ],
+    "correct": 1,
+    "explanation": "str.join(list) joins elements of a list into a single string using the str as separator.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า join เรียกจาก str ไม่ใช่ list"
+  },
+  {
+    "id": 39,
+    "question": "NumPy function for zeros array:",
+    "choices": [
+      "A. np.empty()",
+      "B. np.zeros()"
+    ],
+    "correct": 1,
+    "explanation": "np.zeros(shape) creates an array filled with zeros of the given shape.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy API ที่ใช้บ่อยใน data science"
+  },
+  {
+    "id": 40,
+    "question": "Result of 'hello'.replace('l','r') =",
+    "choices": [
+      "A. 'hello'",
+      "B. 'herro'"
+    ],
+    "correct": 1,
+    "explanation": "replace(old, new) replaces all occurrences. Both 'l's become 'r': 'herro'.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า replace แทนที่ทุก occurrence"
+  },
+  {
+    "id": 41,
+    "question": "How to get number of items in dict d:",
+    "choices": [
+      "A. size()",
+      "B. len(d)"
+    ],
+    "correct": 1,
+    "explanation": "len(d) returns the number of key-value pairs in dictionary d.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "len() ใช้ได้กับ dict เช่นเดียวกับ list"
+  },
+  {
+    "id": 42,
+    "question": "Default parameter separator in print():",
+    "choices": [
+      "A. ','",
+      "B. ' '"
+    ],
+    "correct": 1,
+    "explanation": "print() uses sep=' ' (a single space) by default between multiple arguments.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ default argument ของ print()"
+  },
+  {
+    "id": 43,
+    "question": "Result of sorted([3,1,2]) =",
+    "choices": [
+      "A. [3,2,1]",
+      "B. [1,2,3]"
+    ],
+    "correct": 1,
+    "explanation": "sorted() returns a new sorted list in ascending order. [3,1,2] → [1,2,3].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in sorted() function พื้นฐาน"
+  },
+  {
+    "id": 44,
+    "question": "Attribute for NumPy array shape:",
+    "choices": [
+      "A. .size",
+      "B. .shape"
+    ],
+    "correct": 1,
+    "explanation": "ndarray.shape returns a tuple of the array's dimensions.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy attribute ที่ใช้บ่อยใน array inspection"
+  },
+  {
+    "id": 45,
+    "question": "Keyword to handle exceptions:",
+    "choices": [
+      "A. catch",
+      "B. except"
+    ],
+    "correct": 1,
+    "explanation": "except is used in Python to catch and handle exceptions raised in a try block.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "syntax ของ exception handling พื้นฐาน"
+  },
+  {
+    "id": 46,
+    "question": "Result of 'abc'.find('b') =",
+    "choices": [
+      "A. 2",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "str.find(sub) returns the index of the first occurrence. 'b' is at index 1 in 'abc'.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องนับ index จาก 0 ให้ถูกต้อง"
+  },
+  {
+    "id": 47,
+    "question": "Python function to get user input:",
+    "choices": [
+      "A. read()",
+      "B. input()"
+    ],
+    "correct": 1,
+    "explanation": "input() reads a line from stdin and returns it as a string.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function พื้นฐานสำหรับรับ input"
+  },
+  {
+    "id": 48,
+    "question": "Type returned by input():",
+    "choices": [
+      "A. int",
+      "B. str"
+    ],
+    "correct": 1,
+    "explanation": "input() always returns a string, regardless of what the user types.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นักศึกษามักสับสนว่า input ตัวเลขจะได้ int"
+  },
+  {
+    "id": 49,
+    "question": "Result of [1,2] + [3,4] =",
+    "choices": [
+      "A. [4,6]",
+      "B. [1,2,3,4]"
+    ],
+    "correct": 1,
+    "explanation": "The + operator on lists concatenates them. [1,2] + [3,4] = [1,2,3,4].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกระหว่าง list concatenation กับ element-wise addition"
+  },
+  {
+    "id": 50,
+    "question": "Method to check if string starts with prefix:",
+    "choices": [
+      "A. prefix()",
+      "B. startswith()"
+    ],
+    "correct": 1,
+    "explanation": "str.startswith(prefix) returns True if the string begins with the given prefix.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "string method ที่ต้องจำชื่อที่ถูกต้อง"
+  },
+  {
+    "id": 51,
+    "question": "NumPy function for array mean:",
+    "choices": [
+      "A. np.average()",
+      "B. np.mean()"
+    ],
+    "correct": 1,
+    "explanation": "np.mean(array) computes the arithmetic mean of the array elements.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy function ที่ใช้บ่อยใน data analysis"
+  },
+  {
+    "id": 52,
+    "question": "Immutable ordered sequence in Python:",
+    "choices": [
+      "A. list",
+      "B. tuple"
+    ],
+    "correct": 1,
+    "explanation": "tuple is immutable (cannot be modified after creation) and maintains order.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ mutable vs immutable"
+  },
+  {
+    "id": 53,
+    "question": "Result of str(100) type =",
+    "choices": [
+      "A. int",
+      "B. str"
+    ],
+    "correct": 1,
+    "explanation": "str(100) converts integer 100 to the string '100'. The resulting type is str.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "type conversion พื้นฐาน"
+  },
+  {
+    "id": 54,
+    "question": "Special method called on object creation:",
+    "choices": [
+      "A. __new__()",
+      "B. __init__()"
+    ],
+    "correct": 1,
+    "explanation": "__init__ is the initializer method called after a new instance is created.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ dunder method พื้นฐาน"
+  },
+  {
+    "id": 55,
+    "question": "Keyword to return value from function:",
+    "choices": [
+      "A. yield",
+      "B. return"
+    ],
+    "correct": 1,
+    "explanation": "return exits the function and optionally sends a value back to the caller.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "keyword พื้นฐานของ function"
+  },
+  {
+    "id": 56,
+    "question": "Result of 'Hello World'.split() length =",
+    "choices": [
+      "A. 11",
+      "B. 2"
+    ],
+    "correct": 1,
+    "explanation": "'Hello World'.split() splits on whitespace, giving ['Hello', 'World'] — length 2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ split() ว่าแบ่งที่ space ให้ได้กี่คำ"
+  },
+  {
+    "id": 57,
+    "question": "Result of [1,2,3][-1] =",
+    "choices": [
+      "A. 1",
+      "B. 3"
+    ],
+    "correct": 1,
+    "explanation": "Negative index -1 refers to the last element. [1,2,3][-1] = 3.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "negative indexing อาจสับสนสำหรับผู้เริ่มต้น"
+  },
+  {
+    "id": 58,
+    "question": "Keyword to define a generator function:",
+    "choices": [
+      "A. gen",
+      "B. yield"
+    ],
+    "correct": 1,
+    "explanation": "yield makes a function a generator. Each call to next() resumes after the last yield.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "generator เป็น advanced concept ต้องเข้าใจ lazy evaluation"
+  },
+  {
+    "id": 59,
+    "question": "Result of {1, 2, 2, 3} length =",
+    "choices": [
+      "A. 4",
+      "B. 3"
+    ],
+    "correct": 1,
+    "explanation": "A set automatically removes duplicates. {1,2,2,3} has 3 unique elements.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ set uniqueness property"
+  },
+  {
+    "id": 60,
+    "question": "NumPy dtype for 64-bit float:",
+    "choices": [
+      "A. float32",
+      "B. float64"
+    ],
+    "correct": 1,
+    "explanation": "float64 is NumPy's 64-bit floating point data type (same as Python's float).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ NumPy dtype naming convention"
+  },
+  {
+    "id": 61,
+    "question": "Operator to check membership in list:",
+    "choices": [
+      "A. has",
+      "B. in"
+    ],
+    "correct": 1,
+    "explanation": "The in operator tests whether an element is present in a sequence.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "membership operator พื้นฐาน"
+  },
+  {
+    "id": 62,
+    "question": "Result of 'abc'[0] =",
+    "choices": [
+      "A. 'b'",
+      "B. 'a'"
+    ],
+    "correct": 1,
+    "explanation": "String indexing starts at 0. 'abc'[0] = 'a'.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "string indexing พื้นฐาน"
+  },
+  {
+    "id": 63,
+    "question": "Result of round(3.567, 2) =",
+    "choices": [
+      "A. 3.5",
+      "B. 3.57"
+    ],
+    "correct": 1,
+    "explanation": "round(number, ndigits) rounds to ndigits decimal places. round(3.567,2) = 3.57.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ rounding rules"
+  },
+  {
+    "id": 64,
+    "question": "Method to strip whitespace from string ends:",
+    "choices": [
+      "A. trim()",
+      "B. strip()"
+    ],
+    "correct": 1,
+    "explanation": "str.strip() removes leading and trailing whitespace from a string.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "string method ที่ใช้บ่อยใน data cleaning"
+  },
+  {
+    "id": 65,
+    "question": "Python keyword for 'not equal':",
+    "choices": [
+      "A. <>",
+      "B. !="
+    ],
+    "correct": 1,
+    "explanation": "!= is Python's not-equal comparison operator. The old <> syntax is removed in Python 3.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "comparison operator พื้นฐาน"
+  },
+  {
+    "id": 66,
+    "question": "Type of {'a': 1, 'b': 2}:",
+    "choices": [
+      "A. list",
+      "B. dict"
+    ],
+    "correct": 1,
+    "explanation": "Key-value pairs in curly braces with colons define a dictionary (dict) in Python.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "data type พื้นฐาน"
+  },
+  {
+    "id": 67,
+    "question": "Result of sum([1, 2, 3, 4]) =",
+    "choices": [
+      "A. 6",
+      "B. 10"
+    ],
+    "correct": 1,
+    "explanation": "sum() adds all elements: 1+2+3+4 = 10.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function พื้นฐาน"
+  },
+  {
+    "id": 68,
+    "question": "Result of min(5, 3, 8, 1) =",
+    "choices": [
+      "A. 5",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "min() returns the smallest value. 1 is the minimum among 5, 3, 8, 1.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "built-in function min() พื้นฐาน"
+  },
+  {
+    "id": 69,
+    "question": "Keyword to check if instance of class:",
+    "choices": [
+      "A. typeof",
+      "B. isinstance()"
+    ],
+    "correct": 1,
+    "explanation": "isinstance(obj, cls) returns True if obj is an instance of cls or its subclasses.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ built-in function สำหรับ type checking"
+  },
+  {
+    "id": 70,
+    "question": "NumPy function to reshape array:",
+    "choices": [
+      "A. np.resize()",
+      "B. np.reshape()"
+    ],
+    "correct": 1,
+    "explanation": "ndarray.reshape(new_shape) or np.reshape(array, shape) changes array dimensions.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy operation ที่ใช้บ่อยใน ML"
+  },
+  {
+    "id": 71,
+    "question": "Result of 'hello'.count('l') =",
+    "choices": [
+      "A. 1",
+      "B. 2"
+    ],
+    "correct": 1,
+    "explanation": "str.count(sub) counts occurrences. 'hello' has two 'l' characters.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องนับ occurrence อย่างละเอียด"
+  },
+  {
+    "id": 72,
+    "question": "Default value of function return with no return:",
+    "choices": [
+      "A. 0",
+      "B. None"
+    ],
+    "correct": 1,
+    "explanation": "If a function has no return statement or return without value, it returns None.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ implicit return value ของ function"
+  },
+  {
+    "id": 73,
+    "question": "NumPy function to create identity matrix:",
+    "choices": [
+      "A. np.ones()",
+      "B. np.eye()"
+    ],
+    "correct": 1,
+    "explanation": "np.eye(n) creates an n×n identity matrix with ones on the diagonal.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy function ที่ใช้ใน linear algebra"
+  },
+  {
+    "id": 74,
+    "question": "Result of bool([]) =",
+    "choices": [
+      "A. True",
+      "B. False"
+    ],
+    "correct": 1,
+    "explanation": "An empty list is falsy in Python. bool([]) = False.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ falsy values ทั้งหมด"
+  },
+  {
+    "id": 75,
+    "question": "Operator for logical AND in Python:",
+    "choices": [
+      "A. &&",
+      "B. and"
+    ],
+    "correct": 1,
+    "explanation": "Python uses the keyword and for logical AND. && is used in C/Java but not Python.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "logical operator Python-specific syntax"
+  },
+  {
+    "id": 76,
+    "question": "Result of 5 == 5.0 in Python:",
+    "choices": [
+      "A. TypeError",
+      "B. True"
+    ],
+    "correct": 1,
+    "explanation": "Python compares values, not types, with ==. 5 (int) == 5.0 (float) is True.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจว่า == เปรียบค่า ไม่ใช่ type"
+  },
+  {
+    "id": 77,
+    "question": "Result of list(range(2, 5)) =",
+    "choices": [
+      "A. [2,3,4,5]",
+      "B. [2,3,4]"
+    ],
+    "correct": 1,
+    "explanation": "range(2, 5) generates 2, 3, 4 (stop is exclusive). list() converts to [2, 3, 4].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ range(start, stop) ว่า stop ไม่รวม"
+  },
+  {
+    "id": 78,
+    "question": "Method to get dict keys as view:",
+    "choices": [
+      "A. index()",
+      "B. keys()"
+    ],
+    "correct": 1,
+    "explanation": "dict.keys() returns a view object of all keys in the dictionary.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "dict method ที่ใช้บ่อย"
+  },
+  {
+    "id": 79,
+    "question": "NumPy operation a + b on arrays:",
+    "choices": [
+      "A. concatenates arrays",
+      "B. element-wise addition"
+    ],
+    "correct": 1,
+    "explanation": "NumPy overloads + for element-wise addition. Each element of a is added to the corresponding element of b.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "NumPy broadcasting/vectorized op ต้องแยกจาก list + list"
+  },
+  {
+    "id": 80,
+    "question": "Keyword to delete a variable:",
+    "choices": [
+      "A. remove",
+      "B. del"
+    ],
+    "correct": 1,
+    "explanation": "del removes a variable binding or an element from a collection.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "keyword ที่ใช้น้อยกว่าและมักลืม"
+  },
+  {
+    "id": 81,
+    "question": "Result of 'HELLO'.lower() =",
+    "choices": [
+      "A. None",
+      "B. 'hello'"
+    ],
+    "correct": 1,
+    "explanation": "str.lower() converts all uppercase letters to lowercase.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "string method พื้นฐาน"
+  },
+  {
+    "id": 82,
+    "question": "Result of [0]*3 =",
+    "choices": [
+      "A. [3]",
+      "B. [0,0,0]"
+    ],
+    "correct": 1,
+    "explanation": "List * int repeats the list. [0]*3 = [0, 0, 0].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "list repetition ที่ใช้สร้าง list เริ่มต้น"
+  },
+  {
+    "id": 83,
+    "question": "Built-in to convert list to set:",
+    "choices": [
+      "A. unique(lst)",
+      "B. set(lst)"
+    ],
+    "correct": 1,
+    "explanation": "set(lst) converts a list to a set, removing duplicates.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "type conversion ที่ใช้บ่อยใน deduplication"
+  },
+  {
+    "id": 84,
+    "question": "Result of 'cat' in ['cat','dog'] =",
+    "choices": [
+      "A. 0",
+      "B. True"
+    ],
+    "correct": 1,
+    "explanation": "The in operator returns True if the item is found in the list. 'cat' is in the list.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "membership test พื้นฐาน"
+  },
+  {
+    "id": 85,
+    "question": "NumPy function for dot product:",
+    "choices": [
+      "A. np.cross()",
+      "B. np.dot()"
+    ],
+    "correct": 1,
+    "explanation": "np.dot(a, b) computes the dot product of two arrays.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก dot product กับ element-wise multiply"
+  },
+  {
+    "id": 86,
+    "question": "Result of 'a,b,c'.split(',') =",
+    "choices": [
+      "A. ['a,b,c']",
+      "B. ['a','b','c']"
+    ],
+    "correct": 1,
+    "explanation": "split(',') splits the string at each comma, returning ['a', 'b', 'c'].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า split ด้วย delimiter ระบุเองได้"
+  },
+  {
+    "id": 87,
+    "question": "self parameter in class method refers to:",
+    "choices": [
+      "A. class itself",
+      "B. the instance"
+    ],
+    "correct": 1,
+    "explanation": "self refers to the instance (object) on which the method is called.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "OOP concept ที่ต้องเข้าใจ self"
+  },
+  {
+    "id": 88,
+    "question": "Result of 9 ** 0.5 =",
+    "choices": [
+      "A. 4.5",
+      "B. 3.0"
+    ],
+    "correct": 1,
+    "explanation": "9 ** 0.5 computes the square root of 9 = 3.0 (float because exponent is float).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า ** 0.5 คือ square root และผลเป็น float"
+  },
+  {
+    "id": 89,
+    "question": "Method to get value from dict by key (safe):",
+    "choices": [
+      "A. fetch(key)",
+      "B. get(key)"
+    ],
+    "correct": 1,
+    "explanation": "dict.get(key) returns the value or None if key is missing — no KeyError raised.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก d[key] ที่ raise error กับ d.get() ที่ safe"
+  },
+  {
+    "id": 90,
+    "question": "Result of list(enumerate(['a','b']))[0] =",
+    "choices": [
+      "A. ['a',0]",
+      "B. (0,'a')"
+    ],
+    "correct": 1,
+    "explanation": "enumerate returns (index, value) tuples. First item is (0, 'a').",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ enumerate format และ tuple order"
+  },
+  {
+    "id": 91,
+    "question": "Lambda to double a number x:",
+    "choices": [
+      "A. def x: x*2",
+      "B. lambda x: x*2"
+    ],
+    "correct": 1,
+    "explanation": "lambda x: x*2 is an anonymous function taking x and returning x*2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "lambda syntax ที่ต้องเขียนให้ถูก"
+  },
+  {
+    "id": 92,
+    "question": "Result of sorted([3,1,2], reverse=True) =",
+    "choices": [
+      "A. [1,2,3]",
+      "B. [3,2,1]"
+    ],
+    "correct": 1,
+    "explanation": "sorted() with reverse=True sorts in descending order. [3,1,2] → [3,2,1].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ reverse parameter ของ sorted()"
+  },
+  {
+    "id": 93,
+    "question": "NumPy function to stack arrays vertically:",
+    "choices": [
+      "A. np.hstack()",
+      "B. np.vstack()"
+    ],
+    "correct": 1,
+    "explanation": "np.vstack() stacks arrays vertically (row-wise), increasing the number of rows.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องแยก vstack กับ hstack ให้ถูก axis"
+  },
+  {
+    "id": 94,
+    "question": "Result of [x**2 for x in range(3)] =",
+    "choices": [
+      "A. [1,4,9]",
+      "B. [0,1,4]"
+    ],
+    "correct": 1,
+    "explanation": "List comprehension: x=0 → 0, x=1 → 1, x=2 → 4. Result: [0, 1, 4].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "list comprehension พื้นฐานต้องคำนวณได้"
+  },
+  {
+    "id": 95,
+    "question": "Keyword to inherit parent class:",
+    "choices": [
+      "A. extends",
+      "B. class Child(Parent)"
+    ],
+    "correct": 1,
+    "explanation": "In Python, inheritance is expressed by passing the parent class in parentheses: class Child(Parent).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "OOP inheritance syntax ใน Python"
+  },
+  {
+    "id": 96,
+    "question": "finally block in try/except runs:",
+    "choices": [
+      "A. only on success",
+      "B. always"
+    ],
+    "correct": 1,
+    "explanation": "The finally block always executes, whether or not an exception occurred.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ finally guarantee"
+  },
+  {
+    "id": 97,
+    "question": "Result of any([False, True, False]) =",
+    "choices": [
+      "A. False",
+      "B. True"
+    ],
+    "correct": 1,
+    "explanation": "any() returns True if at least one element is truthy. True makes the result True.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ any() semantics"
+  },
+  {
+    "id": 98,
+    "question": "Result of all([True, True, False]) =",
+    "choices": [
+      "A. True",
+      "B. False"
+    ],
+    "correct": 1,
+    "explanation": "all() returns True only if all elements are truthy. False makes the result False.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ all() semantics และแยกจาก any()"
+  },
+  {
+    "id": 99,
+    "question": "Result of dict(a=1, b=2)['a'] =",
+    "choices": [
+      "A. 2",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "dict(a=1, b=2) creates {'a':1,'b':2}. Accessing key 'a' returns 1.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ dict constructor syntax แบบ keyword argument"
+  },
+  {
+    "id": 100,
+    "question": "Result of map(str, [1,2,3]) type =",
+    "choices": [
+      "A. list",
+      "B. map object"
+    ],
+    "correct": 1,
+    "explanation": "map() returns a map object (lazy iterator), not a list. Use list() to convert.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ว่า map() return lazy iterator ไม่ใช่ list"
+  }
+]

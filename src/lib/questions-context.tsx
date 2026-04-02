@@ -15,6 +15,9 @@ interface QuestionsContextType {
   setSummary: (s: string[]) => void
   isGenerating: boolean
   setIsGenerating: (v: boolean) => void
+  /** Per-game question sets — populated on initial upload */
+  gameQuestions: Partial<Record<string, QuizQuestion[]>>
+  setGameQuestions: (gameType: string, q: QuizQuestion[]) => void
 }
 
 const QuestionsContext = createContext<QuestionsContextType>({
@@ -29,6 +32,8 @@ const QuestionsContext = createContext<QuestionsContextType>({
   setSummary: () => {},
   isGenerating: false,
   setIsGenerating: () => {},
+  gameQuestions: {},
+  setGameQuestions: () => {},
 })
 
 export function QuestionsProvider({ children }: { children: ReactNode }) {
@@ -37,6 +42,11 @@ export function QuestionsProvider({ children }: { children: ReactNode }) {
   const [uploadedText, setUploadedText] = useState<string | null>(null)
   const [summary, setSummary] = useState<string[]>([])
   const [isGenerating, setIsGenerating] = useState(false)
+  const [gameQuestions, setGameQuestionsMap] = useState<Partial<Record<string, QuizQuestion[]>>>({})
+
+  function setGameQuestions(gameType: string, q: QuizQuestion[]) {
+    setGameQuestionsMap((prev) => ({ ...prev, [gameType]: q }))
+  }
 
   return (
     <QuestionsContext.Provider
@@ -52,6 +62,8 @@ export function QuestionsProvider({ children }: { children: ReactNode }) {
         setSummary,
         isGenerating,
         setIsGenerating,
+        gameQuestions,
+        setGameQuestions,
       }}
     >
       {children}

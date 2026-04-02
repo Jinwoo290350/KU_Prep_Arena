@@ -24,12 +24,10 @@ export function AiMentorChat() {
   const [messages, setMessages] = useState<ChatMessage[]>(INITIAL_MESSAGES)
   const [input, setInput] = useState("")
   const [isStreaming, setIsStreaming] = useState(false)
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const bottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
-    }
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
   const handleSend = async () => {
@@ -113,8 +111,8 @@ export function AiMentorChat() {
         </div>
 
         {/* Messages */}
-        <ScrollArea className="flex-1 max-h-[350px] px-4 py-3">
-          <div className="flex flex-col gap-3" ref={scrollRef}>
+        <div className="flex-1 overflow-y-auto max-h-87.5 px-4 py-3">
+          <div className="flex flex-col gap-3">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -132,8 +130,9 @@ export function AiMentorChat() {
                 )}
               </div>
             ))}
+            <div ref={bottomRef} />
           </div>
-        </ScrollArea>
+        </div>
 
         {/* Input */}
         <div className="flex items-center gap-2 px-3 py-3 border-t border-border">

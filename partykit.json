@@ -1,0 +1,5 @@
+{
+  "name": "ku-prep-arena",
+  "main": "party/game.ts",
+  "compatibilityDate": "2024-01-01"
+}

@@ -1,0 +1,1502 @@
+[
+  {
+    "id": 1,
+    "question": "d/dx [sin(x)] =",
+    "choices": [
+      "A. -sin(x)",
+      "B. cos(x)"
+    ],
+    "correct": 1,
+    "explanation": "The derivative of sin(x) is cos(x), a standard trigonometric derivative formula.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์พื้นฐานที่ต้องท่องจำ ระดับความจำตรงๆ"
+  },
+  {
+    "id": 2,
+    "question": "d/dx [e^x] =",
+    "choices": [
+      "A. x*e^(x-1)",
+      "B. e^x"
+    ],
+    "correct": 1,
+    "explanation": "The derivative of e^x is e^x itself. This is the unique property of the natural exponential function.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์ e^x เป็นความรู้พื้นฐานที่จำได้ตรงๆ"
+  },
+  {
+    "id": 3,
+    "question": "lim(x->0) sin(x)/x =",
+    "choices": [
+      "A. 0",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "The standard limit lim(x->0) sin(x)/x = 1 is one of the most fundamental limits in calculus.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลิมิตมาตรฐานที่ต้องจำ ไม่ต้องคำนวณใดๆ"
+  },
+  {
+    "id": 4,
+    "question": "d/dx [cos(x)] =",
+    "choices": [
+      "A. sin(x)",
+      "B. -sin(x)"
+    ],
+    "correct": 1,
+    "explanation": "The derivative of cos(x) is -sin(x). The negative sign distinguishes it from the derivative of sin(x).",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "สูตรพื้นฐาน แต่ลืม negative sign ได้ง่าย"
+  },
+  {
+    "id": 5,
+    "question": "d/dx [x^n] =",
+    "choices": [
+      "A. n*x^(n+1)",
+      "B. n*x^(n-1)"
+    ],
+    "correct": 1,
+    "explanation": "The power rule states d/dx of x^n = n * x^(n-1). Multiply by the exponent and reduce the power by 1.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power rule เป็นสูตรพื้นฐาน แต่ต้องระวังตัวเลือกที่คล้ายกัน [ปรับระดับ→1]"
+  },
+  {
+    "id": 6,
+    "question": "d/dx [ln(x)] =",
+    "choices": [
+      "A. ln(x)/x",
+      "B. 1/x"
+    ],
+    "correct": 1,
+    "explanation": "The derivative of ln(x) is 1/x for x > 0. This follows from the inverse relationship between ln and e^x.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์ ln(x) ควรจำได้ แต่ตัวเลือกอาจสับสนได้เล็กน้อย [ปรับระดับ→1]"
+  },
+  {
+    "id": 7,
+    "question": "integral of x^2 dx =",
+    "choices": [
+      "A. x^3 + C",
+      "B. x^3/3 + C"
+    ],
+    "correct": 1,
+    "explanation": "By the power rule for integration: integral of x^n dx = x^(n+1)/(n+1) + C. For n=2: x^3/3 + C.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "กฎอินทิเกรต Power rule ต้องจำทิศทางตรงข้ามกับ derivative [ปรับระดับ→1]"
+  },
+  {
+    "id": 8,
+    "question": "lim(x->inf) (3x^2+1)/(x^2+5) =",
+    "choices": [
+      "A. 0",
+      "B. 3"
+    ],
+    "correct": 1,
+    "explanation": "When degrees are equal, the limit at infinity equals the ratio of leading coefficients: 3/1 = 3.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องเข้าใจ behavior ของ polynomial ที่ infinity ไม่ใช่แค่ท่องสูตร [ปรับระดับ→1]"
+  },
+  {
+    "id": 9,
+    "question": "integral of e^x dx =",
+    "choices": [
+      "A. xe^x + C",
+      "B. e^x + C"
+    ],
+    "correct": 1,
+    "explanation": "The antiderivative of e^x is e^x + C, since d/dx of e^x = e^x. The exponential function is its own antiderivative.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นักศึกษามักสับสนกับ power rule และพยายาม apply ผิด [ปรับระดับ→1]"
+  },
+  {
+    "id": 10,
+    "question": "d/dx [x^3-4x+7] at x=2 =",
+    "choices": [
+      "A. 12",
+      "B. 8"
+    ],
+    "correct": 1,
+    "explanation": "d/dx = 3x^2 - 4. At x=2: 3(4) - 4 = 12 - 4 = 8.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องหา derivative แล้ว evaluate ที่จุดที่กำหนด — สองขั้นตอน"
+  },
+  {
+    "id": 11,
+    "question": "d/dx [tan(x)] =",
+    "choices": [
+      "A. sin^2(x)",
+      "B. sec^2(x)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[tan(x)] = sec^2(x). Derived via quotient rule on sin(x)/cos(x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรอนุพันธ์ tan(x) ที่ต้องจำ"
+  },
+  {
+    "id": 12,
+    "question": "integral of (1/x) dx =",
+    "choices": [
+      "A. x^(-2)/(-2)+C",
+      "B. ln|x| + C"
+    ],
+    "correct": 1,
+    "explanation": "integral of 1/x dx = ln|x| + C. This is the exception to the power rule (n = -1).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร integral พื้นฐานที่ต้องจำ"
+  },
+  {
+    "id": 13,
+    "question": "lim(x->0) (1 - cos(x))/x =",
+    "choices": [
+      "A. 1",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->0) (1-cos(x))/x = 0. Use L'Hopital or known limit: (1-cos x)/x -> 0 as x->0.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ลิมิตมาตรฐานตัวที่สองที่ต้องจำ"
+  },
+  {
+    "id": 14,
+    "question": "d/dx [sqrt(x)] =",
+    "choices": [
+      "A. 2*sqrt(x)",
+      "B. 1/(2*sqrt(x))"
+    ],
+    "correct": 1,
+    "explanation": "sqrt(x) = x^(1/2), so d/dx = (1/2)*x^(-1/2) = 1/(2*sqrt(x)) by power rule.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power rule กับ fractional exponent ที่ต้องจำ"
+  },
+  {
+    "id": 15,
+    "question": "integral from 0 to 1 of x dx =",
+    "choices": [
+      "A. 2",
+      "B. 1/2"
+    ],
+    "correct": 1,
+    "explanation": "integral(0,1) x dx = [x^2/2] from 0 to 1 = 1/2 - 0 = 1/2.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "การประยุกต์ FTC Part 2 อย่างง่าย"
+  },
+  {
+    "id": 16,
+    "question": "d/dx [x^2 * sin(x)] =",
+    "choices": [
+      "A. 2x*cos(x)",
+      "B. 2x*sin(x)+x^2*cos(x)"
+    ],
+    "correct": 1,
+    "explanation": "Product rule: d/dx[x^2*sin(x)] = 2x*sin(x) + x^2*cos(x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "ต้องใช้ product rule และ trig derivative รวมกัน [ปรับระดับ→1]"
+  },
+  {
+    "id": 17,
+    "question": "d/dx [e^(3x)] =",
+    "choices": [
+      "A. e^(3x)",
+      "B. 3e^(3x)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[e^(3x)] = e^(3x) * 3 = 3e^(3x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Chain rule อย่างง่ายกับ e^(kx)"
+  },
+  {
+    "id": 18,
+    "question": "lim(x->2) (x^2-4)/(x-2) =",
+    "choices": [
+      "A. 0",
+      "B. 4"
+    ],
+    "correct": 1,
+    "explanation": "(x^2-4)/(x-2) = (x+2)(x-2)/(x-2) = x+2. As x->2: 2+2 = 4.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Limit พื้นฐานที่แก้โดย factor และยกเลิก"
+  },
+  {
+    "id": 19,
+    "question": "integral of cos(x) dx =",
+    "choices": [
+      "A. -cos(x)+C",
+      "B. sin(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral of cos(x) dx = sin(x) + C, since d/dx[sin(x)] = cos(x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร integral พื้นฐานของ cos(x)"
+  },
+  {
+    "id": 20,
+    "question": "d/dx [ln(x^2)] =",
+    "choices": [
+      "A. 1/x^2",
+      "B. 2/x"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[ln(x^2)] = (1/x^2)*2x = 2/x. Alternatively, ln(x^2) = 2ln(x), so d/dx = 2/x.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ chain rule กับ ln หรือใช้ log property"
+  },
+  {
+    "id": 21,
+    "question": "lim(x->inf) (1 + 1/x)^x =",
+    "choices": [
+      "A. 1",
+      "B. e"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->inf) (1+1/x)^x = e. This is the fundamental definition of e.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ลิมิตคำจำกัดความของ e ที่ต้องจำ"
+  },
+  {
+    "id": 22,
+    "question": "d/dx [arctan(x)] =",
+    "choices": [
+      "A. 1/sqrt(1-x^2)",
+      "B. 1/(1+x^2)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[arctan(x)] = 1/(1+x^2). Standard inverse trig derivative.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร inverse trig ที่นักศึกษาต้องจำ"
+  },
+  {
+    "id": 23,
+    "question": "integral of sin(x) dx =",
+    "choices": [
+      "A. cos(x)+C",
+      "B. -cos(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral of sin(x) dx = -cos(x) + C, since d/dx[-cos(x)] = sin(x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตรพื้นฐาน integral ของ sin(x)"
+  },
+  {
+    "id": 24,
+    "question": "d/dx [arcsin(x)] =",
+    "choices": [
+      "A. 1/(1+x^2)",
+      "B. 1/sqrt(1-x^2)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[arcsin(x)] = 1/sqrt(1-x^2). Standard inverse trig derivative formula.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร inverse trig derivative ที่มักสับสนกับ arctan"
+  },
+  {
+    "id": 25,
+    "question": "lim(x->0) x*ln(x) =",
+    "choices": [
+      "A. 1",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->0+) x*ln(x) = 0. Rewrite as ln(x)/(1/x), apply L'Hopital: (1/x)/(-1/x^2) = -x -> 0.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ลิมิต indeterminate form 0*inf ที่ต้องใช้ L'Hopital"
+  },
+  {
+    "id": 26,
+    "question": "d/dx [x^3] at x = -1 =",
+    "choices": [
+      "A. -3",
+      "B. 3"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[x^3] = 3x^2. At x=-1: 3*(-1)^2 = 3*1 = 3.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power rule และการ evaluate ที่จุด x = -1"
+  },
+  {
+    "id": 27,
+    "question": "integral from -1 to 1 of x^3 dx =",
+    "choices": [
+      "A. 1/2",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "x^3 is an odd function, so integral(-1,1) x^3 dx = 0 by symmetry.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้สมบัติ odd function กับ symmetric interval"
+  },
+  {
+    "id": 28,
+    "question": "d/dx [sin(x^2)] =",
+    "choices": [
+      "A. cos(x^2)",
+      "B. 2x*cos(x^2)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[sin(x^2)] = cos(x^2) * 2x = 2x*cos(x^2).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ trig function ที่มี composite argument"
+  },
+  {
+    "id": 29,
+    "question": "lim(x->inf) x/e^x =",
+    "choices": [
+      "A. infinity",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->inf) x/e^x = 0. Exponential grows faster than polynomial. By L'Hopital: 1/e^x -> 0.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า e^x โตเร็วกว่า polynomial ทุกดีกรี"
+  },
+  {
+    "id": 30,
+    "question": "integral of sec^2(x) dx =",
+    "choices": [
+      "A. 2sec(x)tan(x)+C",
+      "B. tan(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral of sec^2(x) dx = tan(x) + C, since d/dx[tan(x)] = sec^2(x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร integral ของ sec^2(x) ที่ต้องจำ"
+  },
+  {
+    "id": 31,
+    "question": "d/dx [x*e^x] =",
+    "choices": [
+      "A. e^x",
+      "B. (x+1)*e^x"
+    ],
+    "correct": 1,
+    "explanation": "Product rule: d/dx[x*e^x] = 1*e^x + x*e^x = e^x(1+x) = (x+1)*e^x.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product rule กับ e^x ที่ใช้บ่อยมาก"
+  },
+  {
+    "id": 32,
+    "question": "lim(x->0) (e^x - 1)/x =",
+    "choices": [
+      "A. 0",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->0) (e^x - 1)/x = 1. By L'Hopital or by definition of derivative of e^x at x=0.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ลิมิตมาตรฐานสำคัญที่เชื่อมกับนิยาม derivative"
+  },
+  {
+    "id": 33,
+    "question": "integral from 0 to pi of sin(x) dx =",
+    "choices": [
+      "A. 0",
+      "B. 2"
+    ],
+    "correct": 1,
+    "explanation": "[-cos(x)] from 0 to pi = -cos(pi) - (-cos(0)) = 1 + 1 = 2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง evaluate FTC อย่างระวังค่า cos ที่ boundary"
+  },
+  {
+    "id": 34,
+    "question": "d/dx [ln(sin(x))] =",
+    "choices": [
+      "A. cos(x)/sin(x)",
+      "B. cot(x)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[ln(sin x)] = (1/sin x)*cos x = cos(x)/sin(x) = cot(x).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ ln ต้องรู้ว่าผลเป็น cot(x)"
+  },
+  {
+    "id": 35,
+    "question": "integral of x*e^x dx (by parts) =",
+    "choices": [
+      "A. x*e^x - e^x + C",
+      "B. e^x(x-1) + C"
+    ],
+    "correct": 1,
+    "explanation": "Integration by parts with u=x, dv=e^x dx: x*e^x - integral(e^x dx) = x*e^x - e^x + C = e^x(x-1)+C.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ integration by parts และ simplify ผลลัพธ์"
+  },
+  {
+    "id": 36,
+    "question": "d/dx [x^2 / (x+1)] at x=0 =",
+    "choices": [
+      "A. -1",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "Quotient rule: [(2x)(x+1) - x^2(1)]/(x+1)^2 = (x^2+2x)/(x+1)^2. At x=0: 0/1 = 0.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ quotient rule แล้ว evaluate ที่จุดที่กำหนด"
+  },
+  {
+    "id": 37,
+    "question": "lim(x->0+) ln(x) =",
+    "choices": [
+      "A. 0",
+      "B. -infinity"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->0+) ln(x) = -infinity. The natural log approaches negative infinity as x approaches 0 from the right.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "พฤติกรรมของ ln(x) ที่ขอบของโดเมน"
+  },
+  {
+    "id": 38,
+    "question": "integral of x^(-3) dx =",
+    "choices": [
+      "A. -x^(-2)/2+C",
+      "B. -1/(2x^2)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral x^(-3) dx = x^(-2)/(-2) + C = -1/(2x^2) + C by power rule.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Power rule กับ exponent ลบ ต้องระวังเครื่องหมาย"
+  },
+  {
+    "id": 39,
+    "question": "d/dx [cos^2(x)] =",
+    "choices": [
+      "A. 2cos(x)",
+      "B. -2cos(x)sin(x)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[cos^2(x)] = 2cos(x)*(-sin(x)) = -2cos(x)sin(x) = -sin(2x).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ trig function ยกกำลัง ต้องระวังเครื่องหมาย"
+  },
+  {
+    "id": 40,
+    "question": "lim(x->inf) (x^3 - x)/(2x^3 + 1) =",
+    "choices": [
+      "A. 0",
+      "B. 1/2"
+    ],
+    "correct": 1,
+    "explanation": "Same degree polynomials: ratio of leading coefficients = 1/2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Limit ที่ infinity ดู leading coefficient"
+  },
+  {
+    "id": 41,
+    "question": "integral from 1 to e of (1/x) dx =",
+    "choices": [
+      "A. e",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "[ln|x|] from 1 to e = ln(e) - ln(1) = 1 - 0 = 1.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "FTC กับ integral ของ 1/x ต้องรู้ ln(e)=1, ln(1)=0"
+  },
+  {
+    "id": 42,
+    "question": "d/dx [a^x] (a > 0, a != 1) =",
+    "choices": [
+      "A. x*a^(x-1)",
+      "B. a^x * ln(a)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[a^x] = a^x * ln(a). When a = e, ln(e) = 1 so d/dx[e^x] = e^x.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "General exponential derivative ที่มักลืม ln(a)"
+  },
+  {
+    "id": 43,
+    "question": "The FTC states integral(a,b) f(x)dx =",
+    "choices": [
+      "A. f(b)+f(a)",
+      "B. F(b)-F(a)"
+    ],
+    "correct": 1,
+    "explanation": "FTC Part 2: integral(a,b) f(x)dx = F(b) - F(a) where F is any antiderivative of f.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร FTC Part 2 พื้นฐาน"
+  },
+  {
+    "id": 44,
+    "question": "d/dx [integral from a to x of f(t) dt] =",
+    "choices": [
+      "A. f(a)",
+      "B. f(x)"
+    ],
+    "correct": 1,
+    "explanation": "FTC Part 1: d/dx[integral(a,x) f(t) dt] = f(x). Differentiation and integration are inverses.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "FTC Part 1 ที่นักศึกษาต้องแยกจาก Part 2"
+  },
+  {
+    "id": 45,
+    "question": "integral of 2x dx =",
+    "choices": [
+      "A. x + C",
+      "B. x^2 + C"
+    ],
+    "correct": 1,
+    "explanation": "integral 2x dx = x^2 + C by power rule: 2 * x^2/2 = x^2.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power rule integration อย่างง่าย"
+  },
+  {
+    "id": 46,
+    "question": "d^2/dx^2 [sin(x)] =",
+    "choices": [
+      "A. cos(x)",
+      "B. -sin(x)"
+    ],
+    "correct": 1,
+    "explanation": "Second derivative: d/dx[cos(x)] = -sin(x). So d^2/dx^2[sin(x)] = -sin(x).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้อง differentiate สองรอบ และจำเครื่องหมาย"
+  },
+  {
+    "id": 47,
+    "question": "lim(x->0) tan(x)/x =",
+    "choices": [
+      "A. 0",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->0) tan(x)/x = 1. Since tan(x) ~ x near 0, or by L'Hopital: sec^2(0)/1 = 1.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ลิมิตที่ต้องรู้จักหรือใช้ L'Hopital"
+  },
+  {
+    "id": 48,
+    "question": "integral of x*sin(x) dx (by parts) =",
+    "choices": [
+      "A. x*cos(x)+sin(x)+C",
+      "B. -x*cos(x)+sin(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "By parts, u=x, dv=sin(x)dx: -x*cos(x) + integral(cos(x)dx) = -x*cos(x) + sin(x) + C.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Integration by parts กับ trig ต้องระวังเครื่องหมาย"
+  },
+  {
+    "id": 49,
+    "question": "d/dx [x^x] =",
+    "choices": [
+      "A. x^(x-1)",
+      "B. x^x*(1+ln(x))"
+    ],
+    "correct": 1,
+    "explanation": "Logarithmic differentiation: y=x^x, ln(y)=x*ln(x), y'/y = ln(x)+1, so y' = x^x*(ln(x)+1).",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ logarithmic differentiation ไม่ใช่ power rule"
+  },
+  {
+    "id": 50,
+    "question": "integral of 1/(1+x^2) dx =",
+    "choices": [
+      "A. ln(1+x^2)+C",
+      "B. arctan(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral of 1/(1+x^2) dx = arctan(x) + C. Standard antiderivative for inverse trig.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร integral ที่นำไปสู่ arctan"
+  },
+  {
+    "id": 51,
+    "question": "d/dx [sec(x)] =",
+    "choices": [
+      "A. tan^2(x)",
+      "B. sec(x)tan(x)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[sec(x)] = sec(x)tan(x). Derived from d/dx[1/cos(x)].",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร trig derivative ที่น้อยคนจำได้"
+  },
+  {
+    "id": 52,
+    "question": "lim(x->0) (1-cos x)/x^2 =",
+    "choices": [
+      "A. 0",
+      "B. 1/2"
+    ],
+    "correct": 1,
+    "explanation": "lim (1-cos x)/x^2 = 1/2. By L'Hopital twice or using cos x ~ 1 - x^2/2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ L'Hopital สองรอบหรือ Taylor expansion"
+  },
+  {
+    "id": 53,
+    "question": "integral from 0 to 1 of e^x dx =",
+    "choices": [
+      "A. e",
+      "B. e-1"
+    ],
+    "correct": 1,
+    "explanation": "[e^x] from 0 to 1 = e^1 - e^0 = e - 1.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "FTC กับ e^x อย่างง่าย"
+  },
+  {
+    "id": 54,
+    "question": "dy/dx for y^2 + x^2 = 25 (implicit) =",
+    "choices": [
+      "A. x/y",
+      "B. -x/y"
+    ],
+    "correct": 1,
+    "explanation": "Implicit diff: 2y(dy/dx) + 2x = 0, so dy/dx = -2x/(2y) = -x/y.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Implicit differentiation พื้นฐานกับวงกลม"
+  },
+  {
+    "id": 55,
+    "question": "d/dx [log_a(x)] (a>0, a!=1) =",
+    "choices": [
+      "A. ln(a)/x",
+      "B. 1/(x*ln(a))"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[log_a(x)] = 1/(x*ln(a)). From log_a(x) = ln(x)/ln(a).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "General logarithm derivative ที่นักศึกษามักลืม ln(a) ในตัวส่วน"
+  },
+  {
+    "id": 56,
+    "question": "integral of e^(2x) dx =",
+    "choices": [
+      "A. e^(2x) + C",
+      "B. e^(2x)/2 + C"
+    ],
+    "correct": 1,
+    "explanation": "u-substitution u=2x: integral e^u * (1/2) du = e^(2x)/2 + C.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "u-substitution อย่างง่าย กับ e^(kx)"
+  },
+  {
+    "id": 57,
+    "question": "d/dx [cot(x)] =",
+    "choices": [
+      "A. csc^2(x)",
+      "B. -csc^2(x)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[cot(x)] = -csc^2(x). From d/dx[cos(x)/sin(x)] via quotient rule.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร derivative ของ cot ที่ต้องระวังเครื่องหมายลบ"
+  },
+  {
+    "id": 58,
+    "question": "lim(x->inf) ln(x)/x =",
+    "choices": [
+      "A. 1",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->inf) ln(x)/x = 0. L'Hopital: (1/x)/1 = 1/x -> 0. Polynomial beats log.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า x โตเร็วกว่า ln(x)"
+  },
+  {
+    "id": 59,
+    "question": "integral of 1/sqrt(1-x^2) dx =",
+    "choices": [
+      "A. arctan(x)+C",
+      "B. arcsin(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral of 1/sqrt(1-x^2) dx = arcsin(x) + C. Standard inverse trig antiderivative.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร integral ที่นำไปสู่ arcsin"
+  },
+  {
+    "id": 60,
+    "question": "d/dx [e^(sin x)] =",
+    "choices": [
+      "A. e^(sin x)",
+      "B. e^(sin x)*cos(x)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[e^(sin x)] = e^(sin x) * cos(x).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ e^(f(x)) ต้องคูณ f'(x)"
+  },
+  {
+    "id": 61,
+    "question": "average value of f on [a,b] =",
+    "choices": [
+      "A. f((a+b)/2)",
+      "B. 1/(b-a)*integral(a,b)f(x)dx"
+    ],
+    "correct": 1,
+    "explanation": "Average value = (1/(b-a)) * integral(a,b) f(x) dx. The continuous analog of the average.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร average value ที่ต้องจำ"
+  },
+  {
+    "id": 62,
+    "question": "d/dx [ln|x|] =",
+    "choices": [
+      "A. 1/|x|",
+      "B. 1/x"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[ln|x|] = 1/x for x != 0. This is why integral(1/x)dx = ln|x|+C (covers x<0 too).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า d/dx[ln|x|] = 1/x ครอบคลุม x < 0 ด้วย"
+  },
+  {
+    "id": 63,
+    "question": "integral of cos(2x) dx =",
+    "choices": [
+      "A. sin(2x)+C",
+      "B. sin(2x)/2+C"
+    ],
+    "correct": 1,
+    "explanation": "u=2x, du=2dx: (1/2)*integral cos(u)du = sin(u)/2 + C = sin(2x)/2 + C.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "u-substitution กับ cos(kx) ต้องหาร k"
+  },
+  {
+    "id": 64,
+    "question": "d/dx [x^2 + sin(x)] at x = pi =",
+    "choices": [
+      "A. 2pi",
+      "B. 2pi-1"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[x^2 + sin(x)] = 2x + cos(x). At x=pi: 2pi + cos(pi) = 2pi - 1.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้อง differentiate แล้ว evaluate และรู้ cos(pi)=-1"
+  },
+  {
+    "id": 65,
+    "question": "lim(x->0) (sin(3x))/(sin(5x)) =",
+    "choices": [
+      "A. 5/3",
+      "B. 3/5"
+    ],
+    "correct": 1,
+    "explanation": "Using lim sin(kx)/kx = 1: (sin3x/3x)*(5x/sin5x)*(3/5) -> 1*1*(3/5) = 3/5.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ standard limit sin(kx)/kx = 1 อย่างชำนาญ"
+  },
+  {
+    "id": 66,
+    "question": "integral of x/(x^2+1) dx =",
+    "choices": [
+      "A. arctan(x)+C",
+      "B. ln(x^2+1)/2+C"
+    ],
+    "correct": 1,
+    "explanation": "u = x^2+1, du = 2x dx: (1/2)*integral du/u = ln|u|/2 + C = ln(x^2+1)/2 + C.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "u-substitution ที่นักศึกษามักสับสนกับ arctan"
+  },
+  {
+    "id": 67,
+    "question": "second derivative test: if f'(c)=0 and f''(c)>0 then x=c is a",
+    "choices": [
+      "A. inflection point",
+      "B. local min"
+    ],
+    "correct": 1,
+    "explanation": "If f'(c)=0 and f''(c)>0, the function is concave up at c, so c is a local minimum.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Second derivative test ที่ต้องรู้ทิศทางของ concavity"
+  },
+  {
+    "id": 68,
+    "question": "d/dx [e^(-x^2)] =",
+    "choices": [
+      "A. 2x*e^(-x^2)",
+      "B. -2x*e^(-x^2)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[e^(-x^2)] = e^(-x^2) * (-2x) = -2x*e^(-x^2).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ e^(f(x)) ที่ f(x) = -x^2"
+  },
+  {
+    "id": 69,
+    "question": "integral from 0 to 2 of x^3 dx =",
+    "choices": [
+      "A. 8",
+      "B. 4"
+    ],
+    "correct": 1,
+    "explanation": "[x^4/4] from 0 to 2 = 16/4 - 0 = 4.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Power rule integration และ FTC evaluation"
+  },
+  {
+    "id": 70,
+    "question": "lim(x->inf) (2x^2+3x)/(x^2-1) =",
+    "choices": [
+      "A. 3",
+      "B. 2"
+    ],
+    "correct": 1,
+    "explanation": "Leading coefficients: 2/1 = 2. Same degree means limit equals ratio of leading terms.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Limit ที่ infinity ดู leading coefficient"
+  },
+  {
+    "id": 71,
+    "question": "d/dx [sqrt(x^2+1)] =",
+    "choices": [
+      "A. 1/sqrt(x^2+1)",
+      "B. x/sqrt(x^2+1)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule on (x^2+1)^(1/2): (1/2)(x^2+1)^(-1/2)*2x = x/sqrt(x^2+1).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ sqrt ต้องจำ (1/2) factor"
+  },
+  {
+    "id": 72,
+    "question": "MVT guarantees: f'(c) = [f(b)-f(a)]/(b-a) where c is in",
+    "choices": [
+      "A. [a,b]",
+      "B. (a,b)"
+    ],
+    "correct": 1,
+    "explanation": "MVT guarantees existence of c in the OPEN interval (a,b), not at the endpoints.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า c อยู่ใน open interval (a,b) ไม่ใช่ closed"
+  },
+  {
+    "id": 73,
+    "question": "integral of tan(x) dx =",
+    "choices": [
+      "A. sec^2(x)+C",
+      "B. -ln|cos x|+C"
+    ],
+    "correct": 1,
+    "explanation": "integral tan(x) dx = integral sin(x)/cos(x) dx. u=cos(x): -integral du/u = -ln|cos x|+C.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องใช้ u-substitution กับ tan(x) อย่างระมัดระวัง"
+  },
+  {
+    "id": 74,
+    "question": "d/dx [x*ln(x)] =",
+    "choices": [
+      "A. ln(x)",
+      "B. 1+ln(x)"
+    ],
+    "correct": 1,
+    "explanation": "Product rule: d/dx[x*ln x] = 1*ln(x) + x*(1/x) = ln(x) + 1.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product rule กับ x และ ln(x)"
+  },
+  {
+    "id": 75,
+    "question": "integral(a,b) f(x)dx + integral(b,c) f(x)dx =",
+    "choices": [
+      "A. 0",
+      "B. integral(a,c)f(x)dx"
+    ],
+    "correct": 1,
+    "explanation": "Additivity: integral(a,b) + integral(b,c) = integral(a,c). Standard property of definite integrals.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สมบัติ additive ของ definite integral"
+  },
+  {
+    "id": 76,
+    "question": "d/dx [sin(x)/x] at x = pi/2 =",
+    "choices": [
+      "A. 2/pi^2",
+      "B. -2/pi^2"
+    ],
+    "correct": 1,
+    "explanation": "Quotient rule: [x*cos(x)-sin(x)]/x^2. At x=pi/2: [(pi/2)*0 - 1]/(pi/2)^2 = -1/(pi^2/4) = -4/pi^2.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Quotient rule แล้ว evaluate ที่ x=pi/2 ต้องรู้ค่า trig"
+  },
+  {
+    "id": 77,
+    "question": "integral of x^(1/2) dx =",
+    "choices": [
+      "A. 2x^(1/2)+C",
+      "B. 2x^(3/2)/3+C"
+    ],
+    "correct": 1,
+    "explanation": "Power rule: integral x^(1/2) dx = x^(3/2) / (3/2) + C = 2x^(3/2)/3 + C.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Power rule กับ fractional exponent ต้องหารด้วย (3/2)"
+  },
+  {
+    "id": 78,
+    "question": "lim(x->0+) x^x =",
+    "choices": [
+      "A. 0",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "lim(x->0+) x^x = 1. Let y=x^x, ln(y)=x*ln(x)->0, so y->e^0 = 1.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Indeterminate form 0^0 ที่ต้องใช้ logarithm technique"
+  },
+  {
+    "id": 79,
+    "question": "d/dx [f(g(x))] where f(u)=u^3, g(x)=2x+1 =",
+    "choices": [
+      "A. 3(2x+1)^3",
+      "B. 6(2x+1)^2"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: f'(g(x))*g'(x) = 3(2x+1)^2 * 2 = 6(2x+1)^2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ polynomial ต้องจำคูณ g'(x)"
+  },
+  {
+    "id": 80,
+    "question": "integral of x^2 * e^x dx (by parts twice) gives =",
+    "choices": [
+      "A. x^2*e^x+C",
+      "B. e^x(x^2-2x+2)+C"
+    ],
+    "correct": 1,
+    "explanation": "By parts twice: e^x*x^2 - 2x*e^x + 2e^x + C = e^x(x^2-2x+2)+C.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Integration by parts สองรอบ ต้องระวังเครื่องหมาย"
+  },
+  {
+    "id": 81,
+    "question": "d/dx [sin^(-1)(x) + cos^(-1)(x)] =",
+    "choices": [
+      "A. 2/sqrt(1-x^2)",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "arcsin(x)+arccos(x) = pi/2 (constant), so its derivative is 0. Or: 1/sqrt(1-x^2) - 1/sqrt(1-x^2) = 0.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ identity arcsin + arccos = pi/2 หรือ differentiate ทั้งสองสูตร"
+  },
+  {
+    "id": 82,
+    "question": "integral of 1/(x^2-1) dx using partial fractions =",
+    "choices": [
+      "A. ln|x+1|-ln|x-1|+C",
+      "B. (1/2)ln|(x-1)/(x+1)|+C"
+    ],
+    "correct": 1,
+    "explanation": "1/(x^2-1) = 1/((x-1)(x+1)) = (1/2)[1/(x-1) - 1/(x+1)]. Integral = (1/2)[ln|x-1|-ln|x+1|] + C.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Partial fraction decomposition ก่อน integrate"
+  },
+  {
+    "id": 83,
+    "question": "dy/dx for x = t^2, y = t^3 is =",
+    "choices": [
+      "A. 2t/3",
+      "B. 3t/2"
+    ],
+    "correct": 1,
+    "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t^2/(2t) = 3t/2.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Parametric derivative formula dy/dx = (dy/dt)/(dx/dt)"
+  },
+  {
+    "id": 84,
+    "question": "lim(x->inf) (1 + 2/x)^x =",
+    "choices": [
+      "A. 1",
+      "B. e^2"
+    ],
+    "correct": 1,
+    "explanation": "lim(1+2/x)^x = lim[(1+2/x)^(x/2)]^2 = e^2. Using lim(1+k/x)^x = e^k.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ generalization ของ lim(1+k/x)^x = e^k"
+  },
+  {
+    "id": 85,
+    "question": "integral of x/(x+1) dx =",
+    "choices": [
+      "A. ln|x+1|+C",
+      "B. x-ln|x+1|+C"
+    ],
+    "correct": 1,
+    "explanation": "Write x/(x+1) = 1 - 1/(x+1). integral = x - ln|x+1| + C.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องจัดรูป rational function ก่อน integrate"
+  },
+  {
+    "id": 86,
+    "question": "d/dx [csc(x)] =",
+    "choices": [
+      "A. csc(x)cot(x)",
+      "B. -csc(x)cot(x)"
+    ],
+    "correct": 1,
+    "explanation": "d/dx[csc x] = -csc(x)cot(x). From d/dx[1/sin(x)] via quotient rule.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "สูตร derivative ของ csc ที่มักลืมเครื่องหมายลบ"
+  },
+  {
+    "id": 87,
+    "question": "net displacement = integral(a,b) v(t) dt, total distance =",
+    "choices": [
+      "A. integral(a,b) v(t)^2 dt",
+      "B. integral(a,b)|v(t)|dt"
+    ],
+    "correct": 1,
+    "explanation": "Total distance = integral(a,b)|v(t)|dt (absolute velocity), while net displacement uses v(t) with sign.",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยกแยะ net displacement กับ total distance"
+  },
+  {
+    "id": 88,
+    "question": "d/dx [x^2 * ln(x)] =",
+    "choices": [
+      "A. 2x*ln(x)",
+      "B. x*(1+2*ln(x))"
+    ],
+    "correct": 1,
+    "explanation": "Product rule: 2x*ln(x) + x^2*(1/x) = 2x*ln(x) + x = x(2ln(x)+1) = x*(1+2ln(x)).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product rule กับ x^2 และ ln(x) ต้อง simplify"
+  },
+  {
+    "id": 89,
+    "question": "integral of x*cos(x) dx =",
+    "choices": [
+      "A. -x*cos(x)+sin(x)+C",
+      "B. x*sin(x)+cos(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "By parts u=x, dv=cos(x)dx: x*sin(x) - integral(sin x dx) = x*sin(x)+cos(x)+C.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Integration by parts ที่ต้องระวังเครื่องหมาย"
+  },
+  {
+    "id": 90,
+    "question": "lim(x->0) (e^x - 1 - x)/x^2 =",
+    "choices": [
+      "A. 0",
+      "B. 1/2"
+    ],
+    "correct": 1,
+    "explanation": "By L'Hopital twice or Taylor: (e^x ~ 1+x+x^2/2+...) so (e^x-1-x)/x^2 ~ (x^2/2)/x^2 = 1/2.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ Taylor expansion หรือ L'Hopital สองรอบ"
+  },
+  {
+    "id": 91,
+    "question": "integral of x^n dx (n != -1) =",
+    "choices": [
+      "A. n*x^(n-1)+C",
+      "B. x^(n+1)/(n+1)+C"
+    ],
+    "correct": 1,
+    "explanation": "Power rule for integration: integral x^n dx = x^(n+1)/(n+1) + C, provided n != -1.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "Power rule integration สูตรทั่วไป"
+  },
+  {
+    "id": 92,
+    "question": "d/dx [ln(x^3 + 1)] =",
+    "choices": [
+      "A. 1/(x^3+1)",
+      "B. 3x^2/(x^3+1)"
+    ],
+    "correct": 1,
+    "explanation": "Chain rule: d/dx[ln(x^3+1)] = 1/(x^3+1) * 3x^2 = 3x^2/(x^3+1).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Chain rule กับ ln(f(x))"
+  },
+  {
+    "id": 93,
+    "question": "integral from 0 to pi/2 of cos(x) dx =",
+    "choices": [
+      "A. 0",
+      "B. 1"
+    ],
+    "correct": 1,
+    "explanation": "[sin(x)] from 0 to pi/2 = sin(pi/2) - sin(0) = 1 - 0 = 1.",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "FTC กับ cos(x) และ boundary ที่ต้องรู้ค่า sin"
+  },
+  {
+    "id": 94,
+    "question": "lim(x->0) (x^2*sin(1/x)) =",
+    "choices": [
+      "A. 1",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "Squeeze: -x^2 <= x^2*sin(1/x) <= x^2, and both bounds -> 0, so limit = 0.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ Squeeze theorem ไม่ใช่ direct substitution"
+  },
+  {
+    "id": 95,
+    "question": "d/dx [e^x * cos(x)] =",
+    "choices": [
+      "A. e^x*cos(x)-e^x*sin(x)",
+      "B. e^x*(cos x - sin x)"
+    ],
+    "correct": 1,
+    "explanation": "Product rule: e^x*cos(x) + e^x*(-sin(x)) = e^x(cos x - sin x).",
+    "difficulty": 2,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "Product rule กับ e^x และ cos(x)"
+  },
+  {
+    "id": 96,
+    "question": "integral of sec(x)tan(x) dx =",
+    "choices": [
+      "A. tan^2(x)/2+C",
+      "B. sec(x)+C"
+    ],
+    "correct": 1,
+    "explanation": "integral sec(x)tan(x) dx = sec(x) + C, since d/dx[sec(x)] = sec(x)tan(x).",
+    "difficulty": 1,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "สูตร integral ของ sec(x)tan(x) ที่ต้องจำ"
+  },
+  {
+    "id": 97,
+    "question": "For parametric curve, d^2y/dx^2 =",
+    "choices": [
+      "A. y''(t)/x''(t)",
+      "B. d/dt(dy/dx)/x'(t)"
+    ],
+    "correct": 1,
+    "explanation": "d^2y/dx^2 = d/dx(dy/dx) = [d/dt(dy/dx)] / (dx/dt). NOT simply y''(t)/x''(t).",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "สูตร second derivative ของ parametric curve ที่นักศึกษามักเข้าใจผิด"
+  },
+  {
+    "id": 98,
+    "question": "lim(x->0) (3^x - 1)/x =",
+    "choices": [
+      "A. 1",
+      "B. ln(3)"
+    ],
+    "correct": 1,
+    "explanation": "By L'Hopital or by definition: lim(x->0)(a^x-1)/x = ln(a). Here a=3, so answer = ln(3).",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องรู้ generalization ของ lim(a^x-1)/x = ln(a)"
+  },
+  {
+    "id": 99,
+    "question": "integral from 0 to 1 of 1/sqrt(x) dx =",
+    "choices": [
+      "A. diverges",
+      "B. 2"
+    ],
+    "correct": 1,
+    "explanation": "integral x^(-1/2) dx = 2x^(1/2). [2sqrt(x)] from 0 to 1 = 2-0 = 2. (Improper but converges.)",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "Improper integral ที่ขอบเขตล่างเป็น discontinuity ต้องรู้ว่า converge"
+  },
+  {
+    "id": 100,
+    "question": "d/dx [x^2 * e^x * sin(x)] at x=0 =",
+    "choices": [
+      "A. 2",
+      "B. 0"
+    ],
+    "correct": 1,
+    "explanation": "Product rule yields terms all with factor x^2 or involving sin(0)=0 or e^0=1, evaluated at 0. Full derivative has x^2 in every term, so at x=0 the result is 0.",
+    "difficulty": 3,
+    "game_type": "flappy",
+    "source_doc": "Calculus_1_Midterm_สำเนา_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ต้องใช้ product rule สามฟังก์ชันและ evaluate ที่ x=0 อย่างระมัดระวัง"
+  }
+]

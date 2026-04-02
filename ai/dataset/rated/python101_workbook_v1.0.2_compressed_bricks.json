@@ -1,0 +1,1702 @@
+[
+  {
+    "id": 1,
+    "question": "What is the definition of an 'int' in Python?",
+    "choices": [
+      "A) A sequence of characters enclosed in quotes",
+      "B) A whole number with no decimal point, e.g. -3, 0, 42",
+      "C) A number that can have a fractional part",
+      "D) A collection of key-value pairs"
+    ],
+    "correct": 1,
+    "explanation": "int คือชนิดข้อมูลที่เก็บจำนวนเต็ม ไม่มีทศนิยม เช่น -3, 0, 42",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ถามนิยามพื้นฐานของ int ตรงๆ"
+  },
+  {
+    "id": 2,
+    "question": "What does 'float' mean in Python?",
+    "choices": [
+      "A) A number that floats in memory with no fixed address",
+      "B) A whole number without a decimal point",
+      "C) A number that can have a decimal point, e.g. 3.14",
+      "D) A boolean value representing True or False"
+    ],
+    "correct": 2,
+    "explanation": "float คือชนิดข้อมูลที่เก็บจำนวนจริง มีทศนิยมได้ เช่น 3.14, -0.5, 2.0",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นิยาม float เป็นความรู้พื้นฐาน"
+  },
+  {
+    "id": 3,
+    "question": "What is the definition of 'str' in Python?",
+    "choices": [
+      "A) A numeric type for large integers",
+      "B) An ordered sequence of characters, e.g. 'hello'",
+      "C) A mutable collection of unique elements",
+      "D) A fixed-size array of numbers"
+    ],
+    "correct": 1,
+    "explanation": "str คือชนิดข้อมูลสำหรับข้อความ เป็น sequence ของ characters เขียนในเครื่องหมายคำพูด เช่น 'hello'",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นิยาม str เป็นพื้นฐาน"
+  },
+  {
+    "id": 4,
+    "question": "Which Python term refers to a value that is either True or False?",
+    "choices": [
+      "A) int",
+      "B) float",
+      "C) str",
+      "D) bool"
+    ],
+    "correct": 3,
+    "explanation": "bool คือชนิดข้อมูล boolean ซึ่งมีค่าได้เพียง True หรือ False ใช้ในการตรวจสอบเงื่อนไข",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "ถามนิยาม bool ตรงๆ"
+  },
+  {
+    "id": 5,
+    "question": "What is the definition of a 'list' in Python?",
+    "choices": [
+      "A) An immutable sequence of elements",
+      "B) An ordered, mutable collection of elements, e.g. [1, 2, 3]",
+      "C) A mapping from keys to values",
+      "D) A set of unique elements with no order"
+    ],
+    "correct": 1,
+    "explanation": "list คือ collection ที่เรียงลำดับ (ordered) และแก้ไขได้ (mutable) เขียนในวงเล็บเหลี่ยม เช่น [1, 2, 3]",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นิยาม list เป็นพื้นฐาน"
+  },
+  {
+    "id": 6,
+    "question": "What does 'dict' mean in Python?",
+    "choices": [
+      "A) A dictionary file format for storing text",
+      "B) An ordered sequence of characters",
+      "C) A collection of key-value pairs, e.g. {'a': 1}",
+      "D) A mutable list with only numeric values"
+    ],
+    "correct": 2,
+    "explanation": "dict คือ data structure ที่เก็บข้อมูลในรูปแบบ key-value pairs เขียนในวงเล็บปีกกา เช่น {'name': 'Alice', 'age': 20}",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นิยาม dict เป็นพื้นฐาน"
+  },
+  {
+    "id": 7,
+    "question": "Which Python term refers to an unordered collection of unique elements?",
+    "choices": [
+      "A) list",
+      "B) tuple",
+      "C) set",
+      "D) dict"
+    ],
+    "correct": 2,
+    "explanation": "set คือ collection ที่ไม่มีลำดับ (unordered) และไม่มีสมาชิกซ้ำ (unique elements) เขียนในวงเล็บปีกกา เช่น {1, 2, 3}",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "นิยาม set ตรงๆ"
+  },
+  {
+    "id": 8,
+    "question": "What is the definition of a 'tuple' in Python?",
+    "choices": [
+      "A) An ordered, immutable sequence of elements, e.g. (1, 2, 3)",
+      "B) A mutable list with fixed size",
+      "C) A set of unique ordered elements",
+      "D) A key-value mapping with integer keys"
+    ],
+    "correct": 0,
+    "explanation": "tuple คือ sequence ที่เรียงลำดับ (ordered) แต่ไม่สามารถแก้ไขได้ (immutable) เขียนในวงเล็บกลม เช่น (1, 2, 3)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม tuple เป็นพื้นฐาน"
+  },
+  {
+    "id": 9,
+    "question": "What does 'variable' mean in Python?",
+    "choices": [
+      "A) A fixed constant that cannot be changed",
+      "B) A named location in memory that stores a value",
+      "C) A keyword reserved by the Python language",
+      "D) A function that returns multiple values"
+    ],
+    "correct": 1,
+    "explanation": "variable คือชื่อที่อ้างอิงถึงค่า (value) ที่เก็บอยู่ใน memory ใน Python ไม่ต้องประกาศชนิดก่อน",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม variable เป็นพื้นฐาน"
+  },
+  {
+    "id": 10,
+    "question": "What is the definition of an 'expression' in Python?",
+    "choices": [
+      "A) A statement that only prints output",
+      "B) A combination of values, variables, and operators that produces a value",
+      "C) A block of code defined with 'def'",
+      "D) A comment that explains the code"
+    ],
+    "correct": 1,
+    "explanation": "expression คือการรวมกันของ values, variables, operators ที่ Python ประเมิน (evaluate) แล้วได้ค่าออกมา เช่น 2 + 3 หรือ x * y",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม expression เป็นพื้นฐาน"
+  },
+  {
+    "id": 11,
+    "question": "Which Python term refers to a symbol that performs an operation on values?",
+    "choices": [
+      "A) operand",
+      "B) operator",
+      "C) function",
+      "D) variable"
+    ],
+    "correct": 1,
+    "explanation": "operator คือสัญลักษณ์ที่ทำการคำนวณหรือเปรียบเทียบ เช่น +, -, *, /, ==, !=, and, or",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม operator ตรงๆ"
+  },
+  {
+    "id": 12,
+    "question": "What does the 'def' keyword mean in Python?",
+    "choices": [
+      "A) It deletes a variable from memory",
+      "B) It defines a new function with a name and body",
+      "C) It is short for default parameter value",
+      "D) It declares a class definition"
+    ],
+    "correct": 1,
+    "explanation": "def ใช้เพื่อ define (สร้าง) function ใหม่ ตามด้วยชื่อ function วงเล็บ parameters และ body ที่ indent",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม def keyword พื้นฐาน"
+  },
+  {
+    "id": 13,
+    "question": "What is the definition of 'return' in Python?",
+    "choices": [
+      "A) A statement that restarts the program",
+      "B) A keyword that sends a value back from a function to the caller",
+      "C) A loop control statement that exits the loop",
+      "D) A keyword that imports a module"
+    ],
+    "correct": 1,
+    "explanation": "return ใช้ใน function เพื่อส่งค่ากลับไปยังผู้เรียก ถ้าไม่มี return function จะคืนค่า None",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม return statement พื้นฐาน"
+  },
+  {
+    "id": 14,
+    "question": "What does 'break' mean in Python?",
+    "choices": [
+      "A) A keyword that skips the current iteration and continues to the next",
+      "B) A statement that immediately exits the current loop",
+      "C) A function that splits a string",
+      "D) A keyword that raises an exception"
+    ],
+    "correct": 1,
+    "explanation": "break ใช้ใน loop เพื่อออกจาก loop ทันที โดยไม่รอให้ loop ครบเงื่อนไข",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม break statement ตรงๆ"
+  },
+  {
+    "id": 15,
+    "question": "What is the definition of 'continue' in Python?",
+    "choices": [
+      "A) A keyword that exits the current loop entirely",
+      "B) A statement that skips the rest of the current iteration and goes to the next",
+      "C) A function that resumes a paused program",
+      "D) A keyword that imports the next module"
+    ],
+    "correct": 1,
+    "explanation": "continue ใช้ใน loop เพื่อข้ามส่วนที่เหลือของ iteration ปัจจุบันและไปยัง iteration ถัดไป",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม continue statement ตรงๆ"
+  },
+  {
+    "id": 16,
+    "question": "What does 'recursion' mean in Python programming?",
+    "choices": [
+      "A) A loop that runs a fixed number of times",
+      "B) A technique where a function calls itself to solve a problem",
+      "C) An error that occurs when memory is full",
+      "D) A method that returns the same value repeatedly"
+    ],
+    "correct": 1,
+    "explanation": "recursion คือเทคนิคที่ function เรียกตัวเองซ้ำ (self-call) เพื่อแก้ปัญหาขนาดเล็กลงเรื่อยๆ ต้องมี base case เพื่อหยุด",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม recursion ตรงๆ"
+  },
+  {
+    "id": 17,
+    "question": "What is the definition of 'scope' in Python?",
+    "choices": [
+      "A) The number of lines in a function",
+      "B) The region of code where a variable can be accessed",
+      "C) The memory size allocated to a program",
+      "D) The order in which functions are called"
+    ],
+    "correct": 1,
+    "explanation": "scope คือขอบเขตที่ตัวแปรสามารถเข้าถึงได้ ใน Python มี local scope (ภายใน function) และ global scope (นอก function)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม scope พื้นฐาน"
+  },
+  {
+    "id": 18,
+    "question": "Which Python term refers to a blueprint for creating objects?",
+    "choices": [
+      "A) function",
+      "B) module",
+      "C) class",
+      "D) decorator"
+    ],
+    "correct": 2,
+    "explanation": "class คือ blueprint หรือแม่แบบสำหรับสร้าง objects ที่มี attributes (ข้อมูล) และ methods (พฤติกรรม)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม class ตรงๆ"
+  },
+  {
+    "id": 19,
+    "question": "What does 'object' mean in Python's object-oriented programming?",
+    "choices": [
+      "A) A reference to a file on disk",
+      "B) An instance of a class with its own attributes and methods",
+      "C) A global variable accessible everywhere",
+      "D) A function with no return value"
+    ],
+    "correct": 1,
+    "explanation": "object คือ instance ที่สร้างจาก class มี attributes (ค่าข้อมูล) และ methods (function) ของตัวเอง",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม object ใน OOP พื้นฐาน"
+  },
+  {
+    "id": 20,
+    "question": "What does 'lambda' mean in Python?",
+    "choices": [
+      "A) A multi-line function defined with def",
+      "B) An anonymous function defined with a single expression",
+      "C) A keyword for importing libraries",
+      "D) A special loop for iterating over dictionaries"
+    ],
+    "correct": 1,
+    "explanation": "lambda คือ anonymous function ที่เขียนได้ในบรรทัดเดียว เช่น lambda x: x+1 มีข้อจำกัดว่าเป็นได้แค่ single expression",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม lambda function พื้นฐาน"
+  },
+  {
+    "id": 21,
+    "question": "What does 'for loop' mean in Python?",
+    "choices": [
+      "A) A loop that runs indefinitely until break is called",
+      "B) A loop that iterates over a sequence or iterable",
+      "C) A loop that checks a condition before each iteration",
+      "D) A function that repeats a task four times"
+    ],
+    "correct": 1,
+    "explanation": "for loop ใช้ iterate ผ่านทุก item ใน sequence หรือ iterable (list, str, range, ...) รูปแบบ: for item in iterable:",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม for loop พื้นฐาน"
+  },
+  {
+    "id": 22,
+    "question": "What is the definition of 'while loop' in Python?",
+    "choices": [
+      "A) A loop that iterates over a list a fixed number of times",
+      "B) A loop that repeats as long as a condition remains True",
+      "C) A loop that always runs exactly once",
+      "D) A loop that waits for user input before each iteration"
+    ],
+    "correct": 1,
+    "explanation": "while loop ทำงานซ้ำตราบเท่าที่เงื่อนไขเป็น True รูปแบบ: while condition: ต้องระวัง infinite loop ถ้าเงื่อนไขไม่เคยเป็น False",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม while loop พื้นฐาน"
+  },
+  {
+    "id": 23,
+    "question": "What does the 'if/elif/else' structure mean in Python?",
+    "choices": [
+      "A) A loop structure for repeated execution",
+      "B) A conditional structure that executes different blocks based on conditions",
+      "C) A method to define multiple return values",
+      "D) A syntax for creating nested functions"
+    ],
+    "correct": 1,
+    "explanation": "if/elif/else คือโครงสร้างเงื่อนไข: if ตรวจเงื่อนไขแรก, elif ตรวจเงื่อนไขเพิ่มเติม, else ทำงานเมื่อไม่มีเงื่อนไขข้างต้นเป็นจริง",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม if/elif/else พื้นฐาน"
+  },
+  {
+    "id": 24,
+    "question": "What is the definition of a 'method' in Python OOP?",
+    "choices": [
+      "A) A standalone function defined outside a class",
+      "B) A function defined inside a class that operates on its objects",
+      "C) A variable that holds a reference to a class",
+      "D) A keyword used to import external code"
+    ],
+    "correct": 1,
+    "explanation": "method คือ function ที่อยู่ภายใน class ทำงานกับ object ของ class นั้น มักรับ self เป็น parameter แรก",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม method ใน OOP พื้นฐาน"
+  },
+  {
+    "id": 25,
+    "question": "What does 'inheritance' mean in Python?",
+    "choices": [
+      "A) Copying a variable value from one scope to another",
+      "B) A mechanism where a child class acquires attributes and methods from a parent class",
+      "C) Passing arguments by reference to a function",
+      "D) Importing functions from another module"
+    ],
+    "correct": 1,
+    "explanation": "inheritance คือกลไกใน OOP ที่ให้ child class สืบทอด attributes และ methods จาก parent class เพื่อ reuse code",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม inheritance ตรงๆ"
+  },
+  {
+    "id": 26,
+    "question": "What does 'append()' do on a Python list?",
+    "choices": [
+      "A) Adds all items from another list to the end",
+      "B) Adds a single element to the end of the list in-place",
+      "C) Returns a new list with the element added at the front",
+      "D) Inserts an element at a specified index"
+    ],
+    "correct": 1,
+    "explanation": "append(x) เพิ่ม element x ต่อท้าย list in-place (แก้ไข list จริงๆ ไม่คืน list ใหม่) ต่างจาก extend() ที่เพิ่มทีละหลายตัว",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม append() method พื้นฐาน"
+  },
+  {
+    "id": 27,
+    "question": "What does 'len()' return when called on a Python list or string?",
+    "choices": [
+      "A) The largest value in the collection",
+      "B) The number of elements in the collection",
+      "C) The memory size in bytes",
+      "D) The index of the last element"
+    ],
+    "correct": 1,
+    "explanation": "len() คืนจำนวน elements (ความยาว) ของ sequence เช่น len([1,2,3]) = 3, len('hello') = 5",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม len() function พื้นฐาน"
+  },
+  {
+    "id": 28,
+    "question": "What does file open mode 'r' mean in Python?",
+    "choices": [
+      "A) Open for writing, creating the file if it does not exist",
+      "B) Open for reading; error if the file does not exist",
+      "C) Open for appending at the end of the file",
+      "D) Open for reading and writing simultaneously"
+    ],
+    "correct": 1,
+    "explanation": "mode 'r' (read) เปิดไฟล์เพื่ออ่านอย่างเดียว ถ้าไฟล์ไม่มี จะ raise FileNotFoundError",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม file mode 'r' ตรงๆ"
+  },
+  {
+    "id": 29,
+    "question": "What does file open mode 'w' mean in Python?",
+    "choices": [
+      "A) Open for reading only",
+      "B) Open for writing; creates file if not exist, truncates if it exists",
+      "C) Open for appending to the existing content",
+      "D) Open the file in binary write mode only"
+    ],
+    "correct": 1,
+    "explanation": "mode 'w' (write) เปิดไฟล์เพื่อเขียน ถ้าไฟล์มีอยู่แล้วจะลบเนื้อหาเดิม (truncate) ถ้ายังไม่มีจะสร้างใหม่",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม file mode 'w' พื้นฐาน"
+  },
+  {
+    "id": 30,
+    "question": "What does file open mode 'a' mean in Python?",
+    "choices": [
+      "A) Open for reading and writing from the beginning",
+      "B) Open for appending; writes go to the end without erasing existing content",
+      "C) Open a file archived in .zip format",
+      "D) Open for writing only if the file is empty"
+    ],
+    "correct": 1,
+    "explanation": "mode 'a' (append) เปิดไฟล์เพื่อเขียนต่อท้ายเนื้อหาเดิม ไม่ลบข้อมูลเก่า ถ้าไฟล์ยังไม่มีจะสร้างใหม่",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม file mode 'a' ตรงๆ"
+  },
+  {
+    "id": 31,
+    "question": "What does the str method 'upper()' do in Python?",
+    "choices": [
+      "A) Returns the length of the string",
+      "B) Removes whitespace from both ends of the string",
+      "C) Returns a copy of the string with all characters converted to uppercase",
+      "D) Converts the string to a list of words"
+    ],
+    "correct": 2,
+    "explanation": "upper() คือ string method ที่คืน string ใหม่ที่ตัวอักษรทุกตัวเป็นตัวพิมพ์ใหญ่ ไม่แก้ไข original string",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม upper() method ตรงๆ"
+  },
+  {
+    "id": 32,
+    "question": "What does 'split()' do when called on a string in Python?",
+    "choices": [
+      "A) Reverses the characters in the string",
+      "B) Splits the string into a list of substrings based on a delimiter",
+      "C) Removes a specific character from the string",
+      "D) Counts occurrences of a substring"
+    ],
+    "correct": 1,
+    "explanation": "split() แบ่ง string เป็น list ของ substrings โดย default แบ่งที่ whitespace เช่น 'a b c'.split() ได้ ['a', 'b', 'c']",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม split() method พื้นฐาน"
+  },
+  {
+    "id": 33,
+    "question": "What does the str method 'strip()' do in Python?",
+    "choices": [
+      "A) Removes all spaces within the string",
+      "B) Removes leading and trailing whitespace from a string",
+      "C) Splits the string at whitespace",
+      "D) Converts the string to a list of characters"
+    ],
+    "correct": 1,
+    "explanation": "strip() ลบ whitespace (ช่องว่าง, tab, newline) ที่อยู่ต้นและท้ายของ string ใช้บ่อยเมื่ออ่านข้อมูลจาก user input",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม strip() method ตรงๆ"
+  },
+  {
+    "id": 34,
+    "question": "What does the modulo operator '%' return in Python?",
+    "choices": [
+      "A) The result of integer division",
+      "B) The remainder after dividing the left operand by the right",
+      "C) A percentage formatted as a string",
+      "D) The absolute difference between two numbers"
+    ],
+    "correct": 1,
+    "explanation": "% คืนเศษที่เหลือหลังหาร เช่น 7 % 3 = 1, 10 % 2 = 0 ใช้บ่อยในการตรวจสอบว่าเป็นเลขคู่หรือเลขคี่",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม modulo operator ตรงๆ"
+  },
+  {
+    "id": 35,
+    "question": "What does the '==' operator mean in Python?",
+    "choices": [
+      "A) Assigns a value to a variable",
+      "B) Checks whether two values are equal, returning True or False",
+      "C) Checks whether two variables point to the same object in memory",
+      "D) Compares the data types of two values"
+    ],
+    "correct": 1,
+    "explanation": "== คือ equality operator ตรวจสอบว่าค่าสองค่าเท่ากันหรือไม่ คืน bool ต่างจาก = ที่ใช้ assign ค่า และ is ที่ตรวจ identity",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม == operator พื้นฐาน"
+  },
+  {
+    "id": 36,
+    "question": "What does 'pass' keyword mean in Python?",
+    "choices": [
+      "A) Passes a value from one function to another",
+      "B) A null statement that does nothing; used as a placeholder in empty blocks",
+      "C) Skips the current iteration of a loop",
+      "D) Passes arguments by reference to a function"
+    ],
+    "correct": 1,
+    "explanation": "pass เป็น null operation ไม่ทำอะไร ใช้เป็น placeholder ในที่ที่ syntax ต้องการ statement แต่ยังไม่มี code เช่น empty function หรือ empty class",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม pass keyword ตรงๆ"
+  },
+  {
+    "id": 37,
+    "question": "What does 'import' do in Python?",
+    "choices": [
+      "A) Moves a file from one directory to another",
+      "B) Loads a module or library into the current program so its code can be used",
+      "C) Creates a copy of a variable in a new scope",
+      "D) Reads a value from another Python file directly"
+    ],
+    "correct": 1,
+    "explanation": "import ใช้โหลด module หรือ library เข้ามาใช้ใน program เช่น import math, import numpy as np",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม import ตรงๆ"
+  },
+  {
+    "id": 38,
+    "question": "What does 'print()' do in Python?",
+    "choices": [
+      "A) Returns a value to the caller",
+      "B) Sends output text to the standard output (console)",
+      "C) Writes data to a file",
+      "D) Stores a value in a variable called output"
+    ],
+    "correct": 1,
+    "explanation": "print() แสดงผลลัพธ์ไปยัง console (stdout) คืนค่า None ไม่ใช่ return value ที่นำไปใช้ต่อได้",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม print() พื้นฐาน"
+  },
+  {
+    "id": 39,
+    "question": "What does 'input()' do in Python?",
+    "choices": [
+      "A) Reads a line of text from the user via keyboard and returns it as a string",
+      "B) Reads a number from the user and returns an integer",
+      "C) Prompts the user then pauses the program permanently",
+      "D) Reads data from a file and returns it"
+    ],
+    "correct": 0,
+    "explanation": "input() อ่านข้อความจาก keyboard ที่ user พิมพ์ และคืนค่าเสมอเป็น str ถ้าต้องการตัวเลขต้องทำ type casting ต่อ",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม input() พื้นฐาน ต้องรู้ว่าคืน str เสมอ"
+  },
+  {
+    "id": 40,
+    "question": "What does the 'in' keyword mean when used with a list in Python?",
+    "choices": [
+      "A) It iterates over the list and modifies each element",
+      "B) It checks whether a value exists in a sequence, returning True or False",
+      "C) It inserts an element at a specified position",
+      "D) It merges two lists into one"
+    ],
+    "correct": 1,
+    "explanation": "'in' operator ตรวจสอบว่า element มีอยู่ใน sequence หรือไม่ คืน bool เช่น 3 in [1,2,3] คืน True",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม 'in' operator พื้นฐาน"
+  },
+  {
+    "id": 41,
+    "question": "What does 'attribute' mean in Python OOP?",
+    "choices": [
+      "A) A method that modifies a value",
+      "B) A variable that belongs to an object or class, storing its data",
+      "C) A keyword used in class inheritance",
+      "D) A return value from a method"
+    ],
+    "correct": 1,
+    "explanation": "attribute คือตัวแปรที่เป็นของ object หรือ class เก็บข้อมูลที่อธิบาย object นั้น เข้าถึงด้วย dot notation เช่น obj.name",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม attribute ใน OOP ต้องแยกจาก method"
+  },
+  {
+    "id": 42,
+    "question": "What does 'parameter' mean in Python?",
+    "choices": [
+      "A) The value passed to a function when calling it",
+      "B) A variable listed in a function's definition that receives argument values",
+      "C) A keyword that limits the size of a list",
+      "D) A method that measures performance"
+    ],
+    "correct": 1,
+    "explanation": "parameter คือตัวแปรที่ประกาศใน function definition เพื่อรับค่าเมื่อ function ถูกเรียก ส่วน argument คือค่าที่ส่งไปจริงๆ",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก parameter จาก argument ซึ่งหลายคนสับสน"
+  },
+  {
+    "id": 43,
+    "question": "What is the definition of 'argument' in Python?",
+    "choices": [
+      "A) A variable in a function definition",
+      "B) The actual value passed to a function when it is called",
+      "C) A conflict between two functions with the same name",
+      "D) A keyword for handling exceptions"
+    ],
+    "correct": 1,
+    "explanation": "argument คือค่าจริงๆ ที่ส่งไปให้ function เมื่อเรียกใช้ ต่างจาก parameter ที่เป็นชื่อตัวแปรใน function definition",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก argument จาก parameter"
+  },
+  {
+    "id": 44,
+    "question": "What is the definition of a 'list comprehension' in Python?",
+    "choices": [
+      "A) A loop that modifies a list in place",
+      "B) A compact syntax to create a new list from an iterable in one line",
+      "C) A method that checks if all elements meet a condition",
+      "D) A technique for sorting a list quickly"
+    ],
+    "correct": 1,
+    "explanation": "list comprehension คือ syntax กระชับสำหรับสร้าง list ใหม่ รูปแบบ: [expression for item in iterable if condition]",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม list comprehension ต้องเข้าใจ syntax"
+  },
+  {
+    "id": 45,
+    "question": "Which Python term refers to a variable declared outside all functions?",
+    "choices": [
+      "A) local variable",
+      "B) parameter",
+      "C) constant",
+      "D) global variable"
+    ],
+    "correct": 3,
+    "explanation": "global variable คือตัวแปรที่ประกาศนอก function ทุก function สามารถอ่านได้ แต่ถ้าจะแก้ไขต้องใช้ keyword 'global'",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก global variable จาก local variable"
+  },
+  {
+    "id": 46,
+    "question": "What is the definition of a 'local variable' in Python?",
+    "choices": [
+      "A) A variable stored in a local file on disk",
+      "B) A variable defined inside a function, accessible only within that function",
+      "C) A variable with a short name of one character",
+      "D) A variable that holds boolean values only"
+    ],
+    "correct": 1,
+    "explanation": "local variable คือตัวแปรที่ประกาศภายใน function เข้าถึงได้เฉพาะภายใน function นั้น ถูกทำลายเมื่อ function สิ้นสุด",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม local variable ต้องเข้าใจ scope"
+  },
+  {
+    "id": 47,
+    "question": "What does 'replace(old, new)' do on a Python string?",
+    "choices": [
+      "A) Replaces the string variable with a new variable name",
+      "B) Returns a new string with all occurrences of old replaced by new",
+      "C) Inserts new at the position of old",
+      "D) Swaps the first and last characters"
+    ],
+    "correct": 1,
+    "explanation": "replace(old, new) คืน string ใหม่ที่แทนที่ทุก occurrence ของ old ด้วย new ไม่แก้ไข original string",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า replace คืน string ใหม่ ไม่แก้ in-place"
+  },
+  {
+    "id": 48,
+    "question": "What does 'find(sub)' return when called on a Python string?",
+    "choices": [
+      "A) True if sub is found, False otherwise",
+      "B) The number of times sub appears in the string",
+      "C) The index of the first occurrence of sub, or -1 if not found",
+      "D) A list of all positions where sub appears"
+    ],
+    "correct": 2,
+    "explanation": "find(sub) คืน index ของ occurrence แรกของ sub ในสตริง ถ้าไม่พบ คืน -1 ต่างจาก index() ที่ raise ValueError เมื่อไม่พบ",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า find() คืน -1 เมื่อไม่พบ ไม่ raise error"
+  },
+  {
+    "id": 49,
+    "question": "What does 'pop()' do on a Python list?",
+    "choices": [
+      "A) Removes the first element from the list",
+      "B) Removes and returns the last element (or element at given index)",
+      "C) Returns the last element without removing it",
+      "D) Deletes all elements from the list"
+    ],
+    "correct": 1,
+    "explanation": "pop() ลบและคืนค่า element สุดท้ายของ list โดย default หรือ element ที่ index ที่ระบุ เช่น pop(0) ลบตัวแรก",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า pop() ทั้งลบและคืนค่า"
+  },
+  {
+    "id": 50,
+    "question": "What does 'remove(x)' do on a Python list?",
+    "choices": [
+      "A) Removes the element at index x",
+      "B) Removes the first occurrence of value x from the list",
+      "C) Removes all occurrences of x from the list",
+      "D) Returns and removes the element x"
+    ],
+    "correct": 1,
+    "explanation": "remove(x) ลบ occurrence แรกของ value x ออกจาก list ถ้าไม่พบ x จะ raise ValueError",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก remove (ลบตาม value) จาก pop (ลบตาม index)"
+  },
+  {
+    "id": 51,
+    "question": "What does 'sort()' do on a Python list?",
+    "choices": [
+      "A) Returns a new sorted list, leaving original unchanged",
+      "B) Sorts the list in-place in ascending order by default",
+      "C) Sorts and returns a list copy in descending order",
+      "D) Randomizes the order of elements in the list"
+    ],
+    "correct": 1,
+    "explanation": "sort() เรียงลำดับ list in-place (แก้ไข list จริงๆ) ไม่คืน list ใหม่ (คืน None) ต่างจาก sorted() ที่คืน list ใหม่",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า sort() เป็น in-place และคืน None"
+  },
+  {
+    "id": 52,
+    "question": "What does 'None' represent in Python?",
+    "choices": [
+      "A) An integer value of zero",
+      "B) An empty string with no characters",
+      "C) The absence of a value or a null value",
+      "D) A boolean value equivalent to False"
+    ],
+    "correct": 2,
+    "explanation": "None คือ object พิเศษที่แทนการไม่มีค่า (null) ใช้เป็น default return value ของ function และสำหรับ uninitialized values",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า None ต่างจาก 0, False, และ '' อย่างไร"
+  },
+  {
+    "id": 53,
+    "question": "What does 'mutable' mean when describing Python data types?",
+    "choices": [
+      "A) The object can be changed after it is created",
+      "B) The object uses less memory than immutable types",
+      "C) The object cannot be modified once created",
+      "D) The object supports arithmetic operations"
+    ],
+    "correct": 0,
+    "explanation": "mutable หมายถึง object ที่สามารถเปลี่ยนแปลงค่าได้หลังสร้างแล้ว เช่น list, dict, set ต่างจาก immutable (int, str, tuple)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก mutable กับ immutable ซึ่งสำคัญมาก"
+  },
+  {
+    "id": 54,
+    "question": "What does 'immutable' mean in Python?",
+    "choices": [
+      "A) An object that can only store numbers",
+      "B) An object whose value cannot be changed after creation",
+      "C) An object stored in permanent memory",
+      "D) An object that supports in-place operations"
+    ],
+    "correct": 1,
+    "explanation": "immutable หมายถึง object ที่ไม่สามารถเปลี่ยนแปลงค่าได้หลังสร้าง เช่น int, float, str, tuple ถ้า 'แก้' จะสร้าง object ใหม่",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องเข้าใจ immutability ซึ่งนักศึกษามักสับสน"
+  },
+  {
+    "id": 55,
+    "question": "What does 'slicing' mean in Python?",
+    "choices": [
+      "A) Dividing a number by another number",
+      "B) Extracting a sub-sequence from a sequence using [start:stop:step]",
+      "C) Removing all whitespace from a string",
+      "D) Splitting a list into two halves"
+    ],
+    "correct": 1,
+    "explanation": "slicing คือการดึง sub-sequence ออกจาก list, str, tuple ด้วย syntax [start:stop:step] คืน object ใหม่",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ syntax [start:stop:step] และความหมาย"
+  },
+  {
+    "id": 56,
+    "question": "What is the definition of 'type casting' in Python?",
+    "choices": [
+      "A) Checking the type of a variable with type()",
+      "B) Converting a value from one data type to another using int(), str(), etc.",
+      "C) Creating a class that inherits from multiple parents",
+      "D) Assigning the same value to multiple variables"
+    ],
+    "correct": 1,
+    "explanation": "type casting คือการแปลงชนิดข้อมูล เช่น int('42') แปลง str เป็น int, str(3.14) แปลง float เป็น str",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม type casting ต้องรู้ฟังก์ชันที่ใช้"
+  },
+  {
+    "id": 57,
+    "question": "What does 'try/except' mean in Python?",
+    "choices": [
+      "A) A conditional that checks if a variable has a value",
+      "B) A structure that handles runtime errors gracefully without crashing",
+      "C) A loop that retries a failed operation automatically",
+      "D) A keyword pair for defining optional parameters"
+    ],
+    "correct": 1,
+    "explanation": "try/except คือ exception handling: try ทดลองรัน code ที่อาจ error, except รับและจัดการ error ที่เกิดขึ้น",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม try/except ต้องเข้าใจ exception handling"
+  },
+  {
+    "id": 58,
+    "question": "What does 'range()' return in Python?",
+    "choices": [
+      "A) A list of integers from start to stop",
+      "B) An immutable sequence of numbers generated lazily",
+      "C) A set of random numbers within a given range",
+      "D) A float between 0 and 1"
+    ],
+    "correct": 1,
+    "explanation": "range() คืน range object (lazy sequence) ที่สร้างตัวเลขเมื่อต้องการ ไม่เก็บทั้งหมดใน memory ใช้บ่อยกับ for loop",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า range() คืน range object ไม่ใช่ list"
+  },
+  {
+    "id": 59,
+    "question": "What is the definition of a 'base case' in recursion?",
+    "choices": [
+      "A) The first recursive call made by a function",
+      "B) The condition that stops the recursion without another recursive call",
+      "C) The largest input the function can handle",
+      "D) The default parameter value for a recursive function"
+    ],
+    "correct": 1,
+    "explanation": "base case คือเงื่อนไขที่ทำให้ recursive function หยุดเรียกตัวเองและ return ค่า หากไม่มี base case จะเกิด infinite recursion",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม base case ในบริบท recursion"
+  },
+  {
+    "id": 60,
+    "question": "What does 'key' mean in the context of a Python dict?",
+    "choices": [
+      "A) A numeric index starting from zero",
+      "B) A unique, hashable identifier used to access a value in a dict",
+      "C) The largest value stored in a dictionary",
+      "D) A method that sorts dictionary entries"
+    ],
+    "correct": 1,
+    "explanation": "key คือ identifier ใน dict ที่ต้องเป็น hashable (เช่น str, int, tuple) ใช้ access ค่าด้วย dict[key]",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า key ต้องเป็น hashable"
+  },
+  {
+    "id": 61,
+    "question": "What does 'iterable' mean in Python?",
+    "choices": [
+      "A) Any object that can be counted with len()",
+      "B) Any object that can be looped over with a for loop",
+      "C) A list with numeric values only",
+      "D) A function that returns multiple values"
+    ],
+    "correct": 1,
+    "explanation": "iterable คือ object ที่สามารถ iterate ผ่านได้ (ใน for loop) เช่น list, str, tuple, dict, set, range, generator",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม iterable ต้องเข้าใจ concept iteration"
+  },
+  {
+    "id": 62,
+    "question": "What is the definition of a 'NumPy array'?",
+    "choices": [
+      "A) A Python list that supports only integer values",
+      "B) A fixed-type, multi-dimensional array from NumPy for efficient computation",
+      "C) A dictionary with integer keys and float values",
+      "D) A built-in Python type for storing matrices"
+    ],
+    "correct": 1,
+    "explanation": "NumPy array (ndarray) คือ multi-dimensional array ที่เก็บข้อมูลชนิดเดียวกัน (homogeneous) รองรับ vectorized operations อย่างมีประสิทธิภาพ",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม NumPy array ต้องรู้ context ของ library"
+  },
+  {
+    "id": 63,
+    "question": "What does 'enumerate()' do in Python?",
+    "choices": [
+      "A) Counts the number of elements in a list",
+      "B) Returns an enumerate object yielding (index, value) pairs for each element",
+      "C) Creates a numbered list from 1 to n",
+      "D) Converts a list to a dictionary"
+    ],
+    "correct": 1,
+    "explanation": "enumerate(iterable) คืน enumerate object ที่ yield tuple (index, value) ใช้เมื่อต้องการทั้ง index และ value ใน for loop",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม enumerate() ต้องรู้ผลลัพธ์ที่ได้"
+  },
+  {
+    "id": 64,
+    "question": "What does 'zip()' do in Python?",
+    "choices": [
+      "A) Compresses files into a .zip archive",
+      "B) Pairs elements from two or more iterables into tuples",
+      "C) Merges two dictionaries into one",
+      "D) Sorts multiple lists simultaneously"
+    ],
+    "correct": 1,
+    "explanation": "zip(iter1, iter2, ...) จับคู่ elements จากหลาย iterables เป็น tuples เช่น zip([1,2],['a','b']) ได้ [(1,'a'), (2,'b')]",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม zip() ต้องรู้ผลลัพธ์เป็น tuples"
+  },
+  {
+    "id": 65,
+    "question": "What does 'map()' do in Python?",
+    "choices": [
+      "A) Creates a graphical map from coordinate data",
+      "B) Applies a function to every element of an iterable and returns a map object",
+      "C) Returns the maximum value from a list",
+      "D) Maps a key to a value in a dictionary"
+    ],
+    "correct": 1,
+    "explanation": "map(function, iterable) apply function กับทุก element ใน iterable คืน map object (lazy) เช่น map(int, ['1','2','3'])",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม map() ต้องรู้ว่าคืน map object ไม่ใช่ list"
+  },
+  {
+    "id": 66,
+    "question": "What does 'filter()' do in Python?",
+    "choices": [
+      "A) Removes duplicate elements from a list",
+      "B) Returns a filter object with elements for which a function returns True",
+      "C) Sorts elements based on a condition",
+      "D) Converts each element based on a function and returns a new list"
+    ],
+    "correct": 1,
+    "explanation": "filter(function, iterable) กรองเฉพาะ elements ที่ function คืน True คืน filter object (lazy) เช่น filter(lambda x: x>0, lst)",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม filter() ต้องรู้ว่าใช้ predicate function"
+  },
+  {
+    "id": 67,
+    "question": "What does '__init__' method mean in Python classes?",
+    "choices": [
+      "A) A method that destroys an object when no longer needed",
+      "B) A constructor method called automatically when a new object is created",
+      "C) A method that initializes the class name",
+      "D) A static method that runs before the class is loaded"
+    ],
+    "correct": 1,
+    "explanation": "__init__ คือ constructor ของ class ถูกเรียกอัตโนมัติเมื่อสร้าง object ใหม่ ใช้สำหรับกำหนดค่าเริ่มต้นของ attributes",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม __init__ method ต้องเข้าใจ OOP"
+  },
+  {
+    "id": 68,
+    "question": "What does 'self' mean in Python class methods?",
+    "choices": [
+      "A) A keyword that imports the class itself",
+      "B) A reference to the current instance of the class",
+      "C) A global variable accessible in all methods",
+      "D) The return value of the __init__ method"
+    ],
+    "correct": 1,
+    "explanation": "self คือ parameter แรกของ instance method ที่อ้างอิงถึง object ปัจจุบัน ใช้เข้าถึง attributes และ methods ของ object นั้น",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม self ใน Python OOP"
+  },
+  {
+    "id": 69,
+    "question": "What does 'exception' mean in Python?",
+    "choices": [
+      "A) A warning message printed to the console",
+      "B) An error event that disrupts normal program flow and can be caught with try/except",
+      "C) A special variable that stores error codes",
+      "D) A comment that marks known bugs in code"
+    ],
+    "correct": 1,
+    "explanation": "exception คือ event ที่เกิดขึ้นเมื่อ program พบข้อผิดพลาด runtime เช่น TypeError, ValueError สามารถ catch ได้ด้วย try/except",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม exception ต้องเข้าใจ runtime error"
+  },
+  {
+    "id": 70,
+    "question": "What does 'raise' do in Python?",
+    "choices": [
+      "A) Increases the value of a variable by one",
+      "B) Manually triggers an exception with a specified error type and message",
+      "C) Promotes a local variable to global scope",
+      "D) Restarts the try block after an error"
+    ],
+    "correct": 1,
+    "explanation": "raise ใช้สร้าง exception โดยตั้งใจ เช่น raise ValueError('Invalid input') ใช้ใน validation และ error handling",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม raise statement ต้องรู้ syntax"
+  },
+  {
+    "id": 71,
+    "question": "What does 'finally' do in Python's try/except/finally structure?",
+    "choices": [
+      "A) Runs only if no exception occurs",
+      "B) Runs only when a specific exception type is caught",
+      "C) Always runs after try and except blocks, regardless of exceptions",
+      "D) Terminates the program after error handling"
+    ],
+    "correct": 2,
+    "explanation": "finally block ทำงานเสมอหลัง try/except ไม่ว่าจะเกิด exception หรือไม่ ใช้สำหรับ cleanup เช่น ปิด file",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม finally ต้องรู้ว่าทำงานเสมอ"
+  },
+  {
+    "id": 72,
+    "question": "What does 'with' statement (context manager) mean in Python?",
+    "choices": [
+      "A) A loop that executes a block of code within a given scope",
+      "B) A statement that manages resources and ensures cleanup automatically",
+      "C) A keyword used with lambda to create closures",
+      "D) A way to import a module with an alias"
+    ],
+    "correct": 1,
+    "explanation": "with statement (context manager) จัดการ resources อัตโนมัติ เช่น with open('file.txt') as f: ปิด file อัตโนมัติเมื่อออกจาก block",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม context manager ต้องเข้าใจ resource management"
+  },
+  {
+    "id": 73,
+    "question": "What does 'assert' do in Python?",
+    "choices": [
+      "A) Assigns a value to a variable with type checking",
+      "B) Tests a condition and raises AssertionError if it is False",
+      "C) Confirms a function return value is correct",
+      "D) Locks a variable so it cannot be changed"
+    ],
+    "correct": 1,
+    "explanation": "assert condition[, message] ตรวจสอบ condition ถ้าเป็น False จะ raise AssertionError ใช้ใน debugging และ unit testing",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม assert statement ต้องรู้ว่า raise AssertionError"
+  },
+  {
+    "id": 74,
+    "question": "What does 'isinstance()' do in Python?",
+    "choices": [
+      "A) Creates a new instance of a class",
+      "B) Checks if an object is an instance of a specified class or type, returning bool",
+      "C) Returns the class name of an object as a string",
+      "D) Compares two objects for structural equality"
+    ],
+    "correct": 1,
+    "explanation": "isinstance(obj, classinfo) ตรวจสอบว่า obj เป็น instance ของ class นั้นหรือ subclass ของมัน คืน bool",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม isinstance() ต้องรู้ว่า subclass ก็คืน True ด้วย"
+  },
+  {
+    "id": 75,
+    "question": "What does 'keyword argument' mean in Python functions?",
+    "choices": [
+      "A) An argument passed in a specific required order",
+      "B) An argument passed by name rather than position, e.g. func(name='Alice')",
+      "C) A reserved word used as a function parameter",
+      "D) An argument with a type annotation"
+    ],
+    "correct": 1,
+    "explanation": "keyword argument คือ argument ที่ระบุชื่อ parameter เมื่อเรียก function เช่น print(end='') ทำให้ order ยืดหยุ่นได้",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องแยก keyword argument จาก positional argument"
+  },
+  {
+    "id": 76,
+    "question": "What does the floor division operator '//' return in Python?",
+    "choices": [
+      "A) A float result rounded to two decimal places",
+      "B) The quotient of division rounded down to the nearest integer",
+      "C) The remainder after integer division",
+      "D) The absolute value of the division result"
+    ],
+    "correct": 1,
+    "explanation": "// คือ floor division คืน quotient ที่ปัดลง (floor) เช่น 7 // 2 = 3, -7 // 2 = -4 คืนค่าเป็น int ถ้า operands เป็น int",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ความแตกต่างระหว่าง // และ / และ %"
+  },
+  {
+    "id": 77,
+    "question": "What does 'default parameter value' mean in Python?",
+    "choices": [
+      "A) A parameter that must be provided every time the function is called",
+      "B) A fallback value assigned to a parameter if no argument is provided for it",
+      "C) The first parameter of every function",
+      "D) A parameter that only accepts integer values"
+    ],
+    "correct": 1,
+    "explanation": "default parameter value คือค่าที่กำหนดไว้ใน function definition ถ้าไม่ส่ง argument จะใช้ค่า default แทน เช่น def f(x=0):",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม default parameter ต้องรู้ syntax และพฤติกรรม"
+  },
+  {
+    "id": 78,
+    "question": "What does 'f-string' (formatted string literal) mean in Python?",
+    "choices": [
+      "A) A string that can only store floating-point numbers",
+      "B) A string prefixed with f that allows expressions inside {} to be evaluated",
+      "C) A file-reading string that loads text automatically",
+      "D) A fixed-length string with padded spaces"
+    ],
+    "correct": 1,
+    "explanation": "f-string (f'...') คือ string ที่ขึ้นต้นด้วย f ทำให้ embed expressions ใน {} ได้ เช่น f'Hello {name}' แทน name ด้วยค่าจริง",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม f-string ต้องรู้ syntax และการใช้งาน"
+  },
+  {
+    "id": 79,
+    "question": "What does 'stack overflow' mean in the context of Python recursion?",
+    "choices": [
+      "A) A website for programming questions",
+      "B) An error when recursion goes too deep and exceeds the call stack limit",
+      "C) A memory error when a list grows too large",
+      "D) An error caused by dividing by zero"
+    ],
+    "correct": 1,
+    "explanation": "stack overflow (RecursionError ใน Python) เกิดเมื่อ recursive function เรียกตัวเองมากเกินไปจนเกิน call stack limit ของ Python",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "ต้องรู้ว่า recursion ลึกเกินไปทำให้เกิด RecursionError"
+  },
+  {
+    "id": 80,
+    "question": "What does 'del' keyword do in Python?",
+    "choices": [
+      "A) Reduces the value of a variable by one",
+      "B) Deletes a variable, list element, or dict key from memory",
+      "C) Marks a function as deprecated",
+      "D) Stops a loop and deletes its iterator variable"
+    ],
+    "correct": 1,
+    "explanation": "del ลบ variable reference หรือ element เช่น del x ลบตัวแปร, del lst[0] ลบ element แรก, del d['key'] ลบ key จาก dict",
+    "difficulty": 2,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 2,
+    "difficulty_reason": "นิยาม del keyword ต้องรู้ว่าลบ reference ไม่ใช่แค่ค่า"
+  },
+  {
+    "id": 81,
+    "question": "What is the definition of a 'generator' in Python?",
+    "choices": [
+      "A) A function that creates a class automatically",
+      "B) A function that yields values one at a time using the yield keyword",
+      "C) A random number generator built into Python",
+      "D) A list that generates elements when accessed"
+    ],
+    "correct": 1,
+    "explanation": "generator คือ function ที่ใช้ yield แทน return ให้ค่าทีละตัว (lazy evaluation) ประหยัด memory เหมาะกับ data ขนาดใหญ่",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "generator เป็น concept ขั้นสูง ต้องเข้าใจ yield และ lazy evaluation"
+  },
+  {
+    "id": 82,
+    "question": "What does 'yield' keyword mean in Python?",
+    "choices": [
+      "A) Returns a value and terminates the function permanently",
+      "B) Pauses a generator function and produces a value to the caller, resuming later",
+      "C) Assigns a value to a variable and moves to the next line",
+      "D) Raises an exception with a specific value"
+    ],
+    "correct": 1,
+    "explanation": "yield หยุดการทำงานของ generator function ชั่วคราวและส่งค่าออกไป ครั้งถัดไปที่เรียก next() จะทำงานต่อจากที่หยุด",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "yield เป็น concept ขั้นสูง ต้องเข้าใจ generator lifecycle"
+  },
+  {
+    "id": 83,
+    "question": "What does 'decorator' mean in Python?",
+    "choices": [
+      "A) A design pattern for adding color themes to a program",
+      "B) A function that wraps another function to add behavior without modifying it",
+      "C) A class attribute that restricts access to other attributes",
+      "D) A special comment style used for documentation"
+    ],
+    "correct": 1,
+    "explanation": "decorator คือ function ที่รับ function เป็น argument และคืน function ใหม่ที่มีพฤติกรรมเพิ่มเติม ใช้ syntax @decorator_name",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "decorator เป็น advanced concept ใน Python"
+  },
+  {
+    "id": 84,
+    "question": "What does 'shallow copy' mean in Python?",
+    "choices": [
+      "A) A copy that duplicates only the outer object, not the nested objects inside",
+      "B) A full duplication of an object and all objects it references",
+      "C) A copy stored in temporary memory only",
+      "D) A string copy that removes whitespace"
+    ],
+    "correct": 0,
+    "explanation": "shallow copy สร้าง object ใหม่แต่ nested objects ยังอ้างอิงตัวเดิม เช่น list.copy() หรือ copy.copy() แก้ nested จะกระทบ original",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "shallow vs deep copy เป็น concept ขั้นสูง"
+  },
+  {
+    "id": 85,
+    "question": "What does 'deep copy' mean in Python?",
+    "choices": [
+      "A) A copy of only the first level of a nested structure",
+      "B) A fully independent copy of an object including all nested objects",
+      "C) Copying a file from one folder to another",
+      "D) A copy that shares memory with the original"
+    ],
+    "correct": 1,
+    "explanation": "deep copy สร้าง object ใหม่และ recursive copy nested objects ทั้งหมด ใช้ copy.deepcopy() แก้ nested ไม่กระทบ original",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "deep copy ต้องเข้าใจ difference กับ shallow copy"
+  },
+  {
+    "id": 86,
+    "question": "What does 'polymorphism' mean in Python OOP?",
+    "choices": [
+      "A) The ability of a variable to change its type at runtime",
+      "B) The ability of different objects to respond to the same method call in different ways",
+      "C) Inheriting attributes from multiple parent classes",
+      "D) Hiding internal data from outside the class"
+    ],
+    "correct": 1,
+    "explanation": "polymorphism คือความสามารถของ objects ต่างชนิดในการตอบสนองต่อ method เดียวกันด้วยพฤติกรรมที่แตกต่างกัน (method overriding)",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "polymorphism เป็น OOP concept ขั้นสูง"
+  },
+  {
+    "id": 87,
+    "question": "What does 'encapsulation' mean in Python OOP?",
+    "choices": [
+      "A) Wrapping data and methods into a single unit (class) and restricting direct access",
+      "B) Inheriting all attributes from a parent class",
+      "C) Converting an object to a string for display",
+      "D) Creating multiple copies of a class"
+    ],
+    "correct": 0,
+    "explanation": "encapsulation คือการรวม data (attributes) และพฤติกรรม (methods) ไว้ใน class เดียวและควบคุมการเข้าถึงจากภายนอก",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "encapsulation เป็น OOP concept ขั้นสูง"
+  },
+  {
+    "id": 88,
+    "question": "What does 'closure' mean in Python?",
+    "choices": [
+      "A) Closing a file after reading it",
+      "B) An inner function that retains access to variables from its enclosing scope after that scope ends",
+      "C) A class that cannot be instantiated",
+      "D) A loop that terminates automatically when finished"
+    ],
+    "correct": 1,
+    "explanation": "closure คือ inner function ที่ 'จำ' ตัวแปรจาก enclosing scope ได้แม้ outer function จะ return แล้ว ใช้บ่อยกับ decorator และ factory functions",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "closure เป็น advanced concept ต้องเข้าใจ enclosing scope"
+  },
+  {
+    "id": 89,
+    "question": "What is the definition of a 'dict comprehension' in Python?",
+    "choices": [
+      "A) A built-in method for understanding dictionary contents",
+      "B) A compact syntax to create a dict from an iterable in one line",
+      "C) A loop that traverses a dict and prints its keys",
+      "D) A way to merge two dicts into one"
+    ],
+    "correct": 1,
+    "explanation": "dict comprehension: {key_expr: val_expr for item in iterable if condition} สร้าง dict ใหม่อย่างกระชับ เช่น {x: x**2 for x in range(5)}",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "dict comprehension ต้องรู้ syntax และแยกจาก list comprehension"
+  },
+  {
+    "id": 90,
+    "question": "What does 'truthiness' mean in Python?",
+    "choices": [
+      "A) Whether a variable's type is bool",
+      "B) The evaluation of a non-boolean value as True or False in a boolean context",
+      "C) A method that converts any value to True",
+      "D) A property that only numeric types have"
+    ],
+    "correct": 1,
+    "explanation": "truthiness คือการที่ Python ประเมิน value ที่ไม่ใช่ bool ว่าเป็น True หรือ False เช่น 0, '', [], None ถือเป็น False ส่วนค่าอื่นถือเป็น True",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "truthiness เป็น concept สำคัญใน Python ที่ใช้ใน if conditions"
+  },
+  {
+    "id": 91,
+    "question": "What does 'str.lower()' return in Python?",
+    "choices": [
+      "A) The string with only the first character lowercased",
+      "B) A copy of the string with all characters converted to lowercase",
+      "C) A boolean indicating if the string is lowercase",
+      "D) The string split into a list of lowercase words"
+    ],
+    "correct": 1,
+    "explanation": "lower() คืน string ใหม่ที่ตัวอักษรทุกตัวเป็นตัวพิมพ์เล็ก ใช้คู่กับ upper() บ่อยมาก",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม lower() method พื้นฐาน"
+  },
+  {
+    "id": 92,
+    "question": "What does 'not in' mean in Python?",
+    "choices": [
+      "A) Checks if a value is absent from a sequence, returning True if missing",
+      "B) Removes a value from a sequence",
+      "C) Negates all boolean values in a list",
+      "D) Checks if two sequences do not overlap"
+    ],
+    "correct": 0,
+    "explanation": "'not in' คืน True ถ้า element ไม่อยู่ใน sequence เช่น 5 not in [1,2,3] คืน True เป็น complement ของ 'in'",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม 'not in' ตรงๆ"
+  },
+  {
+    "id": 93,
+    "question": "Which Python term refers to a function defined inside another function that uses outer variables?",
+    "choices": [
+      "A) decorator",
+      "B) generator",
+      "C) closure",
+      "D) lambda"
+    ],
+    "correct": 2,
+    "explanation": "closure คือ inner function ที่ capture ตัวแปรจาก outer function ไว้ใช้งานได้แม้ outer function จะเสร็จแล้ว",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "closure เป็น advanced concept ต้องแยกจาก decorator และ lambda"
+  },
+  {
+    "id": 94,
+    "question": "What does 'indentation' mean in Python syntax?",
+    "choices": [
+      "A) A comment style using a hash symbol",
+      "B) The use of spaces or tabs to define code blocks like function bodies",
+      "C) The number of arguments a function accepts",
+      "D) A naming convention for variables starting with underscore"
+    ],
+    "correct": 1,
+    "explanation": "indentation ใน Python ใช้กำหนด code block (แทน {}) ทุก statement ใน block ต้อง indent ระดับเดียวกัน Python ใช้ 4 spaces เป็น standard",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม indentation ใน Python ตรงๆ"
+  },
+  {
+    "id": 95,
+    "question": "What does the '**' operator mean in Python arithmetic?",
+    "choices": [
+      "A) Multiplies two numbers twice",
+      "B) Raises the left operand to the power of the right operand",
+      "C) Performs integer division and rounds up",
+      "D) Computes the bitwise XOR of two integers"
+    ],
+    "correct": 1,
+    "explanation": "** คือ exponentiation operator ยกกำลัง เช่น 2**3 = 8, 4**0.5 = 2.0 (square root)",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม ** operator ในบริบทเลขคณิตตรงๆ"
+  },
+  {
+    "id": 96,
+    "question": "What does 'type()' return in Python?",
+    "choices": [
+      "A) The memory address of an object",
+      "B) The data type (class) of the given object",
+      "C) A boolean indicating the correct type",
+      "D) A string description of the object"
+    ],
+    "correct": 1,
+    "explanation": "type(obj) คืน class ของ object เช่น type(42) คืน <class 'int'>, type('hi') คืน <class 'str'>",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม type() function พื้นฐาน"
+  },
+  {
+    "id": 97,
+    "question": "What does 'string concatenation' using '+' create in Python?",
+    "choices": [
+      "A) Adds all numeric characters across two strings",
+      "B) Creates a new string by joining two strings end-to-end",
+      "C) Merges two strings and removes duplicate characters",
+      "D) Appends the second string inside the first"
+    ],
+    "correct": 1,
+    "explanation": "'hello' + ' world' สร้าง string ใหม่ 'hello world' โดยต่อ string สองตัวเข้าด้วยกัน ไม่แก้ไข string เดิม",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม string concatenation ด้วย + ตรงๆ"
+  },
+  {
+    "id": 98,
+    "question": "What does 'and', 'or', 'not' mean as Python operators?",
+    "choices": [
+      "A) Bitwise operators that work only on integers",
+      "B) Logical operators that combine boolean expressions and return bool results",
+      "C) Comparison operators that return numeric values",
+      "D) String operators for pattern matching"
+    ],
+    "correct": 1,
+    "explanation": "and, or, not คือ logical operators: 'and' คืน True ถ้าทั้งสองเป็น True, 'or' คืน True ถ้าอย่างน้อยหนึ่งเป็น True, 'not' กลับค่า bool",
+    "difficulty": 1,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 1,
+    "difficulty_reason": "นิยาม logical operators พื้นฐาน"
+  },
+  {
+    "id": 99,
+    "question": "What does '__str__' method mean in a Python class?",
+    "choices": [
+      "A) Converts all attributes to uppercase strings",
+      "B) Defines the human-readable string representation returned by str(obj)",
+      "C) Returns the memory address as a string",
+      "D) Validates that all attributes are strings"
+    ],
+    "correct": 1,
+    "explanation": "__str__ คือ special method ที่กำหนดว่า str(obj) หรือ print(obj) จะแสดงอะไร ถ้าไม่ define จะใช้ default representation",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "dunder methods เป็น advanced Python OOP"
+  },
+  {
+    "id": 100,
+    "question": "What does 'method overriding' mean in Python inheritance?",
+    "choices": [
+      "A) Calling a method from a parent class inside a child class",
+      "B) A child class redefining a method inherited from a parent class",
+      "C) Adding extra parameters to a method in a subclass",
+      "D) Restricting a parent method from being called"
+    ],
+    "correct": 1,
+    "explanation": "method overriding คือการที่ child class นิยาม method ชื่อเดิมกับ parent class ใหม่ เมื่อเรียก method ผ่าน child object จะใช้เวอร์ชัน child",
+    "difficulty": 3,
+    "game_type": "bricks",
+    "source_doc": "python101_workbook_v1.0.2_compressed.pdf",
+    "difficulty_teacher": 3,
+    "difficulty_reason": "method overriding เป็น advanced OOP concept ใน inheritance"
+  }
+]
