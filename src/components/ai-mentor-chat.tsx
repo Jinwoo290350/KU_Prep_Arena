@@ -78,22 +78,25 @@ export function AiMentorChat() {
 
   return (
     <>
-      {/* Floating button */}
+      {/* Floating button — bottom on desktop, mid-right on mobile */}
       <button
         onClick={() => setOpen(!open)}
         className={cn(
-          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all hover:scale-105 glow-primary",
+          "fixed z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all hover:scale-105 glow-primary",
+          "bottom-6 right-4 sm:bottom-6 sm:right-6",
           open && "rotate-90"
         )}
         aria-label={open ? "Close AI Mentor" : "Open AI Mentor"}
       >
-        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+        {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
       </button>
 
-      {/* Chat panel */}
+      {/* Chat panel — anchored above button */}
       <div
         className={cn(
-          "fixed bottom-24 right-6 z-50 w-[360px] max-h-[500px] flex flex-col rounded-2xl border border-border bg-card shadow-2xl transition-all duration-300",
+          "fixed z-50 flex flex-col rounded-2xl border border-border bg-card shadow-2xl transition-all duration-300",
+          "bottom-20 right-4 w-[calc(100vw-2rem)] max-w-[360px] max-h-[60vh]",
+          "sm:bottom-24 sm:right-6 sm:w-[360px] sm:max-h-[500px]",
           open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
         )}
       >
