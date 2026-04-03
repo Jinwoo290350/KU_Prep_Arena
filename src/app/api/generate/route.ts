@@ -1,8 +1,39 @@
 import { NextRequest, NextResponse } from "next/server"
 import OpenAI from "openai"
+import fs from "fs"
+import path from "path"
 
-// Extend Vercel serverless timeout (requires Pro plan; ignored on Hobby but harmless)
+// Force Node.js runtime (required for unpdf WASM + mammoth)
+export const runtime = "nodejs"
 export const maxDuration = 60
+
+// ---------------------------------------------------------------------------
+// Few-shot loader — picks 2 example questions from rated dataset per game type
+// ---------------------------------------------------------------------------
+function getFewShotExamples(gameType: string): string {
+  try {
+    const dir = path.join(process.cwd(), "ai/dataset/rated")
+    const files = fs.readdirSync(dir).filter(f => f.endsWith(`_${gameType}.json`))
+    if (files.length === 0) return ""
+    const file = files[Math.floor(Math.random() * files.length)]
+    const all = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")) as unknown[]
+    // Pick 2 examples — 1 easy (difficulty 1) + 1 hard (difficulty 3)
+    const easy = all.find((q: any) => q.difficulty_teacher === 1 || q.difficulty === 1)
+    const hard = all.find((q: any) => q.difficulty_teacher === 3 || q.difficulty === 3)
+    const examples = [easy, hard].filter(Boolean).slice(0, 2).map((q: any) => ({
+      id: q.id,
+      question: q.question,
+      choices: q.choices,
+      correct: q.correct,
+      explanation: q.explanation?.slice(0, 60) ?? "",
+      difficulty: q.difficulty_teacher ?? q.difficulty,
+    }))
+    if (examples.length === 0) return ""
+    return `\n\nตัวอย่างคำถามที่ดี (ห้ามคัดลอก — ใช้เป็นแนวทางรูปแบบเท่านั้น):\n${JSON.stringify(examples, null, 2)}`
+  } catch {
+    return ""
+  }
+}
 
 // ---------------------------------------------------------------------------
 // AI client — reads from env, works with Groq OR vLLM (OpenAI-compatible)
@@ -166,11 +197,12 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
   const systemPrompt = gameHint
     ? `${gameHint}\n\nRespond ONLY with a valid JSON object containing key "questions" as an array.`
     : `${DEFAULT_GAME_PROMPT.replace("JSON array", 'JSON object containing key "questions" as an array')}`
+  const fewShot = gameType ? getFewShotExamples(gameType) : ""
 
   const res = await client.chat.completions.create({
     model: MODEL,
     temperature: 0.5,
-    max_tokens: 1800,
+    max_tokens: 3200,
     messages: [
       {
         role: "system",
@@ -183,12 +215,13 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
 - ถ้าเนื้อหาเป็นภาษาไทย ให้เขียนคำถามและตัวเลือกเป็นภาษาไทยทั้งหมด
 - ถ้าเนื้อหาเป็นภาษาอังกฤษ ให้เขียนเป็นภาษาอังกฤษทั้งหมด
 - แต่ละข้อมี 4 ตัวเลือก, คำตอบถูกต้อง 1 ข้อ
-- มีคำอธิบายสั้นๆ สำหรับคำตอบที่ถูก
+- คำอธิบายสั้นมาก ไม่เกิน 15 คำ
+- ใส่เฉพาะ field ที่กำหนดเท่านั้น ห้ามเพิ่ม field อื่น
 
-ตอบเป็น JSON เท่านั้น:
-{"questions":[{"id":1,"question":"...","choices":["A...","B...","C...","D..."],"correct":0,"explanation":"...","difficulty":1}]}
+ตอบเป็น JSON เท่านั้น ไม่มี markdown:
+{"questions":[{"id":1,"question":"...","choices":["A. ...","B. ...","C. ...","D. ..."],"correct":0,"explanation":"...","difficulty":1}]}
 (correct = index 0-3, difficulty = 1/2/3)
-
+${fewShot}
 เนื้อหา:
 ${text}`,
       },
@@ -210,6 +243,18 @@ ${text}`,
   } catch (e) {
     console.error("[generateQuestions] JSON parse failed:", e)
     console.error("[generateQuestions] raw output (first 500):", cleaned.slice(0, 500))
+
+    // Fallback: extract complete question objects from truncated JSON
+    const objects: unknown[] = []
+    const re = /\{[^{}]*"id"\s*:\s*\d+[^{}]*"correct"\s*:\s*\d[^{}]*\}/g
+    let m: RegExpExecArray | null
+    while ((m = re.exec(cleaned)) !== null) {
+      try { objects.push(JSON.parse(m[0])) } catch { /* skip malformed */ }
+    }
+    if (objects.length >= 3) {
+      console.log(`[generateQuestions] recovered ${objects.length} questions from truncated output`)
+      return objects
+    }
     return null
   }
   return null

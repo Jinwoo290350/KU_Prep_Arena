@@ -53,6 +53,7 @@ ai/dataset/sample_pdfs/*.pdf
 ai/dataset/generated/*.json
 ai/eval/results/*.json
 ai/eval/results/*.html
+# ai/dataset/rated/ — tracked intentionally for few-shot prompting
 
 # ── Logs ───────────────────────────────────────
 *.log
