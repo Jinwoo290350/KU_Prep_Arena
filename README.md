@@ -1,235 +1,339 @@
+<div align="center">
+
 # KU Prep Arena
 
-**แอปเตรียมสอบ AI สำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์**
+**เปลี่ยนการทบทวนบทเรียนให้เป็นเกม — แข่งกับเพื่อนแบบ real-time**
 
-> KU AI Pioneers: Forward Challenge — Theme: "AI for Gen Z Lifestyle @KU"  
+แอปเตรียมสอบ AI สำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์  
+อัปโหลดเอกสาร → AI สร้างข้อสอบอัตโนมัติ → เล่น 5 มินิเกม หรือแข่ง multiplayer
+
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)](https://typescriptlang.org)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ecf8e?logo=supabase)](https://supabase.com)
+[![PartyKit](https://img.shields.io/badge/PartyKit-WebSocket-ff6b35)](https://partykit.io)
+
+</div>
+
+---
+
+## ทีม
+
+> **KU AI Pioneers: Forward Challenge** — Theme: "AI for Gen Z Lifestyle @KU"  
 > Team: **dek vid sigma skibidi rizz**
 
-| # | ชื่อ | รหัส | คณะ | บทบาท |
-|---|------|------|-----|--------|
-| 1 | วีรพงษ์ ฮะภูริวัฒน์ | 6810503943 | วิศวกรรมศาสตร์ | Team Leader |
-| 2 | ฐิตารีย์ คำเขียว | 6810405461 | วิทยาศาสตร์ | ผู้ประสานงาน |
-| 3 | ณัฐพงษ์ ภักดีวิบูลย์ | 6810503536 | วิศวกรรมศาสตร์ | — |
-| 4 | กฤษ โล่ห์มรเวช | 6810507116 | วิศวกรรมศาสตร์ | — |
+| ชื่อ | รหัสนิสิต | คณะ | บทบาท |
+|------|----------|-----|--------|
+| วีรพงษ์ ฮะภูริวัฒน์ | 6810503943 | วิศวกรรมศาสตร์ | Team Leader |
+| ฐิตารีย์ คำเขียว | 6810405461 | วิทยาศาสตร์ | ผู้ประสานงาน |
+| ณัฐพงษ์ ภักดีวิบูลย์ | 6810503536 | วิศวกรรมศาสตร์ | Developer |
+| กฤษ โล่ห์มรเวช | 6810507116 | วิศวกรรมศาสตร์ | Developer |
 
 ---
 
 ## ปัญหาที่แก้
 
-นิสิตมหาวิทยาลัยเกษตรศาสตร์มีปัญหาการจดจ่อในการทบทวนบทเรียน — เนื้อหายาว เวลาจำกัด ตารางเรียนไม่ตรงกัน และเร่งอ่านก่อนสอบ KU Prep Arena เปลี่ยนการทบทวนให้เป็นเกมที่สนุก แข่งกับเพื่อนแบบ real-time ได้
+นิสิต KU มีปัญหา 4 อย่างพร้อมกันก่อนสอบ:
+
+- **เนื้อหายาว** — สไลด์หลายร้อยหน้า ไม่รู้จะเริ่มตรงไหน
+- **สมาธิสั้น** — อ่านคนเดียวเบื่อเร็ว ไม่มีแรงจูงใจ
+- **เวลาไม่ตรงกัน** — นัดติวกับเพื่อนยาก ตารางแต่ละคนต่างกัน
+- **ไม่รู้ว่าตัวเองรู้จริงไหม** — อ่านแล้วรู้สึกเข้าใจ แต่พอสอบจริงทำไม่ได้
+
+KU Prep Arena แก้ด้วยการเปลี่ยนเอกสารเป็นเกม Quiz ที่แข่งกับเพื่อนได้ทันที โดยไม่ต้องนัดหมาย
 
 ---
 
 ## Features
 
-### Game Hub — 5 มินิเกม
-อัปโหลด PDF / DOCX / TXT หรือลิงก์ Google Drive / YouTube → AI สร้าง MCQ 10 ข้อโดยอัตโนมัติ
+### 1. AI Quiz — 5 มินิเกม
 
-| เกม | ลักษณะคำถาม |
-|-----|------------|
-| **Flappy Kaset** | คำถามสั้น ≤12 คำ บินผ่านช่องคำตอบถูก |
-| **Speed Racer** | ตอบแข่งเวลา เลือกช่องทางที่ถูกต้อง |
-| **Space Shooter** | ยิง asteroid — "Which term describes...?" |
-| **Snake Quiz** | งูกินคำตอบ — ลำดับขั้นตอน/กระบวนการ |
-| **Brick Breaker** | ทำลายอิฐ — นิยามและคำศัพท์เฉพาะ |
+อัปโหลดไฟล์หรือวางลิงก์ → AI วิเคราะห์เนื้อหาและสร้าง MCQ 10 ข้อ ปรับแต่งให้เหมาะกับแต่ละเกม
 
-### Real-time Quiz Battle (Multiplayer)
-- Host สร้างห้อง → ได้ code 6 หลัก + QR code
-- ผู้เล่นสแกน/กรอก code เข้าร่วม รองรับ 10 คน
-- Live leaderboard ระหว่างเล่น
-- Powered by PartyKit WebSocket
+| เกม | รูปแบบการเล่น | สไตล์คำถาม |
+|-----|--------------|-----------|
+| **Flappy Kaset** | บินนกผ่านช่องคำตอบ | สั้น กระชับ ≤12 คำ |
+| **Speed Racer** | เลือกเลนถูกก่อนหมดเวลา | ตอบเร็ว ไม่มีเวลาคิดนาน |
+| **Space Shooter** | ยิง asteroid ที่เป็นคำตอบถูก | Identification — "คำใดหมายถึง...?" |
+| **Snake Quiz** | งูกินคำตอบที่ถูกต้อง | ลำดับขั้นตอน กระบวนการ |
+| **Brick Breaker** | บอลทำลายอิฐ | นิยาม คำศัพท์เฉพาะ |
 
-### Instant Summary & Flashcards
-- สรุปเอกสารเป็น 6–8 bullet points ทันทีหลังอัปโหลด
-- Flashcard flip card สำหรับทบทวนด้วยตัวเอง
+รองรับแหล่งข้อมูล: **PDF · DOCX · TXT · Google Drive · YouTube (transcript)**
 
-### Smart Planner
-- กรอกวันสอบ → ระบบคำนวณ micro-session 10–25 นาที
-- จัดตารางรายวัน ปรับ intensity ได้
-- บันทึก exam schedule ไว้ใน Supabase
+### 2. Real-time Quiz Battle
 
-### AI Mentor (Chatbot)
-- แชทกับ AI ที่รู้จักเนื้อหาที่อัปโหลด
-- Streaming response แบบ real-time
-- ถามอธิบายแนวคิดหรือทบทวนเนื้อหาได้
+แข่งกับเพื่อนพร้อมกัน ไม่ต้องติดตั้งอะไรเพิ่ม
 
-### Daily Fortune & Gamification
+```
+Host สร้างห้อง → ได้ code 6 หลัก + QR code
+↓
+เพื่อนสแกน/กรอก code → เข้าร่วมได้เลย
+↓
+แข่งพร้อมกัน → Live leaderboard อัปเดต real-time
+```
+
+- รองรับ 10 คนต่อห้อง
+- Powered by **PartyKit WebSocket**
+
+### 3. Instant Summary + Flashcards
+
+- สรุปเนื้อหาเป็น **6–8 bullet points** ทันทีหลังอัปโหลด
+- สร้าง **Flashcard** flip card อัตโนมัติ — กด Pass เพื่อวนทบทวนซ้ำ
+
+### 4. Smart Planner
+
+- กรอกชื่อวิชาและวันสอบ
+- ระบบคำนวณตารางอ่านเป็น **micro-session 10–25 นาที**
+- ปรับ intensity ได้ตามเวลาที่เหลือ
+
+### 5. AI Mentor (Chatbot)
+
+- แชทกับ AI ที่ **รู้จักเนื้อหาที่คุณอัปโหลด**
+- Streaming response — ตอบแบบ real-time ไม่ต้องรอ
+- ถามอธิบายแนวคิด ขอตัวอย่าง หรือทบทวนได้
+
+### 6. Daily Fortune
+
 - ดึงดวงประจำวัน + Tarot card สไตล์นิสิตไทย
-- XP & Leaderboard, Streak system
-- Streak Freezing — freeze แทน reset เมื่อขาดวัน
+- Streak system + Streak Freezing (freeze แทน reset เมื่อขาดวัน)
+
+---
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                  Next.js 16 (Vercel)                │
+│                                                     │
+│  React 19 + TailwindCSS v4 + ShadcnUI              │
+│  ┌──────────┐  ┌──────────┐  ┌──────────────────┐  │
+│  │ 5 Games  │  │ Planner  │  │  AI Mentor Chat  │  │
+│  │ Canvas   │  │ Flashcard│  │  Streaming SSE   │  │
+│  └──────────┘  └──────────┘  └──────────────────┘  │
+│                                                     │
+│  ┌─────────────────────────────────────────────┐    │
+│  │           POST /api/generate                │    │
+│  │  Parser → Summarizer → QuestionGen ×5       │    │
+│  └─────────────────┬───────────────────────────┘    │
+└────────────────────┼────────────────────────────────┘
+                     │ OpenAI-compatible API
+          ┌──────────┴──────────┐
+          │                     │
+   ┌──────▼──────┐      ┌───────▼──────┐
+   │  Groq API   │      │  vLLM on     │
+   │  (fallback) │      │  KU A100     │
+   │  llama-3.1  │      │  Typhoon2.5  │
+   └─────────────┘      │  fine-tuned  │
+                        └──────┬───────┘
+                               │ Cloudflare Tunnel
+                        ┌──────▼───────┐
+                        │ br1 login    │
+                        │ → dgx-04:8000│
+                        └──────────────┘
+
+┌──────────────────┐    ┌──────────────────┐
+│  PartyKit Cloud  │    │    Supabase       │
+│  WebSocket       │    │  users / scores   │
+│  Quiz Battle     │    │  exams            │
+└──────────────────┘    └──────────────────┘
+```
 
 ---
 
 ## Tech Stack
 
-### Frontend & API
-- **Next.js 16** (App Router), **React 19**, **TypeScript**
-- **TailwindCSS v4**, **ShadcnUI** (Radix UI)
-- Games: HTML5 Canvas (`useRef` + `requestAnimationFrame`)
-- Package manager: **pnpm**
-
-### Real-time
-- **PartyKit** — WebSocket server `party/game.ts`
-- Deployed: `ku-prep-arena.jinwoo290350.partykit.dev`
-
-### AI / LLM
-- **Primary:** Fine-tuned Typhoon2.5-Qwen3-4B (LoRA) served via vLLM บน KU Nontri AI A100
-- **Fallback:** Groq API (`llama-3.1-8b-instant`) — ใช้ได้เลยไม่ต้องการ cluster
-- **Multi-agent pipeline:** Parser → Summarizer → Question Generator (5 game types ขนานกัน)
-
-### Database & Auth
-- **Supabase** — PostgreSQL (users, scores, exams)
-- **NextAuth v5** — Google OAuth + Username/Password (PBKDF2 + salt)
+| ส่วน | เทคโนโลยี |
+|-----|-----------|
+| Frontend | Next.js 16, React 19, TypeScript, TailwindCSS v4 |
+| UI Components | ShadcnUI, Radix UI |
+| Games | HTML5 Canvas, `requestAnimationFrame` |
+| Real-time | PartyKit WebSocket |
+| AI Inference | vLLM ≥0.8.0 (OpenAI-compatible API) |
+| LLM Primary | Typhoon2.5-Qwen3-4B + LoRA fine-tune (KU Nontri AI A100) |
+| LLM Fallback | Groq API — `llama-3.1-8b-instant` |
+| Auth | NextAuth v5 — Google OAuth + Credentials (PBKDF2) |
+| Database | Supabase (PostgreSQL) |
+| Deployment | Vercel (web), PartyKit Cloud (WS), Cloudflare Tunnel (vLLM) |
+| Package Manager | pnpm |
 
 ---
 
-## Project Structure
+## ML Pipeline
+
+### Dataset → Fine-tune → Serve
 
 ```
-KU_Prep_Arena/
-├── src/
-│   ├── app/
-│   │   ├── page.tsx                     # Dashboard / Home
-│   │   ├── login/                       # Login page
-│   │   ├── arena/                       # Game Hub
-│   │   │   ├── flappy/                  # Flappy Kaset
-│   │   │   ├── racer/                   # Speed Racer
-│   │   │   ├── shooter/                 # Space Shooter
-│   │   │   ├── snake/                   # Snake Quiz
-│   │   │   └── bricks/                  # Brick Breaker
-│   │   ├── quiz-battle/                 # Real-time Multiplayer
-│   │   │   ├── page.tsx                 # Lobby (host / join)
-│   │   │   ├── host/[code]/             # Host view
-│   │   │   └── play/[code]/             # Player view
-│   │   ├── flashcards/                  # Flashcard study mode
-│   │   ├── planner/                     # Smart Planner
-│   │   ├── fortune/                     # Daily Fortune
-│   │   └── api/
-│   │       ├── generate/route.ts        # AI question generation
-│   │       ├── chat/route.ts            # AI Mentor streaming chat
-│   │       ├── scores/                  # Score CRUD
-│   │       ├── exams/                   # Exam schedule CRUD
-│   │       └── auth/                    # NextAuth handlers
-│   ├── components/                      # React components
-│   ├── lib/
-│   │   ├── supabase.ts                  # Supabase client (anon + admin)
-│   │   ├── schema.sql                   # Database schema
-│   │   ├── questions-context.tsx        # Global question state
-│   │   └── party-types.ts               # PartyKit message types
-│   └── auth.ts                          # NextAuth config
-├── party/
-│   └── game.ts                          # PartyKit WebSocket server
-├── ai/
-│   ├── notebooks/
-│   │   ├── 01_dataset_gen.ipynb         # PDF → MCQ dataset
-│   │   ├── 02_game_agents.ipynb         # ทดสอบ/เปรียบเทียบ prompt แต่ละเกม
-│   │   ├── 03_evaluation.ipynb          # Balance & diversity metrics
-│   │   ├── 04_finetune.ipynb            # LoRA fine-tune (unsloth + SFTTrainer)
-│   │   ├── 05_difficulty_rating.ipynb   # Teacher model rate difficulty
-│   │   └── 06_claude_teacher.ipynb      # Claude-based teacher labeling
-│   ├── scripts/
-│   │   ├── slurm_finetune.sh            # Fine-tune job (SLURM)
-│   │   ├── slurm_vllm.sh                # vLLM inference server (SLURM)
-│   │   ├── slurm_teacher.sh             # Teacher model server (SLURM)
-│   │   ├── download_typhoon.sh          # Download base model to cluster
-│   │   ├── merge_lora.sh                # Merge LoRA adapter
-│   │   ├── rebalance_dataset.py         # Balance A/B/C/D answer distribution
-│   │   └── fix_flappy_choices.py        # Fix choice format issues
-│   └── dataset/
-│       └── rated/                       # Labeled training data (gitignored)
-├── public/
-│   └── icon.svg
-├── partykit.json
-└── CLAUDE.md
+PDF เอกสารการเรียน
+    │
+    ▼
+01_dataset_gen.ipynb
+    GPT-4o / Claude สร้าง MCQ แยกตาม game type
+    │
+    ▼
+05_difficulty_rating.ipynb
+    Teacher model rate difficulty 1/2/3
+    rebalance_dataset.py → A/B/C/D กระจายเท่ากัน
+    │
+    ▼
+04_finetune.ipynb  (SLURM A100 — 3g.40gb MIG)
+    Base: scb10x/llama-3-typhoon2.5-qwen3-4b
+    LoRA r=16, α=32, 4-bit (unsloth + SFTTrainer)
+    EarlyStopping patience=3, cosine LR
+    │
+    ▼
+slurm_finetune.sh → merge LoRA → /tmp/ku_typhoon_v1_merged
+    tar | split → 154 × 50MB chunks บน NFS
+    │
+    ▼
+slurm_vllm.sh → reassemble → vLLM serve port 8000
+    │
+    ▼
+Cloudflare Tunnel → Vercel API Route
 ```
+
+### Training Details
+
+| | |
+|--|--|
+| Base model | `scb10x/llama-3-typhoon2.5-qwen3-4b` |
+| Method | LoRA r=16, α=32, 4-bit NF4 (unsloth) |
+| Training data | `ai/dataset/rated/` — MCQ พร้อม difficulty label |
+| Difficulty distribution | 3 easy : 5 medium : 2 hard |
+| Answer balance | A/B/C/D กระจายเท่ากัน (stratified) |
+| Inference | vLLM ≥0.8.0, bfloat16, max_model_len=8192 |
+| GPU | A100 MIG 3g.40gb (KU Nontri AI) |
+
+### Why NFS → /tmp?
+
+Cluster NFS ไม่รองรับ large mmap write (safetensors) → `OSError: errno 71`  
+แก้โดยใช้ `/tmp` local SSD ทั้งหมด แล้ว persist ด้วย `tar | split` เป็น 154 chunks บน NFS
 
 ---
 
 ## Quick Start
 
-### Prerequisites
-- Node.js 20+, pnpm 9+
+**Prerequisites:** Node.js 20+, pnpm 9+
 
-### 1. Install
 ```bash
+# 1. Clone และ install
+git clone https://github.com/your-org/ku-prep-arena
+cd ku-prep-arena
 pnpm install
+
+# 2. สร้าง .env.local (ดูตัวอย่างด้านล่าง)
+
+# 3. รัน database schema
+# ไปที่ Supabase Dashboard → SQL Editor → รัน src/lib/schema.sql
+
+# 4. Start
+pnpm dev        # Next.js → http://localhost:3000
+pnpm dev:all    # Next.js + PartyKit (port 3000 + 1999)
 ```
 
-### 2. Environment variables
-สร้างไฟล์ `.env.local`:
+### Environment Variables
 
 ```bash
-# ── AI Backend ──────────────────────────────────────────────────
-# Option A: Groq (ฟรี ไม่ต้อง GPU — ลงทะเบียนที่ console.groq.com)
+# ── AI Backend ──────────────────────────────────
+# Option A: Groq (ฟรี ไม่ต้อง GPU)
 AI_BASE_URL=https://api.groq.com/openai/v1
 AI_API_KEY=gsk_your_key_here
 AI_MODEL=llama-3.1-8b-instant
 
-# Option B: vLLM บน KU cluster (ต้องเปิด SSH tunnel ก่อน)
-# AI_BASE_URL=http://localhost:8000/v1
+# Option B: vLLM บน cluster (ต้อง SSH tunnel + Cloudflare tunnel)
+# AI_BASE_URL=https://your-tunnel.trycloudflare.com/v1
 # AI_API_KEY=none
 # AI_MODEL=ku_typhoon_v1_merged
 
-# ── PartyKit ────────────────────────────────────────────────────
-NEXT_PUBLIC_PARTYKIT_HOST=localhost:1999          # local dev
-# NEXT_PUBLIC_PARTYKIT_HOST=192.168.x.x:1999     # LAN demo (ใส่ IP จริงของ Mac)
+# ── Real-time ────────────────────────────────────
+NEXT_PUBLIC_PARTYKIT_HOST=localhost:1999
 
-# ── Auth (NextAuth v5) ──────────────────────────────────────────
+# ── Auth ─────────────────────────────────────────
 NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret-here
+NEXTAUTH_SECRET=your-random-secret
 AUTH_GOOGLE_ID=your-google-client-id
 AUTH_GOOGLE_SECRET=your-google-client-secret
 
-# ── Supabase ────────────────────────────────────────────────────
+# ── Database ──────────────────────────────────────
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
-### 3. Setup database
-รัน SQL ใน Supabase Dashboard → SQL Editor:
-```sql
--- ดูไฟล์ src/lib/schema.sql
+---
+
+## Cluster Operations (KU Nontri AI)
+
+```bash
+ssh aip04@br1.paas.ku.ac.th
+
+# Fine-tune (ครั้งเดียว หรือเมื่อมี dataset ใหม่)
+sbatch ~/ku_prep_arena/ai/scripts/slurm_finetune.sh
+tail -f ~/ku_prep_arena/finetune-<JOB>.log
+
+# Start vLLM inference server
+sbatch ~/ku_prep_arena/ai/scripts/slurm_vllm.sh
+squeue -u aip04   # ดู node → เช่น dgx-04
+
+# SSH port forward (login node → compute node)
+ssh -N -L 8001:dgx-04:8000 localhost &
+
+# เปิด Cloudflare tunnel (ใน screen)
+screen -S tunnel
+~/cloudflared tunnel --url http://localhost:8001 --protocol http2
+# Ctrl+A D ← detach
+
+# หรือใช้ script อัตโนมัติ (update Vercel env ด้วย)
+export VERCEL_TOKEN=xxx
+export VERCEL_PROJECT_ID=prj_xxx
+bash ~/ku_prep_arena/ai/scripts/start_tunnel.sh
 ```
 
-### 4. Run
+> **หมายเหตุ:** `/tmp` เป็น node-local SSD — หาย เมื่อ job จบ  
+> `slurm_vllm.sh` reassemble model จาก 154 chunks ที่ `~/ku_prep_arena/ai/models/ku_typhoon_split/` อัตโนมัติ
+
+---
+
+## Deployment
+
+| Service | Platform | URL |
+|---------|----------|-----|
+| Web App | Vercel | `https://ku-prep-arena-pjsw.vercel.app` |
+| WebSocket | PartyKit Cloud | `ku-prep-arena.jinwoo290350.partykit.dev` |
+| LLM API | KU Nontri AI A100 + Cloudflare Tunnel | Dynamic — เปลี่ยนทุก restart |
+| Database | Supabase | `zvkfvgwmdwmuudxatnng.supabase.co` |
+
 ```bash
-pnpm dev        # Next.js only → http://localhost:3000
-pnpm dev:all    # Next.js + PartyKit (port 3000 + 1999)
+# Deploy web
+npx vercel --prod
+
+# Deploy PartyKit
+npx partykit deploy
 ```
+
+**หลัง deploy Vercel ครั้งแรก:**
+1. ตั้ง `NEXTAUTH_URL` = URL จริงของ Vercel → Redeploy
+2. เพิ่ม redirect URI ใน Google OAuth Console:  
+   `https://your-app.vercel.app/api/auth/callback/google`
+3. เมื่อ Cloudflare tunnel URL เปลี่ยน → อัปเดต `AI_BASE_URL` ใน Vercel → Redeploy
 
 ---
 
 ## API Reference
 
 ### `POST /api/generate`
-สร้างคำถาม MCQ จากเอกสาร
 
-**File upload:**
-```
-Content-Type: multipart/form-data
-Body: { file: File, gameType?: "flappy"|"racer"|"shooter"|"snake"|"bricks" }
-```
-
-**URL input (Google Drive / YouTube):**
-```json
-{ "url": "https://...", "urlType": "gdrive" | "youtube" }
-```
-
-**Re-generate สำหรับเกมเดียว (ไม่ต้อง upload ซ้ำ):**
-```json
-{ "text": "...", "gameType": "flappy" }
-```
+| Mode | Content-Type | Body |
+|------|-------------|------|
+| File upload | `multipart/form-data` | `file: File, gameType?: string` |
+| URL | `application/json` | `{ url, urlType: "gdrive"\|"youtube" }` |
+| Text / Re-generate | `application/json` | `{ text, gameType? }` |
 
 **Response:**
 ```json
 {
   "questions": [...],
-  "allGameQuestions": {
-    "flappy": [...], "racer": [...], "shooter": [...],
-    "snake": [...], "bricks": [...]
-  },
-  "summary": ["bullet 1", "bullet 2", "..."],
+  "allGameQuestions": { "flappy": [...], "racer": [...], "shooter": [...], "snake": [...], "bricks": [...] },
+  "summary": ["bullet 1", "..."],
   "extractedText": "..."
 }
 ```
@@ -238,131 +342,88 @@ Body: { file: File, gameType?: "flappy"|"racer"|"shooter"|"snake"|"bricks" }
 ```json
 {
   "id": 1,
-  "question": "...",
+  "question": "คำถาม",
   "choices": ["A. ...", "B. ...", "C. ...", "D. ..."],
   "correct": 2,
-  "explanation": "...",
+  "explanation": "คำอธิบายสั้น",
   "difficulty": 2
 }
 ```
-- `correct` = index 0–3
-- `difficulty` = 1 (easy/recall) | 2 (medium/apply) | 3 (hard/analyze)
+`correct` = index 0–3 | `difficulty` = 1 (recall) · 2 (apply) · 3 (analyze)
 
 ### `POST /api/chat`
-AI Mentor streaming chat — ส่ง messages array + contextText (เนื้อหาที่อัปโหลด), ได้ text stream กลับมา
 
----
-
-## ML Model
-
-### Fine-tuned Model Details
-
-| Property | Value |
-|----------|-------|
-| Base model | `scb10x/llama-3-typhoon2.5-qwen3-4b` |
-| Fine-tune method | LoRA r=16, α=32, 4-bit (unsloth) |
-| Training data | `ai/dataset/rated/*.json` |
-| Adapter output | `ai/models/ku_typhoon_v1/` |
-| Merged model path | `/tmp/ku_typhoon_v1_merged` (node-local SSD) |
-| Persisted chunks | `~/ku_prep_arena/ai/models/ku_typhoon_split/` (154 × 50MB) |
-| Difficulty balance | 3 easy / 5 medium / 2 hard per batch |
-| Answer balance | A/B/C/D กระจายเท่ากัน (stratified shuffle) |
-
-### AI Pipeline
-
-```
-POST /api/generate
-       │
-       ▼
- Agent 0 — Parser
-  PDF / DOCX / TXT / Google Drive / YouTube → plain text (max 4,000 chars)
-       │
-       ├──────────────────── parallel ────────────────────────┐
-       ▼                                                       ▼
- Agent 1 — Summarizer                            Agent 2 — Question Generator × 5
-  → 6–8 bullet points                             flappy / racer / shooter / snake / bricks
-       │                                                       │
-       └─────────────────────── response ────────────────────-┘
-  { questions, allGameQuestions, summary, extractedText }
-```
-
----
-
-## Cluster Setup (KU Nontri AI)
-
-```bash
-# SSH เข้า cluster
-ssh aip04@br2.paas.ku.ac.th
-
-# 1. Fine-tune model
-sbatch ~/ku_prep_arena/ai/scripts/slurm_finetune.sh
-tail -f ~/ku_prep_arena/finetune-<JOB>.log
-
-# 2. Start vLLM inference server
-sbatch ~/ku_prep_arena/ai/scripts/slurm_vllm.sh
-squeue -u aip04            # ดู node เช่น dgx-02
-
-# 3. เปิด SSH tunnel จาก local machine
-ssh -N -L 8000:dgx-02:8000 aip04@br2.paas.ku.ac.th
-
-# 4. เปิด Cloudflare tunnel (ใน screen session บน cluster)
-screen -S tunnel
-cloudflared tunnel --url http://localhost:8000 --protocol http2
-# Ctrl+A D เพื่อ detach session
-```
-
-> `/tmp` เป็น node-local SSD — model จะหายเมื่อ job สิ้นสุด  
-> `slurm_vllm.sh` จะ reassemble อัตโนมัติจาก 154 chunks ที่ `~/ku_prep_arena/ai/models/ku_typhoon_split/`
-
----
-
-## Deployment
-
-| Service | Platform | URL |
-|---------|----------|-----|
-| Web App | Vercel | `https://your-app.vercel.app` |
-| PartyKit | PartyKit Cloud | `ku-prep-arena.jinwoo290350.partykit.dev` |
-| vLLM | KU Nontri AI A100 + Cloudflare Tunnel | Dynamic (เปลี่ยนทุก tunnel restart) |
-| Database | Supabase | `zvkfvgwmdwmuudxatnng.supabase.co` |
-
-### Deploy to Vercel
-```bash
-npx vercel --prod
-```
-ใส่ env vars ทั้งหมดใน Vercel Dashboard → Settings → Environment Variables  
-หลัง deploy: อัปเดต `NEXTAUTH_URL` เป็น Vercel URL จริง → Redeploy  
-เพิ่ม redirect URI ใน Google OAuth Console: `https://your-app.vercel.app/api/auth/callback/google`
-
-### Deploy PartyKit
-```bash
-npx partykit deploy
-```
+Streaming chat กับ AI Mentor — ส่ง `{ messages: [], contextText: string }` → ได้ text stream
 
 ---
 
 ## Database Schema
 
 ```sql
-app_users (id, username, salt, password_hash, created_at)
-scores    (id, user_email, game_id, score, created_at)
-exams     (id, user_email, name, date, created_at)
+-- Users (สำหรับ credentials login)
+app_users (id uuid, username text unique, salt text, password_hash text, created_at)
+
+-- Game scores
+scores (id uuid, user_email text, game_id text, score int, created_at)
+
+-- Exam schedule (Smart Planner)
+exams (id uuid, user_email text, name text, date text, created_at)
 ```
 
 Full schema: [src/lib/schema.sql](src/lib/schema.sql)
 
 ---
 
-## Known Issues
+## Project Structure
 
-- **Cloudflare Tunnel URL** เปลี่ยนทุกครั้งที่ restart → ต้องอัปเดต `AI_BASE_URL` ใน `.env.local` และ Vercel (Free tier ไม่มี persistent URL)
-- **NFS write limit บน cluster** — ไม่รองรับ large mmap write (safetensors) → ใช้ `/tmp` local SSD แทน
-- **CUDA_VISIBLE_DEVICES=0** จำเป็นบน MIG slice เพราะ SLURM set UUID format ที่ vLLM parse ไม่ได้
-- **PartyKit** รองรับ 10 คนต่อห้องในระยะแรก
-- **Dataset files** (`ai/dataset/`) ถูก gitignore → ต้อง `scp` ขึ้น cluster ก่อน fine-tune
+```
+ku-prep-arena/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx                      # Dashboard
+│   │   ├── login/                        # Login (Google + Credentials)
+│   │   ├── arena/                        # Game Hub
+│   │   │   ├── flappy/  racer/  shooter/ snake/  bricks/
+│   │   ├── quiz-battle/                  # Multiplayer
+│   │   │   ├── page.tsx                  # Lobby
+│   │   │   ├── host/[code]/              # Host view
+│   │   │   └── play/[code]/              # Player view
+│   │   ├── flashcards/  planner/  fortune/
+│   │   └── api/
+│   │       ├── generate/route.ts         # AI question pipeline
+│   │       ├── chat/route.ts             # Streaming AI Mentor
+│   │       ├── scores/  exams/  auth/
+│   ├── components/                       # React UI components
+│   ├── lib/
+│   │   ├── questions-context.tsx         # Global quiz state
+│   │   ├── supabase.ts                   # DB client
+│   │   ├── schema.sql                    # Database schema
+│   │   └── party-types.ts                # WS message types
+│   ├── auth.ts                           # NextAuth (Node.js)
+│   ├── auth.config.ts                    # NextAuth (Edge-safe)
+│   └── middleware.ts                     # Route protection
+├── party/
+│   └── game.ts                           # PartyKit WS server
+├── ai/
+│   ├── notebooks/
+│   │   ├── 01_dataset_gen.ipynb          # PDF → MCQ
+│   │   ├── 02_game_agents.ipynb          # Prompt evaluation
+│   │   ├── 03_evaluation.ipynb           # Balance metrics
+│   │   ├── 04_finetune.ipynb             # LoRA fine-tune
+│   │   ├── 05_difficulty_rating.ipynb    # Teacher labeling
+│   │   └── 06_claude_teacher.ipynb       # Claude teacher
+│   ├── scripts/
+│   │   ├── slurm_finetune.sh             # SLURM fine-tune job
+│   │   ├── slurm_vllm.sh                 # SLURM vLLM server
+│   │   ├── start_tunnel.sh               # Cloudflare + Vercel auto-update
+│   │   └── rebalance_dataset.py          # A/B/C/D balance
+│   └── dataset/rated/                    # Labeled MCQ dataset
+└── public/icon.svg
+```
 
 ---
 
 ## Acknowledgements
 
-> Computational resources supported by **KU Nontri AI**, Kasetsart University  
-> Base model: Typhoon2.5-Qwen3-4B by SCB 10X
+Computational resources provided by **KU Nontri AI**, Kasetsart University  
+Base model: [Typhoon2.5-Qwen3-4B](https://huggingface.co/scb10x/llama-3-typhoon2.5-qwen3-4b) by SCB 10X
