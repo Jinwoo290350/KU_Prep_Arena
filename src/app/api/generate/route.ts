@@ -8,30 +8,32 @@ export const runtime = "nodejs"
 export const maxDuration = 60
 
 // ---------------------------------------------------------------------------
-// Few-shot loader — picks 2 example questions from rated dataset per game type
+// Few-shot loader — returns example messages (user/assistant pair) for format only
+// Strips actual question text to avoid language contamination from English examples
 // ---------------------------------------------------------------------------
-function getFewShotExamples(gameType: string): string {
+function getFewShotMessages(gameType: string): { role: "user" | "assistant"; content: string }[] {
   try {
     const dir = path.join(process.cwd(), "ai/dataset/rated")
     const files = fs.readdirSync(dir).filter(f => f.endsWith(`_${gameType}.json`))
-    if (files.length === 0) return ""
-    const file = files[Math.floor(Math.random() * files.length)]
-    const all = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")) as unknown[]
-    // Pick 2 examples — 1 easy (difficulty 1) + 1 hard (difficulty 3)
-    const easy = all.find((q: any) => q.difficulty_teacher === 1 || q.difficulty === 1)
-    const hard = all.find((q: any) => q.difficulty_teacher === 3 || q.difficulty === 3)
-    const examples = [easy, hard].filter(Boolean).slice(0, 2).map((q: any) => ({
+    if (files.length === 0) return []
+    const file = files[0]
+    const all = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")) as any[]
+    // Pick 3 questions with varying difficulty for format demonstration
+    const picked = all.slice(0, 3).map((q: any) => ({
       id: q.id,
-      question: q.question,
-      choices: q.choices,
+      question: "...",          // hide actual text — avoid language contamination
+      choices: ["A. ...", "B. ...", "C. ...", "D. ..."],
       correct: q.correct,
-      explanation: q.explanation?.slice(0, 60) ?? "",
+      explanation: "...",
       difficulty: q.difficulty_teacher ?? q.difficulty,
     }))
-    if (examples.length === 0) return ""
-    return `\n\nตัวอย่างคำถามที่ดี (ห้ามคัดลอก — ใช้เป็นแนวทางรูปแบบเท่านั้น):\n${JSON.stringify(examples, null, 2)}`
+    if (picked.length === 0) return []
+    return [
+      { role: "user", content: "สร้างคำถาม 3 ข้อ (format example)" },
+      { role: "assistant", content: JSON.stringify({ questions: picked }) },
+    ]
   } catch {
-    return ""
+    return []
   }
 }
 
@@ -197,7 +199,7 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
   const systemPrompt = gameHint
     ? `${gameHint}\n\nRespond ONLY with a valid JSON object containing key "questions" as an array.`
     : `${DEFAULT_GAME_PROMPT.replace("JSON array", 'JSON object containing key "questions" as an array')}`
-  const fewShot = gameType ? getFewShotExamples(gameType) : ""
+  const fewShotMessages = gameType ? getFewShotMessages(gameType) : []
 
   const res = await client.chat.completions.create({
     model: MODEL,
@@ -208,20 +210,22 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
         role: "system",
         content: systemPrompt,
       },
+      ...fewShotMessages,
       {
         role: "user",
         content: `สร้างคำถามแบบเลือกตอบ 10 ข้อจากเนื้อหาด้านล่าง
 กฎสำคัญ:
-- ถ้าเนื้อหาเป็นภาษาไทย ให้เขียนคำถามและตัวเลือกเป็นภาษาไทยทั้งหมด
-- ถ้าเนื้อหาเป็นภาษาอังกฤษ ให้เขียนเป็นภาษาอังกฤษทั้งหมด
+- ตรวจสอบภาษาของเนื้อหา แล้วเขียนคำถามและตัวเลือกเป็นภาษาเดียวกันทั้งหมด
+- ถ้าเนื้อหาเป็นภาษาไทย → คำถามและตัวเลือกต้องเป็นภาษาไทยเท่านั้น
+- ถ้าเนื้อหาเป็นภาษาอังกฤษ → คำถามและตัวเลือกต้องเป็นภาษาอังกฤษเท่านั้น
 - แต่ละข้อมี 4 ตัวเลือก, คำตอบถูกต้อง 1 ข้อ
-- คำอธิบายสั้นมาก ไม่เกิน 15 คำ
-- ใส่เฉพาะ field ที่กำหนดเท่านั้น ห้ามเพิ่ม field อื่น
+- คำอธิบายสั้นมาก ไม่เกิน 15 คำ ภาษาเดียวกับคำถาม
+- ใส่เฉพาะ field: id, question, choices, correct, explanation, difficulty เท่านั้น
 
 ตอบเป็น JSON เท่านั้น ไม่มี markdown:
 {"questions":[{"id":1,"question":"...","choices":["A. ...","B. ...","C. ...","D. ..."],"correct":0,"explanation":"...","difficulty":1}]}
 (correct = index 0-3, difficulty = 1/2/3)
-${fewShot}
+
 เนื้อหา:
 ${text}`,
       },
