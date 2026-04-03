@@ -1,22 +1,17 @@
 import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials"
 import crypto from "crypto"
 import { createClient } from "@supabase/supabase-js"
+import { authConfig } from "./auth.config"
 
 function hashPassword(password: string, salt: string): string {
   return crypto.pbkdf2Sync(password, salt, 100000, 64, "sha512").toString("hex")
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  pages: {
-    signIn: "/login",
-  },
+  ...authConfig,
   providers: [
-    Google({
-      clientId: process.env.AUTH_GOOGLE_ID!,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET!,
-    }),
+    ...authConfig.providers,
     Credentials({
       credentials: {
         username: { label: "Username", type: "text" },
