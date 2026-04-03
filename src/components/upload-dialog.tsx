@@ -58,8 +58,13 @@ export function UploadDialog({ children }: UploadDialogProps) {
       const form = new FormData()
       form.append("file", file)
       const res = await fetch("/api/generate", { method: "POST", body: form })
+      if (!res.ok) {
+        const text = await res.text()
+        let msg = `เกิดข้อผิดพลาด (${res.status})`
+        try { msg = JSON.parse(text).error ?? msg } catch { /* no body */ }
+        throw new Error(msg)
+      }
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error ?? "Failed to generate questions")
       applyResult(data)
       setStatus("success")
       setTimeout(() => setOpen(false), 800)
@@ -86,8 +91,13 @@ export function UploadDialog({ children }: UploadDialogProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: url.trim(), urlType: type }),
       })
+      if (!res.ok) {
+        const text = await res.text()
+        let msg = `เกิดข้อผิดพลาด (${res.status})`
+        try { msg = JSON.parse(text).error ?? msg } catch { /* no body */ }
+        throw new Error(msg)
+      }
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error ?? "Failed to generate questions")
       applyResult(data)
       setStatus("success")
       setTimeout(() => setOpen(false), 800)
@@ -116,8 +126,13 @@ export function UploadDialog({ children }: UploadDialogProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: textInput.trim() }),
       })
+      if (!res.ok) {
+        const text = await res.text()
+        let msg = `เกิดข้อผิดพลาด (${res.status})`
+        try { msg = JSON.parse(text).error ?? msg } catch { /* no body */ }
+        throw new Error(msg)
+      }
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error ?? "Failed to generate questions")
       applyResult(data)
       setStatus("success")
       setTimeout(() => setOpen(false), 800)

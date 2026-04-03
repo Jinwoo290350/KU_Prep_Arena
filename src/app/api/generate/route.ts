@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server"
 import OpenAI from "openai"
 
+// Extend Vercel serverless timeout (requires Pro plan; ignored on Hobby but harmless)
+export const maxDuration = 60
+
 // ---------------------------------------------------------------------------
 // AI client — reads from env, works with Groq OR vLLM (OpenAI-compatible)
 // ---------------------------------------------------------------------------
