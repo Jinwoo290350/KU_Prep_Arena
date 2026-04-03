@@ -1,6 +1,9 @@
 import { NextRequest } from "next/server"
 import OpenAI from "openai"
 
+export const runtime = "nodejs"
+export const maxDuration = 60
+
 function getClient() {
   return new OpenAI({
     baseURL: process.env.AI_BASE_URL ?? "https://api.groq.com/openai/v1",

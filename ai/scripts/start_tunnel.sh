@@ -20,6 +20,21 @@ VERCEL_TEAM_ID="${VERCEL_TEAM_ID:-}"   # ว่างได้ถ้าเป็
 VLLM_PORT=8000
 LOG_FILE="/tmp/tunnel.log"
 
+# ── Auto SSH port-forward if running on login node ────────────
+# vLLM runs on compute node (dgx-XX), not on login node (br1)
+# Detect by checking if vLLM is reachable on localhost first
+if ! curl -s "http://localhost:$VLLM_PORT/health" &>/dev/null; then
+  # Find the compute node running vLLM via squeue
+  COMPUTE_NODE=$(squeue -u "$USER" -h -o "%N" 2>/dev/null | grep -v "^$" | head -1)
+  if [ -n "$COMPUTE_NODE" ]; then
+    echo "[INFO] vLLM อยู่บน $COMPUTE_NODE — ทำ SSH port forward..."
+    ssh -N -L ${VLLM_PORT}:${COMPUTE_NODE}:${VLLM_PORT} localhost &
+    SSH_FWD_PID=$!
+    sleep 3
+    echo "[OK] Port forward: localhost:$VLLM_PORT → $COMPUTE_NODE:$VLLM_PORT (PID $SSH_FWD_PID)"
+  fi
+fi
+
 # ── Validate ──────────────────────────────────────────────────
 if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
   echo "[ERROR] ต้องตั้งค่า VERCEL_TOKEN และ VERCEL_PROJECT_ID"
@@ -40,7 +55,8 @@ done
 
 # ── Start cloudflared ─────────────────────────────────────────
 echo "[INFO] เริ่ม Cloudflare tunnel..."
-cloudflared tunnel --url "http://localhost:$VLLM_PORT" \
+rm -f "$LOG_FILE"
+~/~/cloudflared tunnel --url "http://localhost:$VLLM_PORT" \
   --protocol http2 \
   --logfile "$LOG_FILE" \
   --loglevel info &
