@@ -85,22 +85,38 @@ python -c "import sys; sys.path.insert(0,'$VLLM_PKG'); import vllm; print('[OK] 
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 
-# ─── Find model: /tmp → join chunks → fallback error ─────────────────────
+# ─── Find model: /tmp → tar.gz → chunks → fallback error ─────────────────
 TMP_MODEL="/tmp/ku_typhoon_v1_merged"
-SPLIT_DIR="$HOME/ku_prep_arena/ai/models/ku_typhoon_split"
+MODELS_DIR="$HOME/ku_prep_arena/ai/models"
+TARBALL="$MODELS_DIR/ku_typhoon_v1_merged.tar.gz"
+SPLIT_DIR="$MODELS_DIR/ku_typhoon_split"
 
 if [ -d "$TMP_MODEL" ] && [ -f "$TMP_MODEL/config.json" ]; then
   echo "[INFO] Found merged model in /tmp — using directly"
+elif [ -f "$TARBALL" ]; then
+  echo "[INFO] Extracting model from tarball ($TARBALL) to /tmp..."
+  tar -xzf "$TARBALL" -C /tmp
+  echo "[OK] Tarball extracted."
 elif [ -d "$SPLIT_DIR" ] && ls "$SPLIT_DIR"/chunk_* &>/dev/null; then
   echo "[INFO] Reassembling model from chunks (NFS → /tmp)..."
   cat "$SPLIT_DIR"/chunk_* | tar -x -C /tmp
-  echo "[OK] Model ready: $(du -sh $TMP_MODEL | cut -f1)"
+  echo "[OK] Chunks extracted."
 else
-  echo "[ERROR] Model chunks not found at $SPLIT_DIR"
-  echo "        Run slurm_finetune.sh first, then save with:"
-  echo "        srun --jobid=<ID> bash -c 'mkdir -p ~/ku_prep_arena/ai/models/ku_typhoon_split && tar -C /tmp -c ku_typhoon_v1_merged | split -b 50m - ~/ku_prep_arena/ai/models/ku_typhoon_split/chunk_'"
+  echo "[ERROR] Model not found in /tmp, no tarball, and no chunks available."
   exit 1
 fi
+
+# ─── Verification Check ──────────────────────────────────────────────────
+if [ ! -f "$TMP_MODEL/config.json" ]; then
+  echo "[ERROR] Extraction failed or path is wrong! $TMP_MODEL/config.json not found."
+  echo "Current contents of /tmp/ku_typhoon_v1_merged:"
+  ls -la "$TMP_MODEL" 2>/dev/null || echo "Directory does not exist."
+  echo "Current contents of /tmp:"
+  ls -la /tmp | grep ku_
+  exit 1
+fi
+
+echo "[OK] Model verified and ready: $(du -sh $TMP_MODEL | cut -f1)"
 
 # ─── Start vLLM ───────────────────────────────────────────────────────────
 echo "[INFO] Starting vLLM server..."

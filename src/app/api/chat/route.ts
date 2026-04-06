@@ -6,18 +6,13 @@ export const maxDuration = 60
 
 function getClient() {
   return new OpenAI({
-    baseURL: process.env.AI_BASE_URL ?? "https://api.groq.com/openai/v1",
+    baseURL: process.env.AI_BASE_URL ?? "https://api.opentyphoon.ai/v1",
     apiKey: process.env.AI_API_KEY ?? "none",
   })
 }
 
-const MODEL = process.env.AI_MODEL ?? "llama-3.1-8b-instant"
+const MODEL = process.env.AI_MODEL ?? "typhoon-v2-70b-instruct"
 
-// ---------------------------------------------------------------------------
-// Agent 3: AI Mentor Chat (streaming)
-// POST /api/chat
-// Body: { messages: [{role, content}], contextText?: string }
-// ---------------------------------------------------------------------------
 export async function POST(req: NextRequest) {
   try {
     const { messages, contextText } = await req.json()
@@ -25,19 +20,19 @@ export async function POST(req: NextRequest) {
     const client = getClient()
 
     const systemPrompt = contextText
-      ? `You are KU AI Mentor — a friendly, knowledgeable academic tutor for Kasetsart University students.
-Your role is to help students understand the study material they uploaded.
+      ? `คุณคือ KU AI Mentor — ผู้ช่วยติวและอธิบายบทเรียนสำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์
+ตอบเป็นภาษาไทยเสมอ ยกเว้นเมื่อนิสิตถามเป็นภาษาอังกฤษ
+อธิบายให้ชัดเจน กระชับ ใช้ตัวอย่างที่เข้าใจง่าย
 
-Study Material Context:
+เนื้อหาการเรียนที่อัพโหลด:
 ---
-${contextText.slice(0, 6000)}
+${contextText.slice(0, 8000)}
 ---
 
-Answer questions clearly and accurately based on the study material above.
-If the question is not related to the material, still answer helpfully.
-Use the same language the student uses (Thai or English).`
-      : `You are KU AI Mentor — a friendly, knowledgeable academic tutor for Kasetsart University students.
-Help students understand academic concepts clearly. Use the same language the student uses (Thai or English).`
+ตอบคำถามโดยอิงจากเนื้อหาด้านบน ถ้าคำถามไม่เกี่ยวกับเนื้อหา ก็ตอบได้ตามปกติ`
+      : `คุณคือ KU AI Mentor — ผู้ช่วยติวและอธิบายบทเรียนสำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์
+ตอบเป็นภาษาไทยเสมอ ยกเว้นเมื่อนิสิตถามเป็นภาษาอังกฤษ
+อธิบายให้ชัดเจน กระชับ ใช้ตัวอย่างที่เข้าใจง่าย`
 
     const stream = await client.chat.completions.create({
       model: MODEL,
@@ -49,16 +44,13 @@ Help students understand academic concepts clearly. Use the same language the st
       ],
     })
 
-    // Stream the response as Server-Sent Events
     const encoder = new TextEncoder()
     const readable = new ReadableStream({
       async start(controller) {
         try {
           for await (const chunk of stream) {
             const text = chunk.choices[0]?.delta?.content ?? ""
-            if (text) {
-              controller.enqueue(encoder.encode(text))
-            }
+            if (text) controller.enqueue(encoder.encode(text))
           }
         } finally {
           controller.close()

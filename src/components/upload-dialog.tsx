@@ -1,360 +1,408 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useCallback } from "react"
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import {
-  Upload, Link2, Youtube, FileText, AlertCircle,
-  CheckCircle2, Loader2, X, FileUp,
+  Plus, FileText, Link2, Youtube, Search,
+  Loader2, CheckCircle2, AlertCircle, Trash2,
+  FileUp, LayoutGrid, Check,
 } from "lucide-react"
-import { useQuestions } from "@/lib/questions-context"
+import { useQuestions, type Source } from "@/lib/questions-context"
 import type { QuizQuestion } from "@/lib/mock-data"
-
-type TabId = "file" | "gdrive" | "youtube" | "text"
-
-const TABS: { id: TabId; label: string; icon: React.ElementType; placeholder?: string }[] = [
-  { id: "file",    label: "ไฟล์",         icon: FileUp },
-  { id: "gdrive",  label: "Google Drive", icon: Link2 },
-  { id: "youtube", label: "YouTube",      icon: Youtube },
-  { id: "text",    label: "วางข้อความ",   icon: FileText },
-]
 
 interface UploadDialogProps {
   children: React.ReactNode
 }
 
-export function UploadDialog({ children }: UploadDialogProps) {
-  const {
-    setQuestions, setUploadedFileName, setUploadedText,
-    setSummary, setIsGenerating, setGameQuestions,
-  } = useQuestions()
+/* ── helpers ────────────────────────────────────────────────────── */
+function fileIcon(name: string) {
+  if (name.toLowerCase().endsWith(".pdf")) return "📄"
+  if (name.toLowerCase().endsWith(".docx")) return "📝"
+  if (name.startsWith("YouTube:")) return "🎬"
+  if (name.startsWith("Google Drive:")) return "🔗"
+  return "📋"
+}
 
-  const [open, setOpen] = useState(false)
-  const [tab, setTab] = useState<TabId>("file")
+function SourceRow({
+  source,
+  onToggle,
+  onRemove,
+}: {
+  source: Source
+  onToggle: () => void
+  onRemove: () => void
+}) {
+  return (
+    <div className={cn(
+      "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors group",
+      source.selected ? "bg-secondary/60" : "hover:bg-secondary/30"
+    )}>
+      {/* Checkbox */}
+      <button
+        onClick={onToggle}
+        className={cn(
+          "flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 transition-all",
+          source.selected
+            ? "bg-ku-green-500 border-ku-green-500 text-white"
+            : "border-border hover:border-ku-green-500/60"
+        )}
+        disabled={source.status === "loading"}
+      >
+        {source.selected && <Check className="h-3 w-3" strokeWidth={3} />}
+      </button>
+
+      {/* Icon */}
+      <span className="text-base shrink-0 select-none">{fileIcon(source.name)}</span>
+
+      {/* Name + status */}
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-foreground truncate leading-tight">{source.name}</p>
+        {source.status === "loading" && (
+          <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5">
+            <Loader2 className="h-2.5 w-2.5 animate-spin" /> กำลังวิเคราะห์…
+          </p>
+        )}
+        {source.status === "ready" && (
+          <p className="text-[10px] text-ku-green-500 flex items-center gap-1 mt-0.5">
+            <CheckCircle2 className="h-2.5 w-2.5" /> {source.questions.length} ข้อ พร้อมแล้ว
+          </p>
+        )}
+        {source.status === "error" && (
+          <p className="text-[10px] text-destructive flex items-center gap-1 mt-0.5 truncate">
+            <AlertCircle className="h-2.5 w-2.5 shrink-0" /> {source.error ?? "เกิดข้อผิดพลาด"}
+          </p>
+        )}
+      </div>
+
+      {/* Delete */}
+      <button
+        onClick={onRemove}
+        className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-destructive transition-all shrink-0"
+        disabled={source.status === "loading"}
+      >
+        <Trash2 className="h-3.5 w-3.5" />
+      </button>
+    </div>
+  )
+}
+
+/* ── Add Source Sub-panel ────────────────────────────────────────── */
+type AddTab = "file" | "gdrive" | "youtube" | "text"
+
+function AddSourcePanel({ onClose }: { onClose: () => void }) {
+  const { addSource, updateSource } = useQuestions()
+  const [tab, setTab] = useState<AddTab>("file")
   const [url, setUrl] = useState("")
   const [textInput, setTextInput] = useState("")
   const [dragOver, setDragOver] = useState(false)
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
-  const [error, setError] = useState<string | null>(null)
   const fileRef = useRef<HTMLInputElement>(null)
 
-  function reset() {
-    setStatus("idle")
-    setError(null)
-    setUrl("")
-  }
-
-  async function processFile(file: File) {
-    if (!file) return
-    setStatus("loading")
-    setError(null)
-    setUploadedFileName(file.name)
-    setIsGenerating(true)
-
+  const submitToApi = useCallback(async (
+    id: string,
+    body: FormData | string,
+    isJson: boolean,
+  ) => {
     try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        ...(isJson
+          ? { headers: { "Content-Type": "application/json" }, body: body as string }
+          : { body: body as FormData }),
+      })
+      if (!res.ok) {
+        let msg = `เกิดข้อผิดพลาด (${res.status})`
+        try { msg = (await res.json()).error ?? msg } catch { /* no-op */ }
+        updateSource(id, { status: "error", error: msg })
+        return
+      }
+      const data = await res.json() as {
+        questions?: QuizQuestion[]
+        allGameQuestions?: Record<string, QuizQuestion[]>
+        summary?: string[]
+        extractedText?: string
+      }
+      updateSource(id, {
+        status: "ready",
+        questions: data.questions ?? [],
+        gameQuestions: data.allGameQuestions ?? {},
+        summary: data.summary ?? [],
+        text: data.extractedText ?? "",
+      })
+    } catch (e) {
+      updateSource(id, { status: "error", error: e instanceof Error ? e.message : "Network error" })
+    }
+  }, [updateSource])
+
+  function handleFiles(files: FileList | null) {
+    if (!files || files.length === 0) return
+    for (const file of Array.from(files)) {
+      const id = addSource(file.name)
       const form = new FormData()
       form.append("file", file)
-      const res = await fetch("/api/generate", { method: "POST", body: form })
-      if (!res.ok) {
-        const text = await res.text()
-        let msg = `เกิดข้อผิดพลาด (${res.status})`
-        try { msg = JSON.parse(text).error ?? msg } catch { /* no body */ }
-        throw new Error(msg)
-      }
-      const data = await res.json()
-      applyResult(data)
-      setStatus("success")
-      setTimeout(() => setOpen(false), 800)
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "เกิดข้อผิดพลาด")
-      setStatus("error")
-      setUploadedFileName(null)
-    } finally {
-      setIsGenerating(false)
+      submitToApi(id, form, false)
     }
+    onClose()
   }
 
-  async function processUrl(type: "gdrive" | "youtube") {
+  function handleUrl(type: "gdrive" | "youtube") {
     if (!url.trim()) return
-    setStatus("loading")
-    setError(null)
-    setIsGenerating(true)
     const label = type === "gdrive" ? "Google Drive" : "YouTube"
-    setUploadedFileName(`${label}: ${url.slice(0, 40)}…`)
-
-    try {
-      const res = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim(), urlType: type }),
-      })
-      if (!res.ok) {
-        const text = await res.text()
-        let msg = `เกิดข้อผิดพลาด (${res.status})`
-        try { msg = JSON.parse(text).error ?? msg } catch { /* no body */ }
-        throw new Error(msg)
-      }
-      const data = await res.json()
-      applyResult(data)
-      setStatus("success")
-      setTimeout(() => setOpen(false), 800)
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "เกิดข้อผิดพลาด")
-      setStatus("error")
-      setUploadedFileName(null)
-    } finally {
-      setIsGenerating(false)
-    }
+    const id = addSource(`${label}: ${url.slice(0, 40)}…`)
+    submitToApi(id, JSON.stringify({ url: url.trim(), urlType: type }), true)
+    onClose()
   }
 
-  async function processText() {
-    if (textInput.trim().length < 50) {
-      setError("ข้อความน้อยเกินไป กรุณาใส่อย่างน้อย 50 ตัวอักษร")
-      return
-    }
-    setStatus("loading")
-    setError(null)
-    setIsGenerating(true)
-    setUploadedFileName("ข้อความที่วาง")
-
-    try {
-      const res = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: textInput.trim() }),
-      })
-      if (!res.ok) {
-        const text = await res.text()
-        let msg = `เกิดข้อผิดพลาด (${res.status})`
-        try { msg = JSON.parse(text).error ?? msg } catch { /* no body */ }
-        throw new Error(msg)
-      }
-      const data = await res.json()
-      applyResult(data)
-      setStatus("success")
-      setTimeout(() => setOpen(false), 800)
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "เกิดข้อผิดพลาด")
-      setStatus("error")
-      setUploadedFileName(null)
-    } finally {
-      setIsGenerating(false)
-    }
+  function handleText() {
+    if (textInput.trim().length < 50) return
+    const preview = textInput.trim().slice(0, 30)
+    const id = addSource(`ข้อความ: ${preview}…`)
+    submitToApi(id, JSON.stringify({ text: textInput.trim() }), true)
+    onClose()
   }
 
-  function applyResult(data: Record<string, unknown>) {
-    setQuestions((data.questions as QuizQuestion[]) ?? [])
-    setSummary((data.summary as string[]) ?? [])
-    setUploadedText((data.extractedText as string | null) ?? null)
-    if (data.allGameQuestions) {
-      Object.entries(data.allGameQuestions as Record<string, unknown[]>).forEach(([type, qs]) => {
-        if (Array.isArray(qs)) setGameQuestions(type, qs as QuizQuestion[])
-      })
-    }
-  }
+  const TABS: { id: AddTab; label: string; icon: React.ElementType }[] = [
+    { id: "file",    label: "ไฟล์",         icon: FileUp },
+    { id: "gdrive",  label: "Google Drive", icon: Link2 },
+    { id: "youtube", label: "YouTube",      icon: Youtube },
+    { id: "text",    label: "วางข้อความ",   icon: FileText },
+  ]
 
   return (
-    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) reset() }}>
+    <div className="border-t border-border">
+      {/* Tab bar */}
+      <div className="flex border-b border-border bg-muted/30">
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            onClick={() => setTab(t.id)}
+            className={cn(
+              "flex-1 flex flex-col items-center gap-1 py-2.5 text-[10px] font-medium transition-all",
+              tab === t.id
+                ? "text-ku-green-600 dark:text-ku-green-300 border-b-2 border-ku-green-500 bg-background"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            )}
+          >
+            <t.icon className="h-3.5 w-3.5" />
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="p-4 space-y-3">
+        {/* ── File ── */}
+        {tab === "file" && (
+          <>
+            <input
+              ref={fileRef}
+              type="file"
+              accept=".pdf,.txt,.docx"
+              multiple
+              className="sr-only"
+              onChange={(e) => handleFiles(e.target.files)}
+            />
+            <div
+              onClick={() => fileRef.current?.click()}
+              onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
+              onDragLeave={() => setDragOver(false)}
+              onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files) }}
+              className={cn(
+                "border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all",
+                dragOver
+                  ? "border-ku-green-500 bg-ku-green-500/5"
+                  : "border-border hover:border-ku-green-500/60 hover:bg-muted/40"
+              )}
+            >
+              <FileUp className="h-8 w-8 mx-auto mb-2 text-muted-foreground/60" />
+              <p className="font-medium text-sm mb-1">ลากไฟล์มาวางที่นี่</p>
+              <p className="text-xs text-muted-foreground">เลือกได้หลายไฟล์พร้อมกัน</p>
+              <p className="text-[11px] text-muted-foreground/60 mt-1.5">PDF · DOCX · TXT</p>
+            </div>
+          </>
+        )}
+
+        {/* ── Google Drive ── */}
+        {tab === "gdrive" && (
+          <div className="space-y-2.5">
+            <div className="flex items-start gap-2 p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
+              <Link2 className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
+              <p className="text-xs text-muted-foreground">
+                วาง URL ของ <strong>Google Docs / Slides / Sheet</strong> ที่แชร์แบบ
+                <span className="text-blue-400"> "ทุกคนที่มีลิงก์"</span>
+              </p>
+            </div>
+            <input
+              type="url" value={url} onChange={(e) => setUrl(e.target.value)}
+              placeholder="https://docs.google.com/document/d/..."
+              className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm
+                placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ku-green-500/50"
+            />
+            <Button onClick={() => handleUrl("gdrive")} disabled={!url.trim()} className="w-full btn-ku-green">
+              เพิ่มจาก Google Drive
+            </Button>
+          </div>
+        )}
+
+        {/* ── YouTube ── */}
+        {tab === "youtube" && (
+          <div className="space-y-2.5">
+            <div className="flex items-start gap-2 p-3 rounded-lg bg-red-500/5 border border-red-500/20">
+              <Youtube className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
+              <p className="text-xs text-muted-foreground">
+                วาง URL ของวิดีโอ YouTube ที่มี<span className="text-red-400"> คำบรรยาย (subtitle)</span>
+              </p>
+            </div>
+            <input
+              type="url" value={url} onChange={(e) => setUrl(e.target.value)}
+              placeholder="https://www.youtube.com/watch?v=..."
+              className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm
+                placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ku-green-500/50"
+            />
+            <Button onClick={() => handleUrl("youtube")} disabled={!url.trim()} className="w-full btn-ku-green">
+              เพิ่มจาก YouTube
+            </Button>
+          </div>
+        )}
+
+        {/* ── Text ── */}
+        {tab === "text" && (
+          <div className="space-y-2.5">
+            <textarea
+              value={textInput} onChange={(e) => setTextInput(e.target.value)}
+              placeholder="วางเนื้อหาที่ต้องการสร้างข้อสอบ..."
+              rows={6}
+              className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm
+                placeholder:text-muted-foreground resize-none focus:outline-none
+                focus:ring-2 focus:ring-ku-green-500/50"
+            />
+            <div className="flex items-center justify-between">
+              <span className={cn("text-xs", textInput.length < 50 ? "text-muted-foreground" : "text-ku-green-500")}>
+                {textInput.length} / 50 ตัวอักษรขั้นต่ำ
+              </span>
+            </div>
+            <Button
+              onClick={handleText}
+              disabled={textInput.trim().length < 50}
+              className="w-full btn-ku-green"
+            >
+              เพิ่มข้อความนี้
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+/* ── Main Dialog ─────────────────────────────────────────────────── */
+export function UploadDialog({ children }: UploadDialogProps) {
+  const { sources, toggleSource, toggleAll, removeSource } = useQuestions()
+  const [open, setOpen] = useState(false)
+  const [search, setSearch] = useState("")
+  const [showAdd, setShowAdd] = useState(false)
+
+  const allSelected = sources.length > 0 && sources.every(s => s.selected)
+  const filtered = search.trim()
+    ? sources.filter(s => s.name.toLowerCase().includes(search.toLowerCase()))
+    : sources
+
+  return (
+    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) { setShowAdd(false); setSearch("") } }}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-120 p-0 gap-0 overflow-hidden">
-        <DialogHeader className="px-6 pt-6 pb-4 border-b border-border">
-          <DialogTitle className="flex items-center gap-2">
-            <Upload className="h-4 w-4 text-ku-green-500" />
-            เพิ่มเนื้อหาการเรียน
+      <DialogContent className="sm:max-w-105 p-0 gap-0 overflow-hidden max-h-[85vh] flex flex-col">
+        {/* Header */}
+        <DialogHeader className="px-5 pt-5 pb-3 border-b border-border shrink-0">
+          <DialogTitle className="flex items-center gap-2 text-base">
+            <LayoutGrid className="h-4 w-4 text-ku-green-500" />
+            แหล่งข้อมูล
           </DialogTitle>
-          <p className="text-xs text-muted-foreground mt-1">
-            อัพโหลดไฟล์ หรือวางลิงก์ / ข้อความเพื่อสร้างข้อสอบ AI
+          <p className="text-xs text-muted-foreground">
+            {sources.length === 0
+              ? "เพิ่มไฟล์เพื่อสร้างข้อสอบ AI"
+              : `${sources.filter(s => s.selected).length} / ${sources.length} เลือกอยู่`}
           </p>
         </DialogHeader>
 
-        {/* Tab bar */}
-        <div className="flex border-b border-border bg-muted/30">
-          {TABS.map((t) => (
-            <button
-              key={t.id}
-              onClick={() => { setTab(t.id); reset() }}
-              className={cn(
-                "flex-1 flex flex-col items-center gap-1 py-3 text-[10px] font-medium transition-all",
-                tab === t.id
-                  ? "text-ku-green-600 dark:text-ku-green-300 border-b-2 border-ku-green-500 bg-background"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-              )}
-            >
-              <t.icon className="h-4 w-4" />
-              {t.label}
-            </button>
-          ))}
+        {/* Add button */}
+        <div className="px-4 pt-3 pb-2 shrink-0">
+          <Button
+            onClick={() => setShowAdd(!showAdd)}
+            variant={showAdd ? "secondary" : "default"}
+            className={cn("w-full gap-2 h-9 text-sm", !showAdd && "btn-ku-green")}
+          >
+            <Plus className="h-4 w-4" />
+            {showAdd ? "ยกเลิก" : "+ เพิ่มแหล่งข้อมูล"}
+          </Button>
         </div>
 
-        <div className="p-6 space-y-4">
-          {/* ── File tab ─────────────────────────────────────────────────── */}
-          {tab === "file" && (
-            <div>
-              <input
-                ref={fileRef}
-                type="file"
-                accept=".pdf,.txt,.docx"
-                className="sr-only"
-                onChange={(e) => {
-                  const f = e.target.files?.[0]
-                  if (f) processFile(f)
-                }}
-              />
-              <div
-                onClick={() => fileRef.current?.click()}
-                onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
-                onDragLeave={() => setDragOver(false)}
-                onDrop={(e) => {
-                  e.preventDefault()
-                  setDragOver(false)
-                  const f = e.dataTransfer.files[0]
-                  if (f) processFile(f)
-                }}
+        {/* Add sub-panel */}
+        {showAdd && <AddSourcePanel onClose={() => setShowAdd(false)} />}
+
+        {/* Source list */}
+        {sources.length > 0 && !showAdd && (
+          <>
+            {/* Search */}
+            <div className="px-4 pb-2 shrink-0">
+              <div className="relative">
+                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                <input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="ค้นหาแหล่งข้อมูล..."
+                  className="w-full pl-8 pr-3 py-2 text-xs rounded-lg border border-border bg-muted/30
+                    placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ku-green-500/50"
+                />
+              </div>
+            </div>
+
+            {/* Select all row */}
+            <div className="flex items-center gap-2 px-4 pb-2 shrink-0">
+              <button
+                onClick={() => toggleAll(!allSelected)}
                 className={cn(
-                  "border-2 border-dashed rounded-xl p-10 text-center cursor-pointer transition-all",
-                  dragOver
-                    ? "border-ku-green-500 bg-ku-green-500/5"
-                    : "border-border hover:border-ku-green-500/60 hover:bg-muted/40"
+                  "flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 transition-all",
+                  allSelected
+                    ? "bg-ku-green-500 border-ku-green-500 text-white"
+                    : "border-border hover:border-ku-green-500/60"
                 )}
               >
-                <FileUp className="h-10 w-10 mx-auto mb-3 text-muted-foreground/60" />
-                <p className="font-medium text-sm mb-1">ลากไฟล์มาวางที่นี่</p>
-                <p className="text-xs text-muted-foreground">หรือคลิกเพื่อเลือกไฟล์</p>
-                <p className="text-[11px] text-muted-foreground/60 mt-2">รองรับ PDF · DOCX · TXT</p>
-              </div>
+                {allSelected && <Check className="h-2.5 w-2.5" strokeWidth={3} />}
+              </button>
+              <span className="text-xs text-muted-foreground">เลือกแหล่งข้อมูลทั้งหมด</span>
             </div>
-          )}
 
-          {/* ── Google Drive tab ──────────────────────────────────────────── */}
-          {tab === "gdrive" && (
-            <div className="space-y-3">
-              <div className="flex items-start gap-2 p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
-                <Link2 className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
-                <p className="text-xs text-muted-foreground">
-                  วาง URL ของ <strong>Google Docs / Slides / Sheet</strong> ที่แชร์แบบ
-                  <span className="text-blue-400"> "ทุกคนที่มีลิงก์"</span>
-                </p>
-              </div>
-              <input
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="https://docs.google.com/document/d/..."
-                className="w-full px-3 py-2.5 rounded-lg border border-border bg-background
-                  text-sm placeholder:text-muted-foreground focus:outline-none
-                  focus:ring-2 focus:ring-ku-green-500/50"
-              />
-              <Button
-                onClick={() => processUrl("gdrive")}
-                disabled={!url.trim() || status === "loading"}
-                className="w-full"
-              >
-                {status === "loading"
-                  ? <><Loader2 className="h-4 w-4 animate-spin mr-2" />กำลังโหลด...</>
-                  : "ดึงเนื้อหาจาก Google Drive"
-                }
-              </Button>
+            {/* Scrollable list */}
+            <div className="flex-1 overflow-y-auto px-3 pb-4 space-y-1 min-h-0">
+              {filtered.map(source => (
+                <SourceRow
+                  key={source.id}
+                  source={source}
+                  onToggle={() => toggleSource(source.id)}
+                  onRemove={() => removeSource(source.id)}
+                />
+              ))}
+              {filtered.length === 0 && (
+                <p className="text-xs text-muted-foreground text-center py-4">ไม่พบแหล่งข้อมูล</p>
+              )}
             </div>
-          )}
+          </>
+        )}
 
-          {/* ── YouTube tab ───────────────────────────────────────────────── */}
-          {tab === "youtube" && (
-            <div className="space-y-3">
-              <div className="flex items-start gap-2 p-3 rounded-lg bg-red-500/5 border border-red-500/20">
-                <Youtube className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
-                <p className="text-xs text-muted-foreground">
-                  วาง URL ของวิดีโอ YouTube ที่มี <span className="text-red-400">คำบรรยาย (subtitle)</span>
-                  เปิดใช้งาน จะดึง transcript มาสร้างข้อสอบ
-                </p>
-              </div>
-              <input
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="https://www.youtube.com/watch?v=..."
-                className="w-full px-3 py-2.5 rounded-lg border border-border bg-background
-                  text-sm placeholder:text-muted-foreground focus:outline-none
-                  focus:ring-2 focus:ring-ku-green-500/50"
-              />
-              <Button
-                onClick={() => processUrl("youtube")}
-                disabled={!url.trim() || status === "loading"}
-                className="w-full"
-              >
-                {status === "loading"
-                  ? <><Loader2 className="h-4 w-4 animate-spin mr-2" />กำลังโหลด...</>
-                  : "ดึง Transcript จาก YouTube"
-                }
-              </Button>
+        {/* Empty state */}
+        {sources.length === 0 && !showAdd && (
+          <div className="flex-1 flex flex-col items-center justify-center gap-3 p-8 text-center">
+            <div className="h-14 w-14 rounded-2xl bg-ku-green-500/10 flex items-center justify-center">
+              <FileUp className="h-6 w-6 text-ku-green-500" />
             </div>
-          )}
-
-          {/* ── Text tab ─────────────────────────────────────────────────── */}
-          {tab === "text" && (
-            <div className="space-y-3">
-              <textarea
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
-                placeholder="วางเนื้อหาที่ต้องการสร้างข้อสอบจาก...&#10;&#10;รองรับภาษาไทยและอังกฤษ"
-                rows={8}
-                className="w-full px-3 py-2.5 rounded-lg border border-border bg-background
-                  text-sm placeholder:text-muted-foreground resize-none focus:outline-none
-                  focus:ring-2 focus:ring-ku-green-500/50 font-sans"
-              />
-              <div className="flex items-center justify-between">
-                <span className={cn(
-                  "text-xs",
-                  textInput.length < 50 ? "text-muted-foreground" : "text-ku-green-500"
-                )}>
-                  {textInput.length} / 50 ตัวอักษรขั้นต่ำ
-                </span>
-                {textInput.length > 0 && (
-                  <button
-                    onClick={() => setTextInput("")}
-                    className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1"
-                  >
-                    <X className="h-3 w-3" /> ล้าง
-                  </button>
-                )}
-              </div>
-              <Button
-                onClick={processText}
-                disabled={textInput.trim().length < 50 || status === "loading"}
-                className="w-full"
-              >
-                {status === "loading"
-                  ? <><Loader2 className="h-4 w-4 animate-spin mr-2" />กำลังสร้าง...</>
-                  : "สร้างข้อสอบจากข้อความ"
-                }
-              </Button>
+            <div>
+              <p className="text-sm font-semibold text-foreground">ยังไม่มีแหล่งข้อมูล</p>
+              <p className="text-xs text-muted-foreground mt-1">กดปุ่ม + เพิ่มแหล่งข้อมูล เพื่อเริ่มต้น</p>
             </div>
-          )}
-
-          {/* ── Status messages ───────────────────────────────────────────── */}
-          {status === "loading" && tab === "file" && (
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
-              <Loader2 className="h-4 w-4 animate-spin text-ku-green-500 shrink-0" />
-              <p className="text-sm text-muted-foreground">กำลังวิเคราะห์เนื้อหาและสร้างข้อสอบ…</p>
-            </div>
-          )}
-
-          {status === "success" && (
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/30">
-              <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
-              <p className="text-sm text-green-600 dark:text-green-400">สร้างข้อสอบสำเร็จแล้ว!</p>
-            </div>
-          )}
-
-          {status === "error" && error && (
-            <div className="flex items-start gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/30">
-              <AlertCircle className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-              <p className="text-xs text-destructive">{error}</p>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   )

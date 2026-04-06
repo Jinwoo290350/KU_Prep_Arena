@@ -34,7 +34,10 @@ const navItems = [
 ]
 
 function UploadSection() {
-  const { questions, hasQuestions, uploadedFileName, isGenerating } = useQuestions()
+  const { sources, hasQuestions, isGenerating } = useQuestions()
+  const readyCount = sources.filter(s => s.status === "ready").length
+  const loadingCount = sources.filter(s => s.status === "loading").length
+  const selectedCount = sources.filter(s => s.selected && s.status === "ready").length
 
   return (
     <div className="px-3 mb-3">
@@ -49,14 +52,30 @@ function UploadSection() {
             ? <CheckCircle2 className="h-4 w-4 shrink-0" />
             : <Upload className={cn("h-4 w-4 shrink-0", isGenerating && "animate-spin")} />
           }
-          <span className="truncate text-left">
-            {isGenerating ? "กำลังสร้าง..." : hasQuestions ? (uploadedFileName || "โหลดแล้ว") : "เพิ่มเนื้อหาการเรียน"}
+          <span className="truncate text-left flex-1">
+            {loadingCount > 0
+              ? `กำลังวิเคราะห์ ${loadingCount} ไฟล์…`
+              : hasQuestions
+              ? "แหล่งข้อมูล"
+              : "เพิ่มเนื้อหาการเรียน"
+            }
           </span>
+          {readyCount > 0 && (
+            <span className={cn(
+              "text-[10px] font-bold px-1.5 py-0.5 rounded-full shrink-0",
+              hasQuestions
+                ? "bg-ku-green-500/20 text-ku-green-600 dark:text-ku-green-300"
+                : "bg-white/20 text-white"
+            )}>
+              {selectedCount}/{readyCount}
+            </span>
+          )}
         </button>
       </UploadDialog>
       {hasQuestions && (
-        <p className="text-[10px] text-muted-foreground mt-1 px-1 truncate">
-          {uploadedFileName || "Study material"} · {questions.length} questions
+        <p className="text-[10px] text-muted-foreground mt-1 px-1">
+          {selectedCount} แหล่ง เลือกอยู่
+          {loadingCount > 0 && <span className="ml-1 text-ku-gold">· โหลด {loadingCount} อยู่</span>}
         </p>
       )}
     </div>

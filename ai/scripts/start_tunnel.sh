@@ -56,7 +56,7 @@ done
 # ── Start cloudflared ─────────────────────────────────────────
 echo "[INFO] เริ่ม Cloudflare tunnel..."
 rm -f "$LOG_FILE"
-~/~/cloudflared tunnel --url "http://localhost:$VLLM_PORT" \
+~/cloudflared tunnel --url "http://localhost:$VLLM_PORT" \
   --protocol http2 \
   --logfile "$LOG_FILE" \
   --loglevel info &

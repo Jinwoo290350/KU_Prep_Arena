@@ -1,71 +1,146 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useState, useCallback, useMemo, type ReactNode } from "react"
 import type { QuizQuestion } from "./mock-data"
 
-interface QuestionsContextType {
+export interface Source {
+  id: string
+  name: string
+  status: "loading" | "ready" | "error"
   questions: QuizQuestion[]
-  setQuestions: (q: QuizQuestion[]) => void
-  hasQuestions: boolean
-  uploadedFileName: string | null
-  setUploadedFileName: (name: string | null) => void
-  uploadedText: string | null
-  setUploadedText: (text: string | null) => void
-  summary: string[]
-  setSummary: (s: string[]) => void
-  isGenerating: boolean
-  setIsGenerating: (v: boolean) => void
-  /** Per-game question sets — populated on initial upload */
   gameQuestions: Partial<Record<string, QuizQuestion[]>>
+  text: string
+  summary: string[]
+  error?: string
+  selected: boolean
+}
+
+interface QuestionsContextType {
+  // Multi-source
+  sources: Source[]
+  addSource: (name: string) => string
+  updateSource: (id: string, patch: Partial<Omit<Source, "id">>) => void
+  removeSource: (id: string) => void
+  toggleSource: (id: string) => void
+  toggleAll: (select: boolean) => void
+
+  // Derived from selected ready sources
+  questions: QuizQuestion[]
+  gameQuestions: Partial<Record<string, QuizQuestion[]>>
+  hasQuestions: boolean
+  uploadedText: string | null
+  summary: string[]
+  isGenerating: boolean
+
+  // Used by GenerateGameButton
   setGameQuestions: (gameType: string, q: QuizQuestion[]) => void
+
+  // Legacy display compat
+  uploadedFileName: string | null
 }
 
 const QuestionsContext = createContext<QuestionsContextType>({
+  sources: [],
+  addSource: () => "",
+  updateSource: () => {},
+  removeSource: () => {},
+  toggleSource: () => {},
+  toggleAll: () => {},
   questions: [],
-  setQuestions: () => {},
-  hasQuestions: false,
-  uploadedFileName: null,
-  setUploadedFileName: () => {},
-  uploadedText: null,
-  setUploadedText: () => {},
-  summary: [],
-  setSummary: () => {},
-  isGenerating: false,
-  setIsGenerating: () => {},
   gameQuestions: {},
+  hasQuestions: false,
+  uploadedText: null,
+  summary: [],
+  isGenerating: false,
   setGameQuestions: () => {},
+  uploadedFileName: null,
 })
 
 export function QuestionsProvider({ children }: { children: ReactNode }) {
-  const [questions, setQuestions] = useState<QuizQuestion[]>([])
-  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null)
-  const [uploadedText, setUploadedText] = useState<string | null>(null)
-  const [summary, setSummary] = useState<string[]>([])
-  const [isGenerating, setIsGenerating] = useState(false)
-  const [gameQuestions, setGameQuestionsMap] = useState<Partial<Record<string, QuizQuestion[]>>>({})
+  const [sources, setSources] = useState<Source[]>([])
 
-  function setGameQuestions(gameType: string, q: QuizQuestion[]) {
-    setGameQuestionsMap((prev) => ({ ...prev, [gameType]: q }))
-  }
+  const addSource = useCallback((name: string): string => {
+    const id = `src_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`
+    setSources(prev => [
+      ...prev,
+      { id, name, status: "loading", questions: [], gameQuestions: {}, text: "", summary: [], selected: true },
+    ])
+    return id
+  }, [])
+
+  const updateSource = useCallback((id: string, patch: Partial<Omit<Source, "id">>) => {
+    setSources(prev => prev.map(s => s.id === id ? { ...s, ...patch } : s))
+  }, [])
+
+  const removeSource = useCallback((id: string) => {
+    setSources(prev => prev.filter(s => s.id !== id))
+  }, [])
+
+  const toggleSource = useCallback((id: string) => {
+    setSources(prev => prev.map(s => s.id === id ? { ...s, selected: !s.selected } : s))
+  }, [])
+
+  const toggleAll = useCallback((select: boolean) => {
+    setSources(prev => prev.map(s => ({ ...s, selected: select })))
+  }, [])
+
+  const selectedReady = useMemo(() => sources.filter(s => s.selected && s.status === "ready"), [sources])
+
+  const questions = useMemo(() => selectedReady.flatMap(s => s.questions), [selectedReady])
+
+  const gameQuestions = useMemo<Partial<Record<string, QuizQuestion[]>>>(() => {
+    const merged: Partial<Record<string, QuizQuestion[]>> = {}
+    for (const source of selectedReady) {
+      for (const [type, qs] of Object.entries(source.gameQuestions)) {
+        if (Array.isArray(qs) && qs.length > 0) {
+          merged[type] = [...(merged[type] ?? []), ...qs]
+        }
+      }
+    }
+    return merged
+  }, [selectedReady])
+
+  const uploadedText = useMemo(() => {
+    const texts = selectedReady.map(s => s.text).filter(Boolean)
+    if (texts.length === 0) return null
+    return texts.join("\n\n---\n\n").slice(0, 12000)
+  }, [selectedReady])
+
+  const summary = useMemo(() => selectedReady.flatMap(s => s.summary).slice(0, 8), [selectedReady])
+
+  const isGenerating = useMemo(() => sources.some(s => s.status === "loading"), [sources])
+
+  const uploadedFileName = useMemo(() => {
+    const selected = sources.filter(s => s.selected)
+    if (selected.length === 0) return null
+    if (selected.length === 1) return selected[0].name
+    return `${selected[0].name} +${selected.length - 1} ไฟล์`
+  }, [sources])
+
+  const setGameQuestions = useCallback((gameType: string, q: QuizQuestion[]) => {
+    const first = sources.find(s => s.selected && s.status === "ready")
+    if (first) {
+      updateSource(first.id, { gameQuestions: { ...first.gameQuestions, [gameType]: q } })
+    }
+  }, [sources, updateSource])
 
   return (
-    <QuestionsContext.Provider
-      value={{
-        questions,
-        setQuestions,
-        hasQuestions: questions.length > 0,
-        uploadedFileName,
-        setUploadedFileName,
-        uploadedText,
-        setUploadedText,
-        summary,
-        setSummary,
-        isGenerating,
-        setIsGenerating,
-        gameQuestions,
-        setGameQuestions,
-      }}
-    >
+    <QuestionsContext.Provider value={{
+      sources,
+      addSource,
+      updateSource,
+      removeSource,
+      toggleSource,
+      toggleAll,
+      questions,
+      gameQuestions,
+      hasQuestions: questions.length > 0,
+      uploadedText,
+      summary,
+      isGenerating,
+      setGameQuestions,
+      uploadedFileName,
+    }}>
       {children}
     </QuestionsContext.Provider>
   )
@@ -73,90 +148,41 @@ export function QuestionsProvider({ children }: { children: ReactNode }) {
 
 export const useQuestions = () => useContext(QuestionsContext)
 
-/* Demo questions — fallback when AI API is not configured */
+/* Demo questions — fallback when no sources loaded */
 export const DEMO_QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
-    question: "What is the derivative of sin(x)?",
+    question: "อนุพันธ์ของ sin(x) คืออะไร?",
     choices: ["cos(x)", "-cos(x)", "tan(x)", "-sin(x)"],
     correct: 0,
-    explanation: "The derivative of sin(x) is cos(x). This is a fundamental calculus rule.",
+    explanation: "อนุพันธ์ของ sin(x) คือ cos(x) ซึ่งเป็นกฎพื้นฐานของแคลคูลัส",
   },
   {
     id: 2,
-    question: "Which data structure follows FIFO order?",
+    question: "โครงสร้างข้อมูลใดทำงานแบบ FIFO?",
     choices: ["Stack", "Queue", "Tree", "Graph"],
     correct: 1,
-    explanation: "A Queue follows First-In-First-Out: the first element inserted is the first removed.",
+    explanation: "Queue ทำงานแบบ First-In-First-Out คือสิ่งที่เข้าก่อนจะออกก่อน",
   },
   {
     id: 3,
-    question: "Newton's Second Law of Motion states:",
+    question: "กฎข้อที่สองของนิวตันกล่าวว่าอะไร?",
     choices: ["F = ma", "E = mc²", "V = IR", "P = mv"],
     correct: 0,
-    explanation: "Force equals mass times acceleration (F = ma) — Newton's Second Law.",
+    explanation: "แรง = มวล × ความเร่ง (F = ma) คือกฎข้อที่สองของนิวตัน",
   },
   {
     id: 4,
-    question: "What is the time complexity of binary search?",
+    question: "ความซับซ้อนของ Binary Search คือ?",
     choices: ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
     correct: 1,
-    explanation: "Binary search halves the search space each step, giving O(log n) complexity.",
+    explanation: "Binary Search แบ่งครึ่งพื้นที่ค้นหาทุกขั้น จึงได้ O(log n)",
   },
   {
     id: 5,
-    question: "Which integral gives ln|x| + C?",
-    choices: ["∫ 1/x dx", "∫ x dx", "∫ e^x dx", "∫ ln(x) dx"],
+    question: "∫ 1/x dx เท่ากับอะไร?",
+    choices: ["ln|x| + C", "x² + C", "e^x + C", "1/x² + C"],
     correct: 0,
-    explanation: "The integral of 1/x is ln|x| + C — a standard calculus result.",
-  },
-  {
-    id: 6,
-    question: "What is the Big O of Bubble Sort?",
-    choices: ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
-    correct: 2,
-    explanation: "Bubble sort compares each pair repeatedly, resulting in O(n²) time complexity.",
-  },
-  {
-    id: 7,
-    question: "The SI unit of force is:",
-    choices: ["Joule", "Newton", "Watt", "Pascal"],
-    correct: 1,
-    explanation: "The Newton (N) is the SI unit of force, defined as kg·m/s².",
-  },
-  {
-    id: 8,
-    question: "Which is a self-balancing binary search tree?",
-    choices: ["AVL Tree", "Linked List", "Hash Table", "Array"],
-    correct: 0,
-    explanation: "AVL Tree maintains balance by ensuring heights of subtrees differ by at most 1.",
-  },
-  {
-    id: 9,
-    question: "The Pythagorean theorem states:",
-    choices: ["a²+b²=c²", "a+b=c", "a³+b³=c³", "2a+2b=c"],
-    correct: 0,
-    explanation: "For a right triangle: the square of hypotenuse equals sum of squares of the other sides.",
-  },
-  {
-    id: 10,
-    question: "Which sorting algorithm is stable?",
-    choices: ["Quick Sort", "Heap Sort", "Merge Sort", "Selection Sort"],
-    correct: 2,
-    explanation: "Merge Sort preserves the relative order of equal elements, making it stable.",
-  },
-  {
-    id: 11,
-    question: "What does DNA stand for?",
-    choices: ["Deoxyribonucleic Acid", "Dinitrogen Acid", "Dynamic Nucleic Array", "Dual Nitrogen Atom"],
-    correct: 0,
-    explanation: "DNA = Deoxyribonucleic Acid, the molecule that carries genetic information.",
-  },
-  {
-    id: 12,
-    question: "The integral of e^x dx is:",
-    choices: ["e^x + C", "x·e^x + C", "ln(x) + C", "1/e^x + C"],
-    correct: 0,
-    explanation: "The integral of e^x is itself plus a constant: e^x + C.",
+    explanation: "อินทิกรัลของ 1/x คือ ln|x| + C",
   },
 ]

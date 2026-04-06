@@ -66,3 +66,4 @@ pnpm-debug.log*
 .vercel/
 .claude/
 coverage/
+ai/agents/
