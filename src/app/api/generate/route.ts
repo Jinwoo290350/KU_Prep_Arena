@@ -93,7 +93,7 @@ async function fetchGoogleDrive(url: string): Promise<string> {
   for (const exportUrl of candidates) {
     try {
       const res = await fetch(exportUrl, { redirect: "follow" })
-      if (res.ok) return cleanText(await res.text()).slice(0, 8000)
+      if (res.ok) return cleanText(await res.text()).slice(0, 2500)
     } catch { /* try next */ }
   }
   throw new Error("เข้าถึง Google Drive ไม่ได้ — ตรวจสอบว่าเปิดแชร์แบบ 'ทุกคนที่มีลิงก์' แล้ว")
@@ -105,7 +105,7 @@ async function fetchYouTubeTranscript(url: string): Promise<string> {
   const { YoutubeTranscript } = await import("youtube-transcript")
   const items = await YoutubeTranscript.fetchTranscript(match[1])
   if (!items || items.length === 0) throw new Error("วิดีโอนี้ไม่มี transcript")
-  return cleanText(items.map(t => t.text).join(" ")).slice(0, 8000)
+  return cleanText(items.map(t => t.text).join(" ")).slice(0, 2500)
 }
 
 // ---------------------------------------------------------------------------
@@ -119,7 +119,7 @@ async function extractText(file: File): Promise<string> {
   if (type === "application/pdf" || name.endsWith(".pdf")) {
     const { extractText: unpdfExtract } = await import("unpdf")
     const { text } = await unpdfExtract(new Uint8Array(buffer), { mergePages: true })
-    return cleanText(text ?? "").slice(0, 8000)
+    return cleanText(text ?? "").slice(0, 2500)
   }
   if (
     type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
@@ -127,9 +127,9 @@ async function extractText(file: File): Promise<string> {
   ) {
     const mammoth = await import("mammoth")
     const result = await mammoth.extractRawText({ buffer })
-    return cleanText(result.value).slice(0, 8000)
+    return cleanText(result.value).slice(0, 2500)
   }
-  return cleanText(buffer.toString("utf-8")).slice(0, 8000)
+  return cleanText(buffer.toString("utf-8")).slice(0, 2500)
 }
 
 // ---------------------------------------------------------------------------
@@ -139,7 +139,7 @@ async function summarize(client: OpenAI, text: string): Promise<string[]> {
   const res = await client.chat.completions.create({
     model: MODEL,
     temperature: 0.3,
-    max_tokens: 600,
+    max_tokens: 400,
     messages: [
       {
         role: "system",
@@ -184,7 +184,7 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
   const res = await client.chat.completions.create({
     model: MODEL,
     temperature: 0.5,
-    max_tokens: 4096,
+    max_tokens: 1500,
     messages: [
       { role: "system", content: systemPrompt },
       ...fewShotMessages,
@@ -262,7 +262,7 @@ export async function POST(req: NextRequest) {
         if (!body.text || body.text.trim().length < 50) {
           return NextResponse.json({ error: "ไม่มีเนื้อหา" }, { status: 400 })
         }
-        text = cleanText(body.text).slice(0, 8000)
+        text = cleanText(body.text).slice(0, 2500)
         gameType = body.gameType ?? undefined
       }
     } else {
