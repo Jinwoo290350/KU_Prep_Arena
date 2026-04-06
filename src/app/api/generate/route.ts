@@ -184,7 +184,7 @@ async function generateQuestions(client: OpenAI, text: string, gameType?: string
   const res = await client.chat.completions.create({
     model: MODEL,
     temperature: 0.5,
-    max_tokens: 3200,
+    max_tokens: 2000,
     messages: [
       { role: "system", content: systemPrompt },
       ...fewShotMessages,
@@ -287,15 +287,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ questions, gameType })
     }
 
-    // Initial upload — generate all 5 game variants + summary in parallel
-    const [summaryBullets, flappy, racer, shooter, snake, bricks] = await Promise.all([
-      summarize(client, text),
-      generateQuestions(client, text, "flappy"),
-      generateQuestions(client, text, "racer"),
-      generateQuestions(client, text, "shooter"),
-      generateQuestions(client, text, "snake"),
-      generateQuestions(client, text, "bricks"),
-    ])
+    // Initial upload — summary first, then 5 game variants (sequential to avoid rate limit)
+    const summaryBullets = await summarize(client, text)
+    const flappy   = await generateQuestions(client, text, "flappy")
+    const racer    = await generateQuestions(client, text, "racer")
+    const shooter  = await generateQuestions(client, text, "shooter")
+    const snake    = await generateQuestions(client, text, "snake")
+    const bricks   = await generateQuestions(client, text, "bricks")
 
     const questions = flappy ?? racer ?? shooter ?? snake ?? bricks
     if (!questions) return NextResponse.json({ error: "สร้างข้อสอบไม่สำเร็จ" }, { status: 500 })
