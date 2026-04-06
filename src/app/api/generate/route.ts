@@ -162,8 +162,7 @@ async function condenseText(text: string): Promise<string> {
   const TARGET = 3000
   if (text.length <= TARGET) return text
 
-  // Hard-cap at 700 chars regardless of paragraph structure
-  // Thai ≈ 1.5 chars/token → 700 chars ≈ 470 tokens + ~80 system = ~550 prompt tokens
+  // Hard-cap chunks at 700 chars (Thai ≈ 450 tokens — safe within 4096 total budget)
   const CHUNK = 700
   const chunks: string[] = []
   for (let i = 0; i < text.length; i += CHUNK) {
@@ -171,18 +170,18 @@ async function condenseText(text: string): Promise<string> {
     if (c.length > 30) chunks.push(c)
   }
 
-  // Summarize up to 5 chunks sequentially
-  const summaries: string[] = []
-  for (const chunk of chunks.slice(0, 5)) {
-    const s = await chat([
-      { role: "system", content: "สรุปเนื้อหาให้กระชับ รักษาคำศัพท์สำคัญไว้ ตอบเป็นภาษาไทย" },
-      { role: "user", content: `สรุปเป็น 4-5 ประโยค:\n\n${chunk}` },
-    ], 300)
-    summaries.push(s)
-  }
+  // Summarize up to 5 chunks IN PARALLEL (~8s vs 40s sequential)
+  const summaries = await Promise.all(
+    chunks.slice(0, 5).map(chunk =>
+      chat([
+        { role: "system", content: "สรุปเนื้อหาให้กระชับ รักษาคำศัพท์สำคัญไว้ ตอบเป็นภาษาไทย" },
+        { role: "user", content: `สรุปเป็น 4-5 ประโยค:\n\n${chunk}` },
+      ])
+    )
+  )
 
   const merged = summaries.join("\n\n")
-  console.log(`[condense] ${text.length} → ${merged.length} chars (${chunks.length} chunks, used ${Math.min(chunks.length, 5)})`)
+  console.log(`[condense] ${text.length} → ${merged.length} chars (${chunks.length} chunks)`)
   return merged.slice(0, TARGET)
 }
 
@@ -226,8 +225,21 @@ async function extractText(file: File): Promise<string> {
 
   if (type === "application/pdf" || name.endsWith(".pdf")) {
     const { extractText: unpdfExtract } = await import("unpdf")
-    const { text } = await unpdfExtract(new Uint8Array(buffer), { mergePages: true })
-    return cleanPdf(text ?? "").slice(0, 12000)
+    // Suppress PDF.js font warnings (TT: undefined function, etc.) — cosmetic only
+    const _warn = console.warn
+    console.warn = (...args: unknown[]) => {
+      const msg = String(args[0] ?? "")
+      if (/TT:|undefined function|Type1|glyph|CMap/i.test(msg)) return
+      _warn(...args)
+    }
+    let text = ""
+    try {
+      const result = await unpdfExtract(new Uint8Array(buffer), { mergePages: true })
+      text = result.text ?? ""
+    } finally {
+      console.warn = _warn
+    }
+    return cleanPdf(text).slice(0, 12000)
   }
   if (type.includes("wordprocessingml") || name.endsWith(".docx")) {
     const mammoth = await import("mammoth")
@@ -359,13 +371,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ questions, gameType })
     }
 
-    // Initial upload — summary + 5 game variants (sequential)
-    const summaryBullets = await summarize(text)
-    const flappy   = await generateQuestions(text, "flappy")
-    const racer    = await generateQuestions(text, "racer")
-    const shooter  = await generateQuestions(text, "shooter")
-    const snake    = await generateQuestions(text, "snake")
-    const bricks   = await generateQuestions(text, "bricks")
+    // Initial upload — summary + 5 game variants in parallel
+    const [summaryBullets, flappy, racer, shooter, snake, bricks] = await Promise.all([
+      summarize(text),
+      generateQuestions(text, "flappy"),
+      generateQuestions(text, "racer"),
+      generateQuestions(text, "shooter"),
+      generateQuestions(text, "snake"),
+      generateQuestions(text, "bricks"),
+    ])
 
     const questions = flappy ?? racer ?? shooter ?? snake ?? bricks
     if (!questions) return NextResponse.json({ error: "สร้างข้อสอบไม่สำเร็จ" }, { status: 500 })
