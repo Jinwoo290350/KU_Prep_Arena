@@ -13,7 +13,10 @@ const BASE_URL = () => (process.env.AI_BASE_URL ?? "https://api.opentyphoon.ai/v
 const API_KEY  = () => process.env.AI_API_KEY ?? ""
 const MODEL    = () => process.env.AI_MODEL ?? "typhoon-v2.5-30b-a3b-instruct"
 
-async function chat(messages: { role: string; content: string }[], maxTokens = 1500): Promise<string> {
+// NOTE: Typhoon max_tokens = TOTAL tokens (prompt + completion), unlike OpenAI which is output-only.
+// Always set to a value >= estimated_prompt_tokens + desired_output_tokens.
+// Safe default: 4096 covers all our use cases (prompt ≤ 2000 + output ≤ 2000).
+async function chat(messages: { role: string; content: string }[], _maxOutputTokens = 1000): Promise<string> {
   const res = await fetch(`${BASE_URL()}/chat/completions`, {
     method: "POST",
     headers: {
@@ -22,7 +25,7 @@ async function chat(messages: { role: string; content: string }[], maxTokens = 1
     },
     body: JSON.stringify({
       model: MODEL(),
-      max_tokens: maxTokens,
+      max_tokens: 4096,   // total budget — Typhoon counts input+output together
       temperature: 0.5,
       messages,
     }),
