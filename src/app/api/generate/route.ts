@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server"
-import OpenAI from "openai"
 import fs from "fs"
 import path from "path"
 
@@ -8,21 +7,49 @@ export const runtime = "nodejs"
 export const maxDuration = 60
 
 // ---------------------------------------------------------------------------
-// Few-shot loader — returns example messages for JSON format only
-// Strips actual text to avoid language contamination
+// Raw fetch wrapper for Typhoon (avoids OpenAI SDK quirks with 400 errors)
 // ---------------------------------------------------------------------------
-function getFewShotMessages(gameType: string): { role: "user" | "assistant"; content: string }[] {
+const BASE_URL = () => (process.env.AI_BASE_URL ?? "https://api.opentyphoon.ai/v1").replace(/\/$/, "")
+const API_KEY  = () => process.env.AI_API_KEY ?? ""
+const MODEL    = () => process.env.AI_MODEL ?? "typhoon-v2.5-30b-a3b-instruct"
+
+async function chat(messages: { role: string; content: string }[], maxTokens = 1500): Promise<string> {
+  const res = await fetch(`${BASE_URL()}/chat/completions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${API_KEY()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: MODEL(),
+      max_tokens: maxTokens,
+      temperature: 0.5,
+      messages,
+    }),
+  })
+
+  if (!res.ok) {
+    const body = await res.text()
+    throw new Error(`Typhoon API ${res.status}: ${body.slice(0, 300)}`)
+  }
+
+  const data = await res.json()
+  return data.choices?.[0]?.message?.content?.trim() ?? ""
+}
+
+// ---------------------------------------------------------------------------
+// Few-shot loader
+// ---------------------------------------------------------------------------
+function getFewShotMessages(gameType: string): { role: string; content: string }[] {
   try {
     const dir = path.join(process.cwd(), "ai/dataset/rated")
     const files = fs.readdirSync(dir).filter(f => f.endsWith(`_${gameType}.json`))
     if (files.length === 0) return []
     const all = JSON.parse(fs.readFileSync(path.join(dir, files[0]), "utf-8")) as any[]
     const picked = all.slice(0, 3).map((q: any) => ({
-      id: q.id,
-      question: "...",
+      id: q.id, question: "...",
       choices: ["A. ...", "B. ...", "C. ...", "D. ..."],
-      correct: q.correct,
-      explanation: "...",
+      correct: q.correct, explanation: "...",
       difficulty: q.difficulty_teacher ?? q.difficulty,
     }))
     if (picked.length === 0) return []
@@ -36,67 +63,151 @@ function getFewShotMessages(gameType: string): { role: "user" | "assistant"; con
 }
 
 // ---------------------------------------------------------------------------
-// AI client — Typhoon (OpenAI-compatible), fallback to Groq for dev
-// ---------------------------------------------------------------------------
-function getClient() {
-  return new OpenAI({
-    baseURL: process.env.AI_BASE_URL ?? "https://api.opentyphoon.ai/v1",
-    apiKey: process.env.AI_API_KEY ?? "none",
-  })
-}
-
-const MODEL = process.env.AI_MODEL ?? "typhoon-v2-70b-instruct"
-
-// ---------------------------------------------------------------------------
-// Game-type system prompts — Thai-first, concise, structured
+// Game prompts
 // ---------------------------------------------------------------------------
 const GAME_PROMPTS: Record<string, string> = {
-  flappy:
-    "คุณเขียนคำถามสำหรับเกมบิน ต้องสั้นมาก (ไม่เกิน 12 คำ) ตัวเลือกสั้น 1-4 คำต่อตัวเลือก ผู้เล่นต้องอ่านขณะควบคุมนก",
-  racer:
-    "คุณเขียนคำถามสำหรับเกมแข่งรถ คำถามต้องสั้น ไม่เกิน 12 คำ ตัวเลือก 1-4 คำ ต้องอ่านได้เร็ว",
-  shooter:
-    "คุณเขียนคำถามสำหรับเกมยิงยาน เน้นคำถามระบุตัวตน: 'คำศัพท์ใดหมายถึง...?' หรือ 'X คืออะไร?' ตัวเลือกผิดต้องน่าเชื่อถือ",
-  snake:
-    "คุณเขียนคำถามสำหรับเกมงู เน้นคำถามลำดับขั้นตอน: 'ขั้นตอนแรกคือ...?' หรือ 'ลำดับต่อไปคือ...?' ตัวเลือกแสดงขั้นตอนต่างกัน",
-  bricks:
-    "คุณเขียนคำถามสำหรับเกมตีก้อนหิน เน้นคำถามนิยามและศัพท์เทคนิค: 'X หมายความว่าอะไร?' ทดสอบความรู้คำศัพท์เชิงลึก",
+  flappy:  "คุณเขียนคำถามสำหรับเกมบิน ต้องสั้นมาก ไม่เกิน 12 คำ ตัวเลือกสั้น 1-4 คำ",
+  racer:   "คุณเขียนคำถามสำหรับเกมแข่งรถ คำถามสั้น ไม่เกิน 12 คำ ตัวเลือก 1-4 คำ",
+  shooter: "คุณเขียนคำถามสำหรับเกมยิงยาน เน้นระบุตัวตน: 'X คืออะไร?' ตัวเลือกผิดน่าเชื่อถือ",
+  snake:   "คุณเขียนคำถามสำหรับเกมงู เน้นลำดับขั้นตอน: 'ขั้นตอนแรกคือ...?' หรือ 'ลำดับต่อไปคือ...?'",
+  bricks:  "คุณเขียนคำถามสำหรับเกมตีก้อนหิน เน้นนิยามและศัพท์เทคนิค: 'X หมายความว่าอะไร?'",
 }
-
-const DEFAULT_SYSTEM =
-  "คุณเป็นผู้เชี่ยวชาญออกข้อสอบ ตอบด้วย JSON ที่ถูกต้องเท่านั้น ไม่มี markdown ไม่มีคำอธิบาย"
 
 // ---------------------------------------------------------------------------
 // Text cleaning
 // ---------------------------------------------------------------------------
-function cleanText(raw: string): string {
+// Pre-processing utilities
+// ---------------------------------------------------------------------------
+
+/** Base clean — remove encoding artefacts, collapse whitespace */
+function baseClean(raw: string): string {
   return raw
-    .replace(/\x00/g, "")
-    .replace(/([^\n]{15,})\1+/g, "$1")
-    .replace(/[ \t]{2,}/g, " ")
+    .replace(/\x00/g, "")                          // null bytes (PDF artefact)
+    .replace(/\ufffd/g, "")                         // replacement char
+    .replace(/\r\n/g, "\n").replace(/\r/g, "\n")   // normalize line endings
+    .replace(/[ \t]{2,}/g, " ")                     // collapse spaces/tabs
+    .replace(/\n{4,}/g, "\n\n\n")                  // max 3 consecutive newlines
+    .trim()
+}
+
+/** PDF-specific clean: remove headers, footers, page numbers, TOC lines */
+function cleanPdf(raw: string): string {
+  const lines = baseClean(raw).split("\n")
+
+  // Count line frequency — lines appearing on many pages are headers/footers
+  const freq: Record<string, number> = {}
+  for (const l of lines) {
+    const k = l.trim().slice(0, 60)
+    if (k.length > 3) freq[k] = (freq[k] ?? 0) + 1
+  }
+  const totalLines = lines.length
+  const threshold = Math.max(3, Math.floor(totalLines / 15)) // appears on >1/15 of lines → likely header/footer
+
+  const cleaned = lines.filter(line => {
+    const t = line.trim()
+    if (!t) return true                              // keep blank lines (paragraph breaks)
+    if (/^\d+$/.test(t)) return false               // bare page number
+    if (/^(Page|หน้า)\s*\d+/i.test(t)) return false // "Page 3", "หน้า 3"
+    if (/^[-–—]+$/.test(t)) return false            // separator lines
+    if (/^\.{4,}/.test(t)) return false             // TOC dots "......."
+    if (/\s{3,}\d+$/.test(t)) return false          // TOC entry "Chapter 1   ..... 5"
+    if (t.length < 4) return false                  // very short fragments
+    if ((freq[t.slice(0, 60)] ?? 0) >= threshold) return false // repeated header/footer
+    return true
+  })
+
+  // Deduplicate consecutive identical paragraphs (slide titles repeated)
+  const deduped: string[] = []
+  for (let i = 0; i < cleaned.length; i++) {
+    const cur = cleaned[i].trim()
+    if (cur && cur === cleaned[i - 1]?.trim()) continue
+    deduped.push(cleaned[i])
+  }
+
+  return deduped.join("\n").replace(/\n{3,}/g, "\n\n").trim()
+}
+
+/** DOCX clean: mammoth output tends to be clean but may have bullet noise */
+function cleanDocx(raw: string): string {
+  return baseClean(raw)
+    .replace(/^[•●▪▸◦]\s*/gm, "- ")               // normalize bullet chars
     .replace(/\n{3,}/g, "\n\n")
     .trim()
 }
 
+/** TXT clean: handle Thai encoding edge cases and common noise */
+function cleanTxt(raw: string): string {
+  return baseClean(raw)
+    .replace(/https?:\/\/\S+/g, "")               // remove URLs
+    .replace(/[^\S\n]{2,}/g, " ")
+    .trim()
+}
+
+/** YouTube transcript: merge short fragments into sentences */
+function cleanTranscript(raw: string): string {
+  return baseClean(raw)
+    .replace(/\[.*?\]/g, "")                       // remove [Music], [Applause]
+    .replace(/\s{2,}/g, " ")
+    .trim()
+}
+
+/**
+ * Condense large text for AI — split into semantic chunks,
+ * summarize each with Typhoon, merge back to ~3000 chars
+ */
+async function condenseText(text: string): Promise<string> {
+  const TARGET = 3000
+  if (text.length <= TARGET) return text
+
+  // Split on paragraph boundaries (not arbitrary chars)
+  const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 20)
+  const CHUNK_CHARS = 1800
+  const chunks: string[] = []
+  let buf = ""
+  for (const p of paragraphs) {
+    if ((buf + p).length > CHUNK_CHARS && buf) {
+      chunks.push(buf.trim())
+      buf = p
+    } else {
+      buf += (buf ? "\n\n" : "") + p
+    }
+  }
+  if (buf.trim()) chunks.push(buf.trim())
+
+  // Summarize up to 4 chunks sequentially (avoid rate limit)
+  const summaries: string[] = []
+  for (const chunk of chunks.slice(0, 4)) {
+    const s = await chat([
+      { role: "system", content: "สรุปเนื้อหาให้กระชับ รักษาคำศัพท์สำคัญและแนวคิดหลักไว้ ตอบเป็นภาษาไทย" },
+      { role: "user", content: `สรุปเนื้อหาต่อไปนี้เป็น 5-7 ประโยคที่ครอบคลุม:\n\n${chunk}` },
+    ], 350)
+    summaries.push(s)
+  }
+
+  const merged = summaries.join("\n\n")
+  console.log(`[condense] ${text.length} → ${merged.length} chars (${chunks.length} chunks)`)
+  return merged.slice(0, TARGET)
+}
+
 // ---------------------------------------------------------------------------
-// URL → text helpers
+// URL helpers
 // ---------------------------------------------------------------------------
 async function fetchGoogleDrive(url: string): Promise<string> {
   const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/)
-  if (!match) throw new Error("ไม่พบ ID ใน Google Drive URL — ตรวจสอบลิงก์อีกครั้ง")
+  if (!match) throw new Error("ไม่พบ ID ใน Google Drive URL")
   const id = match[1]
   const candidates = [
     `https://docs.google.com/document/d/${id}/export?format=txt`,
     `https://docs.google.com/presentation/d/${id}/export/txt`,
     `https://docs.google.com/spreadsheets/d/${id}/export?format=csv`,
   ]
-  for (const exportUrl of candidates) {
+  for (const u of candidates) {
     try {
-      const res = await fetch(exportUrl, { redirect: "follow" })
-      if (res.ok) return cleanText(await res.text()).slice(0, 4000)
+      const res = await fetch(u, { redirect: "follow" })
+      if (res.ok) return cleanTxt(await res.text()).slice(0, 6000)
     } catch { /* try next */ }
   }
-  throw new Error("เข้าถึง Google Drive ไม่ได้ — ตรวจสอบว่าเปิดแชร์แบบ 'ทุกคนที่มีลิงก์' แล้ว")
+  throw new Error("เข้าถึง Google Drive ไม่ได้ — ตรวจสอบว่าเปิดแชร์แบบ 'ทุกคนที่มีลิงก์'")
 }
 
 async function fetchYouTubeTranscript(url: string): Promise<string> {
@@ -105,11 +216,11 @@ async function fetchYouTubeTranscript(url: string): Promise<string> {
   const { YoutubeTranscript } = await import("youtube-transcript")
   const items = await YoutubeTranscript.fetchTranscript(match[1])
   if (!items || items.length === 0) throw new Error("วิดีโอนี้ไม่มี transcript")
-  return cleanText(items.map(t => t.text).join(" ")).slice(0, 4000)
+  return cleanTranscript(items.map(t => t.text).join(" ")).slice(0, 6000)
 }
 
 // ---------------------------------------------------------------------------
-// File → text (Parser)
+// File → text
 // ---------------------------------------------------------------------------
 async function extractText(file: File): Promise<string> {
   const buffer = Buffer.from(await file.arrayBuffer())
@@ -119,118 +230,82 @@ async function extractText(file: File): Promise<string> {
   if (type === "application/pdf" || name.endsWith(".pdf")) {
     const { extractText: unpdfExtract } = await import("unpdf")
     const { text } = await unpdfExtract(new Uint8Array(buffer), { mergePages: true })
-    return cleanText(text ?? "").slice(0, 4000)
+    return cleanPdf(text ?? "").slice(0, 12000)
   }
-  if (
-    type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
-    name.endsWith(".docx")
-  ) {
+  if (type.includes("wordprocessingml") || name.endsWith(".docx")) {
     const mammoth = await import("mammoth")
     const result = await mammoth.extractRawText({ buffer })
-    return cleanText(result.value).slice(0, 4000)
+    return cleanDocx(result.value).slice(0, 12000)
   }
-  return cleanText(buffer.toString("utf-8")).slice(0, 4000)
+  return cleanTxt(buffer.toString("utf-8")).slice(0, 12000)
 }
 
 // ---------------------------------------------------------------------------
 // Agent 1: Summarizer
 // ---------------------------------------------------------------------------
-async function summarize(client: OpenAI, text: string): Promise<string[]> {
-  const res = await client.chat.completions.create({
-    model: MODEL,
-    temperature: 0.3,
-    max_tokens: 500,
-    messages: [
-      {
-        role: "system",
-        content: "คุณเป็นผู้สรุปเนื้อหาการศึกษาที่เชี่ยวชาญ ตอบด้วย JSON เท่านั้น",
-      },
-      {
-        role: "user",
-        content: `สรุปเนื้อหาต่อไปนี้เป็น 6-8 ประเด็นสำคัญเป็นภาษาไทย
-ตอบเป็น JSON เท่านั้น: {"bullets": ["ประเด็น 1", "ประเด็น 2", ...]}
+async function summarize(text: string): Promise<string[]> {
+  const raw = await chat([
+    { role: "system", content: "คุณเป็นผู้สรุปเนื้อหาการศึกษา ตอบด้วย JSON เท่านั้น" },
+    { role: "user", content: `สรุปเนื้อหาต่อไปนี้เป็น 6-8 ประเด็นสำคัญเป็นภาษาไทย\nตอบ JSON เท่านั้น: {"bullets":["...","..."]}\n\n${text}` },
+  ], 500)
 
-เนื้อหา:
-${text}`,
-      },
-    ],
-  })
-
-  const raw = res.choices[0]?.message?.content?.trim() ?? "{}"
   const cleaned = raw.replace(/^```[a-z]*\n?/i, "").replace(/\n?```$/i, "").trim()
-  let bullets: string[] = []
   try {
     const parsed = JSON.parse(cleaned)
-    if (Array.isArray(parsed)) bullets = parsed
-    else if (Array.isArray(parsed?.bullets)) bullets = parsed.bullets
+    const bullets = Array.isArray(parsed) ? parsed : (parsed?.bullets ?? [])
+    return (bullets as string[]).filter((b: string) => b.length > 5).slice(0, 8)
   } catch {
-    bullets = raw.split("\n").map(l => l.replace(/^[-•*\d.]+\s*/, "").trim()).filter(Boolean).slice(0, 8)
+    return raw.split("\n").map(l => l.replace(/^[-•*\d.]+\s*/, "").trim()).filter(Boolean).slice(0, 8)
   }
-  return bullets
-    .filter(b => typeof b === "string" && !b.trim().startsWith("{") && b.length > 5)
-    .slice(0, 8)
 }
 
 // ---------------------------------------------------------------------------
 // Agent 2: Question Generator
 // ---------------------------------------------------------------------------
-async function generateQuestions(client: OpenAI, text: string, gameType?: string) {
+async function generateQuestions(text: string, gameType?: string) {
   const gameHint = gameType && GAME_PROMPTS[gameType] ? GAME_PROMPTS[gameType] : ""
   const systemPrompt = gameHint
-    ? `${gameHint}\n\nตอบด้วย JSON object ที่มี key "questions" เป็น array เท่านั้น ไม่มี markdown`
-    : DEFAULT_SYSTEM
-  const fewShotMessages = gameType ? getFewShotMessages(gameType) : []
+    ? `${gameHint}\n\nตอบด้วย JSON object ที่มี key "questions" เท่านั้น ไม่มี markdown`
+    : "คุณเป็นผู้เชี่ยวชาญออกข้อสอบ ตอบ JSON เท่านั้น"
+  const fewShot = gameType ? getFewShotMessages(gameType) : []
 
-  const res = await client.chat.completions.create({
-    model: MODEL,
-    temperature: 0.5,
-    max_tokens: 2000,
-    messages: [
-      { role: "system", content: systemPrompt },
-      ...fewShotMessages,
-      {
-        role: "user",
-        content: `สร้างคำถามแบบเลือกตอบ 10 ข้อจากเนื้อหาด้านล่าง
+  const raw = await chat([
+    { role: "system", content: systemPrompt },
+    ...fewShot,
+    {
+      role: "user",
+      content: `สร้างคำถามแบบเลือกตอบ 10 ข้อจากเนื้อหา
 
-กฎสำคัญ:
-- เขียนคำถามและตัวเลือก**เป็นภาษาไทยทั้งหมด** โดยไม่คำนึงถึงภาษาต้นฉบับ
-- แต่ละข้อมี 4 ตัวเลือก คำตอบถูก 1 ข้อ
-- คำอธิบายสั้น ไม่เกิน 20 คำ ภาษาไทย
-- ใส่เฉพาะ field: id, question, choices, correct, explanation, difficulty
-- difficulty: 1 = จำ, 2 = ประยุกต์, 3 = วิเคราะห์ — กระจาย 3/5/2
+กฎ:
+- คำถามและตัวเลือกเป็นภาษาไทยทั้งหมด
+- 4 ตัวเลือกต่อข้อ คำตอบถูก 1 ข้อ
+- คำอธิบายไม่เกิน 15 คำ ภาษาไทย
+- fields เท่านั้น: id, question, choices, correct, explanation, difficulty
+- difficulty 1/2/3 กระจาย 3/5/2
 
-ตอบ JSON เท่านั้น ห้ามมี markdown:
+ตอบ JSON เท่านั้น:
 {"questions":[{"id":1,"question":"...","choices":["A. ...","B. ...","C. ...","D. ..."],"correct":0,"explanation":"...","difficulty":1}]}
-(correct = index 0-3)
 
 เนื้อหา:
 ${text}`,
-      },
-    ],
-  })
+    },
+  ], 2000)
 
-  const raw = res.choices[0]?.message?.content?.trim() ?? "{}"
   const cleaned = raw.replace(/^```[a-z]*\n?/i, "").replace(/\n?```$/i, "").trim()
-
   try {
     const parsed = JSON.parse(cleaned)
     if (Array.isArray(parsed)) return parsed
     if (Array.isArray(parsed?.questions)) return parsed.questions
   } catch (e) {
-    console.error("[generateQuestions] JSON parse failed:", e)
-    console.error("[generateQuestions] raw (first 500):", cleaned.slice(0, 500))
-    // Fallback: extract complete question objects from truncated JSON
+    console.error("[generateQuestions] parse failed:", String(e).slice(0, 200))
+    // Fallback regex recovery
     const objects: unknown[] = []
     const re = /\{[^{}]*"id"\s*:\s*\d+[^{}]*"correct"\s*:\s*\d[^{}]*\}/g
     let m: RegExpExecArray | null
     while ((m = re.exec(cleaned)) !== null) {
       try { objects.push(JSON.parse(m[0])) } catch { /* skip */ }
     }
-    if (objects.length >= 3) {
-      console.log(`[generateQuestions] recovered ${objects.length} questions`)
-      return objects
-    }
-    return null
+    if (objects.length >= 3) return objects
   }
   return null
 }
@@ -241,7 +316,7 @@ ${text}`,
 export async function POST(req: NextRequest) {
   try {
     const contentType = req.headers.get("content-type") ?? ""
-    let text: string
+    let rawText: string
     let gameType: string | undefined
 
     if (contentType.includes("application/json")) {
@@ -249,51 +324,51 @@ export async function POST(req: NextRequest) {
 
       if (body.url && body.urlType) {
         if (body.urlType === "gdrive") {
-          text = await fetchGoogleDrive(body.url)
+          rawText = await fetchGoogleDrive(body.url)
         } else if (body.urlType === "youtube") {
-          text = await fetchYouTubeTranscript(body.url)
+          rawText = await fetchYouTubeTranscript(body.url)
         } else {
           return NextResponse.json({ error: "Unknown urlType" }, { status: 400 })
         }
-        if (!text || text.trim().length < 50) {
+        if (!rawText || rawText.trim().length < 50) {
           return NextResponse.json({ error: "ดึงเนื้อหาไม่ได้ หรือเนื้อหาน้อยเกินไป" }, { status: 422 })
         }
       } else {
         if (!body.text || body.text.trim().length < 50) {
           return NextResponse.json({ error: "ไม่มีเนื้อหา" }, { status: 400 })
         }
-        text = cleanText(body.text).slice(0, 4000)
-        gameType = body.gameType ?? undefined
+        rawText = cleanTxt(body.text).slice(0, 12000)
+        gameType = body.gameType
       }
     } else {
       const form = await req.formData()
       const file = form.get("file") as File | null
       gameType = (form.get("gameType") as string | null) ?? undefined
-
       if (!file) return NextResponse.json({ error: "ไม่พบไฟล์" }, { status: 400 })
-
-      text = await extractText(file)
-      if (!text || text.trim().length < 50) {
+      rawText = await extractText(file)
+      if (!rawText || rawText.trim().length < 50) {
         return NextResponse.json({ error: "ไม่สามารถดึงข้อความจากไฟล์ได้" }, { status: 422 })
       }
     }
 
-    const client = getClient()
+    // Condense large text (PDF 20-30 pages) before sending to AI
+    const text = await condenseText(rawText)
+    console.log(`[generate] text length: ${rawText.length} → condensed: ${text.length}`)
 
     // Re-generate mode (single game)
     if (gameType) {
-      const questions = await generateQuestions(client, text, gameType)
+      const questions = await generateQuestions(text, gameType)
       if (!questions) return NextResponse.json({ error: "สร้างข้อสอบไม่สำเร็จ" }, { status: 500 })
       return NextResponse.json({ questions, gameType })
     }
 
-    // Initial upload — summary first, then 5 game variants (sequential to avoid rate limit)
-    const summaryBullets = await summarize(client, text)
-    const flappy   = await generateQuestions(client, text, "flappy")
-    const racer    = await generateQuestions(client, text, "racer")
-    const shooter  = await generateQuestions(client, text, "shooter")
-    const snake    = await generateQuestions(client, text, "snake")
-    const bricks   = await generateQuestions(client, text, "bricks")
+    // Initial upload — summary + 5 game variants (sequential)
+    const summaryBullets = await summarize(text)
+    const flappy   = await generateQuestions(text, "flappy")
+    const racer    = await generateQuestions(text, "racer")
+    const shooter  = await generateQuestions(text, "shooter")
+    const snake    = await generateQuestions(text, "snake")
+    const bricks   = await generateQuestions(text, "bricks")
 
     const questions = flappy ?? racer ?? shooter ?? snake ?? bricks
     if (!questions) return NextResponse.json({ error: "สร้างข้อสอบไม่สำเร็จ" }, { status: 500 })
