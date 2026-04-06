@@ -152,40 +152,34 @@ function cleanTranscript(raw: string): string {
 }
 
 /**
- * Condense large text for AI — split into semantic chunks,
- * summarize each with Typhoon, merge back to ~3000 chars
+ * Condense large text for AI — hard-cap chunks at 700 chars (safe for Thai ~450 tokens),
+ * summarize each, merge back to ~3000 chars
  */
 async function condenseText(text: string): Promise<string> {
   const TARGET = 3000
   if (text.length <= TARGET) return text
 
-  // Split on paragraph boundaries (not arbitrary chars)
-  const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 20)
-  const CHUNK_CHARS = 1800
+  // Hard-cap at 700 chars regardless of paragraph structure
+  // Thai ≈ 1.5 chars/token → 700 chars ≈ 470 tokens + ~80 system = ~550 prompt tokens
+  const CHUNK = 700
   const chunks: string[] = []
-  let buf = ""
-  for (const p of paragraphs) {
-    if ((buf + p).length > CHUNK_CHARS && buf) {
-      chunks.push(buf.trim())
-      buf = p
-    } else {
-      buf += (buf ? "\n\n" : "") + p
-    }
+  for (let i = 0; i < text.length; i += CHUNK) {
+    const c = text.slice(i, i + CHUNK).trim()
+    if (c.length > 30) chunks.push(c)
   }
-  if (buf.trim()) chunks.push(buf.trim())
 
-  // Summarize up to 4 chunks sequentially (avoid rate limit)
+  // Summarize up to 5 chunks sequentially
   const summaries: string[] = []
-  for (const chunk of chunks.slice(0, 4)) {
+  for (const chunk of chunks.slice(0, 5)) {
     const s = await chat([
-      { role: "system", content: "สรุปเนื้อหาให้กระชับ รักษาคำศัพท์สำคัญและแนวคิดหลักไว้ ตอบเป็นภาษาไทย" },
-      { role: "user", content: `สรุปเนื้อหาต่อไปนี้เป็น 5-7 ประโยคที่ครอบคลุม:\n\n${chunk}` },
-    ], 350)
+      { role: "system", content: "สรุปเนื้อหาให้กระชับ รักษาคำศัพท์สำคัญไว้ ตอบเป็นภาษาไทย" },
+      { role: "user", content: `สรุปเป็น 4-5 ประโยค:\n\n${chunk}` },
+    ], 300)
     summaries.push(s)
   }
 
   const merged = summaries.join("\n\n")
-  console.log(`[condense] ${text.length} → ${merged.length} chars (${chunks.length} chunks)`)
+  console.log(`[condense] ${text.length} → ${merged.length} chars (${chunks.length} chunks, used ${Math.min(chunks.length, 5)})`)
   return merged.slice(0, TARGET)
 }
 
