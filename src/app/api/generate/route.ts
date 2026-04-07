@@ -287,13 +287,13 @@ async function generateQuestions(text: string, gameType?: string) {
 
 กฎ:
 - คำถามและตัวเลือกเป็นภาษาไทยทั้งหมด
-- 4 ตัวเลือกต่อข้อ คำตอบถูก 1 ข้อ
+- 4 ตัวเลือกต่อข้อ คำตอบถูก 1 ข้อ ห้ามมีตัวอักษร A. B. C. D. นำหน้าตัวเลือก
 - คำอธิบายไม่เกิน 15 คำ ภาษาไทย
 - fields เท่านั้น: id, question, choices, correct, explanation, difficulty
 - difficulty 1/2/3 กระจาย 3/5/2
 
 ตอบ JSON เท่านั้น:
-{"questions":[{"id":1,"question":"...","choices":["A. ...","B. ...","C. ...","D. ..."],"correct":0,"explanation":"...","difficulty":1}]}
+{"questions":[{"id":1,"question":"...","choices":["ตัวเลือก1","ตัวเลือก2","ตัวเลือก3","ตัวเลือก4"],"correct":0,"explanation":"...","difficulty":1}]}
 
 เนื้อหา:
 ${text}`,
@@ -301,10 +301,21 @@ ${text}`,
   ], 2000)
 
   const cleaned = raw.replace(/^```[a-z]*\n?/i, "").replace(/\n?```$/i, "").trim()
+
+  // Strip "A. " / "ก. " prefixes the AI sometimes adds despite instructions
+  const stripChoicePrefix = (q: any) => {
+    if (Array.isArray(q?.choices)) {
+      q.choices = q.choices.map((c: string) =>
+        typeof c === "string" ? c.replace(/^[A-Dก-ง][.)]\s*/, "") : c
+      )
+    }
+    return q
+  }
+
   try {
     const parsed = JSON.parse(cleaned)
-    if (Array.isArray(parsed)) return parsed
-    if (Array.isArray(parsed?.questions)) return parsed.questions
+    if (Array.isArray(parsed)) return parsed.map(stripChoicePrefix)
+    if (Array.isArray(parsed?.questions)) return parsed.questions.map(stripChoicePrefix)
   } catch (e) {
     console.error("[generateQuestions] parse failed:", String(e).slice(0, 200))
     // Fallback regex recovery
