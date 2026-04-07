@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { getDailyCards, TarotCard, getCardColor, getCardImageUrl } from "@/lib/tarot-data"
 import { TarotCardDisplay } from "@/components/tarot-card"
 
@@ -29,6 +29,38 @@ function getMeaning(card: CardEntry, key: 'daily' | 'study' | 'finance') {
   return card[key]
 }
 
+async function fetchAIFortune(card: CardEntry, spreadLabel: string, todayStr: string): Promise<string> {
+  const cacheKey = `ku-fortune-${todayStr}-${card.id}-${card.reversed}-${spreadLabel}`
+  try {
+    const cached = sessionStorage.getItem(cacheKey)
+    if (cached) return cached
+  } catch { /* ignore */ }
+
+  const prompt = `ไพ่ ${card.nameTH} (${card.name})${card.reversed ? ' กลับหัว' : ''} โหมด ${spreadLabel} — ขอคำทำนายสั้นๆ 2-3 ประโยค สำหรับนิสิตมหาวิทยาลัยเกษตรศาสตร์ ตอบเป็นภาษาไทยเท่านั้น ไม่ต้องมี prefix`
+
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages: [{ role: "user", content: prompt }] }),
+  })
+
+  if (!res.ok || !res.body) throw new Error("AI unavailable")
+
+  // Read streaming response
+  const reader = res.body.getReader()
+  const decoder = new TextDecoder()
+  let text = ""
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+    text += decoder.decode(value, { stream: true })
+  }
+
+  const result = text.trim()
+  try { sessionStorage.setItem(cacheKey, result) } catch { /* ignore */ }
+  return result
+}
+
 export function DailyFortuneContent() {
   const today    = useMemo(() => new Date(), [])
   const todayStr = useMemo(() => today.toISOString().slice(0, 10), [today])
@@ -41,6 +73,17 @@ export function DailyFortuneContent() {
 
   const [revealed, setRevealed] = useState([false, false, false])
   const [selected, setSelected] = useState<number | null>(null)
+  // AI fortune texts — null = loading, "" = failed/fallback
+  const [aiTexts, setAiTexts] = useState<(string | null)[]>([null, null, null])
+
+  // Prefetch all 3 AI fortunes in parallel on mount
+  useEffect(() => {
+    Promise.all(
+      cards.map((card, i) =>
+        fetchAIFortune(card, SPREAD[i].label, todayStr).catch(() => "")
+      )
+    ).then(results => setAiTexts(results))
+  }, [cards, todayStr])
 
   function revealCard(i: number) {
     setRevealed(p => { const n = [...p]; n[i] = true; return n })
@@ -59,6 +102,12 @@ export function DailyFortuneContent() {
   const selColor = selCard ? getCardColor(selCard.suit) : null
   const spread   = selected !== null ? SPREAD[selected] : null
   const allOpen  = revealed.every(Boolean)
+
+  // Determine fortune text: AI if available, static fallback
+  const fortuneText = (selected !== null && selCard && spread)
+    ? (aiTexts[selected] || getMeaning(selCard, spread.key))
+    : null
+  const isLoadingAI = selected !== null && aiTexts[selected] === null
 
   return (
     <div className="h-full flex flex-col lg:flex-row gap-0 overflow-hidden">
@@ -180,11 +229,23 @@ export function DailyFortuneContent() {
             </div>
 
             {/* Fortune text */}
-            <div className="rounded-2xl p-6"
+            <div className="rounded-2xl p-6 min-h-[80px]"
               style={{ background: `${spread.hue}0d`, border: `1px solid ${spread.hue}28` }}>
-              <p className="text-base leading-8 text-foreground/90 font-medium">
-                {getMeaning(selCard, spread.key)}
-              </p>
+              {isLoadingAI ? (
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-1">
+                    {[0,1,2].map(i => (
+                      <span key={i} className="w-1.5 h-1.5 rounded-full bg-current opacity-40 animate-bounce"
+                        style={{ animationDelay: `${i * 0.15}s`, color: spread.hue }} />
+                    ))}
+                  </div>
+                  <p className="text-sm text-muted-foreground/60">กำลังเรียกนิมิต...</p>
+                </div>
+              ) : (
+                <p className="text-base leading-8 text-foreground/90 font-medium">
+                  {fortuneText}
+                </p>
+              )}
             </div>
 
             {/* Other cards quick nav */}
@@ -204,7 +265,7 @@ export function DailyFortuneContent() {
             )}
 
             <p className="text-muted-foreground/30 text-[10px] mt-6 tracking-wider">
-              ไพ่เปลี่ยนทุกวัน · ผลเดิมในวันเดียวกัน
+              ไพ่เปลี่ยนทุกวัน · ผลเดิมในวันเดียวกัน · ✨ AI-powered
             </p>
           </div>
         )}

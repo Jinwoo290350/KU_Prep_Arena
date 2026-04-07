@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from "react"
 import { useQuestions } from "@/lib/questions-context"
 import { useScores } from "@/lib/use-scores"
+import { useStreak } from "@/lib/use-streak"
 import type { QuizQuestion } from "@/lib/mock-data"
 import { ArrowLeft, RotateCcw, Heart, Upload } from "lucide-react"
 import Link from "next/link"
@@ -162,7 +163,8 @@ export function SpeedRacerGame() {
 
   useEffect(() => { stateRef.current = gameState }, [gameState])
   const { recordScore } = useScores()
-  useEffect(() => { if (gameState === "result") recordScore("racer", score) }, [gameState, score, recordScore])
+  const { recordStreak } = useStreak()
+  useEffect(() => { if (gameState === "result") { recordScore("racer", score); recordStreak() } }, [gameState, score, recordScore, recordStreak])
 
   const nextQuestion = useCallback(() => {
     if (qIdxRef.current >= questionsRef.current.length) {

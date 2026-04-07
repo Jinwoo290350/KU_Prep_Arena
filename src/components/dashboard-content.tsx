@@ -10,6 +10,7 @@ import {
   BookOpen,
   Clock,
   Trash2,
+  Flame,
 } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
@@ -17,6 +18,7 @@ import { Button } from "@/components/ui/button"
 import { useQuestions } from "@/lib/questions-context"
 import { useExams, daysUntil } from "@/lib/use-exams"
 import { useScores, GAME_LABELS } from "@/lib/use-scores"
+import { useStreak } from "@/lib/use-streak"
 
 /* ========================
    Empty State Component
@@ -57,11 +59,11 @@ function UploadBanner() {
           <BookOpen className="h-4 w-4 text-ku-green-500" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-foreground">Study material loaded</p>
-          <p className="text-xs text-muted-foreground truncate">{uploadedFileName} · {questions.length} questions</p>
+          <p className="text-sm font-semibold text-foreground">โหลดเนื้อหาแล้ว</p>
+          <p className="text-xs text-muted-foreground truncate">{uploadedFileName} · {questions.length} ข้อ</p>
         </div>
         <Link href="/arena">
-          <Button size="sm" className="btn-ku-green text-sm h-8 px-3">Play Games</Button>
+          <Button size="sm" className="btn-ku-green text-sm h-8 px-3">เล่นเกม</Button>
         </Link>
       </div>
     )
@@ -74,9 +76,9 @@ function UploadBanner() {
           <Upload className="h-5 w-5 text-ku-green-500" />
         </div>
       </div>
-      <p className="text-sm font-semibold text-foreground mb-1">Upload your study material</p>
+      <p className="text-sm font-semibold text-foreground mb-1">อัปโหลดเนื้อหาการเรียน</p>
       <p className="text-xs text-muted-foreground mb-4">
-        Use the <span className="font-semibold text-foreground">Upload Material</span> button in the sidebar to generate AI quiz questions for all games.
+        กดปุ่ม <span className="font-semibold text-foreground">เพิ่มเนื้อหาการเรียน</span> ในแถบด้านข้างเพื่อสร้างข้อสอบ AI สำหรับทุกเกม
       </p>
     </div>
   )
@@ -94,7 +96,7 @@ function QuickActions() {
         </div>
         <div>
           <p className="text-sm font-semibold text-foreground">KU Arena</p>
-          <p className="text-xs text-muted-foreground">Play quiz games</p>
+          <p className="text-xs text-muted-foreground">เล่นเกมถาม-ตอบ</p>
         </div>
       </Link>
       <Link href="/planner" className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-green-500/40 transition-all group border-l-4 border-ku-green-300/50">
@@ -102,8 +104,8 @@ function QuickActions() {
           <CalendarDays className="h-5 w-5 text-ku-green-500" />
         </div>
         <div>
-          <p className="text-sm font-semibold text-foreground">Study Planner</p>
-          <p className="text-xs text-muted-foreground">Plan your schedule</p>
+          <p className="text-sm font-semibold text-foreground">ตารางเรียน</p>
+          <p className="text-xs text-muted-foreground">วางแผนการเรียน</p>
         </div>
       </Link>
       <Link href="/flashcards" className="glass-card rounded-xl p-4 flex items-center gap-3 hover:border-ku-gold/40 transition-all group border-l-4 border-ku-gold/50">
@@ -112,7 +114,7 @@ function QuickActions() {
         </div>
         <div>
           <p className="text-sm font-semibold text-foreground">Flashcards</p>
-          <p className="text-xs text-muted-foreground">Review concepts</p>
+          <p className="text-xs text-muted-foreground">ทบทวนบทเรียน</p>
         </div>
       </Link>
     </div>
@@ -141,10 +143,10 @@ function ExamSection() {
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
           <Clock className="h-4 w-4 text-ku-green-500" />
-          Upcoming Exams
+          ตารางสอบ
         </h3>
         <Button variant="ghost" size="sm" onClick={() => setAdding(!adding)} className="text-muted-foreground h-7 text-xs gap-1">
-          <Plus className="h-3 w-3" /> Add
+          <Plus className="h-3 w-3" /> เพิ่ม
         </Button>
       </div>
 
@@ -152,14 +154,14 @@ function ExamSection() {
         <div className="mb-4 p-3 rounded-lg bg-secondary/50 border border-border flex flex-col gap-2">
           <input
             className="w-full px-3 py-2 text-sm rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ku-green-500"
-            placeholder="Subject (e.g. Calculus II)"
+            placeholder="วิชา (เช่น แคลคูลัส II)"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             autoFocus
           />
           <input
             className="w-full px-3 py-2 text-sm rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ku-green-500"
-            placeholder="Exam name (e.g. Midterm)"
+            placeholder="ชื่อการสอบ (เช่น สอบกลางภาค)"
             value={examName}
             onChange={(e) => setExamName(e.target.value)}
           />
@@ -171,7 +173,7 @@ function ExamSection() {
             onChange={(e) => setDate(e.target.value)}
           />
           <Button size="sm" onClick={handleAdd} disabled={!subject || !date} className="btn-ku-green w-full text-sm h-9">
-            Add Exam
+            เพิ่มรายการสอบ
           </Button>
         </div>
       )}
@@ -179,8 +181,8 @@ function ExamSection() {
       {exams.length === 0 ? (
         <EmptyState
           icon={<Clock />}
-          title="No upcoming exams"
-          description="Add your exam dates to track your countdown and preparation progress."
+          title="ยังไม่มีตารางสอบ"
+          description="เพิ่มวันสอบเพื่อนับถอยหลังและติดตามการเตรียมตัว"
         />
       ) : (
         <div className="flex flex-col gap-2">
@@ -193,8 +195,8 @@ function ExamSection() {
                   <p className="text-[10px] text-muted-foreground">{exam.subject} · {exam.date}</p>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className="text-base font-bold text-ku-gold">{days <= 0 ? "Today!" : days}</p>
-                  {days > 0 && <p className="text-[10px] text-muted-foreground">days left</p>}
+                  <p className="text-base font-bold text-ku-gold">{days <= 0 ? "วันนี้!" : days}</p>
+                  {days > 0 && <p className="text-[10px] text-muted-foreground">วันที่เหลือ</p>}
                 </div>
                 <button onClick={() => removeExam(exam.id)} className="text-muted-foreground hover:text-destructive shrink-0 ml-1">
                   <Trash2 className="h-3.5 w-3.5" />
@@ -222,16 +224,16 @@ function LeaderboardCard() {
     <div className="glass-card rounded-xl p-5">
       <h3 className="text-sm font-bold text-foreground flex items-center gap-2 mb-4">
         <Trophy className="h-4 w-4 text-ku-gold" />
-        Best Scores
+        คะแนนสูงสุด
       </h3>
       {entries.length === 0 ? (
         <EmptyState
           icon="🏆"
-          title="No scores yet"
-          description="Play games in KU Arena to track your best scores."
+          title="ยังไม่มีคะแนน"
+          description="เล่นเกมใน KU Arena เพื่อบันทึกคะแนนสูงสุดของคุณ"
           action={
             <Link href="/arena">
-              <Button size="sm" className="btn-ku-green text-sm h-9 px-4">Play Now</Button>
+              <Button size="sm" className="btn-ku-green text-sm h-9 px-4">เล่นเลย</Button>
             </Link>
           }
         />
@@ -255,13 +257,50 @@ function LeaderboardCard() {
 /* ========================
    Motivation Card
    ======================== */
+function StreakCard() {
+  const { streak } = useStreak()
+  const today = new Date().toISOString().slice(0, 10)
+  const playedToday = streak.lastPlayDate === today
+
+  return (
+    <div className="rounded-xl p-4"
+      style={{ background: "linear-gradient(135deg, rgba(255,100,0,0.08) 0%, rgba(255,60,0,0.04) 100%)", border: "1px solid rgba(255,100,0,0.25)" }}>
+      <div className="flex items-center gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/15 shrink-0">
+          <Flame className="h-6 w-6 text-orange-500" />
+        </div>
+        <div className="flex-1">
+          <p className="text-[10px] font-bold text-orange-500 uppercase tracking-widest mb-0.5">Streak</p>
+          <p className="text-2xl font-black text-foreground leading-none">
+            {streak.currentStreak} <span className="text-sm font-normal text-muted-foreground">วันติดต่อกัน</span>
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            {playedToday
+              ? "เล่นแล้ววันนี้"
+              : streak.currentStreak > 0
+                ? "ยังไม่ได้เล่นวันนี้ — อย่าให้ streak หาย!"
+                : "เริ่มสาย streak วันนี้เลย"
+            }
+          </p>
+        </div>
+        {streak.longestStreak > 0 && (
+          <div className="text-right shrink-0">
+            <p className="text-[10px] text-muted-foreground">สูงสุด</p>
+            <p className="text-lg font-bold text-orange-400">{streak.longestStreak}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function MotivationCard() {
   const tips = [
-    "Upload your study notes to unlock AI-powered quiz games. 🎮",
-    "Consistent practice beats last-minute cramming — study a little every day. 📅",
-    "Use the Flappy Bird game to turn passive reading into active recall. 🐦",
-    "The KU Arena adapts to YOUR material — upload PDFs to personalize every game. 📚",
-    "Spaced repetition (Flashcards) is the scientifically proven way to remember more. 🧠",
+    "อัปโหลดเอกสารการเรียนเพื่อปลดล็อกเกม AI ทั้งหมด",
+    "เรียนทุกวันสม่ำเสมอดีกว่าอัดก่อนสอบ — รักษา streak ไว้",
+    "ใช้เกม Flappy Kaset เพื่อเปลี่ยนการอ่านแบบ passive เป็น active recall",
+    "KU Arena ปรับตามเนื้อหาของคุณ — อัปโหลด PDF เพื่อ personalize ทุกเกม",
+    "Flashcard + spaced repetition คือวิธีจำที่ได้ผลที่สุดทางวิทยาศาสตร์",
   ]
   const tip = tips[new Date().getDay() % tips.length]
   return (
@@ -272,7 +311,7 @@ function MotivationCard() {
           <TrendingUp className="h-4 w-4 text-ku-gold-dark dark:text-ku-gold" />
         </div>
         <div>
-          <p className="text-[10px] font-bold text-ku-gold uppercase tracking-widest mb-1">Daily Tip</p>
+          <p className="text-[10px] font-bold text-ku-gold uppercase tracking-widest mb-1">เคล็ดลับวันนี้</p>
           <p className="text-sm text-foreground leading-relaxed">{tip}</p>
         </div>
       </div>
@@ -288,6 +327,7 @@ export function DashboardContent() {
     <div className="flex flex-col gap-5 min-h-[calc(100vh-10rem)]">
       <UploadBanner />
       <QuickActions />
+      <StreakCard />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <ExamSection />
         <LeaderboardCard />

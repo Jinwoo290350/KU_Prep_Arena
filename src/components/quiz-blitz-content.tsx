@@ -7,6 +7,7 @@ import { ArrowLeft, Zap, Heart, Clock, RotateCcw, CheckCircle2, XCircle } from "
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { useStreak } from "@/lib/use-streak"
 
 type Mode = "timeattack" | "survival" | "checkpoint"
 type Phase = "select" | "playing" | "feedback" | "result"
@@ -21,13 +22,14 @@ function shuffled<T>(arr: T[]): T[] {
 }
 
 const MODE_INFO: Record<Mode, { label: string; desc: string }> = {
-  timeattack: { label: "Time Attack", desc: "Answer as many as you can before time runs out" },
-  survival: { label: "Survival", desc: "3 strikes and you are out" },
-  checkpoint: { label: "Checkpoint", desc: "Each correct answer adds time" },
+  timeattack: { label: "แข่งกับเวลา", desc: "ตอบให้ได้มากที่สุดก่อนเวลาหมด" },
+  survival: { label: "อยู่รอด", desc: "ผิด 3 ครั้งแล้วจบเกม" },
+  checkpoint: { label: "เก็บเวลา", desc: "ตอบถูกทุกข้อจะได้เวลาเพิ่ม" },
 }
 
 export function QuizBlitzContent() {
   const { questions: uploadedQuestions } = useQuestions()
+  const { recordStreak } = useStreak()
   const [phase, setPhase] = useState<Phase>("select")
   const [mode, setMode] = useState<Mode>("timeattack")
   const [questions, setQuestions] = useState<QuizQuestion[]>([])
@@ -117,6 +119,8 @@ export function QuizBlitzContent() {
     setPhase("playing")
   }, [qIdx, questions.length])
 
+  useEffect(() => { if (phase === "result") recordStreak() }, [phase, recordStreak])
+
   const xpEarned = score * 2
 
   if (phase === "select") {
@@ -130,14 +134,14 @@ export function QuizBlitzContent() {
           </Link>
           <div>
             <h1 className="text-xl font-bold text-foreground">Quiz Blitz</h1>
-            <p className="text-xs text-muted-foreground">Choose your mode</p>
+            <p className="text-xs text-muted-foreground">เลือกโหมด</p>
           </div>
         </div>
         {!uploadedQuestions.length ? (
           <div className="glass-card rounded-xl p-8 text-center border border-dashed border-border">
             <Zap className="h-10 w-10 text-muted-foreground mx-auto mb-3 opacity-40" />
-            <p className="text-sm font-semibold text-foreground mb-1">No study material uploaded</p>
-            <p className="text-xs text-muted-foreground">Upload a PDF or TXT from the sidebar to generate quiz questions.</p>
+            <p className="text-sm font-semibold text-foreground mb-1">ยังไม่มีเนื้อหาการเรียน</p>
+            <p className="text-xs text-muted-foreground">อัปโหลด PDF หรือ TXT จากแถบด้านข้างเพื่อสร้างข้อสอบ</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -163,29 +167,29 @@ export function QuizBlitzContent() {
       <div className="flex flex-col gap-6 max-w-lg mx-auto">
         <div className="glass-card rounded-xl p-8 text-center">
           <Zap className="h-12 w-12 text-ku-gold mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-foreground mb-2">Quiz Complete!</h2>
-          <p className="text-sm text-muted-foreground mb-6">{MODE_INFO[mode].label} Mode</p>
+          <h2 className="text-2xl font-bold text-foreground mb-2">จบแล้ว!</h2>
+          <p className="text-sm text-muted-foreground mb-6">โหมด{MODE_INFO[mode].label}</p>
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="bg-secondary/50 rounded-lg p-3">
               <p className="text-2xl font-bold text-ku-lime">{score}</p>
-              <p className="text-xs text-muted-foreground">Score</p>
+              <p className="text-xs text-muted-foreground">คะแนน</p>
             </div>
             <div className="bg-secondary/50 rounded-lg p-3">
               <p className="text-2xl font-bold text-ku-gold">{bestCombo}x</p>
-              <p className="text-xs text-muted-foreground">Best Combo</p>
+              <p className="text-xs text-muted-foreground">คอมโบสูงสุด</p>
             </div>
             <div className="bg-secondary/50 rounded-lg p-3">
               <p className="text-2xl font-bold text-foreground">+{xpEarned}</p>
-              <p className="text-xs text-muted-foreground">XP Earned</p>
+              <p className="text-xs text-muted-foreground">XP ที่ได้</p>
             </div>
           </div>
           <div className="flex gap-3">
             <Button onClick={() => startQuiz(mode)} className="flex-1 btn-ku-green text-foreground">
-              <RotateCcw className="h-4 w-4 mr-2" />Play Again
+              <RotateCcw className="h-4 w-4 mr-2" />เล่นอีกครั้ง
             </Button>
             <Link href="/arena" className="flex-1">
               <Button variant="outline" className="w-full border-border text-foreground hover:bg-secondary">
-                Back to Arena
+                กลับ Arena
               </Button>
             </Link>
           </div>
@@ -288,10 +292,10 @@ export function QuizBlitzContent() {
       {/* Explanation */}
       {showExplanation && currentQ && (
         <div className="glass-card rounded-xl p-5">
-          <p className="text-xs font-semibold text-ku-gold uppercase tracking-wider mb-2">Explanation</p>
+          <p className="text-xs font-semibold text-ku-gold uppercase tracking-wider mb-2">คำอธิบาย</p>
           <p className="text-sm text-muted-foreground leading-relaxed">{currentQ.explanation}</p>
           <Button onClick={nextQ} className="mt-4 btn-ku-green text-foreground">
-            Next Question
+            ข้อถัดไป
           </Button>
         </div>
       )}
