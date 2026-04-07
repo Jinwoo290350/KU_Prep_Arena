@@ -4,7 +4,7 @@ import path from "path"
 
 // Force Node.js runtime (required for unpdf WASM + mammoth)
 export const runtime = "nodejs"
-export const maxDuration = 60
+export const maxDuration = 300
 
 // ---------------------------------------------------------------------------
 // Raw fetch wrapper for Typhoon (avoids OpenAI SDK quirks with 400 errors)
@@ -170,9 +170,9 @@ async function condenseText(text: string): Promise<string> {
     if (c.length > 30) chunks.push(c)
   }
 
-  // Summarize up to 5 chunks IN PARALLEL (~8s vs 40s sequential)
+  // Summarize up to 3 chunks IN PARALLEL — enough coverage, saves ~5s vs 5 chunks
   const summaries = await Promise.all(
-    chunks.slice(0, 5).map(chunk =>
+    chunks.slice(0, 3).map(chunk =>
       chat([
         { role: "system", content: "สรุปเนื้อหาให้กระชับ รักษาคำศัพท์สำคัญไว้ ตอบเป็นภาษาไทย" },
         { role: "user", content: `สรุปเป็น 4-5 ประโยค:\n\n${chunk}` },

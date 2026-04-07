@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 import {
   Plus, FileText, Link2, Youtube, Search,
   Loader2, CheckCircle2, AlertCircle, Trash2,
-  FileUp, LayoutGrid, Check,
+  FileUp, LayoutGrid, Check, RefreshCw,
 } from "lucide-react"
 import { useQuestions, type Source } from "@/lib/questions-context"
 import type { QuizQuestion } from "@/lib/mock-data"
@@ -31,10 +31,12 @@ function SourceRow({
   source,
   onToggle,
   onRemove,
+  onRetry,
 }: {
   source: Source
   onToggle: () => void
   onRemove: () => void
+  onRetry?: () => void
 }) {
   return (
     <div className={cn(
@@ -72,9 +74,19 @@ function SourceRow({
           </p>
         )}
         {source.status === "error" && (
-          <p className="text-[10px] text-destructive flex items-center gap-1 mt-0.5 truncate">
-            <AlertCircle className="h-2.5 w-2.5 shrink-0" /> {source.error ?? "เกิดข้อผิดพลาด"}
-          </p>
+          <div className="flex items-center gap-1.5 mt-0.5">
+            <p className="text-[10px] text-destructive flex items-center gap-1 truncate">
+              <AlertCircle className="h-2.5 w-2.5 shrink-0" /> {source.error ?? "เกิดข้อผิดพลาด"}
+            </p>
+            {onRetry && (
+              <button
+                onClick={(e) => { e.stopPropagation(); onRetry() }}
+                className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-0.5 shrink-0 underline underline-offset-2"
+              >
+                <RefreshCw className="h-2.5 w-2.5" /> ลองใหม่
+              </button>
+            )}
+          </div>
         )}
       </div>
 
@@ -93,7 +105,10 @@ function SourceRow({
 /* ── Add Source Sub-panel ────────────────────────────────────────── */
 type AddTab = "file" | "gdrive" | "youtube" | "text"
 
-function AddSourcePanel({ onClose }: { onClose: () => void }) {
+function AddSourcePanel({ onClose, onRegisterRetry }: {
+  onClose: () => void
+  onRegisterRetry: (id: string, fn: () => void) => void
+}) {
   const { addSource, updateSource } = useQuestions()
   const [tab, setTab] = useState<AddTab>("file")
   const [url, setUrl] = useState("")
@@ -106,6 +121,7 @@ function AddSourcePanel({ onClose }: { onClose: () => void }) {
     body: FormData | string,
     isJson: boolean,
   ) => {
+    updateSource(id, { status: "loading", error: undefined })
     try {
       const res = await fetch("/api/generate", {
         method: "POST",
@@ -143,6 +159,7 @@ function AddSourcePanel({ onClose }: { onClose: () => void }) {
       const id = addSource(file.name)
       const form = new FormData()
       form.append("file", file)
+      onRegisterRetry(id, () => submitToApi(id, form, false))
       submitToApi(id, form, false)
     }
     onClose()
@@ -152,7 +169,9 @@ function AddSourcePanel({ onClose }: { onClose: () => void }) {
     if (!url.trim()) return
     const label = type === "gdrive" ? "Google Drive" : "YouTube"
     const id = addSource(`${label}: ${url.slice(0, 40)}…`)
-    submitToApi(id, JSON.stringify({ url: url.trim(), urlType: type }), true)
+    const payload = JSON.stringify({ url: url.trim(), urlType: type })
+    onRegisterRetry(id, () => submitToApi(id, payload, true))
+    submitToApi(id, payload, true)
     onClose()
   }
 
@@ -160,7 +179,9 @@ function AddSourcePanel({ onClose }: { onClose: () => void }) {
     if (textInput.trim().length < 50) return
     const preview = textInput.trim().slice(0, 30)
     const id = addSource(`ข้อความ: ${preview}…`)
-    submitToApi(id, JSON.stringify({ text: textInput.trim() }), true)
+    const payload = JSON.stringify({ text: textInput.trim() })
+    onRegisterRetry(id, () => submitToApi(id, payload, true))
+    submitToApi(id, payload, true)
     onClose()
   }
 
@@ -303,6 +324,11 @@ export function UploadDialog({ children }: UploadDialogProps) {
   const [open, setOpen] = useState(false)
   const [search, setSearch] = useState("")
   const [showAdd, setShowAdd] = useState(false)
+  const retryRegistry = useRef<Map<string, () => void>>(new Map())
+
+  const registerRetry = useCallback((id: string, fn: () => void) => {
+    retryRegistry.current.set(id, fn)
+  }, [])
 
   const allSelected = sources.length > 0 && sources.every(s => s.selected)
   const filtered = search.trim()
@@ -339,7 +365,7 @@ export function UploadDialog({ children }: UploadDialogProps) {
         </div>
 
         {/* Add sub-panel */}
-        {showAdd && <AddSourcePanel onClose={() => setShowAdd(false)} />}
+        {showAdd && <AddSourcePanel onClose={() => setShowAdd(false)} onRegisterRetry={registerRetry} />}
 
         {/* Source list */}
         {sources.length > 0 && !showAdd && (
@@ -382,6 +408,7 @@ export function UploadDialog({ children }: UploadDialogProps) {
                   source={source}
                   onToggle={() => toggleSource(source.id)}
                   onRemove={() => removeSource(source.id)}
+                  onRetry={retryRegistry.current.get(source.id)}
                 />
               ))}
               {filtered.length === 0 && (
