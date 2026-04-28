@@ -16,7 +16,15 @@ const MODEL    = () => process.env.AI_MODEL ?? "typhoon-v2.5-30b-a3b-instruct"
 // NOTE: Typhoon max_tokens = TOTAL tokens (prompt + completion), unlike OpenAI which is output-only.
 // Always set to a value >= estimated_prompt_tokens + desired_output_tokens.
 // Safe default: 4096 covers all our use cases (prompt ≤ 2000 + output ≤ 2000).
-async function chat(messages: { role: string; content: string }[], _maxOutputTokens = 1000): Promise<string> {
+type ContentPart =
+  | { type: "text"; text: string }
+  | { type: "image_url"; image_url: { url: string } }
+
+async function chat(
+  messages: { role: string; content: string | ContentPart[] }[],
+  _maxOutputTokens = 1000,
+  modelOverride?: string,
+): Promise<string> {
   const res = await fetch(`${BASE_URL()}/chat/completions`, {
     method: "POST",
     headers: {
@@ -24,7 +32,7 @@ async function chat(messages: { role: string; content: string }[], _maxOutputTok
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: MODEL(),
+      model: modelOverride ?? MODEL(),
       max_tokens: 4096,   // total budget — Typhoon counts input+output together
       temperature: 0.5,
       messages,
@@ -38,6 +46,28 @@ async function chat(messages: { role: string; content: string }[], _maxOutputTok
 
   const data = await res.json()
   return data.choices?.[0]?.message?.content?.trim() ?? ""
+}
+
+// ---------------------------------------------------------------------------
+// OCR fallback — ใช้ typhoon-ocr-v1.5 สำหรับ PDF สแกน
+// ---------------------------------------------------------------------------
+async function callOcr(buffer: Buffer): Promise<string> {
+  const { pdf } = await import("pdf-to-img")
+  const pages: string[] = []
+  for await (const page of await pdf(buffer, { scale: 2.0 })) {
+    pages.push(page.toString("base64"))
+    if (pages.length >= 5) break   // สูงสุด 5 หน้าต่อ 1 API call
+  }
+  if (pages.length === 0) return ""
+
+  const content: ContentPart[] = [
+    { type: "text", text: "อ่านข้อความทั้งหมดในเอกสารนี้ ส่งคืนเป็น plain text เท่านั้น ไม่ต้องอธิบายเพิ่ม" },
+    ...pages.map((b64) => ({
+      type: "image_url" as const,
+      image_url: { url: `data:image/png;base64,${b64}` },
+    })),
+  ]
+  return await chat([{ role: "user", content }], 2000, "typhoon-ocr-v1.5")
 }
 
 // ---------------------------------------------------------------------------
@@ -239,7 +269,17 @@ async function extractText(file: File): Promise<string> {
     } finally {
       console.warn = _warn
     }
-    return cleanPdf(text).slice(0, 12000)
+    const cleaned = cleanPdf(text)
+    if (cleaned.length < 300) {
+      console.log("[OCR] text too short, trying typhoon-ocr-v1.5 ...")
+      try {
+        const ocrText = await callOcr(buffer)
+        if (ocrText.trim().length > 100) return cleanPdf(ocrText).slice(0, 12000)
+      } catch (e) {
+        console.error("[OCR] failed:", e)
+      }
+    }
+    return cleaned.slice(0, 12000)
   }
   if (type.includes("wordprocessingml") || name.endsWith(".docx")) {
     const mammoth = await import("mammoth")

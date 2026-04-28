@@ -96,12 +96,21 @@ def relevance_score(questions: Sequence[dict], source_text: str) -> float:
 # ---------------------------------------------------------------------------
 # 4. Difficulty Spread (requires "difficulty" field in questions)
 # ---------------------------------------------------------------------------
+_INT_TO_LEVEL = {1: "easy", 2: "medium", 3: "hard"}
+
+
 def difficulty_spread(questions: Sequence[dict]) -> dict:
     """
     Fraction of easy/medium/hard questions.
     Ideal: ~0.3 / 0.5 / 0.2.
+    Handles both int difficulty (1/2/3) and str difficulty ('easy'/'medium'/'hard').
     """
-    counts = Counter(q.get("difficulty", "medium") for q in questions)
+    def _normalize(d):
+        if isinstance(d, int):
+            return _INT_TO_LEVEL.get(d, "medium")
+        return d if d in ("easy", "medium", "hard") else "medium"
+
+    counts = Counter(_normalize(q.get("difficulty", 2)) for q in questions)
     n = len(questions)
     return {lvl: round(counts.get(lvl, 0) / n, 3) for lvl in ("easy", "medium", "hard")}
 
